@@ -1,8 +1,9 @@
 
+
 ![Mappls APIs](https://about.mappls.com/images/mappls-b-logo.svg)
 # Mappls Map Android SDK
 
-**Easy To Integrate Maps & Location APIs & SDKs For Web & Mobile Applications**
+**Easy To Integrate Maps & Location APIs & SDKs For Android Applications**
 
 Powered with India's most comprehensive and robust mapping functionalities.
 
@@ -25,12 +26,11 @@ Reference to the documentation of Previous SDK versions [here](https://github.co
 
 | Version | Last Updated | Author |  Release Note|  
 | ---- | ---- | ---- | ---- |  
-| v8.0.0 | 14 June 2022 | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) |   Initial release with `Mappls` branding  |
+| v8.0.0 | 14 June 2022 | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) |   Initial release  |
 
 
 For more details of previous versions , [click here](docs/v1.0.0/Version-History.md).
 
-**v8.0.0 is a major release, to update sdk please follow [reference guide](docs/v1.0.0/Reference-Guide-v7+.md)  to update SDK from v7+ to v8.0.0 and [reference guide](docs/v1.0.0/Reference-Guide.md) to update SDK from v6+ to v8.0.0**
 
 ## [Table Of Content](#Table-Of-Content)
 - [Vector Android Map](docs/v1.0.0/Getting-Started.md)
