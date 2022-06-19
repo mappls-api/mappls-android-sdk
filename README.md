@@ -59,7 +59,6 @@ For more details of previous versions , [click here](docs/v1.0.0/Version-History
     * [Enable/Disable Map Scrolling Gesture](docs/v1.0.0/Map-UI-Settings.md#Enable-disable-scrolling)
     * [Enable/Disable Map Tilt Gesture](docs/v1.0.0/Map-UI-Settings.md#Enable-disable-tilt)
     * [Enable/Disable Zoom Gestures](docs/v1.0.0/Map-UI-Settings.md#Enable-disable-zoom-gesture)
-- [SDK Error Codes](docs/v1.0.0/SDK-Error-code.md)
 - [Set Country Regions](docs/v1.0.0/Set-Regions.md)
 - [Set Mappls Map Style](docs/v1.0.0/Map-Style.md)
     * [List of Available Styles](docs/v1.0.0/Map-Style.md#list-of-available-styles)
@@ -103,6 +102,7 @@ For more details of previous versions , [click here](docs/v1.0.0/Version-History
     - [Initialise Plugin](docs/v1.0.0/Driving-Range-Plugin.md#Initialise-Plugin)
     - [Plot Driving Range](docs/v1.0.0/Driving-Range-Plugin.md#Plot-Driving-Range)
     - [Additional Features](docs/v1.0.0/Driving-Range-Plugin.md#Additional-Features)
+- [SDK Error Codes](docs/v1.0.0/SDK-Error-code.md)
 - [Version History](docs/v1.0.0/Version-History.md)
 - [Country List](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md)
 
