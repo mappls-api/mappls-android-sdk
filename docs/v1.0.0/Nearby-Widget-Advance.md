@@ -1,61 +1,61 @@
 
+![Mappls APIs](https://about.mappls.com/images/mappls-b-logo.svg)
 
-![MapmyIndia APIs](https://www.mapmyindia.com/api/img/mapmyindia-api.png)  
-  
 
-# MapmyIndia Nearby Search Widget - Advanced Details
+# Mappls Nearby Search Widget - Advanced Details
 
-MapmyIndia Nearby Search Widget is highly configurable widget, it provides options to customized almost everything.
+Mappls Nearby Search Widget is highly configurable widget, it provides options to customized almost everything.
 
-For installation / basic information [click here](https://github.com/MapmyIndia/mapmyindia-maps-vectorSDK-android/wiki/MapmyIndia-Nearby-Search-Widget)
+For installation / basic information [click here](./Nearby-Widget.md)
 
 ## [Advanced Configurations](#Advanced-Configurations)
 
 To set advanced configurations in Nearby Search widget.
-### Using MapmyIndiaNearbyFragment
+### Using MapplsNearbyFragment
 #### Java
 ~~~java
-MapmyIndiaNearbyFragment nearbyFragment = MapmyIndiaNearbyFragment.newInstance(nearbyOptions);
+MapplsNearbyFragment nearbyFragment = MapplsNearbyFragment.newInstance(nearbyOptions);
                         //OR
-MapmyIndiaNearbyFragment nearbyFragment = MapmyIndiaNearbyFragment.newInstance(nearbyUiOptions);
+MapplsNearbyFragment nearbyFragment = MapplsNearbyFragment.newInstance(nearbyUiOptions);
                        //OR
-MapmyIndiaNearbyFragment nearbyFragment = MapmyIndiaNearbyFragment.newInstance(nearbyOption,nearbyUiOptions);                       
+MapplsNearbyFragment nearbyFragment = MapplsNearbyFragment.newInstance(nearbyOption,nearbyUiOptions);                       
 nearbyFragment.setCategoryList(categories);                       
-getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, nearbyFragment, MapmyIndiaNearbyFragment.class.getSimpleName())  
+getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, nearbyFragment, MapplsNearbyFragment.class.getSimpleName())  
         .commit();
 ~~~
 #### Kotlin
 ~~~kotlin
-val nearbyFragment: MapmyIndiaNearbyFragment= MapmyIndiaNearbyFragment.newInstance(nearbyOptions)
+val nearbyFragment: MapplsNearbyFragment= MapplsNearbyFragment.newInstance(nearbyOptions)
                   //OR
-val nearbyFragment: MapmyIndiaNearbyFragment= MapmyIndiaNearbyFragment.newInstance(nearbyUIOptions)  
+val nearbyFragment: MapplsNearbyFragment= MapplsNearbyFragment.newInstance(nearbyUIOptions)  
                  //OR
-val nearbyFragment: MapmyIndiaNearbyFragment= MapmyIndiaNearbyFragment.newInstance(nearbyOptions,nearbyUIOptions)                                 
+val nearbyFragment: MapplsNearbyFragment= MapplsNearbyFragment.newInstance(nearbyOptions,nearbyUIOptions)                                 
 nearbyFragment.setCategoryList(categories)
-supportFragmentManager.beginTransaction().add(R.id.fragment_container, nearbyFragment, MapmyIndiaNearbyFragment::class.java.simpleName)  
+
+supportFragmentManager.beginTransaction().add(R.id.fragment_container, nearbyFragment, MapplsNearbyFragment::class.java.simpleName)  
         .commit()
 ~~~
 
-### Using MapmyIndiaNearbyActivity
+### Using MapplsNearbyActivity
 #### Java
 ~~~java
-Intent intent = new MapmyIndiaNearbyWidget.IntentBuilder().nearbyUIOptions(nearbyUIOptions).nearbyOptions(nearbyOptions).setCategoryList(categoryList).build(this);   
+Intent intent = new MapplsNearbyWidget.IntentBuilder().nearbyUIOptions(nearbyUIOptions).nearbyOptions(nearbyOptions).setCategoryList(categoryList).build(this);   
  startActivityForResult(intent, 101); 
 ~~~
 #### Kotlin
 ~~~kotlin
-val intent = MapmyIndiaNearbyWidget.IntentBuilder().nearbyUIOptions(nearbyUIOptions).nearbyOptions(nearbyOptions).setCategoryList(categoryList).build(this)   
+val intent = MapplsNearbyWidget.IntentBuilder().nearbyUIOptions(nearbyUIOptions).nearbyOptions(nearbyOptions).setCategoryList(categoryList).build(this)   
 startActivityForResult(intent, 101)  
 ~~~
 
 ### [CategoryCode](#CategoryCode)
 
-This class is used to set the information for the nearby categories to show in Nearby Widget. 
+This class is used to set the information for the nearby categories to show in Nearby Widget.
 It contains the following properties in constructor:
-1. `category (String)`: Name of the category that display on a view   
-2. `icon(Integer)`: To show icon of category  
-3. `categoryCode (List<String>)`: List of category codes  
-4. `markerIcon (Integer)`: Marker icon to display on a map  
+1. `category (String)`: Name of the category that display on a view
+2. `icon(Integer)`: To show icon of category
+3. `categoryCode (List<String>)`: List of category codes
+4. `markerIcon (Integer)`: Marker icon to display on a map
 5. `isSelected (Boolean)`: To set the category is selected or not
 
 ### [NearbyUIOption](#NearbyUIOption)
@@ -98,59 +98,52 @@ It contains the following properties:
 ### [NearbyOption](#NearbyOption)
 This class is used to set the properties related to nearby search
 It contains the following properties:
-1. `radius(Integer)`: provides the range of distance to search over(default: 1000, min: 500, max: 10000)  
-2. `sortBy(String)`: provides configured sorting operations for the client on cloud.**Below are the available sorts:**  
-	 -   **NearbyCriteria.DISTANCE_ASCENDING**  
-	 -  **NearbyCriteria.DISTANCE_DESCENDING** will sort the data on distance basis.  
-   -   **NearbyCriteria.NAME_ASCENDING**  
-	 -   **NearbyCriteria.NAME_DESCENDING** will sort the data on alphabetically basis.  
-3. `searchBy(String)`: provides configurable search operations for the client on cloud. **Below are the available sorts:​**  
-	 - **NearbyCriteria.DISTANCE**  
-	 - **NearbyCriteria.IMPORTANCE** - will search data in order of prominence of the place.  
+1. `radius(Integer)`: provides the range of distance to search over(default: 1000, min: 500, max: 10000)
+2. `sortBy(String)`: provides configured sorting operations for the client on cloud.**Below are the available sorts:**
+    -   **NearbyCriteria.DISTANCE_ASCENDING**
+    -  **NearbyCriteria.DISTANCE_DESCENDING** will sort the data on distance basis.
+    -   **NearbyCriteria.NAME_ASCENDING**
+    -   **NearbyCriteria.NAME_DESCENDING** will sort the data on alphabetically basis.
+3. `searchBy(String)`: provides configurable search operations for the client on cloud. **Below are the available sorts:​**
+    - **NearbyCriteria.DISTANCE**
+    - **NearbyCriteria.IMPORTANCE** - will search data in order of prominence of the place.
 4. `bounds(String)`: Allows the developer to send in map bounds to provide a nearby search within the bounds.   
-    {e.g. (bounds("28.56812,77.240519;28.532790,77.290854"))  
+   {e.g. (bounds("28.56812,77.240519;28.532790,77.290854"))
 5. `pod(String)`: it takes in the place type code which helps in restricting the results to certain chosen type. Access to this parameter is controlled from the backend. This parameter if provided will override any values provided in `keywords` request param.  
- **Below mentioned are the codes for the pod**  
-	 - NearbyCriteria.POD_SUB_LOCALITY  
-   - NearbyCriteria.POD_LOCALITY  
-   - NearbyCriteria.POD_CITY  
-   - NearbyCriteria.POD_STATE
-6. `filter(String)`: This parameter helps you get a specific type of EV charging Station  
-   - `filter` = model:(string);brandId:(string);plugType:(string)  
-7. `richData(Boolean)`:  Rich Data related to POI  
-8. `userName(String)`: Use to set the user name  
+   **Below mentioned are the codes for the pod**
+    - NearbyCriteria.POD_SUB_LOCALITY
+    - NearbyCriteria.POD_LOCALITY
+    - NearbyCriteria.POD_CITY
+    - NearbyCriteria.POD_STATE
+6. `filter(String)`: This parameter helps you get a specific type of EV charging Station
+    - `filter` = model:(string);brandId:(string);plugType:(string)
+7. `richData(Boolean)`:  Rich Data related to POI
+8. `userName(String)`: Use to set the user name
 
-  
-![Email](https://www.google.com/a/cpanel/mapmyindia.co.in/images/logo.gif?service=google_gsuite)   
-  
-Email us at [apisupport@mapmyindia.com](mailto:apisupport@mapmyindia.com)  
-  
-​  
-  
-![](https://www.mapmyindia.com/api/img/icons/stack-overflow.png)  
-  
-[Stack  Overflow](https://stackoverflow.com/questions/tagged/mapmyindia-api)  
-  
-Ask a question under the mapmyindia-api  
-  
-​  
-  
-![](https://www.mapmyindia.com/api/img/icons/support.png)  
-  
-[Support](https://www.mapmyindia.com/api/index.php#f_cont)  
-  
-Need support? contact us!  
-  
-​  
-  
-![](https://www.mapmyindia.com/api/img/icons/blog.png)  
-  
-[Blog](http://www.mapmyindia.com/blog/)  
-  
-Read about the latest updates & customer stories  
-  
-​  
-  
-​  
-  
->  ©  Copyright  2022.  CE  Info  Systems  Ltd.  All  Rights  Reserved.  |  [Terms  &  Conditions](http://www.mapmyindia.com/api/terms-&-conditions).
+
+<br><br><br>
+
+## Our many happy customers:
+
+![](https://www.mapmyindia.com/api/img/logos1/PhonePe.png)![](https://www.mapmyindia.com/api/img/logos1/Arya-Omnitalk.png)![](https://www.mapmyindia.com/api/img/logos1/delhivery.png)![](https://www.mapmyindia.com/api/img/logos1/hdfc.png)![](https://www.mapmyindia.com/api/img/logos1/TVS.png)![](https://www.mapmyindia.com/api/img/logos1/Paytm.png)![](https://www.mapmyindia.com/api/img/logos1/FastTrackz.png)![](https://www.mapmyindia.com/api/img/logos1/ICICI-Pru.png)![](https://www.mapmyindia.com/api/img/logos1/LeanBox.png)![](https://www.mapmyindia.com/api/img/logos1/MFS.png)![](https://www.mapmyindia.com/api/img/logos1/TTSL.png)![](https://www.mapmyindia.com/api/img/logos1/Novire.png)![](https://www.mapmyindia.com/api/img/logos1/OLX.png)![](https://www.mapmyindia.com/api/img/logos1/sun-telematics.png)![](https://www.mapmyindia.com/api/img/logos1/Sensel.png)![](https://www.mapmyindia.com/api/img/logos1/TATA-MOTORS.png)![](https://www.mapmyindia.com/api/img/logos1/Wipro.png)![](https://www.mapmyindia.com/api/img/logos1/Xamarin.png)
+
+<br>
+
+For any queries and support, please contact:
+
+[<img src="https://mmi-api-team.s3.amazonaws.com/Mappls-SDKs/Resources/mappls-logo.png" height="40"/> </p>](https://about.mappls.com/api/)    
+Email us at [apisupport@mappls.com](mailto:apisupport@mappls.com)
+
+![](https://www.mapmyindia.com/api/img/icons/stack-overflow.png)    
+[Stack Overflow](https://stackoverflow.com/questions/tagged/mappls-api)    
+Ask a question under the mappls-api
+
+![](https://www.mapmyindia.com/api/img/icons/support.png)    
+[Support](https://about.mappls.com/contact/)    
+Need support? contact us!
+
+![](https://www.mapmyindia.com/api/img/icons/blog.png)    
+[Blog](http://www.mapmyindia.com/blog/)    
+Read about the latest updates & customer stories
+
+> © Copyright 2022. CE Info Systems Ltd. All Rights Reserved. | [Terms & Conditions](https://about.mappls.com/api/terms-&-conditions).
