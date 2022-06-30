@@ -100,7 +100,8 @@ To enable or disable the map scrolling:
 #### Java
 ~~~java  
 mapplsMap.getUiSettings().setScrollGesturesEnabled(false);  
-~~~ #### Kotlin  
+~~~ 
+#### Kotlin  
 ~~~kotlin  
 mapplsMap?.uiSettings?.isScrollGesturesEnabled = false  
 ~~~  
