@@ -1,5 +1,4 @@
-
-![Mappls APIs](https://about.mappls.com/images/mappls-b-logo.svg)
+[<img src="https://about.mappls.com/images/mappls-b-logo.svg" height="60"/> </p>](https://www.mapmyindia.com/api)
 
 # Mappls Vector Map Android SDK
 
