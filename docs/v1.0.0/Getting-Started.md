@@ -7,11 +7,11 @@
 
 Powered with India's most comprehensive and robust mapping functionalities.
 
-1. You can get your api key to be used in this document here: [https://about.mappls.com/api/signup](https://about.mappls.com/api/signup)
+1. You can get your api key to be used in this document here: [https://apis.mappls.com/console/](https://apis.mappls.com/console/)
 
 2. The sample code is provided to help you understand the basic functionality of Mappls maps & REST APIs working on **Android** native development platform.
 
-4. Explore through [238 nations](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md) with **Global Search, Routing and Mapping APIs & SDKs** by Mappls.
+4. Explore through [200 + nations with Global Search](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md) with **Global Search, Routing and Mapping APIs & SDKs** by Mappls.
 
 ## [Getting Started](#getting-started)
 
@@ -21,7 +21,7 @@ Through customized tiles, you can add different map layers to your application a
 
 ## [API Usage](#api-usage)
 
-Your Mappls Maps SDK usage needs a set of license keys (get them  [here](https://about.mappls.com/api/signup)) and is governed by the API  [terms and conditions](https://about.mappls.com/api/terms-&-conditions). As part of the terms and conditions,  **you cannot remove or hide the Mappls logo and copyright information** in your project.
+Your Mappls Maps SDK usage needs a set of license keys (get them  [here](https://apis.mappls.com/console/)) and is governed by the API  [terms and conditions](https://about.mappls.com/api/terms-&-conditions). As part of the terms and conditions,  **you cannot remove or hide the Mappls logo and copyright information** in your project.
 
 The allowed SDK hits are described on the user [dashboard](https://apis.mappls.com/console) page. Note that your usage is shared between platforms, so the API hits you make from a web application, Android app or an iOS app all add up to your allowed daily limit.
 
@@ -632,27 +632,38 @@ firstLatLng.distanceTo(secondLatLng)
 
 <br><br><br>
 
-## Our many happy customers:
 
-![](https://www.mapmyindia.com/api/img/logos1/PhonePe.png)![](https://www.mapmyindia.com/api/img/logos1/Arya-Omnitalk.png)![](https://www.mapmyindia.com/api/img/logos1/delhivery.png)![](https://www.mapmyindia.com/api/img/logos1/hdfc.png)![](https://www.mapmyindia.com/api/img/logos1/TVS.png)![](https://www.mapmyindia.com/api/img/logos1/Paytm.png)![](https://www.mapmyindia.com/api/img/logos1/FastTrackz.png)![](https://www.mapmyindia.com/api/img/logos1/ICICI-Pru.png)![](https://www.mapmyindia.com/api/img/logos1/LeanBox.png)![](https://www.mapmyindia.com/api/img/logos1/MFS.png)![](https://www.mapmyindia.com/api/img/logos1/TTSL.png)![](https://www.mapmyindia.com/api/img/logos1/Novire.png)![](https://www.mapmyindia.com/api/img/logos1/OLX.png)![](https://www.mapmyindia.com/api/img/logos1/sun-telematics.png)![](https://www.mapmyindia.com/api/img/logos1/Sensel.png)![](https://www.mapmyindia.com/api/img/logos1/TATA-MOTORS.png)![](https://www.mapmyindia.com/api/img/logos1/Wipro.png)![](https://www.mapmyindia.com/api/img/logos1/Xamarin.png)
+
+## Our many happy customers
+
+![](https://www.mapmyindia.com/api/img/logos1/PhonePe.png)![](https://about.mappls.com/images/client_logo/amazon-a.svg)![](https://www.mapmyindia.com/api/img/logos1/delhivery.png)![](https://www.mapmyindia.com/api/img/logos1/hdfc.png)![](https://www.mapmyindia.com/api/img/logos1/TVS.png)![](https://www.mapmyindia.com/api/img/logos1/Paytm.png)![](https://about.mappls.com/images/client_logo/mcdonalds-01.svg)![](https://www.mapmyindia.com/api/img/logos1/ICICI-Pru.png)![](https://about.mappls.com/images/client_logo/honda.svg)![](https://www.mapmyindia.com/api/img/logos1/TTSL.png)![](https://www.mapmyindia.com/api/img/logos1/Novire.png)![](https://about.mappls.com/images/client_logo/airtel.svg)![](https://www.mapmyindia.com/api/img/logos1/Sensel.png)![](https://www.mapmyindia.com/api/img/logos1/TATA-MOTORS.png)![](https://www.mapmyindia.com/api/img/logos1/Wipro.png)![](https://about.mappls.com/api/images_page/grofers.svg)  [<img src="https://about.mappls.com/images/original/avis_logo-01.svg" height="30"/>]()    [<img src="https://about.mappls.com/images/client_logo/CBDT.svg" height="60"/>]()   [<img src="https://about.mappls.com/images/client_logo/finance.png" height="60"/> </p>]()
 
 <br>
 
-For any queries and support, please contact:
+For any queries and support, please contact: 
 
-[<img src="https://mmi-api-team.s3.amazonaws.com/Mappls-SDKs/Resources/mappls-logo.png" height="40"/> </p>](https://about.mappls.com/api/)    
+[<img src="https://about.mappls.com/images/mappls-logo.svg" height="40"/> </p>](https://about.mappls.com/api/)
 Email us at [apisupport@mappls.com](mailto:apisupport@mappls.com)
 
-![](https://www.mapmyindia.com/api/img/icons/stack-overflow.png)    
-[Stack Overflow](https://stackoverflow.com/questions/tagged/mappls-api)    
-Ask a question under the mappls-api
 
-![](https://www.mapmyindia.com/api/img/icons/support.png)    
-[Support](https://about.mappls.com/contact/)    
+![](https://www.mapmyindia.com/api/img/icons/support.png)
+[Support](https://about.mappls.com/contact/)
 Need support? contact us!
 
-![](https://www.mapmyindia.com/api/img/icons/blog.png)    
-[Blog](http://www.mapmyindia.com/blog/)    
-Read about the latest updates & customer stories
+<br></br>
+<br></br>
 
-> © Copyright 2022. CE Info Systems Ltd. All Rights Reserved. | [Terms & Conditions](https://about.mappls.com/api/terms-&-conditions).
+[<p align="center"> <img src="https://www.mapmyindia.com/api/img/icons/stack-overflow.png"/> ](https://stackoverflow.com/questions/tagged/mappls-api)[![](https://www.mapmyindia.com/api/img/icons/blog.png)](https://about.mappls.com/blog/)[![](https://www.mapmyindia.com/api/img/icons/gethub.png)](https://github.com/Mappls-api)[<img src="https://mmi-api-team.s3.ap-south-1.amazonaws.com/API-Team/npm-logo.one-third%5B1%5D.png" height="40"/> </p>](https://www.npmjs.com/org/mapmyindia) 
+
+
+
+[<p align="center"> <img src="https://www.mapmyindia.com/june-newsletter/icon4.png"/> ](https://www.facebook.com/Mapplsofficial)[![](https://www.mapmyindia.com/june-newsletter/icon2.png)](https://twitter.com/mappls)[![](https://www.mapmyindia.com/newsletter/2017/aug/llinkedin.png)](https://www.linkedin.com/company/mappls/)[![](https://www.mapmyindia.com/june-newsletter/icon3.png)](https://www.youtube.com/channel/UCAWvWsh-dZLLeUU7_J9HiOA)
+
+
+
+
+<div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
+
+<div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
+
+<div align="center">Customer Care: +91-9999333223</div>
