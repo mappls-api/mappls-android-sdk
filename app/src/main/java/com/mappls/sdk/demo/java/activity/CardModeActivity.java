@@ -1,0 +1,208 @@
+package com.mappls.sdk.demo.java.activity;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.mappls.sdk.demo.R;
+import com.mappls.sdk.demo.java.settings.MapplsPlaceWidgetSetting;
+import com.mappls.sdk.maps.MapView;
+import com.mappls.sdk.maps.MapplsMap;
+import com.mappls.sdk.maps.OnMapReadyCallback;
+import com.mappls.sdk.maps.annotations.MarkerOptions;
+import com.mappls.sdk.maps.camera.CameraPosition;
+import com.mappls.sdk.maps.camera.CameraUpdateFactory;
+import com.mappls.sdk.maps.geometry.LatLng;
+import com.mappls.sdk.plugins.places.autocomplete.PlaceAutocomplete;
+import com.mappls.sdk.plugins.places.autocomplete.model.PlaceOptions;
+import com.mappls.sdk.services.api.OnResponseCallback;
+import com.mappls.sdk.services.api.autosuggest.model.ELocation;
+import com.mappls.sdk.services.api.autosuggest.model.SuggestedSearchAtlas;
+import com.mappls.sdk.services.api.hateaosnearby.MapplsHateosNearby;
+import com.mappls.sdk.services.api.hateaosnearby.MapplsHateosNearbyManager;
+import com.mappls.sdk.services.api.nearby.model.NearbyAtlasResponse;
+import com.mappls.sdk.services.api.nearby.model.NearbyAtlasResult;
+
+import java.util.ArrayList;
+
+public class CardModeActivity extends AppCompatActivity implements OnMapReadyCallback {
+    private MapView mapView;
+    private MapplsMap mapplsMap;
+    private TextView textView;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_full_mode_fragment);
+        mapView = findViewById(R.id.map_view);
+
+        mapView.onCreate(savedInstanceState);
+        mapView.getMapAsync(this);
+        textView = findViewById(R.id.search);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mapplsMap != null) {
+                    PlaceOptions placeOptions = PlaceOptions.builder()
+                            .location(MapplsPlaceWidgetSetting.getInstance().getLocation())
+                            .filter(MapplsPlaceWidgetSetting.getInstance().getFilter())
+                            .hint(MapplsPlaceWidgetSetting.getInstance().getHint())
+                            .saveHistory(MapplsPlaceWidgetSetting.getInstance().isEnableHistory())
+                            .enableTextSearch(MapplsPlaceWidgetSetting.getInstance().isEnableTextSearch())
+                            .pod(MapplsPlaceWidgetSetting.getInstance().getPod())
+                            .attributionHorizontalAlignment(MapplsPlaceWidgetSetting.getInstance().getSignatureVertical())
+                            .attributionVerticalAlignment(MapplsPlaceWidgetSetting.getInstance().getSignatureHorizontal())
+                            .logoSize(MapplsPlaceWidgetSetting.getInstance().getLogoSize())
+                            .backgroundColor(Color.parseColor("#00FFFFFF"))
+                            .bridge(MapplsPlaceWidgetSetting.getInstance().isEnableBridge())
+                            .hyperLocal(MapplsPlaceWidgetSetting.getInstance().isEnableHyperLocal())
+                            .build(PlaceOptions.MODE_CARDS);
+
+                    PlaceAutocomplete.IntentBuilder builder = new PlaceAutocomplete.IntentBuilder();
+                    if (!MapplsPlaceWidgetSetting.getInstance().isDefault()) {
+                        builder.placeOptions(placeOptions);
+                    } else {
+                        builder.placeOptions(PlaceOptions.builder().build(PlaceOptions.MODE_CARDS));
+                    }
+                    Intent placeAutocomplete = builder.build(CardModeActivity.this);
+                    startActivityForResult(placeAutocomplete, 101);
+                } else {
+                    Toast.makeText(CardModeActivity.this, "Please wait map is loading", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+
+        });
+
+    }
+
+    private void callHateOs(String hyperlink) {
+        MapplsHateosNearby hateosNearby = MapplsHateosNearby.builder()
+                .hyperlink(hyperlink)
+                .build();
+        MapplsHateosNearbyManager.newInstance(hateosNearby).call(new OnResponseCallback<NearbyAtlasResponse>() {
+            @Override
+            public void onSuccess(NearbyAtlasResponse nearbyAtlasResponse) {
+                if (nearbyAtlasResponse != null) {
+                    ArrayList<NearbyAtlasResult> nearByList = nearbyAtlasResponse.getSuggestedLocations();
+                    if (nearByList.size() > 0) {
+                        addMarker(nearByList);
+                    }
+                } else {
+                    Toast.makeText(CardModeActivity.this, "Not able to get value, Try again.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onError(int i, String s) {
+                Toast.makeText(CardModeActivity.this, s, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
+    private void addMarker(ArrayList<NearbyAtlasResult> nearByList) {
+        mapplsMap.clear();
+        for (NearbyAtlasResult marker : nearByList) {
+            if (marker.getLatitude() != null && marker.getLongitude() != null) {
+                mapplsMap.addMarker(new MarkerOptions().position(new LatLng(marker.getLatitude(), marker.getLongitude())).title(marker.getPlaceName()));
+            } else {
+                mapplsMap.addMarker(new MarkerOptions().mapplsPin(marker.mapplsPin).title(marker.getPlaceName()));
+            }
+        }
+
+    }
+
+    @Override
+    public void onMapReady(MapplsMap mapplsMap) {
+        this.mapplsMap = mapplsMap;
+
+
+
+        mapplsMap.setMinZoomPreference(4);
+        mapplsMap.setMaxZoomPreference(18);
+        mapplsMap.setCameraPosition(new CameraPosition.Builder().target(new LatLng(28, 77)).zoom(4).build());
+
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 101) {
+            if (resultCode == Activity.RESULT_OK) {
+                if (data != null) {
+                    ELocation eLocation = PlaceAutocomplete.getPlace(data);
+                    if(eLocation != null) {
+                        if (mapplsMap != null) {
+                            textView.setText(eLocation.placeName);
+                            mapplsMap.clear();
+                            LatLng latLng = new LatLng(eLocation.latitude, eLocation.longitude);
+                            mapplsMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 12));
+                            mapplsMap.addMarker(new MarkerOptions().position(latLng).title(eLocation.placeName).snippet(eLocation.placeAddress));
+
+                        }
+                    } else {
+                        SuggestedSearchAtlas suggestedSearchAtlas = PlaceAutocomplete.getSuggestedSearch(data);
+                        if(suggestedSearchAtlas != null) {
+                            callHateOs(suggestedSearchAtlas.hyperLink);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onMapError(int i, String s) {
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mapView.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mapView.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mapView.onDestroy();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mapView.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mapView.onResume();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapView.onLowMemory();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mapView.onSaveInstanceState(outState);
+    }
+}

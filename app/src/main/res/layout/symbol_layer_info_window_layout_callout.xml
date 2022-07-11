@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mappls.sdk.maps.annotations.BubbleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="6dp"
+    android:paddingEnd="8dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingStart="8dp"
+    app:mappls_maps_bl_arrowDirection="bottom"
+    app:mappls_maps_bl_arrowHeight="8dp"
+    app:mappls_maps_bl_arrowWidth="8dp"
+    app:mappls_maps_bl_arrowPosition="50dp"
+    app:mappls_maps_bl_bubbleColor="@android:color/white"
+    app:mappls_maps_bl_cornersRadius="6dp"
+    app:mappls_maps_bl_strokeColor="@android:color/darker_gray"
+    app:mappls_maps_bl_strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/info_window_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="Bubble title" />
+
+        <TextView
+            android:id="@+id/info_window_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            tools:text="Bubble description" />
+
+    </LinearLayout>
+</com.mappls.sdk.maps.annotations.BubbleLayout>

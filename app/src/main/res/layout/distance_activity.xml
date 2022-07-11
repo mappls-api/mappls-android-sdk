@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.mappls.sdk.maps.MapView
+      android:id="@+id/map_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/distance_details_layout" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:id="@+id/edit_btn"
+        android:layout_margin="@dimen/margin_5"
+        android:visibility="gone"
+        app:srcCompat="@drawable/ic_edit_24"
+        android:layout_alignParentRight="true"
+        android:layout_above="@id/distance_details_layout"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:id="@+id/distance_details_layout"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:minHeight="64dp"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Distance  : "
+            android:textColor="#D31027"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/tv_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:gravity="center"
+            android:text="Duration"
+            android:textSize="22sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
+</layout>
