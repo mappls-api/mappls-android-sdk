@@ -35,7 +35,7 @@ class CameraFeatureFragmentKt : Fragment(), MapFeatureListAdapter.AdapterOnClick
         val featuresArrayList = ArrayList<FeaturesList>()
         featuresArrayList.add(FeaturesList("Camera Features", "Animate, Move or Ease Camera Position"))
         featuresArrayList.add(FeaturesList("Location Camera Options", "Long press on map and get Latitude Longitude"))
-        featuresArrayList.add(FeaturesList("Camera Features in ELoc", "Animate, Move or Ease Camera Position using eloc"))
+        featuresArrayList.add(FeaturesList("Camera Features in Mappls Pin", "Animate, Move or Ease Camera Position using mappls pin"))
         featureRecycleView.layoutManager = LinearLayoutManager(context)
         var mapFeaturesListAdapter: MapFeatureListAdapter = MapFeatureListAdapter(featuresArrayList,this)
 
@@ -54,8 +54,8 @@ class CameraFeatureFragmentKt : Fragment(), MapFeatureListAdapter.AdapterOnClick
             startActivity(locationCameraIntent)
 
         }else if(position==2){
-            var eLocCameraIntent : Intent = Intent(context, MapplsPinCameraActivity::class.java)
-            startActivity(eLocCameraIntent)
+            var mapplsPinCameraIntent = Intent(context, MapplsPinCameraActivity::class.java)
+            startActivity(mapplsPinCameraIntent)
 
         }
 

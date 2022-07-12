@@ -29,22 +29,22 @@ class AddMapplsPinMarkerActivity : AppCompatActivity(), OnMapReadyCallback {
         mBinding.mapView.onCreate(savedInstanceState)
         mBinding.mapView.getMapAsync(this)
         mBinding.btnSearch.setOnClickListener(View.OnClickListener {
-            val eLoc: String = mBinding.etMapplsPin.getText().toString()
-            if (!eLoc.isEmpty()) {
-                val eLocList = eLoc.split(",".toRegex())
-                addMarker(eLocList)
+            val mapplsPin: String = mBinding.etMapplsPin.getText().toString()
+            if (!mapplsPin.isEmpty()) {
+                val mapplsPinList = mapplsPin.split(",".toRegex())
+                addMarker(mapplsPinList)
             } else {
-                Toast.makeText(this@AddMapplsPinMarkerActivity, "Please add ELoc", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@AddMapplsPinMarkerActivity, "Please add Mappls Pin", Toast.LENGTH_SHORT).show()
             }
         })
     }
 
-    private fun addMarker(eLocList: List<String>) {
+    private fun addMarker(mapplsPins: List<String>) {
         if (mapplsMap != null) {
             mapplsMap?.clear()
             val markerOptions: MutableList<MarkerOptions> = ArrayList()
             val mapplsPinList: MutableList<String> = ArrayList()
-            for (mapplsPin in eLocList) {
+            for (mapplsPin in mapplsPins) {
                 markerOptions.add(MarkerOptions().mapplsPin(mapplsPin).title(mapplsPin))
                 mapplsPinList.add(mapplsPin)
             }
@@ -54,7 +54,7 @@ class AddMapplsPinMarkerActivity : AppCompatActivity(), OnMapReadyCallback {
                 }
 
                 override fun onFailure() {
-                    Toast.makeText(this@AddMapplsPinMarkerActivity, "Invalid ELoc", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@AddMapplsPinMarkerActivity, "Invalid Mappls Pin", Toast.LENGTH_SHORT).show()
                 }
             })
             if (mapplsPinList.size > 0) {

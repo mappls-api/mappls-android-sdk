@@ -30,19 +30,19 @@ class PlaceDetailActivity : AppCompatActivity() {
         mBinding.rvPlaceDetail.layoutManager = LinearLayoutManager(this)
         mBinding.rvPlaceDetail.adapter = adapter
         mBinding.btnSearch.setOnClickListener {
-            val eLoc: String = mBinding.etMapplsPin.text.toString()
-            if (eLoc.isNotEmpty()) {
-                callELoc(eLoc)
+            val mapplsPin: String = mBinding.etMapplsPin.text.toString()
+            if (mapplsPin.isNotEmpty()) {
+                callMapplsPin(mapplsPin)
             } else {
-                Toast.makeText(this@PlaceDetailActivity, "Please add ELoc", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@PlaceDetailActivity, "Please add Mappls Pin", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    private fun callELoc(eLoc: String) {
+    private fun callMapplsPin(mapplsPin: String) {
         mBinding.progressBar.visibility = View.VISIBLE
         val placeDetail = MapplsPlaceDetail.builder()
-                .mapplsPin(eLoc)
+                .mapplsPin(mapplsPin)
                 .build()
         MapplsPlaceDetailManager.newInstance(placeDetail).call(object : OnResponseCallback<PlaceDetailResponse> {
             override fun onSuccess(placeDetailResponse: PlaceDetailResponse?) {

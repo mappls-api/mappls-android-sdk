@@ -43,7 +43,7 @@ class ApiCallFragmentKt : Fragment(), MapFeatureListAdapter.AdapterOnClick{
         featuresArrayList.add(FeaturesList("Get Distance", "Get distance between points"))
         featuresArrayList.add(FeaturesList("Hateos Nearby Api", "Nearby places using hateos api"))
         featuresArrayList.add(FeaturesList("POI Along Route Api", "user will be able to get the details of POIs of a particular category along his set route"))
-        featuresArrayList.add(FeaturesList("Place Detail", "To get the place details from eLoc"))
+        featuresArrayList.add(FeaturesList("Place Detail", "To get the place details from mappls pin"))
         featuresArrayList.add(FeaturesList("Nearby Report", "To get the nearby reports on the map"))
         featureRecycleView.layoutManager = LinearLayoutManager(context)
         var mapFeaturesListAdapter: com.mappls.sdk.demo.kotlin.adapter.MapFeatureListAdapter = com.mappls.sdk.demo.kotlin.adapter.MapFeatureListAdapter(featuresArrayList,this)

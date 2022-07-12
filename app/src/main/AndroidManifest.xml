@@ -459,19 +459,19 @@
         <activity
             android:name=".java.activity.AddMapplsPinCustomMarkerActivity"
             android:exported="false"
-            android:label="ELoc Custom Marker Java" />
+            android:label="Mappls Pin Custom Marker Java" />
         <activity
             android:name=".kotlin.activity.AddMapplsPinCustomMarkerActivity"
             android:exported="false"
-            android:label="ELoc Custom Marker Kotlin" />
+            android:label="Mappls Pin Custom Marker Kotlin" />
         <activity
             android:name=".java.activity.AddMapplsPinMarkerActivity"
             android:exported="false"
-            android:label="Eloc Marker Java" />
+            android:label="Mappls Pin Marker Java" />
         <activity
             android:name=".kotlin.activity.AddMapplsPinMarkerActivity"
             android:exported="false"
-            android:label="Eloc Marker Kotlin" />
+            android:label="Mappls Pin Marker Kotlin" />
         <activity
             android:name=".java.activity.PlaceDetailActivity"
             android:exported="false"
@@ -483,11 +483,11 @@
         <activity
             android:name=".java.activity.MapplsPinCameraActivity"
             android:exported="false"
-            android:label="Eloc Camera Feature Java" />
+            android:label="Mappls Pin Camera Feature Java" />
         <activity
             android:name=".kotlin.activity.MapplsPinCameraActivity"
             android:exported="false"
-            android:label="Eloc Camera Feature Kotlin" />
+            android:label="Mappls Pin Camera Feature Kotlin" />
         <activity
             android:name=".java.activity.DirectionActivity"
             android:exported="false"
