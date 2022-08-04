@@ -9,18 +9,18 @@ Read more for [List of Available Styles](https://github.com/mappls-api/mappls-an
 
 To enable/disable Tiles Overlay follow the below code snippet. Default is false.
 ```java
-mapplsMap.enableTraffic(true);
+mapplsMap.enableTraffic(true); //To enable/disable all Traffic
 ```
 To choose from different traffic flow information use below referred code. Default is true.
 
 ```java
-mapplsMap.enableTrafficClosure(false);
+mapplsMap.enableTrafficClosure(false); //To enable/disable Traffic Closure Overlay 
 
-mapplsMap.enableTrafficFreeFlow(false);
+mapplsMap.enableTrafficFreeFlow(false); //To enable/disable Free Flow (Green) Overlay 
 
-mapplsMap.enableTrafficNonFreeFlow(false);
+mapplsMap.enableTrafficNonFreeFlow(false); //To enable/disable Non free flow (Red/Orange) Overlay 
 
-mapplsMap.enableTrafficStopIcon(false);
+mapplsMap.enableTrafficStopIcon(false); //To enable/disable Traffic Closure Overlay 
 ```
 
 Please Note : Custom styles overlaid with traffic tiles are not offered coherently. 
