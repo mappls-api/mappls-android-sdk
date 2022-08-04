@@ -7,6 +7,12 @@ The overlay provides constantly updating congestion information best viewed on M
 
 Read more for [List of Available Styles](https://github.com/mappls-api/mappls-android-sdk/blob/main/docs/v1.0.0/Map-Style.md)
 
+## Preview Image
+
+[<img src="https://about.mappls.com/api/api_doc_assets/traffic_overlay.jpeg" height="450"/> </p>](https://about.mappls.com/api/)
+
+
+## Implementation
 To enable/disable Tiles Overlay follow the below code snippet. Default is false.
 ```java
 mapplsMap.enableTraffic(true); //To enable/disable all Traffic
@@ -23,6 +29,7 @@ mapplsMap.enableTrafficNonFreeFlow(false); //To enable/disable Non free flow (Re
 mapplsMap.enableTrafficStopIcon(false); //To enable/disable Traffic Closure Overlay 
 ```
 
+  
 Please Note : Custom styles overlaid with traffic tiles are not offered coherently. 
 Contact [API Support](apisupport@mappls.com) in case of custom styles and details of available custom claims of traffic tiles.
 
