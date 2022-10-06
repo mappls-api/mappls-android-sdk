@@ -85,6 +85,7 @@ For more details of previous versions , [click here](docs/v1.0.0/Version-History
     * [Feedback API](docs/v1.0.1/Feedback.md)
     * [Nearby Reports](docs/v1.0.1/Nearby-Report.md)
     * [Weather API](docs/v1.0.1/Weather-API.md)
+    * [Trip Cost Estimation API](docs/v1.0.1/trip-cost-estimation.md)
 - [Mappls GeoAnalytics](docs/v1.0.1/Geoanalytics.md)
 - [Place Autocomple Widget](docs/v1.0.1/Place-Autocomplete.md)
     * [PlaceAutocompleteFragment](docs/v1.0.1/Place-Autocomplete.md#place-autocomplete-fragment)
