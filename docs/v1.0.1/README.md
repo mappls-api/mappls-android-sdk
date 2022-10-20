@@ -15,7 +15,7 @@ Powered with India's most comprehensive and robust mapping functionalities.
 
 | Version | Supported SDK Version |  
 | ---- | ---- |    
-| [v1.0.1](../v1.0.1/README.md) | - Map SDK v8.0.3 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.0.0 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v1.0.2 <br/> - Nearby UI Widget v1.0.0 <br/> - Annotation Plugin v1.0.0 <br/> - Driving Range Plugin v1.0.0 <br/> - GeoAnalytics Plugin v1.0.0 |
+| [v1.0.1](../v1.0.1/README.md) | - Map SDK v8.0.4 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.0.1 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v1.0.3 <br/> - Nearby UI Widget v1.0.0 <br/> - Annotation Plugin v1.0.0 <br/> - Driving Range Plugin v1.0.0 <br/> - GeoAnalytics Plugin v1.0.0 |
 | [v1.0.0](../v1.0.0/README.md) | - Map SDK v8.0.0 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.0.0 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v1.0.0 <br/> - Nearby UI Widget v1.0.0 <br/> - Annotation Plugin v1.0.0 <br/> - Driving Range Plugin v1.0.0 <br/> - GeoAnalytics Plugin v1.0.0 <br/>- Raster Catalogue v0.0.1 |  
  
 
@@ -26,6 +26,7 @@ Reference to the documentation of Previous SDK versions [here](https://github.co
 
 | Version | Last Updated | Author |  Release Note|  
 | ---- | ---- | ---- | ---- |  
+| v8.0.4 | 18 October 2022 | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) |   - Added PlaceClickListener on map which provides `mapplsPin`<br/> - Bug Fixes & Improvements |
 | v8.0.3 | 26 September 2022 | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) |   - Added Weather API  |
 | v8.0.2 | 28 August 2022 | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) |   - Added Android auto support  |
 | v8.0.1 | 19 August 2022 | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) |   - Added `mapplsPin` in Reverse Geocode <br/> - Bug Fixes|

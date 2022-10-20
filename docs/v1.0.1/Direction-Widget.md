@@ -14,7 +14,7 @@ For more details, please contact apisupport@mappls.com.
 
 Add below dependency in your app-level build.gradle
 ~~~groovy	
-implementation 'com.mappls.sdk:direction-ui:1.0.2'
+implementation 'com.mappls.sdk:direction-ui:1.0.3'
 ~~~
 
 ### Add your API keys to the SDK
@@ -89,7 +89,8 @@ You can use `DirectionOptions` to set the properties of direction widget:
 9. `destination(DirectionPoint)`: You can use `DirectionPoint` to pass the destination in direction widget:
   - `setDirection(Point, String, String)`: It takes coordinate, place name and place address
   - `setDirection(String, String, String)`: It takes mappls pin, place name and place address
-10. `searchPlaceOption(PlaceOptions`): To set the properties of search widget.
+10. `searchPlaceOption(PlaceOptions)`: To set the properties of search widget.
+11. `showAddWaypointOption(Boolean)`: To show/hide add waypoint functionality.
 
 ## Additional Parameter - Search Along The Route
 
