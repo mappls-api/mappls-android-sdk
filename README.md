@@ -32,7 +32,7 @@ Reference to the documentation of Previous SDK versions [here](https://github.co
 | v8.0.0 | 14 June 2022 | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) |   -Initial release  |
 
 
-For more details of previous versions , [click here](docs/v1.0.0/Version-History.md).
+For more details of previous versions , [click here](docs/v1.0.1/Version-History.md).
 
 
 ## [Table Of Content](#Table-Of-Content)
