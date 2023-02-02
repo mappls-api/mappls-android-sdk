@@ -25,7 +25,7 @@ mapplsMap.addMarker(new MarkerOptions().mapplsPin(mapplsPin), new OnMarkerAddedL
 ~~~
 
 
-## To set Camera to particular eLoc
+## To set Camera to particular Mappls pin
 
 ##### Sdk allows various method to Move, ease,animate Camera to a particular location :
 
@@ -41,7 +41,7 @@ mapplsMap?.moveCamera(CameraMapplsPinUpdateFactory.newMapplsPinZoom("MMI000", 14
 mapplsMap?.easeCamera(CameraMapplsPinUpdateFactory.newMapplsPinZoom("MMI000", 14));  
 mapplsMap?.animateCamera(CameraMapplsPinUpdateFactory.newMapplsPinZoom("MMI000", 14));
 ~~~
-## To set Camera to particular eLoc Bound
+## To set Camera to particular mapplsPin Bound
 
 ##### Sdk allows various method to Move, ease,animate Camera to a particular mapplsPin Bound :
 
