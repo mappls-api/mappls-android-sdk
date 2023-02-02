@@ -43,19 +43,19 @@ mapplsMap?.animateCamera(CameraMapplsPinUpdateFactory.newMapplsPinZoom("MMI000",
 ~~~
 ## To set Camera to particular eLoc Bound
 
-##### Sdk allows various method to Move, ease,animate Camera to a particular eLoc Bound :
+##### Sdk allows various method to Move, ease,animate Camera to a particular mapplsPin Bound :
 
 #### Java
 ~~~java
-mapplsMap.moveCamera(CameraMapplsPinUpdateFactory.newMapplsPinBounds(eLocs, 10 , 100, 10, 10));  
-mapplsMap.easeCamera(CameraMapplsPinUpdateFactory.newMapplsPinBounds(eLocs, 10 , 100, 10, 10));  
-mapplsMap.animateCamera(CameraMapplsPinUpdateFactory.newMapplsPinBounds(eLocs, 10 , 100, 10, 10));
+mapplsMap.moveCamera(CameraMapplsPinUpdateFactory.newMapplsPinBounds(mapplsPins, 10 , 100, 10, 10));  
+mapplsMap.easeCamera(CameraMapplsPinUpdateFactory.newMapplsPinBounds(mapplsPins, 10 , 100, 10, 10));  
+mapplsMap.animateCamera(CameraMapplsPinUpdateFactory.newMapplsPinBounds(mapplsPins, 10 , 100, 10, 10));
 ~~~
 #### Kotlin
 ~~~kotlin
-mapplsMap?.moveCamera(CameraMapplsPinUpdateFactory.newMapplsPinBounds(eLocs, 10 , 100, 10, 10));  
-mapplsMap?.easeCamera(CameraMapplsPinUpdateFactory.newMapplsPinBounds(eLocs, 10 , 100, 10, 10));  
-mapplsMap?.animateCamera(CameraMapplsPinUpdateFactory.newMapplsPinBounds(eLocs, 10 , 100, 10, 10));
+mapplsMap?.moveCamera(CameraMapplsPinUpdateFactory.newMapplsPinBounds(mapplsPins, 10 , 100, 10, 10));  
+mapplsMap?.easeCamera(CameraMapplsPinUpdateFactory.newMapplsPinBounds(mapplsPins, 10 , 100, 10, 10));  
+mapplsMap?.animateCamera(CameraMapplsPinUpdateFactory.newMapplsPinBounds(mapplsPins, 10 , 100, 10, 10));
 ~~~
 
 <br><br><br>
