@@ -4,13 +4,13 @@
 
 # SDK Error Codes
 The map function may encounter the following error codes:
-* MAPS_SDK_KEY_MISSING: This error occurs when the map SDK key is not provided.
-* REST_API_KEY_MISSING: This error occurs when the REST API key is not provided.
-* ATLAS_CLIENT_ID_MISSING: This error occurs when the atlas client ID is not provided.
-* ATLAS_CLIENT_SECRET_MISSING: This error occurs when the atlas client secret is not provided.
-* UNKNOWN: This error occurs when the map fails to load due to an unknown error.
-* AUTHENTICATION_FAILED: This error occurs when the map fails to authenticate itself with the Mappls server due to incorrect keys.
-* SDK_INITIALISATION_FAILED: This error occurs when the SDK initialization fails.
+* MAPS_SDK_KEY_MISSING = 1; //This error occurs when the map SDK key is not provided.
+* REST_API_KEY_MISSING = 2; //This error occurs when the REST API key is not provided.
+* ATLAS_CLIENT_ID_MISSING = 3; //This error occurs when the atlas client ID is not provided.
+* ATLAS_CLIENT_SECRET_MISSING = 4 //This error occurs when the atlas client secret is not provided.
+* UNKNOWN = 5; //This error occurs when the map fails to load due to an unknown error.
+* AUTHENTICATION_FAILED = 7; //This error occurs when the map fails to authenticate itself with the Mappls server due to incorrect keys.
+* SDK_INITIALISATION_FAILED = 100; //This error occurs when the SDK initialization fails.
 
   <br><br><br>
 
@@ -36,7 +36,7 @@ Need support? contact us!
 
 
 
-<div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>  
+<div align="center">@ Copyright 2023 CE Info Systems Ltd. All Rights Reserved.</div>  
 
 <div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>  
 
