@@ -1,2 +1,2 @@
-## v2.0.0, 21 Jun, 2022
+## v1.0.0, 20 Jun, 2022
     - Initial Mappls Release

@@ -88,6 +88,11 @@ public class FullModeFragmentAutocompleteActivity extends AppCompatActivity impl
                         public void onCancel() {
                             getSupportFragmentManager().popBackStack(PlaceAutocompleteFragment.class.getSimpleName(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
                         }
+
+                        @Override
+                        public void requestForCurrentLocation() {
+
+                        }
                     });
                     placeAutocompleteFragment.setSuggestedSearchSelectionListener(suggestedSearchAtlas -> {
                         callHateOs(suggestedSearchAtlas.hyperLink);

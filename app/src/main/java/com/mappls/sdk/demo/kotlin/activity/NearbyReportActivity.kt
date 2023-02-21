@@ -80,6 +80,10 @@ class NearbyReportActivity : AppCompatActivity(), OnMapReadyCallback {
                             FragmentManager.POP_BACK_STACK_INCLUSIVE
                         )
                     }
+
+                    override fun requestForCurrentLocation() {
+
+                    }
                 })
                 supportFragmentManager.beginTransaction().add(
                     R.id.fragment_container,

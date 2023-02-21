@@ -15,7 +15,7 @@ Powered with India's most comprehensive and robust mapping functionalities.
 
 | Version | Supported SDK Version |  
 | ---- | ---- |    
-| [v1.0.0](../v1.0.0/README.md) | - Map SDK v8.0.0 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.0.0 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v1.0.0 <br/> - Nearby UI Widget v1.0.0 <br/> - Annotation Plugin v1.0.0 <br/> - Driving Range Plugin v1.0.0 <br/> - GeoAnalytics Plugin v1.0.0 <br/>- Raster Catalogue v0.0.1 |  
+| [v1.0.0](../v1.0.0/README.md) | - Map SDK v8.0.0 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.0.0 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v1.0.0 <br/> - Nearby UI Widget v1.0.0 <br/> - Annotation Plugin v1.0.0 <br/> - Driving Range Plugin v1.0.0 |  
 
 Reference to the documentation of Previous SDK versions [here](https://github.com/mappls-api/mapmyindia-maps-vectorSDK-android)
 
@@ -63,7 +63,6 @@ For more details of previous versions , [click here](./Version-History.md).
     * [Set Mappls Style](./Map-Style.md#set-mapmyindia-style)
     * [To enable/disable last selected style](./Map-Style.md#To-enable-last-selected-style)
     * [Get selected style](./Map-Style.md#get-selected-style)
-- [Raster Catalogue](./raster_catalogue.md#raster_catalogue)
 - [Mappls Traffic Vector Overlay](./Traffic-Vector-Overlay.md)
 - REST API Kit
     * [Search API's](./Search-Api.md)

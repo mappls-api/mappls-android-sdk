@@ -71,6 +71,11 @@ public class NearbyReportActivity extends AppCompatActivity implements OnMapRead
                         public void onCancel() {
                             getSupportFragmentManager().popBackStack(PlaceAutocompleteFragment.class.getSimpleName(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
                         }
+
+                        @Override
+                        public void requestForCurrentLocation() {
+
+                        }
                     });
                     getSupportFragmentManager().beginTransaction().add(mBinding.fragmentContainer.getId(), placeAutocompleteFragment, PlaceAutocompleteFragment.class.getSimpleName())
                             .addToBackStack(PlaceAutocompleteFragment.class.getSimpleName())

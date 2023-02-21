@@ -1,3 +1,8 @@
+## v8.0.5, 06 February, 2023
+- Added Error Codes while initialising the map
+- Added Reset Compass Engine
+- Bug Fixes & Improvements
+
 ## v8.0.4, 18 October, 2022
 - Added PlaceClickListener on map which provides `mapplsPin`
 - Bug Fixes & Improvements

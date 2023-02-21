@@ -101,6 +101,10 @@ class FullModeFragmentAutocompleteActivity : AppCompatActivity(), OnMapReadyCall
                         )
                     }
 
+                    override fun requestForCurrentLocation() {
+
+                    }
+
                 })
                 placeAutocompleteFragment.setSuggestedSearchSelectionListener {
                     callHateOs(it.hyperLink)

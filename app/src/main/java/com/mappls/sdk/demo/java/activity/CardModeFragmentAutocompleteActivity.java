@@ -84,6 +84,11 @@ public class CardModeFragmentAutocompleteActivity extends AppCompatActivity impl
             public void onCancel() {
 
             }
+
+            @Override
+            public void requestForCurrentLocation() {
+
+            }
         });
 
         placeAutocompleteFragment.setSuggestedSearchSelectionListener(new SuggestedSearchSelectionListener() {

@@ -109,6 +109,11 @@ public class DrivingRangeSettingActivity extends AppCompatActivity {
                                 FragmentManager.POP_BACK_STACK_INCLUSIVE
                         );
                     }
+
+                    @Override
+                    public void requestForCurrentLocation() {
+
+                    }
                 });
                 getSupportFragmentManager().beginTransaction()
                         .add(R.id.setting_layout, placeAutocompleteFragment, PlaceAutocompleteFragment.class.getSimpleName())

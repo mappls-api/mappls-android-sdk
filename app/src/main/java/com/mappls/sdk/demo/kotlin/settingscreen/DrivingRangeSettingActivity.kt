@@ -87,6 +87,10 @@ class DrivingRangeSettingActivity : AppCompatActivity() {
                         FragmentManager.POP_BACK_STACK_INCLUSIVE
                     )
                 }
+
+                override fun requestForCurrentLocation() {
+
+                }
             })
 
 
