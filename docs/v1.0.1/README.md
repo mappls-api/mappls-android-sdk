@@ -63,6 +63,7 @@ For more details of previous versions , [click here](./Version-History.md).
     * [Enable/Disable Map Scrolling Gesture](./Map-UI-Settings.md#Enable-disable-scrolling)
     * [Enable/Disable Map Tilt Gesture](./Map-UI-Settings.md#Enable-disable-tilt)
     * [Enable/Disable Zoom Gestures](./Map-UI-Settings.md#Enable-disable-zoom-gesture)
+- [Mappls Annotation Plugin](./AnnotationPlugin.md)
 - [Set Country Regions](./Set-Regions.md)
 - [Set Mappls Map Style](./Map-Style.md)
     * [List of Available Styles](./Map-Style.md#list-of-available-styles)

@@ -16,15 +16,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".java.activity.TrafficActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".kotlin.activity.TrafficActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".java.activity.ClusterMarkerActivity"
             android:exported="false"
-            android:label="Marker Clustering Java"/>
+            android:label="Marker Clustering Java" />
         <activity
             android:name=".kotlin.activity.ClusterMarkerActivity"
             android:exported="false"
-            android:label="Marker Clustering Kotlin"/>
+            android:label="Marker Clustering Kotlin" />
         <activity
             android:name=".java.activity.DrivingRangePluginActivity"
             android:exported="false"
@@ -321,9 +336,6 @@
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".kotlin.activity.FeatureListActivityKotlin"
-            android:exported="false" />
-        <activity
             android:name=".kotlin.activity.AddCustomMarkerActivity"
             android:exported="false"
             android:label="Custom Marker Kotlin" />
@@ -395,7 +407,6 @@
             android:name=".java.activity.CameraActivity"
             android:exported="false"
             android:label="Camera Feature Java" />
-        <activity android:name=".java.activity.FeaturesListActivity" />
         <activity
             android:name=".java.activity.MapClickActivity"
             android:exported="false"
@@ -439,11 +450,10 @@
         <activity
             android:name=".java.activity.NearByActivity"
             android:exported="false"
-            android:label="Nearby Java" />
-<!--        <activity-->
-<!--            android:name=".java.activity.SafetyPluginActivity"-->
-<!--            android:exported="false"-->
-<!--            android:label="Safety Plugin Java" />-->
+            android:label="Nearby Java" /> <!-- <activity -->
+        <!-- android:name=".java.activity.SafetyPluginActivity" -->
+        <!-- android:exported="false" -->
+        <!-- android:label="Safety Plugin Java" /> -->
         <activity
             android:name=".java.activity.SnakeMotionPolylineActivity"
             android:exported="false"
@@ -519,11 +529,10 @@
         <activity
             android:name=".kotlin.activity.AddCustomInfoWindowActivity"
             android:exported="false"
-            android:label="Custom Info Window Kotlin" />
-<!--        <activity-->
-<!--            android:name=".kotlin.activity.SafetyPluginActivity"-->
-<!--            android:exported="false"-->
-<!--            android:label="Safety Plugin Kotlin" />-->
+            android:label="Custom Info Window Kotlin" /> <!-- <activity -->
+        <!-- android:name=".kotlin.activity.SafetyPluginActivity" -->
+        <!-- android:exported="false" -->
+        <!-- android:label="Safety Plugin Kotlin" /> -->
         <activity
             android:name=".kotlin.activity.SnakeMotionPolylineActivity"
             android:exported="false"

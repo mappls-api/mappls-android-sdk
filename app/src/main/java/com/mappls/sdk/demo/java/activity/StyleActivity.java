@@ -1,17 +1,16 @@
 package com.mappls.sdk.demo.java.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.recyclerview.widget.LinearLayoutManager;
-
 import android.os.Bundle;
 import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.gson.Gson;
-
 import com.mappls.sdk.demo.R;
 import com.mappls.sdk.demo.databinding.StyleActivityBinding;
 import com.mappls.sdk.demo.java.adapter.StyleAdapter;

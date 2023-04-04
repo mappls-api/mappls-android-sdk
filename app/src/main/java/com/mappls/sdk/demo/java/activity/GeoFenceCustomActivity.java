@@ -17,10 +17,8 @@ import com.mappls.sdk.demo.R;
 import com.mappls.sdk.demo.databinding.LayoutGeofenceUiActivityBinding;
 import com.mappls.sdk.demo.java.model.GeofenceDetail;
 import com.mappls.sdk.geofence.ui.GeoFence;
-
 import com.mappls.sdk.geofence.ui.GeoFenceType;
 import com.mappls.sdk.geofence.ui.listeners.GeoFenceViewCallback;
-import com.mappls.sdk.geofence.ui.listeners.OnPolygonReachedMaxPointListener;
 import com.mappls.sdk.geofence.ui.util.Orientation;
 import com.mappls.sdk.geojson.Point;
 import com.mappls.sdk.maps.MapplsMap;

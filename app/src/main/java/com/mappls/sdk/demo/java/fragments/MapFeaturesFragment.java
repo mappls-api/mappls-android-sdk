@@ -13,12 +13,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mappls.sdk.demo.R;
-
 import com.mappls.sdk.demo.java.activity.GesturesActivity;
 import com.mappls.sdk.demo.java.activity.MapClickActivity;
 import com.mappls.sdk.demo.java.activity.MapFragmentActivity;
 import com.mappls.sdk.demo.java.activity.MapLongClickActivity;
 import com.mappls.sdk.demo.java.activity.StyleActivity;
+import com.mappls.sdk.demo.java.activity.TrafficActivity;
 import com.mappls.sdk.demo.java.adapter.MapFeatureListAdapter;
 import com.mappls.sdk.demo.java.model.FeaturesList;
 
@@ -74,6 +74,9 @@ public class MapFeaturesFragment extends Fragment {
                 else if(position==4){
                     Intent styleIntent= new Intent(getContext(), StyleActivity.class);
                     startActivity(styleIntent);
+                } else if(position==5){
+                    Intent trafficIntent= new Intent(getContext(), TrafficActivity.class);
+                    startActivity(trafficIntent);
                 }
             }
         });
@@ -85,5 +88,6 @@ public class MapFeaturesFragment extends Fragment {
         featuresArrayList.add(new FeaturesList("Map Tap", "Long press on map and get Latitude Longitude"));
         featuresArrayList.add(new FeaturesList("Map Gestures", "Gestures detection for map view"));
         featuresArrayList.add(new FeaturesList("Map Styles", "To change and update Mappls Styles"));
+        featuresArrayList.add(new FeaturesList("Map Traffic", "To show Mappls Traffic"));
     }
 }

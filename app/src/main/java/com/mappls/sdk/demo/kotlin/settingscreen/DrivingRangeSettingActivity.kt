@@ -2,12 +2,13 @@ package com.mappls.sdk.demo.kotlin.settingscreen
 
 import android.graphics.Color
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputFilter
 import android.text.TextUtils
 import android.view.View
+import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentManager
 import com.mappls.sdk.demo.R
@@ -89,6 +90,9 @@ class DrivingRangeSettingActivity : AppCompatActivity() {
                 }
 
                 override fun requestForCurrentLocation() {
+                    Toast.makeText(this@DrivingRangeSettingActivity,
+                        "Please provide current location",
+                        Toast.LENGTH_SHORT).show()
 
                 }
             })

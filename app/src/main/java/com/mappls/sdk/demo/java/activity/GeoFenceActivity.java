@@ -11,8 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.mappls.sdk.demo.databinding.ActivityGeoFenceBinding;
 import com.mappls.sdk.demo.R;
+import com.mappls.sdk.demo.databinding.ActivityGeoFenceBinding;
 import com.mappls.sdk.demo.java.settingscreen.GeofenceWidgetSettingsActivity;
 import com.mappls.sdk.demo.kotlin.activity.GeoFenceDetailActivity;
 

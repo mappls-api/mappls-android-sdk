@@ -9,8 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.mappls.sdk.demo.databinding.BaseLayoutBinding;
 import com.mappls.sdk.demo.R;
+import com.mappls.sdk.demo.databinding.BaseLayoutBinding;
 import com.mappls.sdk.demo.java.plugin.TrackingPlugin;
 import com.mappls.sdk.geojson.Point;
 import com.mappls.sdk.geojson.utils.PolylineUtils;
@@ -44,7 +44,6 @@ public class TrackingActivity extends AppCompatActivity implements OnMapReadyCal
         @Override
         public void run() {
             sendMessageToBackgroundHandler();
-
             trackingHandler.postDelayed(runnable, 3000);
         }
     };
@@ -125,7 +124,7 @@ public class TrackingActivity extends AppCompatActivity implements OnMapReadyCal
             if (index < travelledPoints.size() - 1) {
                 trackingPlugin.animateCar(travelledPoints.get(index), travelledPoints.get(index + 1));
                 index++;
-                callTravelledRoute();
+//               callTravelledRoute();
 
             } else {
                 trackingHandler.removeCallbacks(runnable);
@@ -154,6 +153,7 @@ public class TrackingActivity extends AppCompatActivity implements OnMapReadyCal
                     DirectionsRoute directionsRoute = directionsResponse.routes().get(0);
                     if (directionsRoute != null && directionsRoute.geometry() != null) {
                         travelledPoints = PolylineUtils.decode(directionsRoute.geometry(), Constants.PRECISION_6);
+
                         startTracking();
                     }
                 }
@@ -173,48 +173,6 @@ public class TrackingActivity extends AppCompatActivity implements OnMapReadyCal
 
         trackingPlugin.addMarker(travelledPoints.get(0));
         trackingHandler.post(runnable);
-    }
-
-    private void callTravelledRoute() {
-        MapplsDirections mapplsDirections = MapplsDirections.builder()
-                .origin(travelledPoints.get(index))
-                .destination(Point.fromLngLat(72.9344, 19.1478))
-                .overview(DirectionsCriteria.OVERVIEW_FULL)
-                .steps(true)
-                .routeType(DirectionsCriteria.ROUTE_TYPE_SHORTEST)
-                .resource(DirectionsCriteria.RESOURCE_ROUTE)
-                .build();
-        MapplsDirectionManager.newInstance(mapplsDirections).call(new OnResponseCallback<DirectionsResponse>() {
-            @Override
-            public void onSuccess(DirectionsResponse directionsResponse) {
-                if (directionsResponse != null && directionsResponse.routes() != null && directionsResponse.routes().size() > 0) {
-                    DirectionsRoute directionsRoute = directionsResponse.routes().get(0);
-                    if (directionsRoute != null && directionsRoute.geometry() != null) {
-                        trackingPlugin.updatePolyline(directionsRoute);
-                        List<Point> remainingPath = PolylineUtils.decode(directionsRoute.geometry(), Constants.PRECISION_6);
-                        List<LatLng> latLngList = new ArrayList<>();
-                        for (Point point : remainingPath) {
-                            latLngList.add(new LatLng(point.latitude(), point.longitude()));
-                        }
-                        if (latLngList.size() > 0) {
-                            if (latLngList.size() == 1) {
-                                mapplsMap.easeCamera(CameraUpdateFactory.newLatLngZoom(latLngList.get(0), 12));
-                            } else {
-                                LatLngBounds latLngBounds = new LatLngBounds.Builder()
-                                        .includes(latLngList)
-                                        .build();
-                                mapplsMap.easeCamera(CameraUpdateFactory.newLatLngBounds(latLngBounds, 180, 0, 180, 0));
-                            }
-                        }
-                    }
-                }
-            }
-
-            @Override
-            public void onError(int i, String s) {
-
-            }
-        });
     }
 
     @Override

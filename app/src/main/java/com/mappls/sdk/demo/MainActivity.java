@@ -16,8 +16,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.navigation.NavigationView;
-import com.mappls.sdk.demo.kotlin.fragments.CameraFeatureFragmentKt;
-import com.mappls.sdk.demo.R;
 import com.mappls.sdk.demo.java.fragments.AnimationsFragment;
 import com.mappls.sdk.demo.java.fragments.ApiCallsFragment;
 import com.mappls.sdk.demo.java.fragments.CameraFeatureFragment;
@@ -29,6 +27,7 @@ import com.mappls.sdk.demo.java.fragments.MarkersFeaturesFragment;
 import com.mappls.sdk.demo.java.fragments.PolylineFeaturesFragment;
 import com.mappls.sdk.demo.kotlin.fragments.AnimationsFragmentKt;
 import com.mappls.sdk.demo.kotlin.fragments.ApiCallFragmentKt;
+import com.mappls.sdk.demo.kotlin.fragments.CameraFeatureFragmentKt;
 import com.mappls.sdk.demo.kotlin.fragments.CustomWidgetFragmentKt;
 import com.mappls.sdk.demo.kotlin.fragments.LocationFragmentKt;
 import com.mappls.sdk.demo.kotlin.fragments.MapFeaturesFragmentKt;

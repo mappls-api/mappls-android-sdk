@@ -1,10 +1,5 @@
 package com.mappls.sdk.demo.java.settingscreen;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.FragmentManager;
-
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +10,12 @@ import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.RadioGroup;
 import android.widget.TimePicker;
+import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.FragmentManager;
 
 import com.mappls.sdk.demo.R;
 import com.mappls.sdk.demo.databinding.ActivityDrivingRangeSettingBinding;
@@ -112,6 +113,7 @@ public class DrivingRangeSettingActivity extends AppCompatActivity {
 
                     @Override
                     public void requestForCurrentLocation() {
+                        Toast.makeText(DrivingRangeSettingActivity.this, "Please provide current location", Toast.LENGTH_SHORT).show();
 
                     }
                 });

@@ -176,6 +176,14 @@ class ClusterMarkerPlugin(private val mapView: MapView, private val mapplsMap: M
                     moveCameraToLeavesBounds(clusterLeaves)
                 }
             }
+        } else {
+            val unClusterFeatures = mapplsMap.queryRenderedFeatures(
+                mapplsMap.projection.toScreenLocation(latLng),
+                UN_CLUSTER_MARKER_LAYER
+            )
+            if(unClusterFeatures.size > 0) {
+                println(unClusterFeatures[0].toString())
+            }
         }
         return false
     }

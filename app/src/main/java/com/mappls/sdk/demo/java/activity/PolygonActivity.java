@@ -9,10 +9,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.mappls.sdk.demo.R;
-import com.mappls.sdk.maps.MapplsMap;
-import com.mappls.sdk.maps.annotations.Polygon;
 import com.mappls.sdk.maps.MapView;
+import com.mappls.sdk.maps.MapplsMap;
 import com.mappls.sdk.maps.OnMapReadyCallback;
+import com.mappls.sdk.maps.annotations.Polygon;
 import com.mappls.sdk.maps.annotations.PolygonOptions;
 import com.mappls.sdk.maps.camera.CameraPosition;
 import com.mappls.sdk.maps.camera.CameraUpdateFactory;

@@ -62,7 +62,7 @@ public class AddCustomInfoWindowActivity extends AppCompatActivity implements On
             public View getInfoWindow(@NonNull Marker marker) {
                 View view = LayoutInflater.from(AddCustomInfoWindowActivity.this).inflate(R.layout.custom_info_window_layout, null);
                 TextView textView = view.findViewById(R.id.text);
-                textView.setText("MapmyIndia Head Office, 237, Okhla ");
+                textView.setText("MapmyIndia Head Office, 237, Okhla");
                 return view;
             }
         });

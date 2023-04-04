@@ -7,8 +7,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.mappls.sdk.demo.databinding.LayoutBasicGeofenceBinding;
 import com.mappls.sdk.demo.R;
+import com.mappls.sdk.demo.databinding.LayoutBasicGeofenceBinding;
 import com.mappls.sdk.demo.java.settings.MapplsGeofenceSetting;
 import com.mappls.sdk.geofence.ui.GeoFence;
 import com.mappls.sdk.geofence.ui.GeoFenceType;

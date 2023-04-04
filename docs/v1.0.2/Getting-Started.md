@@ -228,7 +228,7 @@ The target is single latitude and longitude coordinate that the camera centers i
 
 Tilt is the camera's angle from the nadir (directly facing the Earth) and uses unit degrees. The camera's minimum (default) tilt is 0 degrees, and the maximum tilt is 60. Tilt levels use six decimal point of precision, which enables you to restrict/set/lock a map's bearing with extreme precision.
 
-The map camera tilt can also adjust by placing two fingertips on the map and moving both fingers up and down in parallel at the same time.
+The map camera tilt can also adjust by placing two fingertips on the map and moving both fingers up and down in parallel at the same time or
 
 ### [Bearing](#bearing)
 

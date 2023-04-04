@@ -39,6 +39,7 @@ class MapFeaturesFragmentKt : Fragment(), MapFeatureListAdapter.AdapterOnClick {
         featuresArrayList.add(FeaturesList("Map Tap", "Long press on map and get Latitude Longitude"))
         featuresArrayList.add(FeaturesList("Map Gestures", "Gestures detection for map view"))
         featuresArrayList.add(FeaturesList("Map Styles", "To change and update Mappls Styles"))
+        featuresArrayList.add(FeaturesList("Map Traffic", "To show Mappls Traffic"))
         featureRecycleView.layoutManager = LinearLayoutManager(context)
         var mapFeaturesListAdapter = MapFeatureListAdapter(featuresArrayList, this)
 
@@ -63,6 +64,9 @@ class MapFeaturesFragmentKt : Fragment(), MapFeatureListAdapter.AdapterOnClick {
         } else if (position == 4) {
             val styleIntent = Intent(context, StyleActivity::class.java)
             startActivity(styleIntent)
+        }else if (position == 5) {
+            val trafficIntent = Intent(context, TrafficActivity::class.java)
+            startActivity(trafficIntent)
         }
     }
 }

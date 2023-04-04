@@ -1,17 +1,16 @@
 package com.mappls.sdk.demo.java.settingscreen;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.flask.colorpicker.ColorPickerView;
 import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
-
 import com.mappls.sdk.demo.R;
 import com.mappls.sdk.demo.databinding.ActivityGeofenceWidgetSettingsBinding;
 import com.mappls.sdk.demo.java.settings.MapplsGeofenceSetting;

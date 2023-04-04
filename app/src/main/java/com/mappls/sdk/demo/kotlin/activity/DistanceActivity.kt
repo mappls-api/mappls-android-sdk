@@ -81,7 +81,7 @@ class DistanceActivity : AppCompatActivity(), OnMapReadyCallback {
         transparentProgressDialog!!.dismiss()
     }
 
-    private fun calculateDistance(pointList: List<Point>?, mapplsPins: MutableList<String?>?) {
+    private fun calculateDistance(pointList: List<Point>?, mapplsPinList: MutableList<String?>?) {
         progressDialogShow()
 
         val builder = MapplsDistanceMatrix.builder()
@@ -94,8 +94,8 @@ class DistanceActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         }
 
-        if (mapplsPins != null && mapplsPins.isNotEmpty()) {
-            builder.coordinateList(mapplsPins)
+        if (mapplsPinList != null && mapplsPinList.isNotEmpty()) {
+            builder.coordinateList(mapplsPinList)
         }
         if (pointList != null && pointList.isNotEmpty()) {
             builder.coordinates(pointList)
@@ -207,7 +207,7 @@ class DistanceActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 501 && resultCode == RESULT_OK) {
-            val mapplsPins: MutableList<String?> = ArrayList()
+            val mapplsPinList: MutableList<String?> = ArrayList()
             val points: MutableList<Point> = ArrayList()
             if (data!!.hasExtra("origin")) {
                 mSource = data.getStringExtra("origin")
@@ -216,7 +216,7 @@ class DistanceActivity : AppCompatActivity(), OnMapReadyCallback {
                 val wayPoints = data.getStringExtra("waypoints")
                 if (!wayPoints!!.contains(";")) {
                     if (!wayPoints.contains(",")) {
-                        mapplsPins.add(wayPoints)
+                        mapplsPinList.add(wayPoints)
                     } else {
                         val point = Point.fromLngLat(wayPoints.split(",").toTypedArray()[1].toDouble(), wayPoints.split(",").toTypedArray()[0].toDouble())
                         points.add(point)
@@ -225,7 +225,7 @@ class DistanceActivity : AppCompatActivity(), OnMapReadyCallback {
                     val wayPointsArray = wayPoints.split(";").toTypedArray()
                     for (value in wayPointsArray) {
                         if (!value.contains(",")) {
-                            mapplsPins.add(value)
+                            mapplsPinList.add(value)
                         } else {
                             val point = Point.fromLngLat(value.split(",").toTypedArray()[1].toDouble(), value.split(",").toTypedArray()[0].toDouble())
                             points.add(point)
@@ -237,7 +237,7 @@ class DistanceActivity : AppCompatActivity(), OnMapReadyCallback {
             if (data.hasExtra("destination")) {
                 mDestination = data.getStringExtra("destination")
             }
-            calculateDistance(points, mapplsPins)
+            calculateDistance(points, mapplsPinList)
         }
     }
 }

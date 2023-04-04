@@ -15,6 +15,7 @@ class MapplsPlaceWidgetSetting {
     var pod: String? = null
     var hint = "Search Here"
     var isEnableTextSearch = false
+    var isEnableLocation = false
     var backgroundColor = R.color.white
     var toolbarColor = R.color.white
     var isBridgeEnable = false

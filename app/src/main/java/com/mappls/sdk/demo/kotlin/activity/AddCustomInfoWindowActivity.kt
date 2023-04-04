@@ -50,7 +50,7 @@ class AddCustomInfoWindowActivity : AppCompatActivity(), OnMapReadyCallback {
         mapplsMap.setInfoWindowAdapter {
             val view: View? = LayoutInflater.from(this@AddCustomInfoWindowActivity).inflate(R.layout.custom_info_window_layout, null)
             val textView: TextView = view?.findViewById(R.id.text)!!
-            textView.text = it.title
+            textView.text = "MapmyIndia Head Office, 237, Okhla"
             return@setInfoWindowAdapter view
         }
 

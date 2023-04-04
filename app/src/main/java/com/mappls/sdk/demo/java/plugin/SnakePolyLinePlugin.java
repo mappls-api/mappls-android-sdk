@@ -1,5 +1,13 @@
 package com.mappls.sdk.demo.java.plugin;
 
+import static com.mappls.sdk.maps.style.layers.Property.LINE_CAP_ROUND;
+import static com.mappls.sdk.maps.style.layers.Property.LINE_JOIN_ROUND;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineCap;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineColor;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineJoin;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineOpacity;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineWidth;
+
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Looper;
@@ -19,14 +27,6 @@ import com.mappls.sdk.services.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.mappls.sdk.maps.style.layers.Property.LINE_CAP_ROUND;
-import static com.mappls.sdk.maps.style.layers.Property.LINE_JOIN_ROUND;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineCap;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineColor;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineJoin;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineOpacity;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineWidth;
 
 
 public class SnakePolyLinePlugin implements MapView.OnDidFinishLoadingStyleListener {

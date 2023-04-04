@@ -10,7 +10,6 @@ import android.graphics.Color;
 
 import androidx.annotation.NonNull;
 
-
 import com.mappls.sdk.geojson.Feature;
 import com.mappls.sdk.geojson.FeatureCollection;
 import com.mappls.sdk.geojson.LineString;

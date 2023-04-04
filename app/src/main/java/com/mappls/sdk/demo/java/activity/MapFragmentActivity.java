@@ -1,8 +1,8 @@
 package com.mappls.sdk.demo.java.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.mappls.sdk.demo.R;
 import com.mappls.sdk.demo.java.fragments.MapFragment;

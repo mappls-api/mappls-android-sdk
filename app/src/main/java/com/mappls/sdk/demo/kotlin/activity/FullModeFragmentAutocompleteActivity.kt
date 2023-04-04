@@ -23,7 +23,6 @@ import com.mappls.sdk.services.api.hateaosnearby.MapplsHateosNearby
 import com.mappls.sdk.services.api.hateaosnearby.MapplsHateosNearbyManager
 import com.mappls.sdk.services.api.nearby.model.NearbyAtlasResponse
 import com.mappls.sdk.services.api.nearby.model.NearbyAtlasResult
-import java.util.ArrayList
 
 
 class FullModeFragmentAutocompleteActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -52,6 +51,7 @@ class FullModeFragmentAutocompleteActivity : AppCompatActivity(), OnMapReadyCall
                     .enableTextSearch(MapplsPlaceWidgetSetting.instance.isEnableTextSearch)
                     .pod(MapplsPlaceWidgetSetting.instance.pod)
                     .saveHistory(MapplsPlaceWidgetSetting.instance.isEnableHistory)
+                    .isShowCurrentLocation(MapplsPlaceWidgetSetting.instance.isEnableLocation)
                     .attributionHorizontalAlignment(MapplsPlaceWidgetSetting.instance.signatureVertical)
                     .attributionVerticalAlignment(MapplsPlaceWidgetSetting.instance.signatureHorizontal)
                     .logoSize(MapplsPlaceWidgetSetting.instance.logoSize)
@@ -74,6 +74,13 @@ class FullModeFragmentAutocompleteActivity : AppCompatActivity(), OnMapReadyCall
                             PlaceAutocompleteFragment::class.java.simpleName,
                             FragmentManager.POP_BACK_STACK_INCLUSIVE
                         )
+                    }
+
+                    override fun requestForCurrentLocation() {
+                        Toast.makeText(this@FullModeFragmentAutocompleteActivity,
+                            "Please provide current location",
+                            Toast.LENGTH_SHORT).show()
+
                     }
 
                     override fun onPlaceSelected(eLocation: ELocation?) {
@@ -99,10 +106,6 @@ class FullModeFragmentAutocompleteActivity : AppCompatActivity(), OnMapReadyCall
                             PlaceAutocompleteFragment::class.java.simpleName,
                             FragmentManager.POP_BACK_STACK_INCLUSIVE
                         )
-                    }
-
-                    override fun requestForCurrentLocation() {
-
                     }
 
                 })

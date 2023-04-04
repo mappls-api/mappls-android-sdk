@@ -55,6 +55,7 @@ public class CardModeActivity extends AppCompatActivity implements OnMapReadyCal
                             .filter(MapplsPlaceWidgetSetting.getInstance().getFilter())
                             .hint(MapplsPlaceWidgetSetting.getInstance().getHint())
                             .saveHistory(MapplsPlaceWidgetSetting.getInstance().isEnableHistory())
+                            .isShowCurrentLocation(MapplsPlaceWidgetSetting.getInstance().isEnableLocation())
                             .enableTextSearch(MapplsPlaceWidgetSetting.getInstance().isEnableTextSearch())
                             .pod(MapplsPlaceWidgetSetting.getInstance().getPod())
                             .attributionHorizontalAlignment(MapplsPlaceWidgetSetting.getInstance().getSignatureVertical())
@@ -153,6 +154,11 @@ public class CardModeActivity extends AppCompatActivity implements OnMapReadyCal
                         SuggestedSearchAtlas suggestedSearchAtlas = PlaceAutocomplete.getSuggestedSearch(data);
                         if(suggestedSearchAtlas != null) {
                             callHateOs(suggestedSearchAtlas.hyperLink);
+                        }else {
+                            if (PlaceAutocomplete.isRequestForCurrentLocation(data)) {
+                                Toast.makeText(CardModeActivity.this, "Please provide current location", Toast.LENGTH_SHORT).show();
+
+                            }
                         }
                     }
                 }

@@ -1,17 +1,17 @@
 package com.mappls.sdk.demo.java.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.mappls.sdk.demo.databinding.ActivityDirectionUiBinding;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.mappls.sdk.demo.R;
+import com.mappls.sdk.demo.databinding.ActivityDirectionUiBinding;
 import com.mappls.sdk.demo.java.settingscreen.DirectionWidgetSettingActivity;
 
 public class DirectionUiActivity extends AppCompatActivity {

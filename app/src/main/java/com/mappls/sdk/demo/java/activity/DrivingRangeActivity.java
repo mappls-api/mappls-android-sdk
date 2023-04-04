@@ -1,16 +1,16 @@
 package com.mappls.sdk.demo.java.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import android.annotation.SuppressLint;
 import android.location.Location;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.mappls.sdk.demo.databinding.ActivityDrivingRangeBinding;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.mappls.sdk.demo.R;
+import com.mappls.sdk.demo.databinding.ActivityDrivingRangeBinding;
 import com.mappls.sdk.demo.java.settings.MapplsDrivingRangeSetting;
 import com.mappls.sdk.drivingrange.IDrivingRangeListener;
 import com.mappls.sdk.drivingrange.MapplsDrivingRangeContour;

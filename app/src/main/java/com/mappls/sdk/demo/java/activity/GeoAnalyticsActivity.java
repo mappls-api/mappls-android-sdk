@@ -1,15 +1,15 @@
 package com.mappls.sdk.demo.java.activity;
 
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.os.Bundle;
-
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
-import com.mappls.sdk.demo.databinding.ActivityGeoAnalyticsBinding;
 import com.mappls.sdk.demo.R;
+import com.mappls.sdk.demo.databinding.ActivityGeoAnalyticsBinding;
 import com.mappls.sdk.demo.java.adapter.GeoAnalyticsAdapter;
 import com.mappls.sdk.demo.java.model.GeoAnalyticsModel;
 import com.mappls.sdk.geoanalytics.GeoAnalyticsAppearanceOption;

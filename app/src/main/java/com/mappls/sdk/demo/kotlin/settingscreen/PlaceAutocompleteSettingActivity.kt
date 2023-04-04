@@ -76,6 +76,7 @@ class PlaceAutocompleteSettingActivity : AppCompatActivity() {
             Toast.makeText(this@PlaceAutocompleteSettingActivity, "Filter save successfully", Toast.LENGTH_SHORT).show()
         })
         mBinding.cbEnableHistory.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked -> MapplsPlaceWidgetSetting.instance.isEnableHistory = isChecked })
+        mBinding.enableLocation.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked -> MapplsPlaceWidgetSetting.instance.isEnableLocation = isChecked })
         mBinding.btnPodClear.setOnClickListener(View.OnClickListener {
             mBinding.rgPod.clearCheck()
             MapplsPlaceWidgetSetting.instance.pod = null

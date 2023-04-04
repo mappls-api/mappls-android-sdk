@@ -7,8 +7,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.mappls.sdk.demo.databinding.ActivityAddMarkerBinding;
 import com.mappls.sdk.demo.R;
+import com.mappls.sdk.demo.databinding.ActivityAddMarkerBinding;
 import com.mappls.sdk.maps.MapplsMap;
 import com.mappls.sdk.maps.OnMapReadyCallback;
 import com.mappls.sdk.maps.annotations.Marker;

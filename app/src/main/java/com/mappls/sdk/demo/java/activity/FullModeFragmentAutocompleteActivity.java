@@ -54,6 +54,7 @@ public class FullModeFragmentAutocompleteActivity extends AppCompatActivity impl
                             .enableTextSearch(MapplsPlaceWidgetSetting.getInstance().isEnableTextSearch())
                             .pod(MapplsPlaceWidgetSetting.getInstance().getPod())
                             .saveHistory(MapplsPlaceWidgetSetting.getInstance().isEnableHistory())
+                            .isShowCurrentLocation(MapplsPlaceWidgetSetting.getInstance().isEnableLocation())
                             .attributionHorizontalAlignment(MapplsPlaceWidgetSetting.getInstance().getSignatureVertical())
                             .attributionVerticalAlignment(MapplsPlaceWidgetSetting.getInstance().getSignatureHorizontal())
                             .logoSize(MapplsPlaceWidgetSetting.getInstance().getLogoSize())
@@ -91,6 +92,7 @@ public class FullModeFragmentAutocompleteActivity extends AppCompatActivity impl
 
                         @Override
                         public void requestForCurrentLocation() {
+                            Toast.makeText(FullModeFragmentAutocompleteActivity.this, "Please provide current location", Toast.LENGTH_SHORT).show();
 
                         }
                     });

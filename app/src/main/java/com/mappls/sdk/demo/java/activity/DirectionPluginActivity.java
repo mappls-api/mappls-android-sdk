@@ -1,13 +1,13 @@
 package com.mappls.sdk.demo.java.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.mappls.sdk.demo.databinding.ActivityDirectionPluginBinding;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.mappls.sdk.demo.R;
+import com.mappls.sdk.demo.databinding.ActivityDirectionPluginBinding;
 import com.mappls.sdk.direction.ui.DirectionCallback;
 import com.mappls.sdk.direction.ui.DirectionFragment;
 import com.mappls.sdk.direction.ui.model.DirectionOptions;

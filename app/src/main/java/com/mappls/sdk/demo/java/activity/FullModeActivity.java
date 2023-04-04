@@ -52,6 +52,7 @@ public class FullModeActivity extends AppCompatActivity implements OnMapReadyCal
                             .location(MapplsPlaceWidgetSetting.getInstance().getLocation())
                             .filter(MapplsPlaceWidgetSetting.getInstance().getFilter())
                             .saveHistory(MapplsPlaceWidgetSetting.getInstance().isEnableHistory())
+                            .isShowCurrentLocation(MapplsPlaceWidgetSetting.getInstance().isEnableLocation())
                             .pod(MapplsPlaceWidgetSetting.getInstance().getPod())
                             .hint(MapplsPlaceWidgetSetting.getInstance().getHint())
                             .enableTextSearch(MapplsPlaceWidgetSetting.getInstance().isEnableTextSearch())
@@ -125,7 +126,7 @@ public class FullModeActivity extends AppCompatActivity implements OnMapReadyCal
         mapplsMap.setMinZoomPreference(4);
         mapplsMap.setMaxZoomPreference(18);
         mapplsMap.setCameraPosition(new CameraPosition.Builder().target(new LatLng(28, 77)).zoom(4).build());
-
+//        mapplsMap.addMarker(new MarkerOptions().mapplsPin(marker.mapplsPin).title(marker.getPlaceName()));
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -148,6 +149,11 @@ public class FullModeActivity extends AppCompatActivity implements OnMapReadyCal
                         SuggestedSearchAtlas suggestedSearchAtlas = PlaceAutocomplete.getSuggestedSearch(data);
                         if(suggestedSearchAtlas != null) {
                             callHateOs(suggestedSearchAtlas.hyperLink);
+                        }else {
+                            if (PlaceAutocomplete.isRequestForCurrentLocation(data)) {
+                                Toast.makeText(FullModeActivity.this, "Please provide current location", Toast.LENGTH_SHORT).show();
+
+                            }
                         }
                     }
                 }

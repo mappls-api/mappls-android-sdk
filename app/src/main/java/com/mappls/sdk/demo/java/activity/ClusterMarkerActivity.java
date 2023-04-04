@@ -1,13 +1,13 @@
 package com.mappls.sdk.demo.java.activity;
 
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import android.os.Bundle;
-
-import com.mappls.sdk.demo.databinding.ActivityClusterMarkerBinding;
 import com.mappls.sdk.demo.R;
+import com.mappls.sdk.demo.databinding.ActivityClusterMarkerBinding;
 import com.mappls.sdk.demo.java.plugin.ClusterMarkerPlugin;
 import com.mappls.sdk.maps.MapplsMap;
 import com.mappls.sdk.maps.OnMapReadyCallback;

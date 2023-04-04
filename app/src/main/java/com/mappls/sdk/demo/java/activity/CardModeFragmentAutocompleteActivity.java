@@ -57,12 +57,12 @@ public class CardModeFragmentAutocompleteActivity extends AppCompatActivity impl
                     .filter(MapplsPlaceWidgetSetting.getInstance().getFilter())
                     .saveHistory(MapplsPlaceWidgetSetting.getInstance().isEnableHistory())
                     .enableTextSearch(MapplsPlaceWidgetSetting.getInstance().isEnableTextSearch())
+                    .isShowCurrentLocation(MapplsPlaceWidgetSetting.getInstance().isEnableLocation())
                     .hint(MapplsPlaceWidgetSetting.getInstance().getHint())
                     .pod(MapplsPlaceWidgetSetting.getInstance().getPod())
                     .attributionHorizontalAlignment(MapplsPlaceWidgetSetting.getInstance().getSignatureVertical())
                     .attributionVerticalAlignment(MapplsPlaceWidgetSetting.getInstance().getSignatureHorizontal())
                     .logoSize(MapplsPlaceWidgetSetting.getInstance().getLogoSize())
-                    .backgroundColor(getResources().getColor(MapplsPlaceWidgetSetting.getInstance().getBackgroundColor()))
                     .bridge(MapplsPlaceWidgetSetting.getInstance().isEnableBridge())
                     .hyperLocal(MapplsPlaceWidgetSetting.getInstance().isEnableHyperLocal())
                     .build(PlaceOptions.MODE_CARDS);
@@ -87,6 +87,7 @@ public class CardModeFragmentAutocompleteActivity extends AppCompatActivity impl
 
             @Override
             public void requestForCurrentLocation() {
+                Toast.makeText(CardModeFragmentAutocompleteActivity.this, "Please provide current location", Toast.LENGTH_SHORT).show();
 
             }
         });

@@ -11,10 +11,13 @@ import com.mappls.sdk.demo.R
 import com.mappls.sdk.geojson.Feature
 import com.mappls.sdk.geojson.LineString
 import com.mappls.sdk.geojson.Point
+import com.mappls.sdk.geojson.utils.PolylineUtils
 import com.mappls.sdk.maps.MapView
 import com.mappls.sdk.maps.MapplsMap
 import com.mappls.sdk.maps.Style
+import com.mappls.sdk.maps.camera.CameraUpdateFactory
 import com.mappls.sdk.maps.geometry.LatLng
+import com.mappls.sdk.maps.geometry.LatLngBounds
 import com.mappls.sdk.maps.style.expressions.Expression
 import com.mappls.sdk.maps.style.layers.LineLayer
 import com.mappls.sdk.maps.style.layers.Property
@@ -22,9 +25,15 @@ import com.mappls.sdk.maps.style.layers.PropertyFactory
 import com.mappls.sdk.maps.style.layers.SymbolLayer
 import com.mappls.sdk.maps.style.sources.GeoJsonSource
 import com.mappls.sdk.maps.utils.BitmapUtils
+import com.mappls.sdk.services.api.OnResponseCallback
+import com.mappls.sdk.services.api.directions.DirectionsCriteria
+import com.mappls.sdk.services.api.directions.MapplsDirectionManager
+import com.mappls.sdk.services.api.directions.MapplsDirections
+import com.mappls.sdk.services.api.directions.models.DirectionsResponse
 import com.mappls.sdk.turf.TurfMeasurement
 import com.mappls.sdk.services.api.directions.models.DirectionsRoute
 import com.mappls.sdk.services.utils.Constants
+import java.util.ArrayList
 
 /**
  ** Created by Saksham on 01-05-2021.
@@ -85,6 +94,7 @@ class TrackingPlugin(private val mapView: MapView, private val mapplsMap: Mappls
         val startLatLng = LatLng(start.latitude(), start.longitude())
         val nextLatLng = LatLng(end.latitude(), end.longitude())
         car = Car(startLatLng, nextLatLng)
+        callTravelledRoute(start)
         val valueAnimator = ValueAnimator.ofObject(LatLngEvaluator(), startLatLng, nextLatLng)
         valueAnimator.addUpdateListener { animation ->
             if (!isClearAllCallBacks) {
@@ -114,7 +124,47 @@ class TrackingPlugin(private val mapView: MapView, private val mapplsMap: Mappls
         valueAnimator.interpolator = AccelerateDecelerateInterpolator()
         valueAnimator.start()
     }
+    private fun callTravelledRoute(start: Point) {
+        val direction = MapplsDirections.builder()
+            .origin(start)
+            .destination(Point.fromLngLat(72.9344, 19.1478))
+            .overview(DirectionsCriteria.OVERVIEW_FULL)
+            .steps(true)
+            .routeType(DirectionsCriteria.ROUTE_TYPE_SHORTEST)
+            .resource(DirectionsCriteria.RESOURCE_ROUTE)
+            .build()
+        MapplsDirectionManager.newInstance(direction).call(object:
+            OnResponseCallback<DirectionsResponse> {
+            override fun onSuccess(directionsResponse: DirectionsResponse?) {
+                if (directionsResponse != null && directionsResponse.routes().size > 0) {
+                    val directionsRoute = directionsResponse.routes()[0]
+                    if (directionsRoute?.geometry() != null) {
+                        updatePolyline(directionsRoute)
+                        val remainingPath = PolylineUtils.decode(directionsRoute.geometry()!!, Constants.PRECISION_6)
+                        val latLngList: MutableList<LatLng> = ArrayList()
+                        for (point in remainingPath) {
+                            latLngList.add(LatLng(point.latitude(), point.longitude()))
+                        }
+                        if (latLngList.size > 0) {
+                            if (latLngList.size == 1) {
+                                mapplsMap.easeCamera(CameraUpdateFactory.newLatLngZoom(latLngList[0], 12.0))
+                            } else {
+                                val latLngBounds = LatLngBounds.Builder()
+                                    .includes(latLngList)
+                                    .build()
+                                mapplsMap.easeCamera(CameraUpdateFactory.newLatLngBounds(latLngBounds, 180, 0, 180, 0))
+                            }
+                        }
+                    }
+                }
+            }
 
+            override fun onError(p0: Int, p1: String?) {
+
+            }
+
+        })
+    }
     private fun updateMarkerSource() {
         mapplsMap.getStyle {
             val source = it.getSource(CAR_SOURCE) as GeoJsonSource?

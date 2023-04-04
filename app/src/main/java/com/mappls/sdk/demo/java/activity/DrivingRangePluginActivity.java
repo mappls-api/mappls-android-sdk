@@ -1,14 +1,14 @@
 package com.mappls.sdk.demo.java.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.mappls.sdk.demo.databinding.ActivityDrivingRangePluginBinding;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.mappls.sdk.demo.R;
+import com.mappls.sdk.demo.databinding.ActivityDrivingRangePluginBinding;
 import com.mappls.sdk.demo.java.settingscreen.DrivingRangeSettingActivity;
 
 public class DrivingRangePluginActivity extends AppCompatActivity {

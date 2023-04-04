@@ -11,8 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentManager;
 
-import com.mappls.sdk.demo.databinding.ActivityNearbyReportBinding;
 import com.mappls.sdk.demo.R;
+import com.mappls.sdk.demo.databinding.ActivityNearbyReportBinding;
 import com.mappls.sdk.demo.java.utils.TransparentProgressDialog;
 import com.mappls.sdk.geojson.Point;
 import com.mappls.sdk.maps.MapplsMap;
@@ -74,6 +74,7 @@ public class NearbyReportActivity extends AppCompatActivity implements OnMapRead
 
                         @Override
                         public void requestForCurrentLocation() {
+                            Toast.makeText(NearbyReportActivity.this, "Please provide current location", Toast.LENGTH_SHORT).show();
 
                         }
                     });

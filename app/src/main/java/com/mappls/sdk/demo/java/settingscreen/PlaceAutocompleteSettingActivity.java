@@ -123,6 +123,13 @@ public class PlaceAutocompleteSettingActivity extends AppCompatActivity {
                 MapplsPlaceWidgetSetting.getInstance().setEnableHistory(isChecked);
             }
         });
+        mBinding.enableLocation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                MapplsPlaceWidgetSetting.getInstance().setEnableLocation(isChecked);
+
+            }
+        });
         mBinding.btnPodClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -276,6 +283,7 @@ public class PlaceAutocompleteSettingActivity extends AppCompatActivity {
         }
 
         mBinding.cbEnableHistory.setChecked(MapplsPlaceWidgetSetting.getInstance().isEnableHistory());
+        mBinding.enableLocation.setChecked(MapplsPlaceWidgetSetting.getInstance().isEnableLocation());
 
         if(MapplsPlaceWidgetSetting.getInstance().getPod() != null) {
             if(MapplsPlaceWidgetSetting.getInstance().getPod().equalsIgnoreCase(AutoSuggestCriteria.POD_CITY)) {

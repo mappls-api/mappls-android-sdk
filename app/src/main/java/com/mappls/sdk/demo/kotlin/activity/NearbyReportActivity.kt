@@ -82,6 +82,9 @@ class NearbyReportActivity : AppCompatActivity(), OnMapReadyCallback {
                     }
 
                     override fun requestForCurrentLocation() {
+                        Toast.makeText(this@NearbyReportActivity,
+                            "Please provide current location",
+                            Toast.LENGTH_SHORT).show()
 
                     }
                 })

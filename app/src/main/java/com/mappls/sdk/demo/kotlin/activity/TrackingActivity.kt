@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.mappls.sdk.demo.R
 import com.mappls.sdk.demo.databinding.BaseLayoutBinding
-import com.mappls.sdk.demo.java.plugin.TrackingPlugin
+import com.mappls.sdk.demo.kotlin.plugin.TrackingPlugin
 import com.mappls.sdk.geojson.Point
 import com.mappls.sdk.geojson.utils.PolylineUtils
 import com.mappls.sdk.maps.MapplsMap
@@ -95,10 +95,10 @@ class TrackingActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun sendMessageToBackgroundHandler() {
         try {
             // GeoPoint nextLocation = mOrderTrackingActivity.getLocationBlockingQueue().take();
-            if (index < travelledPoints?.size ?: 0 - 1) {
+            if (index < travelledPoints!!.size - 1) {
                 trackingPlugin!!.animateCar(travelledPoints!![index], travelledPoints!![index + 1])
                 index++
-                callTravelledRoute()
+//                callTravelledRoute()
             } else {
                 trackingHandler.removeCallbacks(runnable)
                 //                                Toast.makeText(this, "Route END", Toast.LENGTH_SHORT).show();

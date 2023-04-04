@@ -17,6 +17,7 @@ public class MapplsPlaceWidgetSetting {
     private Point location;
     private String filter;
     private boolean enableHistory = false;
+    private boolean enableLocation = false;
     private String pod;
     private String hint = "Search Here";
     private boolean enableTextSearch;
@@ -77,6 +78,12 @@ public class MapplsPlaceWidgetSetting {
         this.filter = filter;
     }
 
+    public  boolean isEnableLocation(){
+        return enableLocation;
+    }
+    public void setEnableLocation(boolean enableLocation){
+        this.enableLocation = enableLocation;
+    }
     public boolean isEnableHistory() {
         return enableHistory;
     }

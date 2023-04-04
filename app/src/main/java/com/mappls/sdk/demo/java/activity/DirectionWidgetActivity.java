@@ -6,8 +6,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.mappls.sdk.demo.databinding.ActivityDirectionWidgetBinding;
 import com.mappls.sdk.demo.R;
+import com.mappls.sdk.demo.databinding.ActivityDirectionWidgetBinding;
 import com.mappls.sdk.demo.java.settings.MapplsDirectionWidgetSetting;
 import com.mappls.sdk.direction.ui.DirectionCallback;
 import com.mappls.sdk.direction.ui.DirectionFragment;
@@ -15,8 +15,6 @@ import com.mappls.sdk.direction.ui.model.DirectionOptions;
 import com.mappls.sdk.direction.ui.model.DirectionPoint;
 import com.mappls.sdk.plugins.places.autocomplete.model.PlaceOptions;
 import com.mappls.sdk.services.api.directions.models.DirectionsResponse;
-import com.mappls.sdk.turf.TurfConstants;
-import com.mappls.sdk.turf.TurfMeasurement;
 
 import java.util.List;
 

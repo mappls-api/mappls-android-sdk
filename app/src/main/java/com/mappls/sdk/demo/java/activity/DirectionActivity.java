@@ -1,5 +1,7 @@
 package com.mappls.sdk.demo.java.activity;
 
+import static java.lang.Double.parseDouble;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -45,8 +47,6 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
-import static java.lang.Double.parseDouble;
 
 
 /**
@@ -232,7 +232,7 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
                     Log.e("taf", wayPoints);
                     builder.addWaypoint(wayPoints);
                 } else {
-                    Point point = Point.fromLngLat(Double.parseDouble(wayPoints.split(",")[1]), Double.parseDouble(wayPoints.split(",")[0]));
+                    Point point = Point.fromLngLat(parseDouble(wayPoints.split(",")[1]), parseDouble(wayPoints.split(",")[0]));
                     builder.addWaypoint(point);
                 }
             } else {
@@ -241,7 +241,7 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
                     if (!value.contains(",")) {
                         builder.addWaypoint(value);
                     } else {
-                        Point point = Point.fromLngLat(Double.parseDouble(value.split(",")[1]), Double.parseDouble(value.split(",")[0]));
+                        Point point = Point.fromLngLat(parseDouble(value.split(",")[1]), parseDouble(value.split(",")[0]));
                         builder.addWaypoint(point);
                     }
                 }

@@ -14,8 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.mappls.sdk.demo.R;
 import com.mappls.sdk.demo.java.activity.CameraActivity;
-import com.mappls.sdk.demo.java.activity.MapplsPinCameraActivity;
 import com.mappls.sdk.demo.java.activity.LocationCameraActivity;
+import com.mappls.sdk.demo.java.activity.MapplsPinCameraActivity;
 import com.mappls.sdk.demo.java.adapter.MapFeatureListAdapter;
 import com.mappls.sdk.demo.java.model.FeaturesList;
 

@@ -14,8 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.mappls.sdk.demo.databinding.ActivityGeoFenceDetailBinding;
 import com.mappls.sdk.demo.R;
+import com.mappls.sdk.demo.databinding.ActivityGeoFenceDetailBinding;
 import com.mappls.sdk.demo.java.adapter.GeoFenceDetailAdapter;
 import com.mappls.sdk.demo.java.model.GeofenceDetail;
 import com.mappls.sdk.geojson.LineString;

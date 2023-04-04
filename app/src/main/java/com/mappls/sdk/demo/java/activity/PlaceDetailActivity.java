@@ -8,8 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.mappls.sdk.demo.databinding.ActivityPlaceDetailBinding;
 import com.mappls.sdk.demo.R;
+import com.mappls.sdk.demo.databinding.ActivityPlaceDetailBinding;
 import com.mappls.sdk.demo.java.adapter.PlaceDetailAdapter;
 import com.mappls.sdk.demo.java.model.PlaceDetailModel;
 import com.mappls.sdk.services.api.OnResponseCallback;

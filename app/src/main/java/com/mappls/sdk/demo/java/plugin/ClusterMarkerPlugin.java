@@ -185,6 +185,11 @@ public class ClusterMarkerPlugin implements MapView.OnDidFinishLoadingStyleListe
                     moveCameraToLeavesBounds(clusterLeaves);
                 }
             }
+        } else {
+            List<Feature> unClusterFeature = mapplsMap.queryRenderedFeatures(this.mapplsMap.getProjection().toScreenLocation(latLng), UN_CLUSTER_MARKER_LAYER);
+            if(unClusterFeature.size() > 0) {
+                System.out.println(unClusterFeature.get(0).toString());
+            }
         }
         return false;
     }

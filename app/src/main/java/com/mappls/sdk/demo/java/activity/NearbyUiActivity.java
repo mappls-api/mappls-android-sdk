@@ -1,15 +1,15 @@
 package com.mappls.sdk.demo.java.activity;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.mappls.sdk.demo.databinding.ActivityNearbyUiBinding;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.mappls.sdk.demo.R;
+import com.mappls.sdk.demo.databinding.ActivityNearbyUiBinding;
 import com.mappls.sdk.nearby.plugin.MapplsNearbyWidget;
 import com.mappls.sdk.services.api.nearby.model.NearbyAtlasResult;
 

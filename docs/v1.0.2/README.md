@@ -16,7 +16,7 @@ Powered with India's most comprehensive and robust mapping functionalities.
 
 | Version                       | Supported SDK Version    |
 |-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [v1.0.2](../v1.0.2/README.md) | - Map SDK v8.0.5 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.0.2 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v1.0.4 <br/> - Nearby UI Widget v1.0.1 <br/> - Annotation Plugin v1.0.0 <br/> - Driving Range Plugin v1.0.0 <br/> - Raster Catalogue v0.0.1 |  
+| [v1.0.2](../v1.0.1/README.md) | - Map SDK v8.0.5 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.0.2 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v1.0.4 <br/> - Nearby UI Widget v1.0.1 <br/> - Annotation Plugin v1.0.0 <br/> - Driving Range Plugin v1.0.0 <br/> - Raster Catalogue v0.0.1 |  
 | [v1.0.1](../v1.0.1/README.md) | - Map SDK v8.0.4 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.0.1 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v1.0.3 <br/> - Nearby UI Widget v1.0.0 <br/> - Annotation Plugin v1.0.0 <br/> - Driving Range Plugin v1.0.0 <br/> - Raster Catalogue v0.0.1 |  
 | [v1.0.0](../v1.0.0/README.md) | - Map SDK v8.0.0 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.0.0 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v1.0.0 <br/> - Nearby UI Widget v1.0.0 <br/> - Annotation Plugin v1.0.0 <br/> - Driving Range Plugin v1.0.0                                 |    
 
@@ -64,6 +64,7 @@ For more details of previous versions , [click here](./Version-History.md).
     * [Enable/Disable Map Scrolling Gesture](./Map-UI-Settings.md#Enable-disable-scrolling)
     * [Enable/Disable Map Tilt Gesture](./Map-UI-Settings.md#Enable-disable-tilt)
     * [Enable/Disable Zoom Gestures](./Map-UI-Settings.md#Enable-disable-zoom-gesture)
+- [Mappls Annotation Plugin](./AnnotationPlugin.md)
 - [Set Country Regions](./Set-Regions.md)
 - [Set Mappls Map Style](./Map-Style.md)
     * [List of Available Styles](./Map-Style.md#list-of-available-styles)

@@ -54,7 +54,7 @@ class CameraFeatureFragmentKt : Fragment(), MapFeatureListAdapter.AdapterOnClick
             startActivity(locationCameraIntent)
 
         }else if(position==2){
-            var mapplsPinCameraIntent = Intent(context, MapplsPinCameraActivity::class.java)
+            var mapplsPinCameraIntent : Intent = Intent(context, MapplsPinCameraActivity::class.java)
             startActivity(mapplsPinCameraIntent)
 
         }

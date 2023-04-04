@@ -24,7 +24,6 @@ import com.mappls.sdk.services.api.hateaosnearby.MapplsHateosNearby
 import com.mappls.sdk.services.api.hateaosnearby.MapplsHateosNearbyManager
 import com.mappls.sdk.services.api.nearby.model.NearbyAtlasResponse
 import com.mappls.sdk.services.api.nearby.model.NearbyAtlasResult
-import java.util.ArrayList
 
 
 class FullModeActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -50,6 +49,7 @@ class FullModeActivity : AppCompatActivity(), OnMapReadyCallback {
                     .filter(MapplsPlaceWidgetSetting.instance.filter)
                     .hint(MapplsPlaceWidgetSetting.instance.hint)
                     .saveHistory(MapplsPlaceWidgetSetting.instance.isEnableHistory)
+                    .isShowCurrentLocation(MapplsPlaceWidgetSetting.instance.isEnableLocation)
                     .enableTextSearch(MapplsPlaceWidgetSetting.instance.isEnableTextSearch)
                     .pod(MapplsPlaceWidgetSetting.instance.pod)
                     .attributionHorizontalAlignment(MapplsPlaceWidgetSetting.instance.signatureVertical)
@@ -102,6 +102,12 @@ class FullModeActivity : AppCompatActivity(), OnMapReadyCallback {
                     val suggestedSearchAtlas: SuggestedSearchAtlas? = PlaceAutocomplete.getSuggestedSearch(data)
                     if(suggestedSearchAtlas != null) {
                         callHateOs(suggestedSearchAtlas.hyperLink)
+                    } else {
+                        if (PlaceAutocomplete.isRequestForCurrentLocation(data)) {
+                            Toast.makeText(this@FullModeActivity,
+                                "Please provide current location",
+                                Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
             }

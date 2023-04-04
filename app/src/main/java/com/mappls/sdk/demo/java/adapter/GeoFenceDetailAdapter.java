@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.mappls.sdk.demo.R;
 import com.mappls.sdk.demo.java.model.GeofenceDetail;
 

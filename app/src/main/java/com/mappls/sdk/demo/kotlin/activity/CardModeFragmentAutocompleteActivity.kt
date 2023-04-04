@@ -21,7 +21,6 @@ import com.mappls.sdk.services.api.hateaosnearby.MapplsHateosNearby
 import com.mappls.sdk.services.api.hateaosnearby.MapplsHateosNearbyManager
 import com.mappls.sdk.services.api.nearby.model.NearbyAtlasResponse
 import com.mappls.sdk.services.api.nearby.model.NearbyAtlasResult
-import java.util.ArrayList
 
 
 class CardModeFragmentAutocompleteActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -47,6 +46,7 @@ class CardModeFragmentAutocompleteActivity : AppCompatActivity(), OnMapReadyCall
                 .filter(MapplsPlaceWidgetSetting.instance.filter)
                 .saveHistory(MapplsPlaceWidgetSetting.instance.isEnableHistory)
                 .enableTextSearch(MapplsPlaceWidgetSetting.instance.isEnableTextSearch)
+                .isShowCurrentLocation(MapplsPlaceWidgetSetting.instance.isEnableLocation)
                 .hint(MapplsPlaceWidgetSetting.instance.hint)
                 .pod(MapplsPlaceWidgetSetting.instance.pod)
                 .attributionHorizontalAlignment(MapplsPlaceWidgetSetting.instance.signatureVertical)
@@ -66,6 +66,13 @@ class CardModeFragmentAutocompleteActivity : AppCompatActivity(), OnMapReadyCall
 
             }
 
+            override fun requestForCurrentLocation() {
+                Toast.makeText(this@CardModeFragmentAutocompleteActivity,
+                    "Please provide current location",
+                    Toast.LENGTH_SHORT).show()
+
+            }
+
             override fun onPlaceSelected(eLocation: ELocation?) {
                 if (mapplsMap != null) {
                     mapplsMap?.clear()
@@ -77,10 +84,6 @@ class CardModeFragmentAutocompleteActivity : AppCompatActivity(), OnMapReadyCall
                             .setSnippet(eLocation.placeAddress)
                     )
                 }
-            }
-
-            override fun requestForCurrentLocation() {
-
             }
 
         })
