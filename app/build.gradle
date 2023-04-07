@@ -67,7 +67,7 @@ dependencies {
 
     implementation 'com.mappls.sdk:driving-range-plugin:1.0.0'
     //for direction widget
-    implementation 'com.mappls.sdk:direction-ui:1.1.0'
+    implementation 'com.mappls.sdk:direction-ui:1.1.1'
     //Geoanalytics plugin
     implementation 'com.mappls.sdk:geoanalytics-plugin:1.0.0'
     //for location

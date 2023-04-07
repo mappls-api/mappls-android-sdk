@@ -1,3 +1,6 @@
+## v1.1.1, 07 Apr, 2023
+- Bug Fixes
+
 ## v1.1.0, 03 Apr, 2023
 - Added Route Reports
 - Added Trip Cost Estimation
