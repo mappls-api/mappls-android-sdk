@@ -508,9 +508,8 @@ mapplsMap.removePolygon(polygon!!)
 ~~~
 ## [Show User Location](#show-user-location)
 
-##### Show the current user location
+### Show the current user location
 
-Implement LocationEngineCallback and override it's method
 #### Java
 ```java
 LocationComponentOptions options = LocationComponentOptions.builder(context)
@@ -527,13 +526,41 @@ locationComponent.activateLocationComponent(context, locationComponentActivation
 // Enable to make component visible  
 locationComponent.setLocationComponentEnabled(true);
 locationEngine = locationComponent.getLocationEngine();
+```
+
+#### Kotlin
+~~~kotlin
+val options: LocationComponentOptions = LocationComponentOptions.builder(context)
+    .trackingGesturesManagement(true)
+    .accuracyColor(ContextCompat.getColor(this, R.color.colorAccent))
+    .build()
+locationComponent = mapplsMap.locationComponent
+val locationComponentActivationOptions = LocationComponentActivationOptions.builder(this, style)
+    .locationComponentOptions(options)
+    .build()
+locationComponent.activateLocationComponent(locationComponentActivationOptions)
+locationComponent.isLocationComponentEnabled = true
+~~~
+
+### Get Last Known Location
+##### Java
+~~~java
+Location location = locationComponent.getLastKnownLocation()
+~~~
+##### Kotlin
+~~~kotlin
+val location = locationComponent?.lastKnownLocation
+~~~
+
+Where `location` is the Android `Location` object. For more details please refer the [documentation](https://developer.android.com/reference/android/location/Location)
+
+### Get Location Change Callback
+Implement `LocationEngineCallback` and override it's method
+~~~java
 LocationEngineRequest request = new LocationEngineRequest.Builder(DEFAULT_INTERVAL_IN_MILLISECONDS)
         .setPriority(LocationEngineRequest.PRIORITY_HIGH_ACCURACY)
         .build();
 locationEngine.requestLocationUpdates(request, locationEngineCallback, getMainLooper());
-// Set the component's camera mode  
-        locationComponent.setCameraMode(CameraMode.TRACKING);
-        locationComponent.setRenderMode(RenderMode.COMPASS);
 
 //LocationChange Listener  
 LocationEngineCallback<LocationEngineResult> locationEngineCallback = new LocationEngineCallback<LocationEngineResult>() {
@@ -551,36 +578,24 @@ LocationEngineCallback<LocationEngineResult> locationEngineCallback = new Locati
 };
 
 
-	@Override
-	protected void onDestroy() {
-        super.onDestroy();
+// To remove Location Update Listener
+@Override
+protected void onDestroy() {
+  super.onDestroy();
         // Prevent leaks  
         if (locationEngine != null) {
 	        locationEngine.removeLocationUpdates(locationEngineCallback);
         }
    }
-```
-
+~~~
 #### Kotlin
 ~~~kotlin
-val options: LocationComponentOptions = LocationComponentOptions.builder(context)
-    .trackingGesturesManagement(true)
-    .accuracyColor(ContextCompat.getColor(this, R.color.colorAccent))
-    .build()
-locationComponent = mapplsMap.locationComponent
-val locationComponentActivationOptions = LocationComponentActivationOptions.builder(this, style)
-    .locationComponentOptions(options)
-    .build()
-locationComponent.activateLocationComponent(locationComponentActivationOptions)
-locationComponent.isLocationComponentEnabled = true
 locationEngine = locationComponent.locationEngine!!
 val request = LocationEngineRequest.Builder(1000)
     .setPriority(LocationEngineRequest.PRIORITY_HIGH_ACCURACY)
     .build()
 locationEngine?.requestLocationUpdates(request, locationEngineCallback, mainLooper)
 
-locationComponent.cameraMode = CameraMode.TRACKING
-locationComponent.renderMode = RenderMode.COMPASS
 
 val locationEngineCallback = object : LocationEngineCallback<LocationEngineResult> {
     override fun onSuccess(result: LocationEngineResult?) {
@@ -592,9 +607,8 @@ val locationEngineCallback = object : LocationEngineCallback<LocationEngineResul
     override fun onFailure(e: Exception) {
 
     }
-
 }
-
+// To remove Location Update Listener
 override fun onDestroy() {
     super.onDestroy()
     if (locationEngine != null) {
@@ -602,6 +616,41 @@ override fun onDestroy() {
     }
 }
 ~~~
+
+### Set Location Camera Mode
+It allows developers to set specific camera tracking instructions as the device location changes.
+#### Java
+~~~java
+locationComponent.setCameraMode(CameraMode.TRACKING);
+~~~
+#### Kotlin
+~~~kotlin
+locationComponent.cameraMode = CameraMode.TRACKING
+~~~
+Following are the possible values for `CameraMode`:
+- `CameraMode.NONE`: No camera tracking.
+- `CameraMode.NONE_COMPASS`: Camera does not track location, but does track compass bearing.
+- `CameraMode.NONE_GPS`: Camera does not track location, but does track GPS `Location` bearing.
+- `CameraMode.TRACKING`: Camera tracks the device location, no bearing is considered.
+- `CameraMode.TRACKING_COMPASS`: Camera tracks the device location, tracking bearing provided by the device compass.
+- `CameraMode.TRACKING_GPS`: Camera tracks the device location, with bearing provided by a normalized `Location#getBearing()`.
+- `CameraMode.TRACKING_GPS_NORTH`: Camera tracks the device location, with bearing always set to north (0).
+
+### Set Render Mode
+The `RenderMode` class contains preset options for the device location image.
+#### Java
+~~~java
+locationComponent.setRenderMode(RenderMode.COMPASS);
+~~~
+#### Kotlin
+~~~kotlin
+locationComponent.renderMode = RenderMode.COMPASS
+~~~
+Following are the possible values for `RenderMode`:
+- `RenderMode.NORMAL`: This mode shows the device location, ignoring both compass and GPS bearing (no arrow rendered).
+- `RenderMode.COMPASS`: This mode shows the device location, as well as an arrow that is considering the compass of the device.
+- `RenderMode.GPS`: This mode shows the device location with the icon bearing updated from the `Location` updates being provided to the `LocationComponent`.
+
 ## [Calculate distance between two points](#calculate-distance-between-points)
 To calculate aerial distance between two points:
 #### Java
