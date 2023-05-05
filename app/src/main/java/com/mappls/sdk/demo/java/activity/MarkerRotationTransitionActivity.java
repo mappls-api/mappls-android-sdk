@@ -81,14 +81,10 @@ public class MarkerRotationTransitionActivity extends AppCompatActivity implemen
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()) {
-            case R.id.marker_rotate :
-                markerPlugin.startRotation();
-                break;
-
-            case R.id.marker_transition :
-                markerPlugin.startTransition(latLngStart, latLngEnd);
-                break;
+        if(view.getId() == R.id.marker_rotate) {
+            markerPlugin.startRotation();
+        } else if(view.getId() == R.id.marker_transition) {
+            markerPlugin.startTransition(latLngStart, latLngEnd);
         }
 
     }

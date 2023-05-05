@@ -46,26 +46,18 @@ public class PlaceAutoCompleteActivity extends AppCompatActivity implements View
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.fragment_card_mode:
-                Intent intent = new Intent(this, CardModeFragmentAutocompleteActivity.class);
-                startActivity(intent);
-                break;
-
-            case R.id.fragment_full_mode:
-                intent = new Intent(this, FullModeFragmentAutocompleteActivity.class);
-                startActivity(intent);
-                break;
-
-            case R.id.activity_card_mode:
-                intent = new Intent(this, CardModeActivity.class);
-                startActivity(intent);
-                break;
-
-            case R.id.activity_full_mode:
-                intent = new Intent(this, FullModeActivity.class);
-                startActivity(intent);
-                break;
+        if(view.getId() == R.id.fragment_card_mode) {
+            Intent intent = new Intent(this, CardModeFragmentAutocompleteActivity.class);
+            startActivity(intent);
+        } else if(view.getId() == R.id.fragment_full_mode) {
+            Intent intent = new Intent(this, FullModeFragmentAutocompleteActivity.class);
+            startActivity(intent);
+        } else if(view.getId() == R.id.activity_card_mode) {
+            Intent intent = new Intent(this, CardModeActivity.class);
+            startActivity(intent);
+        } else if(view.getId() == R.id.activity_full_mode) {
+            Intent intent = new Intent(this, FullModeActivity.class);
+            startActivity(intent);
         }
     }
 }

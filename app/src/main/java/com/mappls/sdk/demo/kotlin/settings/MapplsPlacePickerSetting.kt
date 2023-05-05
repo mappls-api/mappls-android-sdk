@@ -13,7 +13,7 @@ import com.mappls.sdk.plugins.places.autocomplete.model.PlaceOptions
 
 
     var isDefault = true
-    var pickerToolbarColor = R.color.white
+    var pickerToolbarColor = R.color.mappls_demo_white
     var isIncludeDeviceLocation = true
     var isIncludeSearch = true
     var location: Point? = null
@@ -21,8 +21,8 @@ import com.mappls.sdk.plugins.places.autocomplete.model.PlaceOptions
     var isEnableHistory = false
     var pod: String? = null
     var isTokenizeAddress = true
-    var backgroundColor = R.color.white
-    var toolbarColor = R.color.white
+    var backgroundColor = R.color.mappls_demo_white
+    var toolbarColor = R.color.mappls_demo_white
      var hint = "Search Here"
     var signatureVertical = PlaceOptions.GRAVITY_TOP
     var signatureHorizontal = PlaceOptions.GRAVITY_LEFT

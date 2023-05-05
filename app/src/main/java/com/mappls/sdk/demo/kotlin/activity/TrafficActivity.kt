@@ -1,7 +1,8 @@
 package com.mappls.sdk.demo.kotlin.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.mappls.sdk.demo.R
 import com.mappls.sdk.demo.databinding.ActivityTrafficBinding
@@ -16,8 +17,7 @@ class TrafficActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mBinding = DataBindingUtil.setContentView(this,R.layout.activity_traffic)
-//        setContentView(R.layout.activity_traffic)
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_traffic)
         mBinding.showTraffic.isChecked = false
 
         mBinding.freeflow.isClickable = false
@@ -25,52 +25,54 @@ class TrafficActivity : AppCompatActivity(), OnMapReadyCallback {
         mBinding.closure.isClickable = false
         mBinding.stopIcon.isClickable = false
         mBinding.freeflow.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked){
-                mapplsMap?.enableTrafficFreeFlow(true);
-            }else{
-                mapplsMap?.enableTrafficFreeFlow(false)
-            }
+            if (mapplsMap?.isEnableTraffic == true)
+                mapplsMap?.enableTrafficFreeFlow(isChecked)
         }
         mBinding.nonfreeflow.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked){
-                mapplsMap?.enableTrafficNonFreeFlow(true)
-            }else{
-                mapplsMap?.enableTrafficNonFreeFlow(false)
-            }
+            if (mapplsMap?.isEnableTraffic == true)
+                mapplsMap?.enableTrafficNonFreeFlow(isChecked)
         }
         mBinding.closure.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked){
-                mapplsMap?.enableTrafficClosure(true)
-            }else{
-                mapplsMap?.enableTrafficClosure(false)
-            }
+            if (mapplsMap?.isEnableTraffic == true)
+                mapplsMap?.enableTrafficClosure(isChecked)
         }
         mBinding.stopIcon.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked){
-                mapplsMap?.enableTrafficStopIcon(true)
-            }else{
-                mapplsMap?.enableTrafficStopIcon(false)
-            }
+            if (mapplsMap?.isEnableTraffic == true)
+                mapplsMap?.enableTrafficStopIcon(isChecked)
         }
         mBinding.showTraffic.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (mapplsMap != null){
-                if (isChecked) {
-                    mapplsMap?.enableTraffic(true)
-                } else {
-                    mapplsMap?.enableTraffic(false)
-                }
-            }else{
-                mBinding.showTraffic.isChecked = false
-            }
+            if (mapplsMap != null) {
+                mapplsMap?.enableTraffic(isChecked)
+                mBinding.freeflow.isClickable = isChecked
+                mBinding.nonfreeflow.isClickable = isChecked
+                mBinding.closure.isClickable = isChecked
+                mBinding.stopIcon.isClickable = isChecked
 
+                if (isChecked) {
+                    mBinding.freeflow.isChecked = (mapplsMap?.isEnableTrafficFreeFlow == true)
+                    mBinding.nonfreeflow.isChecked = (mapplsMap?.isEnableTrafficNonFreeFlow == true)
+                    mBinding.closure.isChecked = (mapplsMap?.isEnableTrafficClosure == true)
+                    mBinding.stopIcon.isChecked = (mapplsMap?.isEnableTrafficStopIcon == true)
+                } else {
+                    mBinding.freeflow.isChecked = false
+                    mBinding.nonfreeflow.isChecked = false
+                    mBinding.closure.isChecked = false
+                    mBinding.stopIcon.isChecked = false
+                }
+            }
         }
         mBinding.mapView.getMapAsync(this)
     }
 
     override fun onMapReady(mapplsMap: MapplsMap) {
         this.mapplsMap = mapplsMap
-        val cameraPosition = CameraPosition.Builder().target(LatLng(
-            25.321684, 82.987289)).zoom(15.0).tilt(0.0).build()
+        mBinding.trafficBtnLayout.visibility = View.VISIBLE
+
+        val cameraPosition = CameraPosition.Builder().target(
+            LatLng(
+                25.321684, 82.987289
+            )
+        ).zoom(15.0).tilt(0.0).build()
         mapplsMap.cameraPosition = cameraPosition
     }
 

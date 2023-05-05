@@ -188,7 +188,7 @@ val distanceMatrix = MapplsDistanceMatrix.builder()
    .coordinate(Point.fromLngLat(80.502113, 8.916787))  
    .coordinate(Point.fromLngLat(28.5505073, 77.2689367))  
    .build()  
-MapplsDistanceMatrixManager.newInstance(distanceMatrix).call(object : Callback<DistanceResponse> {  
+MapplsDistanceMatrixManager.newInstance(distanceMatrix).call(object : OnResponseCallback<DistanceResponse> {  
   
    override fun onSuccess(response: DistanceResponse) {  
       //handle response    

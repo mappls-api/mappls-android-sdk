@@ -28,13 +28,13 @@ public class StyleAdapter extends RecyclerView.Adapter<StyleAdapter.ViewHolder> 
 
     @NonNull
     @Override
-    public StyleAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutStyleAdapterBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.layout_style_adapter, parent, false);
         return new ViewHolder(binding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull StyleAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.binding.tvName.setText(styleList.get(position).getDisplayName());
         holder.binding.tvDescription.setText(styleList.get(position).getDescription());
         Glide.with(holder.binding.getRoot().getContext()).load(styleList.get(position).getImageUrl()).into(holder.binding.ivImage);

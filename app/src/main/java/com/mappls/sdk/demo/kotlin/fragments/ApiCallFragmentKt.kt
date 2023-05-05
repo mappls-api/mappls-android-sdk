@@ -33,14 +33,15 @@ class ApiCallFragmentKt : Fragment(), MapFeatureListAdapter.AdapterOnClick{
 
 
     private fun init() {
-        var i = 0
         val featuresArrayList = ArrayList<FeaturesList>()
         featuresArrayList.add(FeaturesList("Autosuggest","Auto suggest places on the map"))
         featuresArrayList.add(FeaturesList("Geo Code", "Geocode rest API call"))
         featuresArrayList.add(FeaturesList("Reverse Geocode", "Reverse Geocode rest API call"))
         featuresArrayList.add(FeaturesList("Nearby", "Show nearby results on the map"))
         featuresArrayList.add(FeaturesList("Get Direction", "Get directions between two points and show on the map"))
+        featuresArrayList.add(FeaturesList("Get Predictive Direction", "Get predictive directions between two points and show on the map"))
         featuresArrayList.add(FeaturesList("Get Distance", "Get distance between points"))
+        featuresArrayList.add(FeaturesList("Get Predictive Distance", "Get predictive distance between points"))
         featuresArrayList.add(FeaturesList("Hateos Nearby Api", "Nearby places using hateos api"))
         featuresArrayList.add(FeaturesList("POI Along Route Api", "user will be able to get the details of POIs of a particular category along his set route"))
         featuresArrayList.add(FeaturesList("Place Detail", "To get the place details from mappls pin"))
@@ -72,23 +73,32 @@ class ApiCallFragmentKt : Fragment(), MapFeatureListAdapter.AdapterOnClick{
             var directionIntent = Intent(context,DirectionActivity::class.java)
             startActivity(directionIntent)
 
-        }else if(position==5){
+        } else if(position==5){
+            var directionIntent = Intent(context,PredictiveDirectionActivity::class.java)
+            startActivity(directionIntent)
+
+        }else if(position==6){
             var distanceIntent = Intent(context,DistanceActivity::class.java)
             startActivity(distanceIntent)
 
-        }else if(position==6){
-            var distanceIntent = Intent(context,HateOsNearbyActivity::class.java)
-            startActivity(distanceIntent)
-
-        }else if(position==7){
-            var distanceIntent = Intent(context,PoiAlongRouteActivity::class.java)
+        }
+        else if(position==7){
+            var distanceIntent = Intent(context,PredictiveDistanceActivity::class.java)
             startActivity(distanceIntent)
 
         }else if(position==8){
-            var distanceIntent = Intent(context,PlaceDetailActivity::class.java)
+            var distanceIntent = Intent(context,HateOsNearbyActivity::class.java)
             startActivity(distanceIntent)
 
         }else if(position==9){
+            var distanceIntent = Intent(context,PoiAlongRouteActivity::class.java)
+            startActivity(distanceIntent)
+
+        }else if(position==10){
+            var distanceIntent = Intent(context,PlaceDetailActivity::class.java)
+            startActivity(distanceIntent)
+
+        }else if(position==11){
             var distanceIntent = Intent(context,NearbyReportActivity::class.java)
             startActivity(distanceIntent)
 

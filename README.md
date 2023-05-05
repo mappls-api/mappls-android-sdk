@@ -1,6 +1,3 @@
-
-
-
 [<img src="https://about.mappls.com/images/mappls-b-logo.svg" height="60"/> </p>](https://www.mapmyindia.com/api)
 
 # Mappls Map Android SDK
@@ -17,22 +14,25 @@ Powered with India's most comprehensive and robust mapping functionalities.
 
 ## [Documentation History](#Documentation-History)
 
-| Version                         | Supported SDK Version                                                                                                                                                                                                                                                                                                  |
-|---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Version                         | Supported SDK Version                                                                                                                                                                                                                                                                                                  | 
+|---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| [v1.0.4](docs/v1.0.4/README.md) | - Map SDK v8.0.7 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.0.3 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v1.2.0 <br/> - Nearby UI Widget v1.0.2 <br/> - Annotation Plugin v1.0.1 <br/> - Driving Range Plugin v1.0.0 <br/> - Raster Catalogue v0.0.1    | 
 | [v1.0.3](docs/v1.0.3/README.md) | - Map SDK v8.0.6 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.0.2 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v1.1.1 <br/> - Nearby UI Widget v1.0.2 <br/> - Annotation Plugin v1.0.0 <br/> - Driving Range Plugin v1.0.0 <br/> - Raster Catalogue v0.0.1    | 
-| [v1.0.2](docs/v1.0.2/README.md) | - Map SDK v8.0.5 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.0.2 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v1.0.4 <br/> - Nearby UI Widget v1.0.1 <br/> - Annotation Plugin v1.0.0 <br/> - Driving Range Plugin v1.0.0 <br/> - Raster Catalogue v0.0.1    |
-| [v1.0.1](docs/v1.0.1/README.md) | - Map SDK v8.0.3 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.0.0 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v1.0.2 <br/> - Nearby UI Widget v1.0.0 <br/> - Annotation Plugin v1.0.0 <br/> - Driving Range Plugin v1.0.0 <br/> - GeoAnalytics Plugin v1.0.0 |   
+| [v1.0.2](docs/v1.0.2/README.md) | - Map SDK v8.0.5 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.0.2 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v1.0.4 <br/> - Nearby UI Widget v1.0.1 <br/> - Annotation Plugin v1.0.0 <br/> - Driving Range Plugin v1.0.0 <br/> - Raster Catalogue v0.0.1    | 
+
 For more details of previous documentation versions , [click here](docs/v1.0.3/Doc-Version-History.md).
 
 ## [Version History](#Version-History)
 
 | Version | Last Updated | Author |  Release Note| 
-| ---- | ---- | ---- | ---- | 
-| v8.0.6  | 03 April, 2023 | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added Geolocation API  <br/> - Added `routeIndex` request parameter in Trip Cost Estimation API. <br/> - Added `lang` request parameter  in Reverse Geocode API.  <br/> - Bug Fixes & Improvements |  
-| v8.0.5  | 06 February, 2023 | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added Error Codes while initialising the map  <br/> - Added Reset Compass Engine  <br/> - Bug Fixes & Improvements | 
-| v8.0.4  | 18 October 2022   | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added PlaceClickListener on map which provides `mapplsPin`<br/> - Bug Fixes & Improvements                         | 
-| v8.0.3  | 26 September 2022 | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added Weather API                                                                                                  | 
-| v8.0.2  | 28 August 2022    | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added Android auto support                                                                                         |   
+| ---- | ---- | ---- | ---- |  
+| v8.0.7  | 02 May, 2023      | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added Predective Routing APIs.  <br/> - Bug Fixes & Improvements                                                                                                                                   |
+| v8.0.6  | 03 April, 2023 | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added Geolocation API  <br/> - Added `routeIndex` request parameter in Trip Cost Estimation API. <br/> - Added `lang` request parameter  in Reverse Geocode API.  <br/> - Bug Fixes & Improvements |
+| v8.0.5  | 06 February, 2023 | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added Error Codes while initialising the map  <br/> - Added Reset Compass Engine  <br/> - Bug Fixes & Improvements |  
+| v8.0.4  | 18 October 2022   | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added PlaceClickListener on map which provides `mapplsPin`<br/> - Bug Fixes & Improvements                         |  
+| v8.0.3  | 26 September 2022 | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added Weather API                                                                                                  |  
+| v8.0.2  | 28 August 2022    | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added Android auto support                                                                                         |  
+
 
 For more details of previous versions , [click here](docs/v1.0.3/Version-History.md).
 
@@ -122,15 +122,15 @@ For more details of previous versions , [click here](docs/v1.0.3/Version-History
 
 For any queries and support, please contact:
 
-[<img src="https://about.mappls.com/images/mappls-logo.svg" height="40"/> </p>](https://about.mappls.com/api/)      
+[<img src="https://about.mappls.com/images/mappls-logo.svg" height="40"/> </p>](https://about.mappls.com/api/)    
 Email us at [apisupport@mappls.com](mailto:apisupport@mappls.com)
 
 
-![](https://www.mapmyindia.com/api/img/icons/support.png)      
-[Support](https://about.mappls.com/contact/)      
+![](https://www.mapmyindia.com/api/img/icons/support.png)    
+[Support](https://about.mappls.com/contact/)    
 Need support? contact us!
 
-<br></br>      
+<br></br>    
 <br></br>
 
 [<p align="center"> <img src="https://www.mapmyindia.com/api/img/icons/stack-overflow.png"/> ](https://stackoverflow.com/questions/tagged/mappls-api)[![](https://www.mapmyindia.com/api/img/icons/blog.png)](https://about.mappls.com/blog/)[![](https://www.mapmyindia.com/api/img/icons/gethub.png)](https://github.com/Mappls-api)[<img src="https://mmi-api-team.s3.ap-south-1.amazonaws.com/API-Team/npm-logo.one-third%5B1%5D.png" height="40"/> </p>](https://www.npmjs.com/org/mapmyindia)
@@ -142,8 +142,8 @@ Need support? contact us!
 
 
 
-<div align="center">@ Copyright 2023 CE Info Systems Ltd. All Rights Reserved.</div>      
+<div align="center">@ Copyright 2023 CE Info Systems Ltd. All Rights Reserved.</div>    
 
-<div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>      
+<div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>    
 
 <div align="center">Customer Care: +91-9999333223</div>

@@ -22,7 +22,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
-import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -48,10 +49,13 @@ import com.mappls.sdk.maps.style.sources.GeoJsonSource;
 import com.mappls.sdk.turf.TurfMeasurement;
 
 import java.lang.ref.WeakReference;
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import timber.log.Timber;
 
@@ -256,7 +260,7 @@ public class AnimatedCarPlugin {
         });
 
 
-        new GenerateViewIconTask(new WeakReference<>(this).get()).execute(featureCollection);
+        new GenerateViewIconTask(new WeakReference<>(this).get()).doBackground(featureCollection);
     }
 
     private Context getContext() {
@@ -276,11 +280,13 @@ public class AnimatedCarPlugin {
         if (!features.isEmpty()) {
             String name = features.get(0).getStringProperty(PROPERTY_NAME);
             List<Feature> featureList = featureCollection.features();
-            for (int i = 0; i < Objects.requireNonNull(featureList).size(); i++) {
-                if (featureList.get(i).hasProperty(PROPERTY_NAME)) {
-                    if (featureList.get(i).getStringProperty(PROPERTY_NAME).equals(name)) {
-                        Timber.tag("TAG").d(featureList.get(i).toJson());
-                        car.setSelected(!car.selected);
+            if(featureList != null) {
+                for (int i = 0; i < featureList.size(); i++) {
+                    if (featureList.get(i).hasProperty(PROPERTY_NAME)) {
+                        if (featureList.get(i).getStringProperty(PROPERTY_NAME).equals(name)) {
+                            Timber.tag("TAG").d(featureList.get(i).toJson());
+                            car.setSelected(!car.selected);
+                        }
                     }
                 }
             }
@@ -409,8 +415,7 @@ public class AnimatedCarPlugin {
     /**
      * Generate Info window Icon
      */
-    private static class GenerateViewIconTask extends AsyncTask<FeatureCollection, Void, HashMap<String, Bitmap>> {
-
+    private static class GenerateViewIconTask  {
         private final HashMap<String, View> viewMap = new HashMap<>();
         private final WeakReference<AnimatedCarPlugin> activityRef;
         private final boolean refreshSource;
@@ -424,9 +429,36 @@ public class AnimatedCarPlugin {
             this(activity, true);
         }
 
-        @SuppressWarnings("WrongThread")
-        @Override
-        protected HashMap<String, Bitmap> doInBackground(FeatureCollection... params) {
+        private void doBackground(FeatureCollection featureCollection){
+            ExecutorService executor = Executors.newSingleThreadExecutor();
+            Handler handler = new Handler(Looper.getMainLooper());
+
+            Executors.newSingleThreadExecutor().execute(new Runnable() {
+                @Override
+                public void run() {
+
+                    backgroundProcess(featureCollection);
+
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            //UI Thread work here
+                            HashMap<String, Bitmap> bitmapHashMap = new HashMap<>();
+                            AnimatedCarPlugin activity = activityRef.get();
+                            if (activity != null && bitmapHashMap != null) {
+                                activity.setImageGenResults(bitmapHashMap);
+                                if (refreshSource) {
+                                    activity.refreshSource();
+                                }
+                                Toast.makeText(activity.getContext(), "Marker Instructions", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
+            });
+        }
+
+        private AbstractMap<String, Bitmap> backgroundProcess(FeatureCollection... params){
             AnimatedCarPlugin activity = activityRef.get();
             if (activity != null) {
                 HashMap<String, Bitmap> imagesMap = new HashMap<>();
@@ -470,20 +502,6 @@ public class AnimatedCarPlugin {
             } else {
                 return null;
             }
-        }
-
-        @Override
-        protected void onPostExecute(HashMap<String, Bitmap> bitmapHashMap) {
-            super.onPostExecute(bitmapHashMap);
-            AnimatedCarPlugin activity = activityRef.get();
-            if (activity != null && bitmapHashMap != null) {
-                activity.setImageGenResults(bitmapHashMap);
-                if (refreshSource) {
-                    activity.refreshSource();
-                }
-                Toast.makeText(activity.getContext(), "Marker Instructions", Toast.LENGTH_SHORT).show();
-            }
-
         }
     }
 

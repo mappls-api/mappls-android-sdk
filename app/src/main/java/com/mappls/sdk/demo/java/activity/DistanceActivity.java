@@ -131,8 +131,7 @@ public class DistanceActivity extends AppCompatActivity implements OnMapReadyCal
             }
         }
                 builder.profile(DirectionsCriteria.PROFILE_DRIVING)
-                .resource(DirectionsCriteria.RESOURCE_DISTANCE_ETA)
-                .build();
+                .resource(DirectionsCriteria.RESOURCE_DISTANCE_ETA);
         MapplsDistanceMatrixManager.newInstance(builder.build()).call(new OnResponseCallback<DistanceResponse>() {
             @Override
             public void onSuccess(DistanceResponse distanceResponse) {

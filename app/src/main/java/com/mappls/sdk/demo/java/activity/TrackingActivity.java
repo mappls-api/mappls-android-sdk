@@ -19,7 +19,6 @@ import com.mappls.sdk.maps.OnMapReadyCallback;
 import com.mappls.sdk.maps.Style;
 import com.mappls.sdk.maps.camera.CameraUpdateFactory;
 import com.mappls.sdk.maps.geometry.LatLng;
-import com.mappls.sdk.maps.geometry.LatLngBounds;
 import com.mappls.sdk.services.api.OnResponseCallback;
 import com.mappls.sdk.services.api.directions.DirectionsCriteria;
 import com.mappls.sdk.services.api.directions.MapplsDirectionManager;
@@ -28,7 +27,6 @@ import com.mappls.sdk.services.api.directions.models.DirectionsResponse;
 import com.mappls.sdk.services.api.directions.models.DirectionsRoute;
 import com.mappls.sdk.services.utils.Constants;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class TrackingActivity extends AppCompatActivity implements OnMapReadyCallback {
@@ -124,7 +122,6 @@ public class TrackingActivity extends AppCompatActivity implements OnMapReadyCal
             if (index < travelledPoints.size() - 1) {
                 trackingPlugin.animateCar(travelledPoints.get(index), travelledPoints.get(index + 1));
                 index++;
-//               callTravelledRoute();
 
             } else {
                 trackingHandler.removeCallbacks(runnable);

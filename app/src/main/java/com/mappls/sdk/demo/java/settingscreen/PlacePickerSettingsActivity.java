@@ -64,30 +64,22 @@ public class PlacePickerSettingsActivity extends AppCompatActivity {
         });
 
         mBinding.rgHorizontal.setOnCheckedChangeListener((group, checkedId) -> {
-            switch (checkedId) {
-                case R.id.rb_left:
-                    MapplsPlacePickerSetting.getInstance().setSignatureHorizontal(PlaceOptions.GRAVITY_LEFT);
-                    break;
-                case R.id.rb_center:
-                    MapplsPlacePickerSetting.getInstance().setSignatureHorizontal(PlaceOptions.GRAVITY_CENTER);
-                    break;
-                case R.id.rb_right:
-                    MapplsPlacePickerSetting.getInstance().setSignatureHorizontal(PlaceOptions.GRAVITY_RIGHT);
-                    break;
+            if (checkedId == R.id.rb_left) {
+                MapplsPlacePickerSetting.getInstance().setSignatureHorizontal(PlaceOptions.GRAVITY_LEFT);
+            } else if (checkedId == R.id.rb_center) {
+                MapplsPlacePickerSetting.getInstance().setSignatureHorizontal(PlaceOptions.GRAVITY_CENTER);
+            } else if (checkedId == R.id.rb_right) {
+                MapplsPlacePickerSetting.getInstance().setSignatureHorizontal(PlaceOptions.GRAVITY_RIGHT);
             }
         });
 
         mBinding.rgLogoSize.setOnCheckedChangeListener((group, checkedId) -> {
-            switch (checkedId) {
-                case R.id.rb_small:
-                    MapplsPlacePickerSetting.getInstance().setLogoSize(PlaceOptions.SIZE_SMALL);
-                    break;
-                case R.id.rb_medium:
-                    MapplsPlacePickerSetting.getInstance().setLogoSize(PlaceOptions.SIZE_MEDIUM);
-                    break;
-                case R.id.rb_large:
-                    MapplsPlacePickerSetting.getInstance().setLogoSize(PlaceOptions.SIZE_LARGE);
-                    break;
+            if (checkedId == R.id.rb_small) {
+                MapplsPlacePickerSetting.getInstance().setLogoSize(PlaceOptions.SIZE_SMALL);
+            } else if (checkedId == R.id.rb_medium) {
+                MapplsPlacePickerSetting.getInstance().setLogoSize(PlaceOptions.SIZE_MEDIUM);
+            } else if (checkedId == R.id.rb_large) {
+                MapplsPlacePickerSetting.getInstance().setLogoSize(PlaceOptions.SIZE_LARGE);
             }
         });
 
@@ -130,11 +122,9 @@ public class PlacePickerSettingsActivity extends AppCompatActivity {
                 MapplsPlacePickerSetting.getInstance().setEnableHistory(isChecked);
                if (isChecked){
                    mBinding.historyCountLayout.setVisibility(View.VISIBLE);
-               }else
-               {
+               }else {
                    mBinding.historyCountLayout.setVisibility(View.GONE);
                }
-
             }
         });
         mBinding.btnPodClear.setOnClickListener(new View.OnClickListener() {
@@ -147,31 +137,22 @@ public class PlacePickerSettingsActivity extends AppCompatActivity {
         mBinding.rgPod.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.rb_city:
-                        MapplsPlacePickerSetting.getInstance().setPod(AutoSuggestCriteria.POD_CITY);
-                        break;
-                    case R.id.rb_state:
-                        MapplsPlacePickerSetting.getInstance().setPod(AutoSuggestCriteria.POD_STATE);
-                        break;
-                    case R.id.rb_sub_district:
-                        MapplsPlacePickerSetting.getInstance().setPod(AutoSuggestCriteria.POD_SUB_DISTRICT);
-                        break;
-                    case R.id.rb_district:
-                        MapplsPlacePickerSetting.getInstance().setPod(AutoSuggestCriteria.POD_DISTRICT);
-                        break;
-                    case R.id.rb_sub_locality:
-                        MapplsPlacePickerSetting.getInstance().setPod(AutoSuggestCriteria.POD_SUB_LOCALITY);
-                        break;
-                    case R.id.rb_sub_sub_locality:
-                        MapplsPlacePickerSetting.getInstance().setPod(AutoSuggestCriteria.POD_SUB_SUB_LOCALITY);
-                        break;
-                    case R.id.rb_locality:
-                        MapplsPlacePickerSetting.getInstance().setPod(AutoSuggestCriteria.POD_LOCALITY);
-                        break;
-                    case R.id.rb_village:
-                        MapplsPlacePickerSetting.getInstance().setPod(AutoSuggestCriteria.POD_VILLAGE);
-                        break;
+                if (checkedId == R.id.rb_city) {
+                    MapplsPlacePickerSetting.getInstance().setPod(AutoSuggestCriteria.POD_CITY);
+                } else if (checkedId == R.id.rb_state) {
+                    MapplsPlacePickerSetting.getInstance().setPod(AutoSuggestCriteria.POD_STATE);
+                } else if (checkedId == R.id.rb_sub_district) {
+                    MapplsPlacePickerSetting.getInstance().setPod(AutoSuggestCriteria.POD_SUB_DISTRICT);
+                }else if (checkedId == R.id.rb_district) {
+                    MapplsPlacePickerSetting.getInstance().setPod(AutoSuggestCriteria.POD_DISTRICT);
+                }else if (checkedId == R.id.rb_sub_locality) {
+                    MapplsPlacePickerSetting.getInstance().setPod(AutoSuggestCriteria.POD_SUB_LOCALITY);
+                }else if (checkedId == R.id.rb_sub_sub_locality) {
+                    MapplsPlacePickerSetting.getInstance().setPod(AutoSuggestCriteria.POD_SUB_SUB_LOCALITY);
+                }else if (checkedId == R.id.rb_locality) {
+                    MapplsPlacePickerSetting.getInstance().setPod(AutoSuggestCriteria.POD_LOCALITY);
+                }else if (checkedId == R.id.rb_village) {
+                    MapplsPlacePickerSetting.getInstance().setPod(AutoSuggestCriteria.POD_VILLAGE);
                 }
             }
         });
@@ -205,42 +186,30 @@ public class PlacePickerSettingsActivity extends AppCompatActivity {
         mBinding.backgroundRG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.rb_white:
-                        MapplsPlacePickerSetting.getInstance().setBackgroundColor(android.R.color.white);
-                        break;
-                    case R.id.rb_black:
-                        MapplsPlacePickerSetting.getInstance().setBackgroundColor(android.R.color.black);
-                        break;
-                    case R.id.rb_red:
-                        MapplsPlacePickerSetting.getInstance().setBackgroundColor(android.R.color.holo_red_light);
-                        break;
-                    case R.id.rb_green:
-                        MapplsPlacePickerSetting.getInstance().setBackgroundColor(android.R.color.holo_green_dark);
-                        break;
-                    case R.id.rb_blue:
-                        MapplsPlacePickerSetting.getInstance().setBackgroundColor(android.R.color.holo_blue_bright);
-                        break;
+                if (checkedId == R.id.rb_white) {
+                    MapplsPlacePickerSetting.getInstance().setBackgroundColor(android.R.color.white);
+                } else if (checkedId == R.id.rb_black) {
+                    MapplsPlacePickerSetting.getInstance().setBackgroundColor(android.R.color.black);
+                } else if (checkedId == R.id.rb_red) {
+                    MapplsPlacePickerSetting.getInstance().setBackgroundColor(android.R.color.holo_red_light);
+                }else if (checkedId == R.id.rb_green) {
+                    MapplsPlacePickerSetting.getInstance().setBackgroundColor(android.R.color.holo_green_dark);
+                }else if (checkedId == R.id.rb_blue) {
+                    MapplsPlacePickerSetting.getInstance().setBackgroundColor(android.R.color.holo_blue_bright);
                 }
             }
         });
         mBinding.toolbarRG.setOnCheckedChangeListener((group, checkedId) -> {
-            switch (checkedId) {
-                case R.id.rb_white_toolbar:
-                    MapplsPlacePickerSetting.getInstance().setToolbarColor(android.R.color.white);
-                    break;
-                case R.id.rb_black_toolbar:
-                    MapplsPlacePickerSetting.getInstance().setToolbarColor(android.R.color.black);
-                    break;
-                case R.id.rb_red_toolbar:
-                    MapplsPlacePickerSetting.getInstance().setToolbarColor(android.R.color.holo_red_light);
-                    break;
-                case R.id.rb_green_toolbar:
-                    MapplsPlacePickerSetting.getInstance().setToolbarColor(android.R.color.holo_green_dark);
-                    break;
-                case R.id.rb_blue_toolbar:
-                    MapplsPlacePickerSetting.getInstance().setToolbarColor(android.R.color.holo_blue_bright);
-                    break;
+            if (checkedId == R.id.rb_white_toolbar) {
+                MapplsPlacePickerSetting.getInstance().setToolbarColor(android.R.color.white);
+            } else if (checkedId == R.id.rb_black_toolbar) {
+                MapplsPlacePickerSetting.getInstance().setToolbarColor(android.R.color.black);
+            } else if (checkedId == R.id.rb_red_toolbar) {
+                MapplsPlacePickerSetting.getInstance().setToolbarColor(android.R.color.holo_red_light);
+            }else if (checkedId == R.id.rb_green_toolbar) {
+                MapplsPlacePickerSetting.getInstance().setToolbarColor(android.R.color.holo_green_dark);
+            }else if (checkedId == R.id.rb_blue_toolbar) {
+                MapplsPlacePickerSetting.getInstance().setToolbarColor(android.R.color.holo_blue_bright);
             }
         });
 

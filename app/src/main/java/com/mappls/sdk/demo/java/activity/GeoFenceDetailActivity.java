@@ -325,7 +325,7 @@ public class GeoFenceDetailActivity extends AppCompatActivity implements OnMapRe
 
             List<SymbolOptions> symbolOptions = new ArrayList<>();
             for (Point point : points) {
-                symbolOptions.add(new SymbolOptions().geometry(point).data(jsonObject).icon(BitmapUtils.getBitmapFromDrawable(ContextCompat.getDrawable(this, R.drawable.mappls_maps_marker_icon_default))));
+                symbolOptions.add(new SymbolOptions().geometry(point).data(jsonObject).icon(BitmapUtils.getBitmapFromDrawable(ContextCompat.getDrawable(this, com.mappls.sdk.maps.R.drawable.mappls_maps_marker_icon_default))));
             }
             List<Symbol> symbols = symbolManager.create(symbolOptions);
             this.symbols.addAll(symbols);

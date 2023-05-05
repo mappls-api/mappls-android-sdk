@@ -51,6 +51,7 @@ public class CardModeActivity extends AppCompatActivity implements OnMapReadyCal
             public void onClick(View view) {
                 if(mapplsMap != null) {
                     PlaceOptions placeOptions = PlaceOptions.builder()
+                            .debounce(MapplsPlaceWidgetSetting.getInstance().getDeBounce())
                             .location(MapplsPlaceWidgetSetting.getInstance().getLocation())
                             .filter(MapplsPlaceWidgetSetting.getInstance().getFilter())
                             .hint(MapplsPlaceWidgetSetting.getInstance().getHint())

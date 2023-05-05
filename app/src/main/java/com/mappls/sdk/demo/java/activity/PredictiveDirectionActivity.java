@@ -1,0 +1,506 @@
+package com.mappls.sdk.demo.java.activity;
+
+import static java.lang.Double.parseDouble;
+
+import android.annotation.SuppressLint;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.tabs.TabLayout;
+import com.mappls.sdk.demo.R;
+import com.mappls.sdk.demo.java.plugin.DirectionPolylinePlugin;
+import com.mappls.sdk.demo.java.utils.CheckInternet;
+import com.mappls.sdk.demo.java.utils.TransparentProgressDialog;
+import com.mappls.sdk.geojson.Point;
+import com.mappls.sdk.geojson.utils.PolylineUtils;
+import com.mappls.sdk.maps.MapView;
+import com.mappls.sdk.maps.MapplsMap;
+import com.mappls.sdk.maps.OnMapReadyCallback;
+import com.mappls.sdk.maps.annotations.MarkerOptions;
+import com.mappls.sdk.maps.camera.CameraPosition;
+import com.mappls.sdk.maps.camera.CameraUpdateFactory;
+import com.mappls.sdk.maps.geometry.LatLng;
+import com.mappls.sdk.maps.geometry.LatLngBounds;
+import com.mappls.sdk.services.api.OnResponseCallback;
+import com.mappls.sdk.services.api.predictive.MapplsDirectionDateTimeCurrent;
+import com.mappls.sdk.services.api.predictive.MapplsDirectionSpeedType;
+import com.mappls.sdk.services.api.predictive.MapplsDirectionSpeedTypeOptimal;
+import com.mappls.sdk.services.api.predictive.MapplsDirectionSpeedTypePredictive;
+import com.mappls.sdk.services.api.predictive.MapplsDirectionSpeedTypeTraffic;
+import com.mappls.sdk.services.api.predictive.directions.MapplsPredictiveDirectionManager;
+import com.mappls.sdk.services.api.predictive.directions.MapplsPredictiveDirections;
+import com.mappls.sdk.services.api.predictive.directions.PredictiveDirectionsCriteria;
+import com.mappls.sdk.services.api.predictive.directions.model.PredictiveDirectionLocation;
+import com.mappls.sdk.services.api.predictive.directions.model.PredictiveDirectionSummary;
+import com.mappls.sdk.services.api.predictive.directions.model.PredictiveDirectionsLeg;
+import com.mappls.sdk.services.api.predictive.directions.model.PredictiveDirectionsResponse;
+import com.mappls.sdk.services.api.predictive.directions.model.PredictiveDirectionsTrip;
+import com.mappls.sdk.services.utils.Constants;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+
+/**
+ * Created by CEINFO on 26-02-2019.
+ */
+
+public class PredictiveDirectionActivity extends AppCompatActivity implements OnMapReadyCallback, MapplsMap.OnMapLongClickListener {
+
+    private MapplsMap mapplsMap;
+    private MapView mapView;
+    private TransparentProgressDialog transparentProgressDialog;
+    private String profile = PredictiveDirectionsCriteria.PROFILE_DRIVING;
+    private TabLayout profileTabLayout;
+    private MapplsDirectionSpeedType speedType = new MapplsDirectionSpeedTypeOptimal();
+    private LinearLayout directionDetailsLayout;
+    private TextView tvDistance, tvDuration;
+    private DirectionPolylinePlugin directionPolylinePlugin;
+    private FloatingActionButton floatingActionButton;
+    private String mDestination = "MMI000";
+    private String mSource = "28.594475,77.202432";
+    private String wayPoints;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_direction_layout);
+        mapView = findViewById(R.id.map_view);
+
+        profileTabLayout = findViewById(R.id.tab_layout_profile);
+        RadioGroup rgResource = findViewById(R.id.rg_resource_type);
+        RadioButton radioButton = findViewById(R.id.rb_without_traffic);
+        radioButton.setText("Optimal");
+        RadioButton radioButton2 = findViewById(R.id.rb_with_route_eta);
+        radioButton2.setText("Predictive");
+
+        directionDetailsLayout = findViewById(R.id.direction_details_layout);
+        tvDistance = findViewById(R.id.tv_distance);
+        tvDuration = findViewById(R.id.tv_duration);
+        floatingActionButton = findViewById(R.id.edit_btn);
+        floatingActionButton.setOnClickListener(v ->
+                {
+                    Intent intent = new Intent(this, InputActivity.class);
+                    intent.putExtra("origin", mSource);
+                    intent.putExtra("destination", mDestination);
+                    intent.putExtra("waypoints", wayPoints);
+                    startActivityForResult(intent, 500);
+                }
+        );
+//        profileTabLayout.setVisibility(View.GONE);
+        profileTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                if (mapplsMap == null) {
+                    if (profileTabLayout.getTabAt(0) != null) {
+                        Objects.requireNonNull(profileTabLayout.getTabAt(0)).select();
+                        return;
+                    }
+                }
+                switch (tab.getPosition()) {
+                    case 0:
+                        profile = PredictiveDirectionsCriteria.PROFILE_DRIVING;
+                        rgResource.setVisibility(View.VISIBLE);
+                        break;
+
+                    case 1:
+                        profile = PredictiveDirectionsCriteria.PROFILE_BIKING;
+                        rgResource.check(R.id.rb_without_traffic);
+                        rgResource.setVisibility(View.GONE);
+                        break;
+
+                    case 2:
+                        profile = PredictiveDirectionsCriteria.PROFILE_WALKING;
+                        rgResource.check(R.id.rb_without_traffic);
+                        rgResource.setVisibility(View.GONE);
+                        break;
+
+                    default:
+                        break;
+                }
+
+                getDirections();
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+        rgResource.setOnCheckedChangeListener((radioGroup, i) -> {
+            if(radioGroup.getCheckedRadioButtonId() == R.id.rb_without_traffic) {
+                speedType = new MapplsDirectionSpeedTypeOptimal();
+            } else if(radioGroup.getCheckedRadioButtonId() == R.id.rb_with_traffic) {
+                speedType = new MapplsDirectionSpeedTypeTraffic();
+            } else if(radioGroup.getCheckedRadioButtonId() == R.id.rb_with_route_eta) {
+                speedType = new MapplsDirectionSpeedTypePredictive(new MapplsDirectionDateTimeCurrent());
+            }
+
+            getDirections();
+        });
+        mapView.onCreate(savedInstanceState);
+        mapView.getMapAsync(this);
+        transparentProgressDialog = new TransparentProgressDialog(this, R.drawable.circle_loader, "");
+
+    }
+
+    @Override
+    public void onMapReady(MapplsMap mapplsMap) {
+        this.mapplsMap = mapplsMap;
+
+
+        mapplsMap.setPadding(20, 20, 20, 20);
+//        profileTabLayout.setVisibility(View.VISIBLE);
+        mapplsMap.addOnMapLongClickListener(this);
+        mapplsMap.setCameraPosition(setCameraAndTilt());
+        if (CheckInternet.isNetworkAvailable(PredictiveDirectionActivity.this)) {
+            getDirections();
+        } else {
+            Toast.makeText(this, getString(R.string.pleaseCheckInternetConnection), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /**
+     * Set Camera Position
+     *
+     * @return camera position
+     */
+    protected CameraPosition setCameraAndTilt() {
+        return new CameraPosition.Builder().target(new LatLng(
+                28.551087, 77.257373)).zoom(14).tilt(0).build();
+    }
+
+    /**
+     * Show Progress Dialog
+     */
+    private void progressDialogShow() {
+        transparentProgressDialog.show();
+    }
+
+    /**
+     * Hide Progress dialog
+     */
+    private void progressDialogHide() {
+        transparentProgressDialog.dismiss();
+    }
+
+    /**
+     * Get Directions
+     */
+    @SuppressLint("WrongConstant")
+    private void getDirections() {
+        progressDialogShow();
+
+        Object dest = !mDestination.contains(",") ? mDestination : Point.fromLngLat(parseDouble(mDestination.split(",")[1]), parseDouble(mDestination.split(",")[0]));
+        Object src = !mSource.contains(",") ? mSource : Point.fromLngLat(parseDouble(mSource.split(",")[1]), parseDouble(mSource.split(",")[0]));
+        MapplsPredictiveDirections.Builder builder = MapplsPredictiveDirections.builder();
+
+
+        if (src instanceof String) {
+            builder.origin(String.valueOf(src));
+        } else {
+            builder.origin((Point) src);
+        }
+
+        if (dest instanceof String) {
+            builder.destination(String.valueOf(dest));
+        } else {
+            builder.destination((Point) dest);
+        }
+
+        if (wayPoints != null) {
+            if (!wayPoints.contains(";")) {
+                if (!wayPoints.contains(",")) {
+                    Log.e("taf", wayPoints);
+                    builder.addWaypoint(wayPoints);
+                } else {
+                    Point point = Point.fromLngLat(Double.parseDouble(wayPoints.split(",")[1]), Double.parseDouble(wayPoints.split(",")[0]));
+                    builder.addWaypoint(point);
+                }
+            } else {
+                String[] wayPointsArray = wayPoints.split(";");
+                for (String value : wayPointsArray) {
+                    if (!value.contains(",")) {
+                        builder.addWaypoint(value);
+                    } else {
+                        Point point = Point.fromLngLat(Double.parseDouble(value.split(",")[1]), Double.parseDouble(value.split(",")[0]));
+                        builder.addWaypoint(point);
+                    }
+                }
+            }
+        }
+
+        builder.profile(profile);
+        builder.speedType(speedType);
+        MapplsPredictiveDirectionManager.newInstance(builder.build()).call(new OnResponseCallback<PredictiveDirectionsResponse>() {
+
+            @Override
+            public void onSuccess(PredictiveDirectionsResponse predictiveDirectionResponse) {
+                Log.d("hello", String.valueOf(predictiveDirectionResponse.getId()+ "," +predictiveDirectionResponse.getTrip().getLocations()));
+                if (predictiveDirectionResponse != null) {
+                    PredictiveDirectionsTrip results = predictiveDirectionResponse.getTrip();
+                    mapplsMap.clear();
+
+                    if(results != null) {
+                        List<PredictiveDirectionsLeg> predictiveDirectionsLeg = results.getLegs();
+
+                        if(predictiveDirectionsLeg != null && predictiveDirectionsLeg.size() > 0) {
+                            List<Point> points = new ArrayList<>();
+                            for (PredictiveDirectionsLeg directionsLeg: predictiveDirectionsLeg) {
+                                points.addAll(PolylineUtils.decode(directionsLeg.getShape(), Constants.PRECISION_6));
+                            }
+                            drawPath(points);
+                            updateData(predictiveDirectionResponse.getTrip().getSummary());
+                        }
+                    }
+
+//                    if (results.size() > 0) {
+//                        DirectionsRoute directionsRoute = results.get(0);
+//                        if (directionsRoute != null && directionsRoute.geometry() != null) {
+//                            drawPath(PolylineUtils.decode(directionsRoute.geometry(), Constants.PRECISION_6));
+//                            updateData(directionsRoute);
+//                        }
+//                    }
+                    List<PredictiveDirectionLocation> directionsWaypoints = predictiveDirectionResponse.getTrip().getLocations();
+                    if (directionsWaypoints != null && directionsWaypoints.size() > 0) {
+                        for (PredictiveDirectionLocation directionsWaypoint : directionsWaypoints) {
+                            mapplsMap.addMarker(new MarkerOptions().position(new LatLng(directionsWaypoint.getLatitude(), directionsWaypoint.getLongitude())));
+                        }
+                    }
+                }
+                progressDialogHide();
+            }
+
+            @Override
+            public void onError(int i, String s) {
+                progressDialogHide();
+                Toast.makeText(PredictiveDirectionActivity.this, s + "----" + i, Toast.LENGTH_LONG).show();
+            }
+        });
+
+//            @Override
+//            public void onSuccess(DirectionsResponse directionsResponse) {
+//                if (directionsResponse != null) {
+//                    List<DirectionsRoute> results = directionsResponse.routes();
+//                    mapplsMap.clear();
+//
+//                    if (results.size() > 0) {
+//                        DirectionsRoute directionsRoute = results.get(0);
+//                        if (directionsRoute != null && directionsRoute.geometry() != null) {
+//                            drawPath(PolylineUtils.decode(directionsRoute.geometry(), Constants.PRECISION_6));
+//                            updateData(directionsRoute);
+//                        }
+//                    }
+//                    List<DirectionsWaypoint> directionsWaypoints = directionsResponse.waypoints();
+//                    if (directionsWaypoints != null && directionsWaypoints.size() > 0) {
+//                        for (DirectionsWaypoint directionsWaypoint : directionsWaypoints) {
+//                            mapplsMap.addMarker(new MarkerOptions().position(new LatLng(directionsWaypoint.location().latitude(), directionsWaypoint.location().longitude())));
+//                        }
+//                    }
+//                }
+//                progressDialogHide();
+//            }
+//
+//            @Override
+//            public void onError(int i, String s) {
+//                progressDialogHide();
+//                Toast.makeText(DirectionV2Activity.this, s + "----" + i, Toast.LENGTH_LONG).show();
+//            }
+//        });
+
+
+    }
+
+    /**
+     * Update Route data
+     *
+     * @param directionsRoute route data
+     */
+    private void updateData(@NonNull PredictiveDirectionSummary directionsRoute) {
+        if (directionsRoute.getLength() != null && directionsRoute.getTime() != null) {
+            directionDetailsLayout.setVisibility(View.VISIBLE);
+            floatingActionButton.setVisibility(View.VISIBLE);
+            tvDuration.setText("(" + getFormattedDuration(directionsRoute.getTime()) + ")");
+            tvDistance.setText(getFormattedDistance(directionsRoute.getLength()));
+        }
+    }
+
+    /**
+     * Get Formatted Distance
+     *
+     * @param distance route distance
+     * @return distance in Kms if distance > 1000 otherwise in mtr
+     */
+    private String getFormattedDistance(double distance) {
+
+        if (distance < 1) {
+            return (distance * 1000) + "mtr.";
+        }
+        DecimalFormat decimalFormat = new DecimalFormat("#.#");
+        return decimalFormat.format(distance) + "Km.";
+    }
+
+    /**
+     * Get Formatted Duration
+     *
+     * @param duration route duration
+     * @return formatted duration
+     */
+    private String getFormattedDuration(double duration) {
+        long min = (long) (duration % 3600 / 60);
+        long hours = (long) (duration % 86400 / 3600);
+        long days = (long) (duration / 86400);
+        if (days > 0L) {
+            return days + " " + (days > 1L ? "Days" : "Day") + " " + hours + " " + "hr" + (min > 0L ? " " + min + " " + "min." : "");
+        } else {
+            return hours > 0L ? hours + " " + "hr" + (min > 0L ? " " + min + " " + "min" : "") : min + " " + "min.";
+        }
+    }
+
+    /**
+     * Add polyline along the points
+     *
+     * @param waypoints route points
+     */
+    private void drawPath(@NonNull List<Point> waypoints) {
+        ArrayList<LatLng> listOfLatLng = new ArrayList<>();
+        for (Point point : waypoints) {
+            listOfLatLng.add(new LatLng(point.latitude(), point.longitude()));
+        }
+
+        if (directionPolylinePlugin == null) {
+            directionPolylinePlugin = new DirectionPolylinePlugin(mapplsMap, mapView, profile);
+            directionPolylinePlugin.createPolyline(listOfLatLng);
+        } else {
+            directionPolylinePlugin.updatePolyline(profile, listOfLatLng);
+
+        }
+//        mapplsMap.addPolyline(new PolylineOptions().addAll(listOfLatLng).color(Color.parseColor("#3bb2d0")).width(4));
+        LatLngBounds latLngBounds = new LatLngBounds.Builder().includes(listOfLatLng).build();
+        mapplsMap.animateCamera(CameraUpdateFactory.newLatLngBounds(latLngBounds, 30));
+    }
+
+    @Override
+    public void onMapError(int i, String s) {
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mapView.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mapView.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mapView.onDestroy();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mapView.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mapView.onResume();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapView.onLowMemory();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mapView.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 500 && resultCode == RESULT_OK) {
+            if (data.hasExtra("destination")) {
+                mDestination = data.getStringExtra("destination");
+            }
+            if (data.hasExtra("origin")) {
+                mSource = data.getStringExtra("origin");
+            }
+            if (data.hasExtra("waypoints")) {
+                wayPoints = data.getStringExtra("waypoints");
+            }
+            getDirections();
+        }
+    }
+
+    @Override
+    public boolean onMapLongClick(@NonNull LatLng latLng) {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setMessage("Select Point as Source or Destination");
+
+        alertDialog.setPositiveButton("Source", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                mSource = latLng.getLatitude() + "," + latLng.getLongitude();
+                getDirections();
+            }
+        });
+        alertDialog.setNegativeButton("Destination", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                mDestination = latLng.getLatitude() + "," + latLng.getLongitude();
+                getDirections();
+            }
+        });
+        alertDialog.setNeutralButton("Waypoint", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (TextUtils.isEmpty(wayPoints)) {
+                    wayPoints = latLng.getLatitude() + "," + latLng.getLongitude();
+                } else {
+                    String wayPoint = wayPoints + ";" + latLng.getLatitude() + "," + latLng.getLongitude();
+                    wayPoints = wayPoint;
+                }
+                getDirections();
+            }
+        });
+
+        alertDialog.setCancelable(true);
+        alertDialog.show();
+        return false;
+    }
+}

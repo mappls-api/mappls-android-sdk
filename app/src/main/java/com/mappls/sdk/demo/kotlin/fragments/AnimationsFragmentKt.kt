@@ -41,6 +41,7 @@ class AnimationsFragmentKt : Fragment(), MapFeatureListAdapter.AdapterOnClick{
         featuresArrayList.add(FeaturesList("Animate Car", "Animate a car marker on predefined route"))
         featuresArrayList.add(FeaturesList("Marker Rotation and Transition", "Rotate a marker by given degree and animate the marker to a new position"))
         featuresArrayList.add(FeaturesList("Tracking sample", "To track a vehicle on map"))
+
         featureRecycleView.layoutManager = LinearLayoutManager(context)
         var mapFeaturesListAdapter: com.mappls.sdk.demo.kotlin.adapter.MapFeatureListAdapter = com.mappls.sdk.demo.kotlin.adapter.MapFeatureListAdapter(featuresArrayList, this)
 
@@ -59,7 +60,7 @@ class AnimationsFragmentKt : Fragment(), MapFeatureListAdapter.AdapterOnClick{
         }else if(position==2){
             var reversegeoCodeIntent : Intent = Intent(context, TrackingActivity::class.java)
             startActivity(reversegeoCodeIntent)
-
         }
+
     }
 }

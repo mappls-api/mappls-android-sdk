@@ -51,6 +51,7 @@ class CardModeActivity : AppCompatActivity(), OnMapReadyCallback {
         search.setOnClickListener {
             if (mapplsMap != null) {
                 val placeOptions: PlaceOptions = PlaceOptions.builder()
+                    .debounce(MapplsPlaceWidgetSetting.instance.deBounce)
                     .location(MapplsPlaceWidgetSetting.instance.location)
                     .filter(MapplsPlaceWidgetSetting.instance.filter)
                     .hint(MapplsPlaceWidgetSetting.instance.hint)

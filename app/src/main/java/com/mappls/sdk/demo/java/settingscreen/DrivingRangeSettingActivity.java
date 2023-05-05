@@ -144,16 +144,12 @@ public class DrivingRangeSettingActivity extends AppCompatActivity {
         mBinding.contourColorRG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.rb_contour_red:
-                        MapplsDrivingRangeSetting.getInstance().setContourColor("ff0000");
-                        break;
-                    case R.id.rb_contour_green:
-                        MapplsDrivingRangeSetting.getInstance().setContourColor("00ff00");
-                        break;
-                    default:
-                        MapplsDrivingRangeSetting.getInstance().setContourColor("0000ff");
-                        break;
+                if (checkedId == R.id.rb_contour_red) {
+                    MapplsDrivingRangeSetting.getInstance().setContourColor("ff0000");
+                } else if (checkedId == R.id.rb_contour_green) {
+                    MapplsDrivingRangeSetting.getInstance().setContourColor("00ff00");
+                } else  {
+                    MapplsDrivingRangeSetting.getInstance().setContourColor("0000ff");
                 }
             }
         });
@@ -249,18 +245,14 @@ public class DrivingRangeSettingActivity extends AppCompatActivity {
         mBinding.rbDistance.setChecked(MapplsDrivingRangeSetting.getInstance().getRangeType().equals(DrivingRangeCriteria.RANGE_TYPE_DISTANCE));
         mBinding.rbTime.setChecked(MapplsDrivingRangeSetting.getInstance().getRangeType().equals(DrivingRangeCriteria.RANGE_TYPE_TIME));
         mBinding.etContourValue.setText("" + MapplsDrivingRangeSetting.getInstance().getContourValue());
-        switch (MapplsDrivingRangeSetting.getInstance().getContourColor()) {
-            case "00ff00":
-                mBinding.rbContourGreen.setChecked(true);
-            break;
-            case "0000ff":
-                mBinding.rbContourBlue.setChecked(true);
-                break;
-
-            default:
-                mBinding.rbContourRed.setChecked(true);
-            break;
+        if(MapplsDrivingRangeSetting.getInstance().getContourColor().equalsIgnoreCase("00ff00")){
+            mBinding.rbContourGreen.setChecked(true);
+        }else if(MapplsDrivingRangeSetting.getInstance().getContourColor().equalsIgnoreCase("0000ff")){
+            mBinding.rbContourBlue.setChecked(true);
+        }else {
+            mBinding.rbContourRed.setChecked(true);
         }
+
         mBinding.etDrivingProfile.setText(MapplsDrivingRangeSetting.getInstance().getDrivingProfile());
         mBinding.showLocationsSwitch.setChecked(MapplsDrivingRangeSetting.getInstance().isShowLocations());
         mBinding.showPolygonSwitch.setChecked(MapplsDrivingRangeSetting.getInstance().isForPolygon());

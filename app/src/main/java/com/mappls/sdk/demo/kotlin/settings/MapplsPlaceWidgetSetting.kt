@@ -16,10 +16,11 @@ class MapplsPlaceWidgetSetting {
     var hint = "Search Here"
     var isEnableTextSearch = false
     var isEnableLocation = false
-    var backgroundColor = R.color.white
-    var toolbarColor = R.color.white
+    var backgroundColor = R.color.mappls_demo_white
+    var toolbarColor = R.color.mappls_demo_white
     var isBridgeEnable = false
     var isHyperLocalEnable = false
+    var deBounce:Int = 0
 
     companion object {
         val instance = MapplsPlaceWidgetSetting()

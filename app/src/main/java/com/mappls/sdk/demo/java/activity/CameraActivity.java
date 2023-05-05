@@ -87,21 +87,16 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.moveCamera:
-                mapplsMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(
-                        22.553147478403194,
-                        77.23388671875), 14));
-
-                break;
-            case R.id.easeCamera:
-                mapplsMap.easeCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(
-                        28.704268, 77.103045), 14));
-                break;
-            case R.id.animateCamera:
-                mapplsMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(
-                        28.698791, 77.121243), 14));
-                break;
+        if(v.getId() == R.id.moveCamera) {
+            mapplsMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(
+                    22.553147478403194,
+                    77.23388671875), 14));
+        } else if(v.getId() == R.id.easeCamera) {
+            mapplsMap.easeCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(
+                    28.704268, 77.103045), 14));
+        } else if(v.getId() == R.id.animateCamera) {
+            mapplsMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(
+                    28.698791, 77.121243), 14));
         }
     }
 

@@ -104,30 +104,22 @@ public class DirectionWidgetSettingActivity extends AppCompatActivity {
         });
 
         mBinding.rgHorizontal.setOnCheckedChangeListener((group, checkedId) -> {
-            switch (checkedId) {
-                case R.id.rb_left:
-                    MapplsDirectionWidgetSetting.getInstance().setSignatureHorizontal(PlaceOptions.GRAVITY_LEFT);
-                    break;
-                case R.id.rb_center:
-                    MapplsDirectionWidgetSetting.getInstance().setSignatureHorizontal(PlaceOptions.GRAVITY_CENTER);
-                    break;
-                case R.id.rb_right:
-                    MapplsDirectionWidgetSetting.getInstance().setSignatureHorizontal(PlaceOptions.GRAVITY_RIGHT);
-                    break;
+            if (checkedId == R.id.rb_left) {
+                MapplsDirectionWidgetSetting.getInstance().setSignatureHorizontal(PlaceOptions.GRAVITY_LEFT);
+            } else if (checkedId == R.id.rb_center) {
+                MapplsDirectionWidgetSetting.getInstance().setSignatureHorizontal(PlaceOptions.GRAVITY_CENTER);
+            } else if (checkedId == R.id.rb_right) {
+                MapplsDirectionWidgetSetting.getInstance().setSignatureHorizontal(PlaceOptions.GRAVITY_RIGHT);
             }
         });
 
         mBinding.rgLogoSize.setOnCheckedChangeListener((group, checkedId) -> {
-            switch (checkedId) {
-                case R.id.rb_small:
-                    MapplsDirectionWidgetSetting.getInstance().setLogoSize(PlaceOptions.SIZE_SMALL);
-                    break;
-                case R.id.rb_medium:
-                    MapplsDirectionWidgetSetting.getInstance().setLogoSize(PlaceOptions.SIZE_MEDIUM);
-                    break;
-                case R.id.rb_large:
-                    MapplsDirectionWidgetSetting.getInstance().setLogoSize(PlaceOptions.SIZE_LARGE);
-                    break;
+            if (checkedId == R.id.rb_small) {
+                MapplsDirectionWidgetSetting.getInstance().setLogoSize(PlaceOptions.SIZE_SMALL);
+            } else if (checkedId == R.id.rb_medium) {
+                MapplsDirectionWidgetSetting.getInstance().setLogoSize(PlaceOptions.SIZE_MEDIUM);
+            } else if (checkedId == R.id.rb_large) {
+                MapplsDirectionWidgetSetting.getInstance().setLogoSize(PlaceOptions.SIZE_LARGE);
             }
         });
 
@@ -173,74 +165,52 @@ public class DirectionWidgetSettingActivity extends AppCompatActivity {
         });
 
         mBinding.rgResources.setOnCheckedChangeListener((group, checkedId) -> {
-            switch (checkedId) {
-                case R.id.rb_route:
-                    MapplsDirectionWidgetSetting.getInstance().setResource(DirectionsCriteria.RESOURCE_ROUTE);
-                    break;
-                case R.id.rb_route_eta:
-                    MapplsDirectionWidgetSetting.getInstance().setResource(DirectionsCriteria.RESOURCE_ROUTE_ETA);
-                    break;
-                case R.id.rb_route_traffic:
-                    MapplsDirectionWidgetSetting.getInstance().setResource(DirectionsCriteria.RESOURCE_ROUTE_TRAFFIC);
-                    break;
+            if (checkedId == R.id.rb_route) {
+                MapplsDirectionWidgetSetting.getInstance().setResource(DirectionsCriteria.RESOURCE_ROUTE);
+            } else if (checkedId == R.id.rb_route_eta) {
+                MapplsDirectionWidgetSetting.getInstance().setResource(DirectionsCriteria.RESOURCE_ROUTE_ETA);
+            } else if (checkedId == R.id.rb_route_traffic) {
+                MapplsDirectionWidgetSetting.getInstance().setResource(DirectionsCriteria.RESOURCE_ROUTE_TRAFFIC);
             }
         });
         mBinding.rgProfiles.setOnCheckedChangeListener((group, checkedId) -> {
-            switch (checkedId) {
-                case R.id.rb_driving:
-                    MapplsDirectionWidgetSetting.getInstance().setProfile(DirectionsCriteria.PROFILE_DRIVING);
-                    break;
-                case R.id.rb_walking:
-                    MapplsDirectionWidgetSetting.getInstance().setProfile(DirectionsCriteria.PROFILE_WALKING);
-                    break;
-                case R.id.rb_biking:
-                    MapplsDirectionWidgetSetting.getInstance().setProfile(DirectionsCriteria.PROFILE_BIKING);
-                    break;
-                case R.id.rb_trucking:
-                    MapplsDirectionWidgetSetting.getInstance().setProfile(DirectionsCriteria.PROFILE_TRUCKING);
-                    break;
+            if (checkedId == R.id.rb_driving) {
+                MapplsDirectionWidgetSetting.getInstance().setProfile(DirectionsCriteria.PROFILE_DRIVING);
+            } else if (checkedId == R.id.rb_walking) {
+                MapplsDirectionWidgetSetting.getInstance().setProfile(DirectionsCriteria.PROFILE_WALKING);
+            } else if (checkedId == R.id.rb_biking) {
+                MapplsDirectionWidgetSetting.getInstance().setProfile(DirectionsCriteria.PROFILE_BIKING);
+            }else if (checkedId == R.id.rb_trucking) {
+                MapplsDirectionWidgetSetting.getInstance().setProfile(DirectionsCriteria.PROFILE_TRUCKING);
             }
         });
         mBinding.rgOverviews.setOnCheckedChangeListener((group, checkedId) -> {
-            switch (checkedId) {
-                case R.id.rb_full:
-                    MapplsDirectionWidgetSetting.getInstance().setOverview(DirectionsCriteria.OVERVIEW_FULL);
-                    break;
-                case R.id.rb_none:
-                    MapplsDirectionWidgetSetting.getInstance().setOverview(DirectionsCriteria.OVERVIEW_FALSE);
-                    break;
-                case R.id.rb_simplified:
-                    MapplsDirectionWidgetSetting.getInstance().setOverview(DirectionsCriteria.OVERVIEW_SIMPLIFIED);
-                    break;
+            if (checkedId == R.id.rb_full) {
+                MapplsDirectionWidgetSetting.getInstance().setOverview(DirectionsCriteria.OVERVIEW_FULL);
+            } else if (checkedId == R.id.rb_none) {
+                MapplsDirectionWidgetSetting.getInstance().setOverview(DirectionsCriteria.OVERVIEW_FALSE);
+            } else if (checkedId == R.id.rb_simplified) {
+                MapplsDirectionWidgetSetting.getInstance().setOverview(DirectionsCriteria.OVERVIEW_SIMPLIFIED);
             }
         });
 
         mBinding.rgPod.setOnCheckedChangeListener((group, checkedId) -> {
-            switch (checkedId) {
-                case R.id.rb_city:
-                    MapplsDirectionWidgetSetting.getInstance().setPod(AutoSuggestCriteria.POD_CITY);
-                    break;
-                case R.id.rb_state:
-                    MapplsDirectionWidgetSetting.getInstance().setPod(AutoSuggestCriteria.POD_STATE);
-                    break;
-                case R.id.rb_sub_district:
-                    MapplsDirectionWidgetSetting.getInstance().setPod(AutoSuggestCriteria.POD_SUB_DISTRICT);
-                    break;
-                case R.id.rb_district:
-                    MapplsDirectionWidgetSetting.getInstance().setPod(AutoSuggestCriteria.POD_DISTRICT);
-                    break;
-                case R.id.rb_sub_locality:
-                    MapplsDirectionWidgetSetting.getInstance().setPod(AutoSuggestCriteria.POD_SUB_LOCALITY);
-                    break;
-                case R.id.rb_sub_sub_locality:
-                    MapplsDirectionWidgetSetting.getInstance().setPod(AutoSuggestCriteria.POD_SUB_SUB_LOCALITY);
-                    break;
-                case R.id.rb_locality:
-                    MapplsDirectionWidgetSetting.getInstance().setPod(AutoSuggestCriteria.POD_LOCALITY);
-                    break;
-                case R.id.rb_village:
-                    MapplsDirectionWidgetSetting.getInstance().setPod(AutoSuggestCriteria.POD_VILLAGE);
-                    break;
+            if (checkedId == R.id.rb_city) {
+                MapplsDirectionWidgetSetting.getInstance().setPod(AutoSuggestCriteria.POD_CITY);
+            } else if (checkedId == R.id.rb_state) {
+                MapplsDirectionWidgetSetting.getInstance().setPod(AutoSuggestCriteria.POD_STATE);
+            } else if (checkedId == R.id.rb_sub_district) {
+                MapplsDirectionWidgetSetting.getInstance().setPod(AutoSuggestCriteria.POD_SUB_DISTRICT);
+            }else if (checkedId == R.id.rb_district) {
+                MapplsDirectionWidgetSetting.getInstance().setPod(AutoSuggestCriteria.POD_DISTRICT);
+            }else if (checkedId == R.id.rb_sub_locality) {
+                MapplsDirectionWidgetSetting.getInstance().setPod(AutoSuggestCriteria.POD_SUB_LOCALITY);
+            }else if (checkedId == R.id.rb_sub_sub_locality) {
+                MapplsDirectionWidgetSetting.getInstance().setPod(AutoSuggestCriteria.POD_SUB_SUB_LOCALITY);
+            }else if (checkedId == R.id.rb_locality) {
+                MapplsDirectionWidgetSetting.getInstance().setPod(AutoSuggestCriteria.POD_LOCALITY);
+            }else if (checkedId == R.id.rb_village) {
+                MapplsDirectionWidgetSetting.getInstance().setPod(AutoSuggestCriteria.POD_VILLAGE);
             }
         });
 
@@ -263,41 +233,29 @@ public class DirectionWidgetSettingActivity extends AppCompatActivity {
 
 
         mBinding.backgroundRG.setOnCheckedChangeListener((group, checkedId) -> {
-            switch (checkedId) {
-                case R.id.rb_white:
-                    MapplsDirectionWidgetSetting.getInstance().setBackgroundColor(android.R.color.white);
-                    break;
-                case R.id.rb_black:
-                    MapplsDirectionWidgetSetting.getInstance().setBackgroundColor(android.R.color.black);
-                    break;
-                case R.id.rb_red:
-                    MapplsDirectionWidgetSetting.getInstance().setBackgroundColor(android.R.color.holo_red_light);
-                    break;
-                case R.id.rb_green:
-                    MapplsDirectionWidgetSetting.getInstance().setBackgroundColor(android.R.color.holo_green_dark);
-                    break;
-                case R.id.rb_blue:
-                    MapplsDirectionWidgetSetting.getInstance().setBackgroundColor(android.R.color.holo_blue_bright);
-                    break;
+            if (checkedId == R.id.rb_white) {
+                MapplsDirectionWidgetSetting.getInstance().setBackgroundColor(android.R.color.white);
+            } else if (checkedId == R.id.rb_black) {
+                MapplsDirectionWidgetSetting.getInstance().setBackgroundColor(android.R.color.black);
+            } else if (checkedId == R.id.rb_red) {
+                MapplsDirectionWidgetSetting.getInstance().setBackgroundColor(android.R.color.holo_red_light);
+            }else if (checkedId == R.id.rb_green) {
+                MapplsDirectionWidgetSetting.getInstance().setBackgroundColor(android.R.color.holo_green_dark);
+            }else if (checkedId == R.id.rb_blue) {
+                MapplsDirectionWidgetSetting.getInstance().setBackgroundColor(android.R.color.holo_blue_bright);
             }
         });
         mBinding.toolbarRG.setOnCheckedChangeListener((group, checkedId) -> {
-            switch (checkedId) {
-                case R.id.rb_white_toolbar:
-                    MapplsDirectionWidgetSetting.getInstance().setToolbarColor(android.R.color.white);
-                    break;
-                case R.id.rb_black_toolbar:
-                    MapplsDirectionWidgetSetting.getInstance().setToolbarColor(android.R.color.black);
-                    break;
-                case R.id.rb_red_toolbar:
-                    MapplsDirectionWidgetSetting.getInstance().setToolbarColor(android.R.color.holo_red_light);
-                    break;
-                case R.id.rb_green_toolbar:
-                    MapplsDirectionWidgetSetting.getInstance().setToolbarColor(android.R.color.holo_green_dark);
-                    break;
-                case R.id.rb_blue_toolbar:
-                    MapplsDirectionWidgetSetting.getInstance().setToolbarColor(android.R.color.holo_blue_bright);
-                    break;
+            if (checkedId == R.id.rb_white_toolbar) {
+                MapplsDirectionWidgetSetting.getInstance().setToolbarColor(android.R.color.white);
+            } else if (checkedId == R.id.rb_black_toolbar) {
+                MapplsDirectionWidgetSetting.getInstance().setToolbarColor(android.R.color.black);
+            } else if (checkedId == R.id.rb_red_toolbar) {
+                MapplsDirectionWidgetSetting.getInstance().setToolbarColor(android.R.color.holo_red_light);
+            }else if (checkedId == R.id.rb_green_toolbar) {
+                MapplsDirectionWidgetSetting.getInstance().setToolbarColor(android.R.color.holo_green_dark);
+            }else if (checkedId == R.id.rb_blue_toolbar) {
+                MapplsDirectionWidgetSetting.getInstance().setToolbarColor(android.R.color.holo_blue_bright);
             }
         });
         mBinding.cbPoiSearch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

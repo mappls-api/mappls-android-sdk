@@ -42,6 +42,7 @@ class CardModeFragmentAutocompleteActivity : AppCompatActivity(), OnMapReadyCall
             PlaceOptions.builder().build(PlaceOptions.MODE_CARDS)
         } else {
             PlaceOptions.builder()
+                .debounce(MapplsPlaceWidgetSetting.instance.deBounce)
                 .location(MapplsPlaceWidgetSetting.instance.location)
                 .filter(MapplsPlaceWidgetSetting.instance.filter)
                 .saveHistory(MapplsPlaceWidgetSetting.instance.isEnableHistory)

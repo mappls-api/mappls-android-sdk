@@ -1,6 +1,7 @@
 package com.mappls.sdk.demo.java.activity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CompoundButton;
 
 import androidx.annotation.NonNull;
@@ -32,25 +33,41 @@ public class TrafficActivity extends AppCompatActivity implements OnMapReadyCall
         mBinding.freeflow.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                mapplsMap.enableTrafficFreeFlow(isChecked);
+                if(mapplsMap != null) {
+                    if (mapplsMap.isEnableTraffic()) {
+                        mapplsMap.enableTrafficFreeFlow(isChecked);
+                    }
+                }
             }
         });
         mBinding.nonfreeflow.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                mapplsMap.enableTrafficNonFreeFlow(isChecked);
+                if (mapplsMap != null) {
+                    if(mapplsMap.isEnableTraffic()) {
+                        mapplsMap.enableTrafficNonFreeFlow(isChecked);
+                    }
+                }
             }
         });
         mBinding.closure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                mapplsMap.enableTrafficClosure(isChecked);
+                if (mapplsMap != null) {
+                    if(mapplsMap.isEnableTraffic()) {
+                        mapplsMap.enableTrafficClosure(isChecked);
+                    }
+                }
             }
         });
         mBinding.stopIcon.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                mapplsMap.enableTrafficStopIcon(isChecked);
+                if (mapplsMap != null) {
+                    if(mapplsMap.isEnableTraffic()) {
+                        mapplsMap.enableTrafficStopIcon(isChecked);
+                    }
+                }
             }
         });
         mBinding.showTraffic.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -58,8 +75,23 @@ public class TrafficActivity extends AppCompatActivity implements OnMapReadyCall
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (mapplsMap != null) {
                     mapplsMap.enableTraffic(isChecked);
-                } else {
-                    mBinding.showTraffic.setChecked(false);
+
+                    mBinding.freeflow.setClickable(isChecked);
+                    mBinding.nonfreeflow.setClickable(isChecked);
+                    mBinding.closure.setClickable(isChecked);
+                    mBinding.stopIcon.setClickable(isChecked);
+
+                    if(isChecked) {
+                        mBinding.freeflow.setChecked(mapplsMap.isEnableTrafficFreeFlow());
+                        mBinding.nonfreeflow.setChecked(mapplsMap.isEnableTrafficNonFreeFlow());
+                        mBinding.closure.setChecked(mapplsMap.isEnableTrafficClosure());
+                        mBinding.stopIcon.setChecked(mapplsMap.isEnableTrafficStopIcon());
+                    } else {
+                        mBinding.freeflow.setChecked(false);
+                        mBinding.nonfreeflow.setChecked(false);
+                        mBinding.closure.setChecked(false);
+                        mBinding.stopIcon.setChecked(false);
+                    }
                 }
             }
         });
@@ -68,6 +100,7 @@ public class TrafficActivity extends AppCompatActivity implements OnMapReadyCall
     @Override
     public void onMapReady(@NonNull MapplsMap mapplsMap) {
         this.mapplsMap = mapplsMap;
+        mBinding.trafficBtnLayout.setVisibility(View.VISIBLE);
         CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(
                 25.321684, 82.987289)).zoom(15.0).tilt(0).build();
         mapplsMap.setCameraPosition(cameraPosition);
@@ -115,7 +148,7 @@ public class TrafficActivity extends AppCompatActivity implements OnMapReadyCall
     }
 
     @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
+    protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         mBinding.mapView.onSaveInstanceState(outState);
     }

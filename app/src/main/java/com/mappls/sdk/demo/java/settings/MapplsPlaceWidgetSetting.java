@@ -22,6 +22,7 @@ public class MapplsPlaceWidgetSetting {
     private String hint = "Search Here";
     private boolean enableTextSearch;
     private boolean enableHyperLocal;
+    private int deBounce = 0;
     private int backgroundColor= android.R.color.white;
     private int toolbarColor= android.R.color.white;
     private boolean enableBridge = false;
@@ -146,5 +147,12 @@ public class MapplsPlaceWidgetSetting {
 
     public void setEnableHyperLocal(boolean enableHyperLocal) {
         this.enableHyperLocal = enableHyperLocal;
+    }
+    public int getDeBounce() {
+        return deBounce;
+    }
+
+    public void setDeBounce(int deBounce) {
+        this.deBounce = deBounce;
     }
 }

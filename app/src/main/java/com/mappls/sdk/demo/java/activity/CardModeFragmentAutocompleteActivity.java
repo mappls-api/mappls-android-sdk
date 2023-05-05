@@ -53,6 +53,7 @@ public class CardModeFragmentAutocompleteActivity extends AppCompatActivity impl
         } else {
 
             placeOptions = PlaceOptions.builder()
+                    .debounce(MapplsPlaceWidgetSetting.getInstance().getDeBounce())
                     .location(MapplsPlaceWidgetSetting.getInstance().getLocation())
                     .filter(MapplsPlaceWidgetSetting.getInstance().getFilter())
                     .saveHistory(MapplsPlaceWidgetSetting.getInstance().isEnableHistory())

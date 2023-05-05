@@ -138,21 +138,13 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
         });
 
         rgResource.setOnCheckedChangeListener((radioGroup, i) -> {
-            switch (radioGroup.getCheckedRadioButtonId()) {
-                case R.id.rb_without_traffic:
-                    resource = DirectionsCriteria.RESOURCE_ROUTE;
-                    break;
 
-                case R.id.rb_with_traffic:
-                    resource = DirectionsCriteria.RESOURCE_ROUTE_TRAFFIC;
-                    break;
-
-                case R.id.rb_with_route_eta:
-                    resource = DirectionsCriteria.RESOURCE_ROUTE_ETA;
-                    break;
-
-                default:
-                    break;
+            if(radioGroup.getCheckedRadioButtonId() == R.id.rb_without_traffic) {
+                resource = DirectionsCriteria.RESOURCE_ROUTE;
+            } else if(radioGroup.getCheckedRadioButtonId() == R.id.rb_with_traffic) {
+                resource = DirectionsCriteria.RESOURCE_ROUTE_TRAFFIC;
+            } else if(radioGroup.getCheckedRadioButtonId() == R.id.rb_with_route_eta) {
+                resource = DirectionsCriteria.RESOURCE_ROUTE_ETA;
             }
 
             getDirections();
@@ -232,7 +224,7 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
                     Log.e("taf", wayPoints);
                     builder.addWaypoint(wayPoints);
                 } else {
-                    Point point = Point.fromLngLat(parseDouble(wayPoints.split(",")[1]), parseDouble(wayPoints.split(",")[0]));
+                    Point point = Point.fromLngLat(Double.parseDouble(wayPoints.split(",")[1]), Double.parseDouble(wayPoints.split(",")[0]));
                     builder.addWaypoint(point);
                 }
             } else {
@@ -241,7 +233,7 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
                     if (!value.contains(",")) {
                         builder.addWaypoint(value);
                     } else {
-                        Point point = Point.fromLngLat(parseDouble(value.split(",")[1]), parseDouble(value.split(",")[0]));
+                        Point point = Point.fromLngLat(Double.parseDouble(value.split(",")[1]), Double.parseDouble(value.split(",")[0]));
                         builder.addWaypoint(point);
                     }
                 }
@@ -251,7 +243,7 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
                 .resource(resource)
                 .steps(true)
                 .alternatives(false)
-                .overview(DirectionsCriteria.OVERVIEW_FULL).build();
+                .overview(DirectionsCriteria.OVERVIEW_FULL);
         MapplsDirectionManager.newInstance(builder.build()).call(new OnResponseCallback<DirectionsResponse>() {
             @Override
             public void onSuccess(DirectionsResponse directionsResponse) {

@@ -52,8 +52,8 @@ public class AnimationsFragment extends Fragment {
                     Intent animateCarIntent = new Intent(getContext(), CarAnimationActivity.class);
                     startActivity(animateCarIntent);
                 } else if (position == 1) {
-                    Intent markerRototationIntent = new Intent(getContext(), MarkerRotationTransitionActivity.class);
-                    startActivity(markerRototationIntent);
+                    Intent markerRotationIntent = new Intent(getContext(), MarkerRotationTransitionActivity.class);
+                    startActivity(markerRotationIntent);
                 } else if (position == 2) {
                     Intent trackingActivityIntent = new Intent(getContext(), TrackingActivity.class);
                     startActivity(trackingActivityIntent);

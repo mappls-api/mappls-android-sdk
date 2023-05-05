@@ -22,6 +22,8 @@ import com.mappls.sdk.demo.java.activity.NearByActivity;
 import com.mappls.sdk.demo.java.activity.NearbyReportActivity;
 import com.mappls.sdk.demo.java.activity.PlaceDetailActivity;
 import com.mappls.sdk.demo.java.activity.PoiAlongRouteActivity;
+import com.mappls.sdk.demo.java.activity.PredictiveDirectionActivity;
+import com.mappls.sdk.demo.java.activity.PredictiveDistanceActivity;
 import com.mappls.sdk.demo.java.activity.ReverseGeocodeActivity;
 import com.mappls.sdk.demo.java.adapter.MapFeatureListAdapter;
 import com.mappls.sdk.demo.java.model.FeaturesList;
@@ -71,19 +73,25 @@ public class ApiCallsFragment extends Fragment {
                 } else if (position == 4) {
                     Intent getDirectionIntent = new Intent(getContext(), DirectionActivity.class);
                     startActivity(getDirectionIntent);
-                } else if (position == 5) {
+                }  else if (position == 5) {
+                    Intent getDirectionIntent = new Intent(getContext(), PredictiveDirectionActivity.class);
+                    startActivity(getDirectionIntent);
+                }else if (position == 6) {
                     Intent getDistanceIntent = new Intent(getContext(), DistanceActivity.class);
                     startActivity(getDistanceIntent);
-                }else if (position == 6) {
-                    Intent getDistanceIntent = new Intent(getContext(), HateOsNearbyActivity .class);
-                    startActivity(getDistanceIntent);
                 }else if (position == 7) {
-                    Intent getDistanceIntent = new Intent(getContext(), PoiAlongRouteActivity.class);
+                    Intent getDistanceIntent = new Intent(getContext(), PredictiveDistanceActivity.class);
                     startActivity(getDistanceIntent);
                 }else if (position == 8) {
-                    Intent getDistanceIntent = new Intent(getContext(), PlaceDetailActivity.class);
+                    Intent getDistanceIntent = new Intent(getContext(), HateOsNearbyActivity .class);
                     startActivity(getDistanceIntent);
                 }else if (position == 9) {
+                    Intent getDistanceIntent = new Intent(getContext(), PoiAlongRouteActivity.class);
+                    startActivity(getDistanceIntent);
+                }else if (position == 10) {
+                    Intent getDistanceIntent = new Intent(getContext(), PlaceDetailActivity.class);
+                    startActivity(getDistanceIntent);
+                }else if (position == 11) {
                     Intent getDistanceIntent = new Intent(getContext(), NearbyReportActivity.class);
                     startActivity(getDistanceIntent);
                 }
@@ -96,7 +104,9 @@ public class ApiCallsFragment extends Fragment {
         featuresArrayList.add(new FeaturesList("Reverse Geocode", "Reverse Geocode rest API call"));
         featuresArrayList.add(new FeaturesList("Nearby", "Show nearby results on the map"));
         featuresArrayList.add(new FeaturesList("Get Direction", "Get directions between two points and show on the map"));
+        featuresArrayList.add(new FeaturesList("Get Predictive Direction", "Get predictive directions between two points and show on the map"));
         featuresArrayList.add(new FeaturesList("Get Distance", "Get distance between points"));
+        featuresArrayList.add(new FeaturesList("Get Predictive Distance", "Get predictive distance between points"));
         featuresArrayList.add(new FeaturesList("Hateos Nearby Api", "Nearby places using hateos api"));
         featuresArrayList.add(new FeaturesList("POI Along Route Api", "user will be able to get the details of POIs of a particular category along his set route"));
         featuresArrayList.add(new FeaturesList("Place Detail", "To get the place details from mappls pin"));

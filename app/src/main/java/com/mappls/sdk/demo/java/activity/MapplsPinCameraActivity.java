@@ -89,16 +89,12 @@ public class MapplsPinCameraActivity extends AppCompatActivity implements OnMapR
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.moveCamera:
-                mapplsMap.moveCamera(CameraMapplsPinUpdateFactory.newMapplsPinZoom("2T7S17", 14));
-                break;
-            case R.id.easeCamera:
-                mapplsMap.easeCamera(CameraMapplsPinUpdateFactory.newMapplsPinZoom("5EU4EZ", 14));
-                break;
-            case R.id.animateCamera:
-                mapplsMap.animateCamera(CameraMapplsPinUpdateFactory.newMapplsPinZoom("IB3BR9", 14));
-                break;
+        if(v.getId() == R.id.moveCamera) {
+            mapplsMap.moveCamera(CameraMapplsPinUpdateFactory.newMapplsPinZoom("2T7S17", 14));
+        } else if(v.getId() == R.id.easeCamera) {
+            mapplsMap.easeCamera(CameraMapplsPinUpdateFactory.newMapplsPinZoom("5EU4EZ", 14));
+        } else if(v.getId() == R.id.animateCamera) {
+            mapplsMap.animateCamera(CameraMapplsPinUpdateFactory.newMapplsPinZoom("IB3BR9", 14));
         }
     }
 

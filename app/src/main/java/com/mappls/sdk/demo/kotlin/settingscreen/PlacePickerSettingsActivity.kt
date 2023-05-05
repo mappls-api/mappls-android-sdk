@@ -137,7 +137,7 @@ class PlacePickerSettingsActivity : AppCompatActivity() {
              }
          });*/mBinding.backgroundRG.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
-                R.id.rb_white -> MapplsPlacePickerSetting.instance.backgroundColor = R.color.white
+                R.id.rb_white -> MapplsPlacePickerSetting.instance.backgroundColor = R.color.mappls_demo_white
                 R.id.rb_black -> MapplsPlacePickerSetting.instance.backgroundColor = android.R.color.black
                 R.id.rb_red -> MapplsPlacePickerSetting.instance.backgroundColor = android.R.color.holo_red_light
                 R.id.rb_green -> MapplsPlacePickerSetting.instance.backgroundColor = android.R.color.holo_green_dark
@@ -146,7 +146,7 @@ class PlacePickerSettingsActivity : AppCompatActivity() {
         })
         mBinding.toolbarRG.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
-                R.id.rb_white_toolbar -> MapplsPlacePickerSetting.instance.toolbarColor = R.color.white
+                R.id.rb_white_toolbar -> MapplsPlacePickerSetting.instance.toolbarColor = R.color.mappls_demo_white
                 R.id.rb_black_toolbar -> MapplsPlacePickerSetting.instance.toolbarColor = android.R.color.black
                 R.id.rb_red_toolbar -> MapplsPlacePickerSetting.instance.toolbarColor =android.R.color.holo_red_light
                 R.id.rb_green_toolbar -> MapplsPlacePickerSetting.instance.toolbarColor = android.R.color.holo_green_dark
@@ -239,7 +239,7 @@ class PlacePickerSettingsActivity : AppCompatActivity() {
             mBinding.etZoom.setText(MapplsPlacePickerSetting.instance.zoom.toString())
         }
 
-        if (MapplsPlacePickerSetting.instance.backgroundColor == R.color.white) {
+        if (MapplsPlacePickerSetting.instance.backgroundColor == R.color.mappls_demo_white) {
             mBinding.backgroundRG.check(mBinding.rbWhite.id)
         } else if (MapplsPlacePickerSetting.instance.backgroundColor == android.R.color.black) {
             mBinding.backgroundRG.check(mBinding.rbBlack.id)
@@ -250,7 +250,7 @@ class PlacePickerSettingsActivity : AppCompatActivity() {
         } else if (MapplsPlacePickerSetting.instance.backgroundColor == android.R.color.holo_blue_bright) {
             mBinding.backgroundRG.check(mBinding.rbBlue.id)
         }
-        if (MapplsPlacePickerSetting.instance.toolbarColor == R.color.white) {
+        if (MapplsPlacePickerSetting.instance.toolbarColor == R.color.mappls_demo_white) {
             mBinding.toolbarRG.check(mBinding.rbWhiteToolbar.id)
         } else if (MapplsPlacePickerSetting.instance.toolbarColor == android.R.color.black) {
             mBinding.toolbarRG.check(mBinding.rbBlackToolbar.id)

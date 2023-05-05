@@ -193,7 +193,7 @@ class DirectionWidgetSettingActivity : AppCompatActivity() {
         }
         mBinding.backgroundRG.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
-                R.id.rb_white -> MapplsDirectionWidgetSetting.instance.backgroundColor = R.color.white
+                R.id.rb_white -> MapplsDirectionWidgetSetting.instance.backgroundColor = R.color.mappls_demo_white
                 R.id.rb_black -> MapplsDirectionWidgetSetting.instance.backgroundColor = android.R.color.black
                 R.id.rb_red -> MapplsDirectionWidgetSetting.instance.backgroundColor = android.R.color.holo_red_light
                 R.id.rb_green -> MapplsDirectionWidgetSetting.instance.backgroundColor = android.R.color.holo_green_dark
@@ -202,7 +202,7 @@ class DirectionWidgetSettingActivity : AppCompatActivity() {
         }
         mBinding.toolbarRG.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
-                R.id.rb_white_toolbar -> MapplsDirectionWidgetSetting.instance.toolbarColor = R.color.white
+                R.id.rb_white_toolbar -> MapplsDirectionWidgetSetting.instance.toolbarColor = R.color.mappls_demo_white
                 R.id.rb_black_toolbar -> MapplsDirectionWidgetSetting.instance.toolbarColor = android.R.color.black
                 R.id.rb_red_toolbar -> MapplsDirectionWidgetSetting.instance.toolbarColor = android.R.color.holo_red_light
                 R.id.rb_green_toolbar -> MapplsDirectionWidgetSetting.instance.toolbarColor = android.R.color.holo_green_dark
@@ -312,7 +312,7 @@ class DirectionWidgetSettingActivity : AppCompatActivity() {
             mBinding.etZoom.setText(MapplsDirectionWidgetSetting.instance.zoom.toString())
         }
         // mBinding.cbEnableTextSearch.setChecked(MapplsPlacePickerSetting.getInstance().isEnableTextSearch());
-        if (MapplsDirectionWidgetSetting.instance.backgroundColor == R.color.white) {
+        if (MapplsDirectionWidgetSetting.instance.backgroundColor == R.color.mappls_demo_white) {
             mBinding.backgroundRG.check(mBinding.rbWhite.getId())
         } else if (MapplsDirectionWidgetSetting.instance.backgroundColor == android.R.color.black) {
             mBinding.backgroundRG.check(mBinding.rbBlack.getId())
@@ -323,7 +323,7 @@ class DirectionWidgetSettingActivity : AppCompatActivity() {
         } else if (MapplsDirectionWidgetSetting.instance.backgroundColor == android.R.color.holo_blue_bright) {
             mBinding.backgroundRG.check(mBinding.rbBlue.getId())
         }
-        if (MapplsDirectionWidgetSetting.instance.toolbarColor == R.color.white) {
+        if (MapplsDirectionWidgetSetting.instance.toolbarColor == R.color.mappls_demo_white) {
             mBinding.toolbarRG.check(mBinding.rbWhiteToolbar.getId())
         } else if (MapplsDirectionWidgetSetting.instance.toolbarColor == android.R.color.black) {
             mBinding.toolbarRG.check(mBinding.rbBlackToolbar.getId())

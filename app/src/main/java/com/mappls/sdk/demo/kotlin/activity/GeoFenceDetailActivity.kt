@@ -257,7 +257,7 @@ class GeoFenceDetailActivity: AppCompatActivity(), OnMapReadyCallback {
         if (symbolManager != null) {
             val symbolOptions: MutableList<SymbolOptions> = ArrayList()
             for (point in points) {
-                symbolOptions.add(SymbolOptions().geometry(point).data(jsonObject).icon(BitmapUtils.getBitmapFromDrawable(ContextCompat.getDrawable(this, R.drawable.mappls_maps_marker_icon_default))))
+                symbolOptions.add(SymbolOptions().geometry(point).data(jsonObject).icon(BitmapUtils.getBitmapFromDrawable(ContextCompat.getDrawable(this, com.mappls.sdk.maps.R.drawable.mappls_maps_marker_icon_default))))
             }
             val symbols = symbolManager?.create(symbolOptions)
             this.symbols.addAll(symbols?: ArrayList())

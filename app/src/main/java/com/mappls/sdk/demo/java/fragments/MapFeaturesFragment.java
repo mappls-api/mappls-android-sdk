@@ -17,6 +17,7 @@ import com.mappls.sdk.demo.java.activity.GesturesActivity;
 import com.mappls.sdk.demo.java.activity.MapClickActivity;
 import com.mappls.sdk.demo.java.activity.MapFragmentActivity;
 import com.mappls.sdk.demo.java.activity.MapLongClickActivity;
+import com.mappls.sdk.demo.java.activity.PlaceClickActivity;
 import com.mappls.sdk.demo.java.activity.StyleActivity;
 import com.mappls.sdk.demo.java.activity.TrafficActivity;
 import com.mappls.sdk.demo.java.adapter.MapFeatureListAdapter;
@@ -78,6 +79,10 @@ public class MapFeaturesFragment extends Fragment {
                     Intent trafficIntent= new Intent(getContext(), TrafficActivity.class);
                     startActivity(trafficIntent);
                 }
+                else if (position == 6) {
+                    Intent placeClickIntent = new Intent(getContext(), PlaceClickActivity.class);
+                    startActivity(placeClickIntent);
+                }
             }
         });
     }
@@ -89,5 +94,6 @@ public class MapFeaturesFragment extends Fragment {
         featuresArrayList.add(new FeaturesList("Map Gestures", "Gestures detection for map view"));
         featuresArrayList.add(new FeaturesList("Map Styles", "To change and update Mappls Styles"));
         featuresArrayList.add(new FeaturesList("Map Traffic", "To show Mappls Traffic"));
+        featuresArrayList.add(new FeaturesList("Place Click", "Get POI Click Event"));
     }
 }

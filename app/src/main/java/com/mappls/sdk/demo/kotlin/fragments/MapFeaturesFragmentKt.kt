@@ -40,6 +40,7 @@ class MapFeaturesFragmentKt : Fragment(), MapFeatureListAdapter.AdapterOnClick {
         featuresArrayList.add(FeaturesList("Map Gestures", "Gestures detection for map view"))
         featuresArrayList.add(FeaturesList("Map Styles", "To change and update Mappls Styles"))
         featuresArrayList.add(FeaturesList("Map Traffic", "To show Mappls Traffic"))
+        featuresArrayList.add(FeaturesList("Place Click", "Get POI Click Event"))
         featureRecycleView.layoutManager = LinearLayoutManager(context)
         var mapFeaturesListAdapter = MapFeatureListAdapter(featuresArrayList, this)
 
@@ -67,6 +68,10 @@ class MapFeaturesFragmentKt : Fragment(), MapFeatureListAdapter.AdapterOnClick {
         }else if (position == 5) {
             val trafficIntent = Intent(context, TrafficActivity::class.java)
             startActivity(trafficIntent)
+        }else if(position==6){
+            var placeClick = Intent(context,PlaceClickActivity::class.java)
+            startActivity(placeClick)
+
         }
     }
 }

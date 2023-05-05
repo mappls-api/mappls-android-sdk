@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.mappls.sdk.demo">
+    xmlns:tools="http://schemas.android.com/tools" >
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -17,17 +16,40 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning" >
+
+        <activity
+            android:name=".java.activity.PlaceClickActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:label="Place Click Java" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".kotlin.activity.PlaceClickActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:label="Place Click Kotlin" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".java.activity.TrafficActivity"
-            android:exported="false">
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:label="Traffic Java"  >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".kotlin.activity.TrafficActivity"
-            android:exported="false">
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:label="Traffic Kotlin" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -35,15 +57,18 @@
         <activity
             android:name=".java.activity.ClusterMarkerActivity"
             android:exported="false"
-            android:label="Marker Clustering Java" />
+            android:label="Marker Clustering Java"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".kotlin.activity.ClusterMarkerActivity"
             android:exported="false"
-            android:label="Marker Clustering Kotlin" />
+            android:label="Marker Clustering Kotlin"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".java.activity.DrivingRangePluginActivity"
             android:exported="false"
-            android:label="Driving Range Java" />
+            android:label="Driving Range Java"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".java.activity.DrivingRangeActivity"
             android:exported="false"
@@ -62,31 +87,38 @@
         <activity
             android:name=".kotlin.activity.DrivingRangePluginActivity"
             android:exported="false"
-            android:label="Driving Range Kotlin" />
+            android:label="Driving Range Kotlin"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".kotlin.activity.NearbyReportActivity"
             android:exported="false"
-            android:label="Nearby Report Kotlin" />
+            android:label="Nearby Report Kotlin"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".java.activity.NearbyReportActivity"
             android:exported="false"
-            android:label="Nearby Report" />
+            android:label="Nearby Report Java"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".kotlin.activity.GeoAnalyticsActivity"
             android:exported="false"
-            android:label="GeoAnalytics Plugin Kotlin" />
+            android:label="GeoAnalytics Plugin Kotlin"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".java.activity.GeoAnalyticsActivity"
             android:exported="false"
-            android:label="GeoAnalytics Plugin" />
+            android:label="GeoAnalytics Plugin Java"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".java.activity.StyleActivity"
             android:exported="false"
-            android:label="Mappls Style" />
+            android:label="Mappls Style Java"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".kotlin.activity.StyleActivity"
             android:exported="false"
-            android:label="Mappls Style Kotlin" />
+            android:label="Mappls Style Kotlin"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".java.settingscreen.GeofenceWidgetSettingsActivity"
             android:exported="false" />
@@ -324,7 +356,7 @@
             android:parentActivityName=".java.activity.PlaceAutoCompleteActivity" />
         <activity
             android:name=".kotlin.activity.SplashActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -388,9 +420,17 @@
             android:exported="false"
             android:label="Direction Kotlin" />
         <activity
+            android:name=".kotlin.activity.PredictiveDirectionActivity"
+            android:exported="false"
+            android:label="Predictive Direction Kotlin" />
+        <activity
             android:name=".kotlin.activity.DistanceActivity"
             android:exported="false"
             android:label="Distance Kotlin" />
+        <activity
+            android:name=".kotlin.activity.PredictiveDistanceActivity"
+            android:exported="false"
+            android:label="Predictive Distance Kotlin" />
         <activity
             android:name=".kotlin.activity.GradientPolylineActivity"
             android:exported="false"
@@ -503,9 +543,17 @@
             android:exported="false"
             android:label="Direction Java" />
         <activity
+            android:name=".java.activity.PredictiveDirectionActivity"
+            android:exported="false"
+            android:label="Predictive Direction Java" />
+        <activity
             android:name=".java.activity.DistanceActivity"
             android:exported="false"
             android:label="Distance Java" />
+        <activity
+            android:name=".java.activity.PredictiveDistanceActivity"
+            android:exported="false"
+            android:label="Predictive Distance Java" />
         <activity
             android:name=".kotlin.activity.MarkerRotationTransitionActivity"
             android:exported="false"
