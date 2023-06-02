@@ -31,7 +31,6 @@ For more details of previous documentation versions , [click here](docs/v1.0.5/D
 | v8.0.6  | 03 April, 2023    | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added Geolocation API  <br/> - Added `routeIndex` request parameter in Trip Cost Estimation API. <br/> - Added `lang` request parameter  in Reverse Geocode API.  <br/> - Bug Fixes & Improvements |
 | v8.0.5  | 06 February, 2023 | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added Error Codes while initialising the map  <br/> - Added Reset Compass Engine  <br/> - Bug Fixes & Improvements                                                                                 |  
 | v8.0.4  | 18 October 2022   | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added PlaceClickListener on map which provides `mapplsPin`<br/> - Bug Fixes & Improvements                                                                                                         |  
-| v8.0.3  | 26 September 2022 | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added Weather API                                                                                                                                                                                  |  
 
 
 For more details of previous versions , [click here](docs/v1.0.5/Version-History.md).
