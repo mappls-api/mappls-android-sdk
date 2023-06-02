@@ -22,6 +22,7 @@ import com.mappls.sdk.maps.camera.CameraMapplsPinUpdateFactory;
 import com.mappls.sdk.maps.camera.CameraPosition;
 import com.mappls.sdk.maps.camera.CameraUpdateFactory;
 import com.mappls.sdk.maps.geometry.LatLng;
+import com.mappls.sdk.plugins.places.autocomplete.model.MapplsFavoritePlace;
 import com.mappls.sdk.plugins.places.autocomplete.model.PlaceOptions;
 import com.mappls.sdk.plugins.places.autocomplete.ui.PlaceAutocompleteFragment;
 import com.mappls.sdk.plugins.places.autocomplete.ui.PlaceSelectionListener;
@@ -65,6 +66,11 @@ public class NearbyReportActivity extends AppCompatActivity implements OnMapRead
                                 }
                             }
                             getSupportFragmentManager().popBackStack(PlaceAutocompleteFragment.class.getSimpleName(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                        }
+
+                        @Override
+                        public void onFavoritePlaceSelected(MapplsFavoritePlace mapplsFavoritePlace) {
+
                         }
 
                         @Override

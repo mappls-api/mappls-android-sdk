@@ -110,11 +110,11 @@ public class PlaceAutocompleteSettingActivity extends AppCompatActivity {
                 Toast.makeText(PlaceAutocompleteSettingActivity.this, "Filter save successfully", Toast.LENGTH_SHORT).show();
             }
         });
-
         mBinding.cbEnableHistory.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 MapplsPlaceWidgetSetting.getInstance().setEnableHistory(isChecked);
+                mBinding.etHistoryCount.setEnabled(isChecked);
             }
         });
         mBinding.enableLocation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -217,6 +217,12 @@ public class PlaceAutocompleteSettingActivity extends AppCompatActivity {
                 MapplsPlaceWidgetSetting.getInstance().setEnableHyperLocal(isChecked);
             }
         });
+        mBinding.cbEnableFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                MapplsPlaceWidgetSetting.getInstance().setEnableShowFavorite(isChecked);
+            }
+        });
         mBinding.etDBounce.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -244,12 +250,42 @@ public class PlaceAutocompleteSettingActivity extends AppCompatActivity {
             }
         });
 
+
+        mBinding.etHistoryCount.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if (!TextUtils.isEmpty(s)) {
+                    int value = Integer.parseInt(s.toString());
+                    MapplsPlaceWidgetSetting.getInstance().setHistoryCount(value);
+//                    if (value > 1500) {
+//                        Toast.makeText(PlaceAutocompleteSettingActivity.this, "Maximum value should be 1500", Toast.LENGTH_SHORT).show();
+//                    } else {
+////                        Toast.makeText(PlaceAutocompleteSettingActivity.this, String.valueOf(value), Toast.LENGTH_SHORT).show();
+//                        MapplsPlaceWidgetSetting.getInstance().setHistoryCount(value);
+//                    }
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
     }
 
     @SuppressLint("SetTextI18n")
     private void initSettings() {
         mBinding.cbDefault.setChecked(MapplsPlaceWidgetSetting.getInstance().isDefault());
         mBinding.disableView.setVisibility(MapplsPlaceWidgetSetting.getInstance().isDefault() ? View.VISIBLE : View.GONE);
+       mBinding.etHistoryCount.setEnabled(MapplsPlaceWidgetSetting.getInstance().isEnableHistory());
 
         if (MapplsPlaceWidgetSetting.getInstance().getSignatureVertical() == PlaceOptions.GRAVITY_TOP) {
             mBinding.rgVertical.check(mBinding.rbTop.getId());
@@ -339,6 +375,8 @@ public class PlaceAutocompleteSettingActivity extends AppCompatActivity {
         mBinding.cbEnableBridge.setChecked(MapplsPlaceWidgetSetting.getInstance().isEnableBridge());
         mBinding.cbEnableHyperlocal.setChecked(MapplsPlaceWidgetSetting.getInstance().isEnableHyperLocal());
         mBinding.etDBounce.setText(String.valueOf(MapplsPlaceWidgetSetting.getInstance().getDeBounce()));
+        mBinding.etHistoryCount.setText(String.valueOf(MapplsPlaceWidgetSetting.getInstance().getHistoryCount()));
+        mBinding.cbEnableFavorite.setChecked(MapplsPlaceWidgetSetting.getInstance().isEnableShowFavorite());
 
     }
 }

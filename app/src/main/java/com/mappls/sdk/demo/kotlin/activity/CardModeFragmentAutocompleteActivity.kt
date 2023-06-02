@@ -1,9 +1,13 @@
 package com.mappls.sdk.demo.kotlin.activity
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
 import com.mappls.sdk.demo.R
+import com.mappls.sdk.demo.java.utils.AddFavoriteManager
 import com.mappls.sdk.demo.kotlin.settings.MapplsPlaceWidgetSetting
 import com.mappls.sdk.maps.MapView
 import com.mappls.sdk.maps.MapplsMap
@@ -12,6 +16,7 @@ import com.mappls.sdk.maps.annotations.MarkerOptions
 import com.mappls.sdk.maps.camera.CameraPosition
 import com.mappls.sdk.maps.camera.CameraUpdateFactory
 import com.mappls.sdk.maps.geometry.LatLng
+import com.mappls.sdk.plugins.places.autocomplete.model.MapplsFavoritePlace
 import com.mappls.sdk.plugins.places.autocomplete.model.PlaceOptions
 import com.mappls.sdk.plugins.places.autocomplete.ui.PlaceAutocompleteFragment
 import com.mappls.sdk.plugins.places.autocomplete.ui.PlaceSelectionListener
@@ -42,6 +47,8 @@ class CardModeFragmentAutocompleteActivity : AppCompatActivity(), OnMapReadyCall
             PlaceOptions.builder().build(PlaceOptions.MODE_CARDS)
         } else {
             PlaceOptions.builder()
+                .favoritePlaces(AddFavoriteManager.getInstance().list)
+                .historyCount(MapplsPlaceWidgetSetting.instance.historyCount)
                 .debounce(MapplsPlaceWidgetSetting.instance.deBounce)
                 .location(MapplsPlaceWidgetSetting.instance.location)
                 .filter(MapplsPlaceWidgetSetting.instance.filter)
@@ -53,7 +60,7 @@ class CardModeFragmentAutocompleteActivity : AppCompatActivity(), OnMapReadyCall
                 .attributionHorizontalAlignment(MapplsPlaceWidgetSetting.instance.signatureVertical)
                 .attributionVerticalAlignment(MapplsPlaceWidgetSetting.instance.signatureHorizontal)
                 .logoSize(MapplsPlaceWidgetSetting.instance.logoSize)
-                .backgroundColor(resources.getColor(MapplsPlaceWidgetSetting.instance.backgroundColor))
+//                .backgroundColor(resources.getColor(MapplsPlaceWidgetSetting.instance.backgroundColor))
                 .toolbarColor(resources.getColor(MapplsPlaceWidgetSetting.instance.toolbarColor))
                 .bridge(MapplsPlaceWidgetSetting.instance.isBridgeEnable)
                 .hyperLocal(MapplsPlaceWidgetSetting.instance.isHyperLocalEnable)
@@ -61,7 +68,12 @@ class CardModeFragmentAutocompleteActivity : AppCompatActivity(), OnMapReadyCall
         }
 
         val placeAutocompleteFragment: PlaceAutocompleteFragment =
-            PlaceAutocompleteFragment.newInstance(placeOptions)
+            if (MapplsPlaceWidgetSetting.instance.isDefault) {
+                PlaceAutocompleteFragment.newInstance()
+            } else {
+                PlaceAutocompleteFragment.newInstance(placeOptions)
+            }
+//        val placeAutocompleteFragment: PlaceAutocompleteFragment = PlaceAutocompleteFragment.newInstance(placeOptions)
         placeAutocompleteFragment.setOnPlaceSelectedListener(object : PlaceSelectionListener {
             override fun onCancel() {
 
@@ -77,14 +89,48 @@ class CardModeFragmentAutocompleteActivity : AppCompatActivity(), OnMapReadyCall
             override fun onPlaceSelected(eLocation: ELocation?) {
                 if (mapplsMap != null) {
                     mapplsMap?.clear()
-                    val latLng =
-                        LatLng(eLocation?.latitude?.toDouble()!!, eLocation.longitude?.toDouble()!!)
-                    mapplsMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 12.0))
-                    mapplsMap?.addMarker(
-                        MarkerOptions().position(latLng).setTitle(eLocation.placeName)
-                            .setSnippet(eLocation.placeAddress)
-                    )
+                    if (eLocation?.latitude != null && eLocation.longitude != null) {
+                        val latLng = LatLng(eLocation.latitude?.toDouble()!!, eLocation.longitude?.toDouble()!!)
+                        mapplsMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 12.0))
+                        mapplsMap?.addMarker(
+                            MarkerOptions().position(latLng).setTitle(eLocation.placeName)
+                                .setSnippet(eLocation.placeAddress)
+                        )
+                    }else {
+                        mapplsMap?.addMarker(MarkerOptions().mapplsPin(eLocation?.mapplsPin)
+                            .title(eLocation?.placeName).snippet(eLocation?.placeAddress))
+                    }
+                    if (eLocation != null) {
+                        addFavoriteDialog(eLocation)
+                    }
                 }
+            }
+
+            override fun onFavoritePlaceSelected(p0: MapplsFavoritePlace?) {
+                if (mapplsMap != null) {
+                    mapplsMap?.clear()
+                    if(p0?.latitude != null && p0.longitude != null) {
+                        val latLng =
+                            LatLng(
+                                p0.longitude,
+                                p0.longitude
+                            )
+                        mapplsMap?.animateCamera(
+                            CameraUpdateFactory.newLatLngZoom(
+                                latLng,
+                                12.0
+                            )
+                        )
+                        mapplsMap?.addMarker(
+                            MarkerOptions().position(latLng).setTitle(p0.placeName)
+                                .setSnippet(p0.placeAddress)
+                        )
+                    }
+                }
+                supportFragmentManager.popBackStack(
+                    PlaceAutocompleteFragment::class.java.simpleName,
+                    FragmentManager.POP_BACK_STACK_INCLUSIVE
+                )
             }
 
         })
@@ -101,6 +147,25 @@ class CardModeFragmentAutocompleteActivity : AppCompatActivity(), OnMapReadyCall
 
     }
 
+    private fun addFavoriteDialog(eLocation: ELocation) {
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("Do you want to add this place as favorite ?")
+        builder.setTitle("Add Favorite")
+        builder.setCancelable(false)
+        builder.setPositiveButton("Yes",
+            DialogInterface.OnClickListener { dialog: DialogInterface?, which: Int ->
+                val favoritePlace = MapplsFavoritePlace(eLocation.placeName,
+                    eLocation.placeAddress,
+                    eLocation.latitude,
+                    eLocation.longitude)
+                favoritePlace.mapplsPin = eLocation.mapplsPin
+                AddFavoriteManager.getInstance().addToArray(favoritePlace)
+            })
+        builder.setNegativeButton("No",
+            DialogInterface.OnClickListener { dialog: DialogInterface, which: Int -> dialog.cancel() } as DialogInterface.OnClickListener)
+        val alertDialog = builder.create()
+        alertDialog.show()
+    }
     private fun callHateOs(hyperlink: String) {
         val hateOs = MapplsHateosNearby.builder()
             .hyperlink(hyperlink)

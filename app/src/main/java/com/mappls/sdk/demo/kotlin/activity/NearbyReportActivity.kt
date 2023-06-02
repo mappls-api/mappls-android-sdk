@@ -19,6 +19,7 @@ import com.mappls.sdk.maps.camera.CameraMapplsPinUpdateFactory
 import com.mappls.sdk.maps.camera.CameraPosition
 import com.mappls.sdk.maps.camera.CameraUpdateFactory
 import com.mappls.sdk.maps.geometry.LatLng
+import com.mappls.sdk.plugins.places.autocomplete.model.MapplsFavoritePlace
 import com.mappls.sdk.plugins.places.autocomplete.model.PlaceOptions
 import com.mappls.sdk.plugins.places.autocomplete.ui.PlaceAutocompleteFragment
 import com.mappls.sdk.plugins.places.autocomplete.ui.PlaceSelectionListener
@@ -72,6 +73,10 @@ class NearbyReportActivity : AppCompatActivity(), OnMapReadyCallback {
                             PlaceAutocompleteFragment::class.java.simpleName,
                             FragmentManager.POP_BACK_STACK_INCLUSIVE
                         )
+                    }
+
+                    override fun onFavoritePlaceSelected(p0: MapplsFavoritePlace?) {
+                        TODO("Not yet implemented")
                     }
 
                     override fun onCancel() {

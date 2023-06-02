@@ -1,6 +1,7 @@
 package com.mappls.sdk.demo.java.activity;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -9,10 +10,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.mappls.sdk.demo.R;
 import com.mappls.sdk.demo.java.settings.MapplsPlaceWidgetSetting;
+import com.mappls.sdk.demo.java.utils.AddFavoriteManager;
 import com.mappls.sdk.maps.MapView;
 import com.mappls.sdk.maps.MapplsMap;
 import com.mappls.sdk.maps.OnMapReadyCallback;
@@ -21,6 +24,7 @@ import com.mappls.sdk.maps.camera.CameraPosition;
 import com.mappls.sdk.maps.camera.CameraUpdateFactory;
 import com.mappls.sdk.maps.geometry.LatLng;
 import com.mappls.sdk.plugins.places.autocomplete.PlaceAutocomplete;
+import com.mappls.sdk.plugins.places.autocomplete.model.MapplsFavoritePlace;
 import com.mappls.sdk.plugins.places.autocomplete.model.PlaceOptions;
 import com.mappls.sdk.services.api.OnResponseCallback;
 import com.mappls.sdk.services.api.autosuggest.model.ELocation;
@@ -51,6 +55,8 @@ public class CardModeActivity extends AppCompatActivity implements OnMapReadyCal
             public void onClick(View view) {
                 if(mapplsMap != null) {
                     PlaceOptions placeOptions = PlaceOptions.builder()
+                            .favoritePlaces(AddFavoriteManager.getInstance().getList())
+                            .historyCount(MapplsPlaceWidgetSetting.getInstance().getHistoryCount())
                             .debounce(MapplsPlaceWidgetSetting.getInstance().getDeBounce())
                             .location(MapplsPlaceWidgetSetting.getInstance().getLocation())
                             .filter(MapplsPlaceWidgetSetting.getInstance().getFilter())
@@ -82,6 +88,25 @@ public class CardModeActivity extends AppCompatActivity implements OnMapReadyCal
 
 
         });
+
+    }
+
+    private void addFavoriteDialog(ELocation eLocation) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Do you want to add this place as favorite ?");
+        builder.setTitle("Add Favorite");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
+            MapplsFavoritePlace favoritePlace = new MapplsFavoritePlace(eLocation.placeName, eLocation.placeAddress, eLocation.latitude, eLocation.longitude);
+            favoritePlace.setMapplsPin(eLocation.mapplsPin);
+            AddFavoriteManager.getInstance().addToArray(favoritePlace);
+        });
+        builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
+
+            dialog.cancel();
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
 
     }
 
@@ -126,12 +151,9 @@ public class CardModeActivity extends AppCompatActivity implements OnMapReadyCal
     public void onMapReady(MapplsMap mapplsMap) {
         this.mapplsMap = mapplsMap;
 
-
-
         mapplsMap.setMinZoomPreference(4);
         mapplsMap.setMaxZoomPreference(18);
         mapplsMap.setCameraPosition(new CameraPosition.Builder().target(new LatLng(28, 77)).zoom(4).build());
-
 
     }
 
@@ -142,25 +164,30 @@ public class CardModeActivity extends AppCompatActivity implements OnMapReadyCal
             if (resultCode == Activity.RESULT_OK) {
                 if (data != null) {
                     ELocation eLocation = PlaceAutocomplete.getPlace(data);
-                    if(eLocation != null) {
+                    if (eLocation != null) {
                         if (mapplsMap != null) {
                             textView.setText(eLocation.placeName);
                             mapplsMap.clear();
                             LatLng latLng = new LatLng(eLocation.latitude, eLocation.longitude);
                             mapplsMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 12));
                             mapplsMap.addMarker(new MarkerOptions().position(latLng).title(eLocation.placeName).snippet(eLocation.placeAddress));
-
-                        }
-                    } else {
-                        SuggestedSearchAtlas suggestedSearchAtlas = PlaceAutocomplete.getSuggestedSearch(data);
-                        if(suggestedSearchAtlas != null) {
-                            callHateOs(suggestedSearchAtlas.hyperLink);
-                        }else {
-                            if (PlaceAutocomplete.isRequestForCurrentLocation(data)) {
-                                Toast.makeText(CardModeActivity.this, "Please provide current location", Toast.LENGTH_SHORT).show();
-
+                            if (MapplsPlaceWidgetSetting.getInstance().isEnableShowFavorite()) {
+                                addFavoriteDialog(eLocation);
                             }
+
                         }
+                    } else if (PlaceAutocomplete.getSuggestedSearch(data) != null) {
+                        SuggestedSearchAtlas suggestedSearchAtlas = PlaceAutocomplete.getSuggestedSearch(data);
+                        callHateOs(suggestedSearchAtlas.hyperLink);
+                    } else if (PlaceAutocomplete.getFavoritePlace(data) != null) {
+                        MapplsFavoritePlace favoritePlace = PlaceAutocomplete.getFavoritePlace(data);
+                        textView.setText(favoritePlace.getPlaceName());
+                        mapplsMap.clear();
+                        LatLng latLng = new LatLng(favoritePlace.getLatitude(), favoritePlace.getLongitude());
+                        mapplsMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 12));
+                        mapplsMap.addMarker(new MarkerOptions().position(latLng).title(favoritePlace.getPlaceName()).snippet(favoritePlace.getPlaceAddress()));
+                    } else if (PlaceAutocomplete.isRequestForCurrentLocation(data)) {
+                        Toast.makeText(CardModeActivity.this, "Please provide current location", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

@@ -1,14 +1,17 @@
 package com.mappls.sdk.demo.kotlin.activity
 
 import android.app.Activity
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import android.location.Location
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.mappls.sdk.demo.R
+import com.mappls.sdk.demo.java.utils.AddFavoriteManager
 import com.mappls.sdk.demo.kotlin.settings.MapplsPlaceWidgetSetting
 import com.mappls.sdk.maps.MapView
 import com.mappls.sdk.maps.MapplsMap
@@ -19,6 +22,7 @@ import com.mappls.sdk.maps.camera.CameraUpdateFactory
 import com.mappls.sdk.maps.geometry.LatLng
 import com.mappls.sdk.maps.location.permissions.PermissionsManager
 import com.mappls.sdk.plugins.places.autocomplete.PlaceAutocomplete
+import com.mappls.sdk.plugins.places.autocomplete.model.MapplsFavoritePlace
 import com.mappls.sdk.plugins.places.autocomplete.model.PlaceOptions
 import com.mappls.sdk.services.api.OnResponseCallback
 import com.mappls.sdk.services.api.autosuggest.model.ELocation
@@ -51,6 +55,8 @@ class CardModeActivity : AppCompatActivity(), OnMapReadyCallback {
         search.setOnClickListener {
             if (mapplsMap != null) {
                 val placeOptions: PlaceOptions = PlaceOptions.builder()
+                    .favoritePlaces(AddFavoriteManager.getInstance().list)
+                    .historyCount(MapplsPlaceWidgetSetting.instance.historyCount)
                     .debounce(MapplsPlaceWidgetSetting.instance.deBounce)
                     .location(MapplsPlaceWidgetSetting.instance.location)
                     .filter(MapplsPlaceWidgetSetting.instance.filter)
@@ -107,21 +113,66 @@ class CardModeActivity : AppCompatActivity(), OnMapReadyCallback {
                         )
                     }
                     search.text = eLocation.placeName
-                } else {
-                    val suggestedSearch: SuggestedSearchAtlas? = PlaceAutocomplete.getSuggestedSearch(data)
-                    if(suggestedSearch != null) {
-                        callHateOs(suggestedSearch.hyperLink)
-                    } else {
-                        if (PlaceAutocomplete.isRequestForCurrentLocation(data)) {
-                            Toast.makeText(this@CardModeActivity,
-                                "Please provide current location",
-                                Toast.LENGTH_SHORT).show()
-                        }
+                    if(MapplsPlaceWidgetSetting.instance.isEnableShowFavorite) {
+                        addFavoriteDialog(eLocation)
                     }
+                } else if (PlaceAutocomplete.getSuggestedSearch(data) != null) {
+                    val suggestedSearch: SuggestedSearchAtlas =
+                        PlaceAutocomplete.getSuggestedSearch(data)
+
+                    callHateOs(suggestedSearch.hyperLink)
+                } else if (PlaceAutocomplete.getFavoritePlace(data) != null) {
+                    val favoritePlace = PlaceAutocomplete.getFavoritePlace(data)
+                    if (mapplsMap != null) {
+                        mapplsMap?.clear()
+                        val latLng =
+                            LatLng(
+                                favoritePlace.longitude,
+                                favoritePlace.longitude?.toDouble()!!
+                            )
+                        mapplsMap?.animateCamera(
+                            CameraUpdateFactory.newLatLngZoom(
+                                latLng,
+                                12.0
+                            )
+                        )
+                        mapplsMap?.addMarker(
+                            MarkerOptions().position(latLng).setTitle(favoritePlace.placeName)
+                                .setSnippet(favoritePlace.placeAddress)
+                        )
+                    }
+                    search.text = favoritePlace.placeName
+                } else if (PlaceAutocomplete.isRequestForCurrentLocation(data)) {
+                    Toast.makeText(
+                        this@CardModeActivity,
+                        "Please provide current location",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }
     }
+
+    private fun addFavoriteDialog(eLocation: ELocation) {
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("Do you want to add this place as favorite ?")
+        builder.setTitle("Add Favorite")
+        builder.setCancelable(false)
+        builder.setPositiveButton("Yes",
+            DialogInterface.OnClickListener { dialog: DialogInterface?, which: Int ->
+                val favoritePlace = MapplsFavoritePlace(eLocation.placeName,
+                    eLocation.placeAddress,
+                    eLocation.latitude,
+                    eLocation.longitude)
+                favoritePlace.mapplsPin = eLocation.mapplsPin
+                AddFavoriteManager.getInstance().addToArray(favoritePlace)
+            })
+        builder.setNegativeButton("No",
+            DialogInterface.OnClickListener { dialog: DialogInterface, which: Int -> dialog.cancel() } as DialogInterface.OnClickListener)
+        val alertDialog = builder.create()
+        alertDialog.show()
+    }
+
     private fun callHateOs(hyperlink: String) {
         val hateOs = MapplsHateosNearby.builder()
             .hyperlink(hyperlink)
@@ -135,12 +186,20 @@ class CardModeActivity : AppCompatActivity(), OnMapReadyCallback {
                         addMarker(nearByList)
                     }
                 } else {
-                    Toast.makeText(this@CardModeActivity, "Not able to get value, Try again.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@CardModeActivity,
+                        "Not able to get value, Try again.",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
 
             override fun onError(p0: Int, p1: String?) {
-                Toast.makeText(this@CardModeActivity, p1?:"Something went wrong", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@CardModeActivity,
+                    p1 ?: "Something went wrong",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
 
         })

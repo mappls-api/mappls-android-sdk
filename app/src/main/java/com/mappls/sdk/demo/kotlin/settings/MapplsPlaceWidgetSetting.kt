@@ -20,7 +20,9 @@ class MapplsPlaceWidgetSetting {
     var toolbarColor = R.color.mappls_demo_white
     var isBridgeEnable = false
     var isHyperLocalEnable = false
+    var isEnableShowFavorite = false
     var deBounce:Int = 0
+    var historyCount:Int = 0
 
     companion object {
         val instance = MapplsPlaceWidgetSetting()

@@ -105,6 +105,7 @@ class PlaceAutocompleteSettingActivity : AppCompatActivity() {
         })
         mBinding.cbEnableHistory.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
             MapplsPlaceWidgetSetting.instance.isEnableHistory = isChecked
+            mBinding.etHistoryCount.isEnabled = isChecked
         })
         mBinding.enableLocation.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
             MapplsPlaceWidgetSetting.instance.isEnableLocation = isChecked
@@ -203,6 +204,10 @@ class PlaceAutocompleteSettingActivity : AppCompatActivity() {
         mBinding.cbEnableHyperlocal.setOnCheckedChangeListener { _, isChecked ->
             MapplsPlaceWidgetSetting.instance.isHyperLocalEnable = isChecked
         }
+        mBinding.cbEnableFavorite.setOnCheckedChangeListener { buttonView, isChecked ->
+            MapplsPlaceWidgetSetting.instance.isEnableShowFavorite =
+                isChecked
+        }
         mBinding.etDBounce.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
@@ -224,13 +229,25 @@ class PlaceAutocompleteSettingActivity : AppCompatActivity() {
 
             override fun afterTextChanged(s: Editable) {}
         })
+        mBinding.etHistoryCount.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if (!TextUtils.isEmpty(s)) {
+                    val value = s.toString().toInt()
+                    MapplsPlaceWidgetSetting.instance.historyCount = value
+                }
+            }
+
+            override fun afterTextChanged(s: Editable) {}
+        })
+
     }
 
     @SuppressLint("SetTextI18n")
     private fun initSettings() {
         mBinding.cbDefault.isChecked = MapplsPlaceWidgetSetting.instance.isDefault
-        mBinding.disableView.visibility =
-            if (MapplsPlaceWidgetSetting.instance.isDefault) View.VISIBLE else View.GONE
+        mBinding.disableView.visibility = if (MapplsPlaceWidgetSetting.instance.isDefault) View.VISIBLE else View.GONE
+        mBinding.etHistoryCount.isEnabled = MapplsPlaceWidgetSetting.instance.isEnableHistory
         if (MapplsPlaceWidgetSetting.instance.signatureVertical == PlaceOptions.GRAVITY_TOP) {
             mBinding.rgVertical.check(mBinding.rbTop.id)
         } else {
@@ -367,5 +384,7 @@ class PlaceAutocompleteSettingActivity : AppCompatActivity() {
         mBinding.cbEnableBridge.isChecked = MapplsPlaceWidgetSetting.instance.isBridgeEnable
         mBinding.cbEnableHyperlocal.isChecked = MapplsPlaceWidgetSetting.instance.isHyperLocalEnable
         mBinding.etDBounce.setText(MapplsPlaceWidgetSetting.instance.deBounce.toString())
+        mBinding.etHistoryCount.setText(MapplsPlaceWidgetSetting.instance.historyCount.toString())
+        mBinding.cbEnableFavorite.isChecked = MapplsPlaceWidgetSetting.instance.isEnableShowFavorite
     }
 }

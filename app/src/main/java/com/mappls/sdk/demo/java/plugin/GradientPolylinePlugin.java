@@ -1,15 +1,5 @@
 package com.mappls.sdk.demo.java.plugin;
 
-import static com.mappls.sdk.maps.style.expressions.Expression.color;
-import static com.mappls.sdk.maps.style.expressions.Expression.interpolate;
-import static com.mappls.sdk.maps.style.expressions.Expression.lineProgress;
-import static com.mappls.sdk.maps.style.expressions.Expression.linear;
-import static com.mappls.sdk.maps.style.expressions.Expression.stop;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineCap;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineGradient;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineJoin;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineWidth;
-
 import android.graphics.Color;
 
 import androidx.annotation.NonNull;
@@ -29,6 +19,16 @@ import com.mappls.sdk.maps.style.sources.GeoJsonSource;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.mappls.sdk.maps.style.expressions.Expression.color;
+import static com.mappls.sdk.maps.style.expressions.Expression.interpolate;
+import static com.mappls.sdk.maps.style.expressions.Expression.lineProgress;
+import static com.mappls.sdk.maps.style.expressions.Expression.linear;
+import static com.mappls.sdk.maps.style.expressions.Expression.stop;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineCap;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineGradient;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineJoin;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineWidth;
 
 /**
  * Created by Saksham on 18-07-2019

@@ -1,16 +1,19 @@
 package com.mappls.sdk.demo.java.activity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
 import com.mappls.sdk.demo.R;
 import com.mappls.sdk.demo.java.settings.MapplsPlaceWidgetSetting;
+import com.mappls.sdk.demo.java.utils.AddFavoriteManager;
 import com.mappls.sdk.maps.MapView;
 import com.mappls.sdk.maps.MapplsMap;
 import com.mappls.sdk.maps.OnMapReadyCallback;
@@ -18,6 +21,7 @@ import com.mappls.sdk.maps.annotations.MarkerOptions;
 import com.mappls.sdk.maps.camera.CameraPosition;
 import com.mappls.sdk.maps.camera.CameraUpdateFactory;
 import com.mappls.sdk.maps.geometry.LatLng;
+import com.mappls.sdk.plugins.places.autocomplete.model.MapplsFavoritePlace;
 import com.mappls.sdk.plugins.places.autocomplete.model.PlaceOptions;
 import com.mappls.sdk.plugins.places.autocomplete.ui.PlaceAutocompleteFragment;
 import com.mappls.sdk.plugins.places.autocomplete.ui.PlaceSelectionListener;
@@ -48,6 +52,8 @@ public class FullModeFragmentAutocompleteActivity extends AppCompatActivity impl
             public void onClick(View view) {
                 if (mapplsMap != null) {
                     PlaceOptions placeOptions = PlaceOptions.builder()
+                            .favoritePlaces(AddFavoriteManager.getInstance().getList())
+                            .historyCount(MapplsPlaceWidgetSetting.getInstance().getHistoryCount())
                             .debounce(MapplsPlaceWidgetSetting.getInstance().getDeBounce())
                             .location(MapplsPlaceWidgetSetting.getInstance().getLocation())
                             .filter(MapplsPlaceWidgetSetting.getInstance().getFilter())
@@ -81,9 +87,30 @@ public class FullModeFragmentAutocompleteActivity extends AppCompatActivity impl
                                     LatLng latLng = new LatLng(eLocation.latitude, eLocation.longitude);
                                     mapplsMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 12));
                                     mapplsMap.addMarker(new MarkerOptions().position(latLng).title(eLocation.placeName).snippet(eLocation.placeAddress));
+                                }else {
+                                    mapplsMap.addMarker(new MarkerOptions().mapplsPin(eLocation.mapplsPin).title(eLocation.placeName).snippet(eLocation.placeAddress));
                                 }
                                 getSupportFragmentManager().popBackStack(PlaceAutocompleteFragment.class.getSimpleName(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                                if(MapplsPlaceWidgetSetting.getInstance().isEnableShowFavorite()) {
+                                    addFavoriteDialog(eLocation);
+                                }
                             }
+                        }
+
+                        @Override
+                        public void onFavoritePlaceSelected(MapplsFavoritePlace mapplsFavoritePlace) {
+                            if (mapplsMap != null) {
+                                mapplsMap.clear();
+                                if(mapplsFavoritePlace.getLatitude() != null && mapplsFavoritePlace.getLongitude() != null){
+                                    LatLng latLng = new LatLng(mapplsFavoritePlace.getLatitude(), mapplsFavoritePlace.getLongitude());
+                                    mapplsMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 12));
+                                    mapplsMap.addMarker(new MarkerOptions().position(latLng).title(mapplsFavoritePlace.getPlaceName()).snippet(mapplsFavoritePlace.getPlaceAddress()));
+                                }else {
+                                    mapplsMap.addMarker(new MarkerOptions().mapplsPin(mapplsFavoritePlace.getMapplsPin()).title(mapplsFavoritePlace.getPlaceName()).snippet(mapplsFavoritePlace.getPlaceAddress()));
+                                }
+                            }
+                            getSupportFragmentManager().popBackStack(PlaceAutocompleteFragment.class.getSimpleName(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
                         }
 
                         @Override
@@ -115,6 +142,24 @@ public class FullModeFragmentAutocompleteActivity extends AppCompatActivity impl
 
     }
 
+    private void addFavoriteDialog(ELocation eLocation){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Do you want to add this place as favorite ?");
+        builder.setTitle("Add Favorite");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
+            MapplsFavoritePlace favoritePlace = new MapplsFavoritePlace(eLocation.placeName, eLocation.placeAddress, eLocation.latitude, eLocation.longitude);
+            favoritePlace.setMapplsPin(eLocation.mapplsPin);
+            AddFavoriteManager.getInstance().addToArray(favoritePlace);
+        });
+        builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
+
+            dialog.cancel();
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+    }
     private void callHateOs(String hyperlink) {
         MapplsHateosNearby hateosNearby = MapplsHateosNearby.builder()
                 .hyperlink(hyperlink)

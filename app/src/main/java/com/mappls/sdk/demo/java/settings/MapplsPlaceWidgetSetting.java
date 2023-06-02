@@ -22,7 +22,9 @@ public class MapplsPlaceWidgetSetting {
     private String hint = "Search Here";
     private boolean enableTextSearch;
     private boolean enableHyperLocal;
+    private boolean enableShowFavorite;
     private int deBounce = 0;
+    private int historyCount = 0;
     private int backgroundColor= android.R.color.white;
     private int toolbarColor= android.R.color.white;
     private boolean enableBridge = false;
@@ -148,11 +150,26 @@ public class MapplsPlaceWidgetSetting {
     public void setEnableHyperLocal(boolean enableHyperLocal) {
         this.enableHyperLocal = enableHyperLocal;
     }
+    public boolean isEnableShowFavorite() {
+        return enableShowFavorite;
+    }
+
+    public void setEnableShowFavorite(boolean enableShowFavorite) {
+        this.enableShowFavorite = enableShowFavorite;
+    }
     public int getDeBounce() {
         return deBounce;
     }
 
     public void setDeBounce(int deBounce) {
         this.deBounce = deBounce;
+    }
+
+    public int getHistoryCount() {
+        return historyCount;
+    }
+
+    public void setHistoryCount(int historyCount) {
+        this.historyCount = historyCount;
     }
 }

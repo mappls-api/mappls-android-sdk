@@ -18,6 +18,7 @@ import static com.mappls.sdk.maps.style.layers.PropertyFactory.textSize;
 
 import android.graphics.Color;
 
+
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 

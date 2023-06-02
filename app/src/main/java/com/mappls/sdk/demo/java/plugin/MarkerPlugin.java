@@ -1,15 +1,5 @@
 package com.mappls.sdk.demo.java.plugin;
 
-import static com.mappls.sdk.maps.style.expressions.Expression.eq;
-import static com.mappls.sdk.maps.style.expressions.Expression.get;
-import static com.mappls.sdk.maps.style.expressions.Expression.literal;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconAllowOverlap;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconAnchor;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconIgnorePlacement;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconImage;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconOffset;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconRotate;
-
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
@@ -46,6 +36,15 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.List;
 
+import static com.mappls.sdk.maps.style.expressions.Expression.eq;
+import static com.mappls.sdk.maps.style.expressions.Expression.get;
+import static com.mappls.sdk.maps.style.expressions.Expression.literal;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconAllowOverlap;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconAnchor;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconIgnorePlacement;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconImage;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconOffset;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconRotate;
 /**
  * Created by Saksham on 31/8/19.
  */

@@ -23,6 +23,7 @@ import com.mappls.sdk.demo.java.settings.MapplsDrivingRangeSetting;
 import com.mappls.sdk.demo.java.utils.InputFilterMinMax;
 import com.mappls.sdk.drivingrange.DrivingRangeCriteria;
 import com.mappls.sdk.geojson.Point;
+import com.mappls.sdk.plugins.places.autocomplete.model.MapplsFavoritePlace;
 import com.mappls.sdk.plugins.places.autocomplete.model.PlaceOptions;
 import com.mappls.sdk.plugins.places.autocomplete.ui.PlaceAutocompleteFragment;
 import com.mappls.sdk.plugins.places.autocomplete.ui.PlaceSelectionListener;
@@ -100,6 +101,11 @@ public class DrivingRangeSettingActivity extends AppCompatActivity {
                                 PlaceAutocompleteFragment.class.getSimpleName(),
                                 FragmentManager.POP_BACK_STACK_INCLUSIVE
                         );
+                    }
+
+                    @Override
+                    public void onFavoritePlaceSelected(MapplsFavoritePlace mapplsFavoritePlace) {
+
                     }
 
                     @Override
