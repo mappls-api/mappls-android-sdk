@@ -19,7 +19,6 @@ Powered with India's most comprehensive and robust mapping functionalities.
 | [v1.0.6](docs/v1.0.6/README.md) | - Map SDK v8.1.0 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.1.0 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v2.0.0 <br/> - Nearby UI Widget v1.0.2 <br/> - Annotation Plugin v1.0.1 <br/> - Driving Range Plugin v1.0.0 <br/> - Raster Catalogue v0.0.1 | 
 | [v1.0.5](docs/v1.0.5/README.md) | - Map SDK v8.0.8 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.1.0 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v1.2.2 <br/> - Nearby UI Widget v1.0.2 <br/> - Annotation Plugin v1.0.1 <br/> - Driving Range Plugin v1.0.0 <br/> - Raster Catalogue v0.0.1 | 
 | [v1.0.4](docs/v1.0.4/README.md) | - Map SDK v8.0.7 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.0.3 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v1.2.0 <br/> - Nearby UI Widget v1.0.2 <br/> - Annotation Plugin v1.0.1 <br/> - Driving Range Plugin v1.0.0 <br/> - Raster Catalogue v0.0.1 | 
-| [v1.0.3](docs/v1.0.3/README.md) | - Map SDK v8.0.6 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.0.2 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v1.1.1 <br/> - Nearby UI Widget v1.0.2 <br/> - Annotation Plugin v1.0.0 <br/> - Driving Range Plugin v1.0.0 <br/> - Raster Catalogue v0.0.1 | 
 
 For more details of previous documentation versions , [click here](docs/v1.0.6/Doc-Version-History.md).
 
