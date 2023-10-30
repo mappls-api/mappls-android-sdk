@@ -18,6 +18,7 @@ import com.mappls.sdk.demo.java.activity.AddCustomMarkerActivity;
 import com.mappls.sdk.demo.java.activity.AddMapplsPinCustomMarkerActivity;
 import com.mappls.sdk.demo.java.activity.AddMapplsPinMarkerActivity;
 import com.mappls.sdk.demo.java.activity.AddMarkerActivity;
+import com.mappls.sdk.demo.java.activity.AddMarkerViewActivity;
 import com.mappls.sdk.demo.java.activity.ClusterMarkerActivity;
 import com.mappls.sdk.demo.java.activity.MarkerDraggingActivity;
 import com.mappls.sdk.demo.java.adapter.MapFeatureListAdapter;
@@ -79,6 +80,9 @@ public class MarkersFeaturesFragment extends Fragment {
                 else if(position==6){
                     Intent markerDraggingIntent= new Intent(getContext(), ClusterMarkerActivity.class);
                     startActivity(markerDraggingIntent);
+                }else if(position == 7){
+                    Intent addMarkerViewIntent= new Intent(getContext(), AddMarkerViewActivity.class);
+                    startActivity(addMarkerViewIntent);
                 }
 
             }
@@ -92,6 +96,6 @@ public class MarkersFeaturesFragment extends Fragment {
         featuresArrayList.add(new FeaturesList("Add Marker Using Mappls Pin", "Way to add marker using mappls pin"));
         featuresArrayList.add(new FeaturesList("Add Custom Marker Using Mappls Pin", "Way to add custom marker using mappls pin"));
         featuresArrayList.add(new FeaturesList("Cluster Marker", "Way to add multiple markers and grouped the marker on zoom out"));
-
+        featuresArrayList.add(new FeaturesList("Add MarkerView", "way to add MarkerView"));
     }
 }

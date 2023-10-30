@@ -1,5 +1,15 @@
 package com.mappls.sdk.demo.java.plugin;
 
+import static com.mappls.sdk.maps.style.expressions.Expression.eq;
+import static com.mappls.sdk.maps.style.expressions.Expression.get;
+import static com.mappls.sdk.maps.style.expressions.Expression.literal;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconAllowOverlap;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconAnchor;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconIgnorePlacement;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconImage;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconOffset;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconRotate;
+
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
@@ -9,7 +19,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.PointF;
 import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -35,16 +44,12 @@ import com.mappls.sdk.maps.utils.BitmapUtils;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
-import static com.mappls.sdk.maps.style.expressions.Expression.eq;
-import static com.mappls.sdk.maps.style.expressions.Expression.get;
-import static com.mappls.sdk.maps.style.expressions.Expression.literal;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconAllowOverlap;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconAnchor;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconIgnorePlacement;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconImage;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconOffset;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconRotate;
 /**
  * Created by Saksham on 31/8/19.
  */
@@ -152,7 +157,8 @@ public class MarkerPlugin implements MapView.OnDidFinishLoadingStyleListener, Ma
 
             }
         });
-        new GenerateViewIconTask(this).execute(feature);
+//        new GenerateViewIconTask(this).execute(feature);
+        GenerateViewIconExecutor( this ,true, feature);
     }
 
     /**
@@ -287,7 +293,7 @@ public class MarkerPlugin implements MapView.OnDidFinishLoadingStyleListener, Ma
         if (!features.isEmpty()) {
             feature = features.get(0);
             feature.addBooleanProperty(PROPERTY_SELECTED, true);
-            new GenerateViewIconTask(this).execute(feature);
+           GenerateViewIconExecutor( this ,true, feature);
         }
         return false;
     }
@@ -295,24 +301,48 @@ public class MarkerPlugin implements MapView.OnDidFinishLoadingStyleListener, Ma
     /**
      * Generate Info window Icon
      */
-    private static class GenerateViewIconTask extends AsyncTask<Feature, Void, HashMap<String, Bitmap>> {
+    private void GenerateViewIconExecutor( MarkerPlugin activity ,boolean refreshSource, Feature feature){
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        // Create an instance of the GenerateViewIconTask
+        GenerateViewIconTask task = new GenerateViewIconTask(activity,refreshSource, feature);
+        // Submit the task to the executor service for execution
+        Future<HashMap<String, Bitmap>> future = executorService.submit(task);
+        // You can retrieve the result when it's ready
+        try {
+            HashMap<String, Bitmap> result = future.get();
+            // Process the result
+            if (result != null) {
+                activity.setImageGenResults(result);
+                if (refreshSource) {
+                    activity.updateState();
+                }
+                Toast.makeText(activity.mMapView.getContext(), "Marker Instructions", Toast.LENGTH_SHORT).show();
+
+            }
+        } catch (InterruptedException e) {
+            // Handle InterruptedException
+        } catch (ExecutionException e) {
+            // Handle ExecutionException
+        }
+
+    // Remember to shutdown the executor service when you're done
+        executorService.shutdown();
+    }
+    private static class GenerateViewIconTask implements Callable<HashMap<String, Bitmap>> {
 
         private final HashMap<String, View> viewMap = new HashMap<>();
         private final WeakReference<MarkerPlugin> activityRef;
         private final boolean refreshSource;
+        private final Feature[] params;
 
-        GenerateViewIconTask(MarkerPlugin activity, boolean refreshSource) {
+        GenerateViewIconTask(MarkerPlugin activity, boolean refreshSource, Feature... params) {
             this.activityRef = new WeakReference<>(activity);
             this.refreshSource = refreshSource;
+            this.params = params;
         }
 
-        GenerateViewIconTask(MarkerPlugin activity) {
-            this(activity, true);
-        }
-
-        @SuppressWarnings("WrongThread")
         @Override
-        protected HashMap<String, Bitmap> doInBackground(Feature... params) {
+        public HashMap<String, Bitmap> call() {
             MarkerPlugin activity = activityRef.get();
             if (activity != null) {
                 HashMap<String, Bitmap> imagesMap = new HashMap<>();
@@ -320,7 +350,7 @@ public class MarkerPlugin implements MapView.OnDidFinishLoadingStyleListener, Ma
 
                 Feature feature = params[0];
 
-              if(feature != null) {
+                if (feature != null) {
 
                     BubbleLayout bubbleLayout = (BubbleLayout)
                             inflater.inflate(R.layout.symbol_layer_info_window_layout_callout, null);
@@ -329,18 +359,11 @@ public class MarkerPlugin implements MapView.OnDidFinishLoadingStyleListener, Ma
                         TextView titleTextView = bubbleLayout.findViewById(R.id.info_window_title);
                         titleTextView.setText(name1);
 
-
                         if (feature.hasProperty(PROPERTY_ADDRESS)) {
                             String address = feature.getStringProperty(PROPERTY_ADDRESS);
                             TextView addressTextView = bubbleLayout.findViewById(R.id.info_window_description);
                             addressTextView.setText(address);
                         }
-
-
-//                    String style = feature.getStringProperty(PROPERTY_CAPITAL);
-//                    TextView descriptionTextView = bubbleLayout.findViewById(R.id.info_window_description);
-//                    descriptionTextView.setText(
-//                            String.format("capital", style));
 
                         int measureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
                         bubbleLayout.measure(measureSpec, measureSpec);
@@ -359,20 +382,6 @@ public class MarkerPlugin implements MapView.OnDidFinishLoadingStyleListener, Ma
             } else {
                 return null;
             }
-        }
-
-        @Override
-        protected void onPostExecute(HashMap<String, Bitmap> bitmapHashMap) {
-            super.onPostExecute(bitmapHashMap);
-            MarkerPlugin activity = activityRef.get();
-            if (activity != null && bitmapHashMap != null) {
-                activity.setImageGenResults(bitmapHashMap);
-                if (refreshSource) {
-                    activity.updateState();
-                }
-                Toast.makeText(activity.mMapView.getContext(), "Marker Instructions", Toast.LENGTH_SHORT).show();
-            }
-
         }
     }
 

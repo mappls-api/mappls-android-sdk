@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="200dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/cardview_dark_background"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp"
+    app:cardUseCompatPadding="true"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_margin="@dimen/margin_5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/marker_window_title"
+            android:layout_width="wrap_content"
+            android:padding="8dp"
+            android:text="Text here is this"
+            android:textStyle="bold"
+            android:textColor="@color/mappls_demo_black"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/marker_window_button"
+            android:layout_width="wrap_content"
+            android:padding="8dp"
+            android:textColor="@color/white"
+            android:text="button 1"
+            android:background="@color/colorPrimary"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/marker_window_button1"
+            android:layout_width="wrap_content"
+            android:padding="8dp"
+            android:text="button 2"
+            android:layout_marginTop="5dp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/marker_window_button2"
+            android:layout_width="wrap_content"
+            android:padding="8dp"
+            android:text="button 3"
+            android:layout_marginTop="5dp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

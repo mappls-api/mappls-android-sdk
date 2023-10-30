@@ -34,7 +34,7 @@ class CustomWidgetFragmentKt :Fragment(), MapFeatureListAdapter.AdapterOnClick {
         var i = 0
         val featuresArrayList = ArrayList<FeaturesList>()
         featuresArrayList.add(FeaturesList("Place Autocomplete Widget", "Location search functionality and UI to search a place"))
-        featuresArrayList.add(FeaturesList("Mappls Safety Plugin", "Mappls Safety Plugin, To show you current location safety"))
+//        featuresArrayList.add(FeaturesList("Mappls Safety Plugin", "Mappls Safety Plugin, To show you current location safety"))
         featuresArrayList.add(FeaturesList("Place Picker", "Place Picker to search and choose a specific location"))
         featuresArrayList.add(FeaturesList("GeoFence", "Highly customizable UI widget to create/edit geofence widget"))
         featuresArrayList.add(FeaturesList("Direction Step", "How to show textual instructions and maneuver icon to the user"))

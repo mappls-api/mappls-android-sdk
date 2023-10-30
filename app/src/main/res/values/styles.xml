@@ -28,4 +28,28 @@
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:background">@android:color/transparent</item>
     </style>
+
+
+
+    <style name="InputBoxSlim" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/input_box</item>
+        <item name="android:textColorHint">@color/colorHint</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:textSize">@dimen/font_small</item>
+    </style>
+
+    <style name="SubmitButtonSlim" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/submit_button</item>
+        <item name="android:textColor">@color/button_text_color</item>
+        <item name="android:minHeight">36dp</item>
+        <item name="android:minWidth">200dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
 </resources>

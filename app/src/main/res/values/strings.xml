@@ -17,6 +17,7 @@
     <string name="mappls_pin">Mappls Pin</string>
     <string name="collan">:</string>
     <string name="show_default_settings">Show Default Settings</string>
+    <string name="enter_mapsdkkey">Enter MapSDKKey</string>
 
 
 </resources>

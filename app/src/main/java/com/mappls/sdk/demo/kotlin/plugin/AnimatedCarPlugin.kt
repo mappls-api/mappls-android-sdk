@@ -13,6 +13,8 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.drawable.BitmapDrawable
 import android.os.AsyncTask
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
@@ -35,9 +37,12 @@ import com.mappls.sdk.maps.style.layers.PropertyFactory.*
 import com.mappls.sdk.maps.style.layers.SymbolLayer
 import com.mappls.sdk.maps.style.sources.GeoJsonSource
 import com.mappls.sdk.turf.TurfMeasurement
+import kotlinx.coroutines.*
 import timber.log.Timber
 import java.lang.ref.WeakReference
 import java.util.*
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
 
 class AnimatedCarPlugin(private val context: Context, mapView: MapView, private val mapplsMap: MapplsMap?) {
@@ -185,77 +190,67 @@ class AnimatedCarPlugin(private val context: Context, mapView: MapView, private 
 
         }
 
-        GenerateViewIconTask(WeakReference(this).get()!!).execute(featureCollection)
+        featureCollection?.let { GenerateViewIconTask(WeakReference(this).get()!!).doBackground(it) }
+
     }
 
     /**
      * Generate Info window Icon
      */
-    private class GenerateViewIconTask @JvmOverloads internal constructor(activity: AnimatedCarPlugin, private val refreshSource: Boolean = true) : AsyncTask<FeatureCollection, Void, HashMap<String, Bitmap>>() {
-
+    private class GenerateViewIconTask(private val activity: AnimatedCarPlugin, private val refreshSource: Boolean = true) {
         private val viewMap = HashMap<String, View>()
-        private val activityRef: WeakReference<AnimatedCarPlugin>
+        private val activityRef: WeakReference<AnimatedCarPlugin> = WeakReference(activity)
 
-        init {
-            this.activityRef = WeakReference(activity)
+         fun doBackground(vararg featureCollection: FeatureCollection) {
+             CoroutineScope(Dispatchers.IO).launch {
+                 backgroundProcess(featureCollection[0])
+
+                 withContext(Dispatchers.Main) {
+                     // UI Thread work here
+                     val bitmapHashMap = HashMap<String, Bitmap>()
+                     val activity = activityRef.get()
+                     if (activity != null && bitmapHashMap != null) {
+                         activity.setImageGenResults(bitmapHashMap)
+                         if (refreshSource) {
+                             activity.refreshSource()
+                         }
+                         Toast.makeText(activity.context, "Marker Instructions", Toast.LENGTH_SHORT).show()
+                     }
+                 }
+             }
         }
 
-        @SuppressLint("WrongThread")
-        override fun doInBackground(vararg params: FeatureCollection): HashMap<String, Bitmap>? {
-            val activity = activityRef.get()
-            if (activity != null) {
-                val imagesMap = HashMap<String, Bitmap>()
-                val inflater = LayoutInflater.from(activity.context)
+        private fun backgroundProcess(vararg params: FeatureCollection): AbstractMap<String, Bitmap>? {
+            val activity = activityRef.get() ?: return null
 
-                val featureCollection = params[0]
+            val imagesMap = HashMap<String, Bitmap>()
+            val inflater = LayoutInflater.from(activity.context)
+            val featureCollection = params[0]
 
-                featureCollection.features()!!.forEach {
+            for (feature in featureCollection.features()!!) {
+                val bubbleLayout = inflater.inflate(R.layout.symbol_layer_info_window_layout_callout, null) as BubbleLayout
+                if (feature.hasProperty(PROPERTY_NAME)) {
+                    val name = feature.getStringProperty(PROPERTY_NAME)
+                    val titleTextView = bubbleLayout.findViewById<TextView>(R.id.info_window_title)
+                    titleTextView.text = name
 
-                    val bubbleLayout = inflater.inflate(R.layout.symbol_layer_info_window_layout_callout, null) as BubbleLayout
-                    if (it.hasProperty(PROPERTY_NAME)) {
-                        val name1 = it.getStringProperty(PROPERTY_NAME)
-                        val titleTextView: TextView = bubbleLayout.findViewById(R.id.info_window_title)
-                        titleTextView.text = name1
+                    val address = feature.getStringProperty(PROPERTY_ADDRESS)
+                    val addressTextView = bubbleLayout.findViewById<TextView>(R.id.info_window_description)
+                    addressTextView.text = address
 
-                        val address = it.getStringProperty(PROPERTY_ADDRESS)
-                        val addressTextView = bubbleLayout.findViewById<TextView>(R.id.info_window_description)
-                        addressTextView.text = address
+                    val measureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+                    bubbleLayout.measure(measureSpec, measureSpec)
 
+                    val measuredWidth = bubbleLayout.measuredWidth.toFloat()
+                    bubbleLayout.setArrowPosition(measuredWidth / 2 - 5)
 
-                        //                    String style = feature.getStringProperty(PROPERTY_CAPITAL);
-                        //                    TextView descriptionTextView = bubbleLayout.findViewById(R.id.info_window_description);
-                        //                    descriptionTextView.setText(
-                        //                            String.format("capital", style));
-
-                        val measureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
-                        bubbleLayout.measure(measureSpec, measureSpec)
-
-                        val measuredWidth = bubbleLayout.measuredWidth.toFloat()
-
-                        bubbleLayout.arrowPosition = measuredWidth / 2 - 5
-
-                        val bitmap = SymbolGenerator.generate(bubbleLayout)
-                        imagesMap[name1] = bitmap
-                        viewMap[name1] = bubbleLayout
-                    }
-                }
-
-                return imagesMap
-            } else {
-                return null
-            }
-        }
-
-        override fun onPostExecute(bitmapHashMap: HashMap<String, Bitmap>?) {
-            super.onPostExecute(bitmapHashMap)
-            val activity = activityRef.get()
-            if (activity != null && bitmapHashMap != null) {
-                activity.setImageGenResults(bitmapHashMap)
-                if (refreshSource) {
-                    activity.refreshSource()
+                    val bitmap = SymbolGenerator.generate(bubbleLayout)
+                    imagesMap[name] = bitmap
+                    viewMap[name] = bubbleLayout
                 }
             }
-            Toast.makeText(activity!!.context, "Marker Instructions", Toast.LENGTH_SHORT).show()
+
+            return imagesMap
         }
     }
 
@@ -501,17 +496,17 @@ class AnimatedCarPlugin(private val context: Context, mapView: MapView, private 
 
     companion object {
 
-        private val PROPERTY_BEARING = "bearing"
-        private val CAR = "car"
-        private val CAR_LAYER = "car-layer"
-        private val CAR_SOURCE = "car-source"
+        private const val PROPERTY_BEARING = "bearing"
+        private const val CAR = "car"
+        private const val CAR_LAYER = "car-layer"
+        private const val CAR_SOURCE = "car-source"
 
-        private val SOURCE_LAYER_INFO_WINDOW = "info-window-poi-marker-layer"
-        private val PROPERTY_SELECTED = "property-selected"
-        private val TITLE = "title"
-        private val PROPERTY_NAME = "name"
-        private val FILTER_TEXT = "filter_text"
-        private val PROPERTY_ADDRESS = "address"
+        private const val SOURCE_LAYER_INFO_WINDOW = "info-window-poi-marker-layer"
+        private const val PROPERTY_SELECTED = "property-selected"
+        private const val TITLE = "title"
+        private const val PROPERTY_NAME = "name"
+        private const val FILTER_TEXT = "filter_text"
+        private const val PROPERTY_ADDRESS = "address"
 
         /**
          * Calculate the sample size of the image

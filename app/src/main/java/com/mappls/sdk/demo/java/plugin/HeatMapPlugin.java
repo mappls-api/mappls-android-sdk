@@ -1,20 +1,5 @@
 package com.mappls.sdk.demo.java.plugin;
 
-import androidx.annotation.NonNull;
-
-import com.mappls.sdk.geojson.Feature;
-import com.mappls.sdk.geojson.FeatureCollection;
-import com.mappls.sdk.geojson.Point;
-import com.mappls.sdk.maps.MapView;
-import com.mappls.sdk.maps.MapplsMap;
-import com.mappls.sdk.maps.Style;
-import com.mappls.sdk.maps.style.layers.CircleLayer;
-import com.mappls.sdk.maps.style.layers.HeatmapLayer;
-import com.mappls.sdk.maps.style.sources.GeoJsonSource;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import static com.mappls.sdk.maps.style.expressions.Expression.get;
 import static com.mappls.sdk.maps.style.expressions.Expression.heatmapDensity;
 import static com.mappls.sdk.maps.style.expressions.Expression.interpolate;
@@ -34,6 +19,21 @@ import static com.mappls.sdk.maps.style.layers.PropertyFactory.heatmapIntensity;
 import static com.mappls.sdk.maps.style.layers.PropertyFactory.heatmapOpacity;
 import static com.mappls.sdk.maps.style.layers.PropertyFactory.heatmapRadius;
 import static com.mappls.sdk.maps.style.layers.PropertyFactory.heatmapWeight;
+
+import androidx.annotation.NonNull;
+
+import com.mappls.sdk.geojson.Feature;
+import com.mappls.sdk.geojson.FeatureCollection;
+import com.mappls.sdk.geojson.Point;
+import com.mappls.sdk.maps.MapView;
+import com.mappls.sdk.maps.MapplsMap;
+import com.mappls.sdk.maps.Style;
+import com.mappls.sdk.maps.style.layers.CircleLayer;
+import com.mappls.sdk.maps.style.layers.HeatmapLayer;
+import com.mappls.sdk.maps.style.sources.GeoJsonSource;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HeatMapPlugin implements MapView.OnDidFinishLoadingStyleListener {
 

@@ -66,6 +66,7 @@ implementation 'com.mappls.sdk:mappls-android-sdk:8.0.7'
 - Add these permissions in your project
 ```xml
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 ### [Add Java 8 Support to the project]()
@@ -102,6 +103,10 @@ Mappls.getInstance(applicationContext)
 
 
 ## [Add a Mappls Map to your application]()
+
+### Using Map View
+
+This section describes how to add a basic map by using a view.
 
 
 ```xml
@@ -210,6 +215,40 @@ override fun onSaveInstanceState(outState: Bundle) {
     mapView.onSaveInstanceState(outState)
 }
 ~~~
+
+### Using Map Fragment
+
+This section describes how to add a basic map by using a fragment as a map container; however, you can use a view instead.
+
+#### Steps to follow
+
+1. Add a `SupportMapFragment` object to the activity that will handle the map.
+2. Set the layout file as the content view.
+3. If you added the fragment statically, get a handle to the fragment.
+
+### Add a SupportMapFragment object
+You can add a `SupportMapFragment` object to your app statically or dynamically. The simplest way is to add it statically. If you add the fragment dynamically, you can perform additional actions on the fragment, such as removing and replacing it at runtime.
+
+### To add a fragment Statically
+In the layout file of the activity that will handle the map:
+
+1. Add a fragment element.
+2. Add the name declaration `xmlns:map="http://schemas.android.com/apk/res-auto"`. This enables the use of `maps` custom XML attributes.
+3. In the fragment element, set the `android:name` attribute to `com.mappls.sdk.maps.SupportMapFragment`.
+4. In the fragment element, add the `android:id` attribute and set it to the the R.id.map resource ID `(@+id/map)`.
+
+For example, here's a complete layout file that includes a `fragment` element:
+ 
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:map="http://schemas.android.com/apk/res-auto"
+  android:name="com.mappls.sdk.maps.SupportMapFragment"
+  android:id="@+id/map"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"/>
+```
+
 ## [Map Interactions]()
 
 The Mappls Maps Android SDK allows you to define interactions that you can activate on the map to enable gestures and click events. The following interactions are supported –

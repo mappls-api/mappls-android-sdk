@@ -13,6 +13,7 @@ import com.mappls.sdk.demo.java.model.FeaturesList
 import com.mappls.sdk.demo.kotlin.activity.AddCustomMarkerActivity
 import com.mappls.sdk.demo.kotlin.activity.AddMapplsPinCustomMarkerActivity
 import com.mappls.sdk.demo.kotlin.activity.AddMapplsPinMarkerActivity
+import com.mappls.sdk.demo.kotlin.activity.AddMarkerViewActivity
 import com.mappls.sdk.demo.kotlin.activity.ClusterMarkerActivity
 import com.mappls.sdk.demo.kotlin.adapter.MapFeatureListAdapter
 import java.util.*
@@ -44,6 +45,7 @@ class MarkerFeatureFragmentKt : Fragment(), MapFeatureListAdapter.AdapterOnClick
         featuresArrayList.add(FeaturesList("Add Marker Using Mappls Pin", "Way to add marker using mappls pin"))
         featuresArrayList.add(FeaturesList("Add Custom Marker Using Mappls Pin", "Way to add custom marker using mappls pin"))
         featuresArrayList.add(FeaturesList("Cluster Marker", "Way to add multiple markers and grouped the marker on zoom out"))
+        featuresArrayList.add(FeaturesList("Add MarkerView", "Way to MarkerView"))
         featureRecycleView.layoutManager = LinearLayoutManager(context)
         var mapFeaturesListAdapter: MapFeatureListAdapter = MapFeatureListAdapter(featuresArrayList, this)
 
@@ -73,6 +75,9 @@ class MarkerFeatureFragmentKt : Fragment(), MapFeatureListAdapter.AdapterOnClick
             startActivity(markerDraggingIntent)
         } else if (position == 6) {
             val markerDraggingIntent = Intent(context, ClusterMarkerActivity::class.java)
+            startActivity(markerDraggingIntent)
+        }else if (position == 7) {
+            val markerDraggingIntent = Intent(context, AddMarkerViewActivity::class.java)
             startActivity(markerDraggingIntent)
         }
 

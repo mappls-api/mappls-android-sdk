@@ -19,7 +19,7 @@ class NearbyUiActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_nearby_ui)
 
-        mBinding.btnOpenNearbyActivity.setOnClickListener { v ->
+        mBinding.btnOpenNearbyActivity.setOnClickListener {
             val intent = MapplsNearbyWidget.IntentBuilder().build(this)
             startActivityForResult(intent, 101)
         }

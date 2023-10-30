@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.PermissionChecker.PERMISSION_GRANTED
+import com.mappls.sdk.demo.CredentialActivity
 import com.mappls.sdk.demo.MainActivity
 import com.mappls.sdk.demo.R
 
@@ -34,7 +35,7 @@ class SplashActivity : AppCompatActivity() {
     private fun redirect() {
         val handler = Handler(Looper.getMainLooper())
         handler.postDelayed({
-            startActivity(Intent(applicationContext, MainActivity::class.java))
+            startActivity(Intent(applicationContext, CredentialActivity::class.java))
             finish()
         }, 500)
     }
@@ -45,7 +46,7 @@ class SplashActivity : AppCompatActivity() {
 
         var permissionGranted = true
 
-        if (grantResults.size > 0) {
+        if (grantResults.isNotEmpty()) {
             for (i in grantResults.indices) {
                 if (grantResults[i] != PERMISSION_GRANTED) {
                     permissionGranted = false
@@ -82,13 +83,4 @@ class SplashActivity : AppCompatActivity() {
         }
 
     }
-
-    /*  @RequiresApi(Build.VERSION_CODES.N)
-      fun streamExample(){
-          var list = listOf(1,4, 5, 6,2, 9, 8, 3,  0)
-          list.stream()
-                  .anyMatch()
-                  .sorted()
-                  .forEach{ println(it) }
-      }*/
 }

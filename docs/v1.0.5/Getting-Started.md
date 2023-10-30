@@ -1,4 +1,4 @@
-[<img src="https://cdn-public.mappls.com/about-mappls/assets/images/mappls-logo.svg" height="60"/> </p>](https://www.mapmyindia.com/api)
+[<img src="https://about.mappls.com/images/mappls-b-logo.svg" height="60"/> </p>](https://www.mapmyindia.com/api)
 
 # Mappls Vector Map Android SDK
 
@@ -63,23 +63,21 @@ dependencyResolutionManagement {
 ```groovy
 implementation 'com.mappls.sdk:mappls-android-sdk:8.0.8'
 ```
-- Add these permissions in your project Manifest
-
+- Add these permissions in your project
 ```xml
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
-
 ### [Add Java 8 Support to the project]()
 
 *add following lines in your app module's build.gradle*
 
 ```groovy
-    compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
-    }
+compileOptions {
+    sourceCompatibility 1.8
+    targetCompatibility 1.8
+}
   ```
 
 ### [Add your API keys to the SDK]()
@@ -110,6 +108,7 @@ Mappls.getInstance(applicationContext)
 
 This section describes how to add a basic map by using a view.
 
+
 ```xml
 <com.mappls.sdk.maps.MapView  
   android:id="@+id/map_view"  
@@ -120,7 +119,6 @@ This section describes how to add a basic map by using a view.
 
 Initialize the mapView
 #### Java
-
 ```java
 @Override
 protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -174,8 +172,7 @@ protected void onSaveInstanceState(Bundle outState) {
 ```
 
 #### Kotlin
-
-```kotlin
+~~~kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.base_layout)
@@ -217,7 +214,7 @@ override fun onSaveInstanceState(outState: Bundle) {
     super.onSaveInstanceState(outState)
     mapView.onSaveInstanceState(outState)
 }
-```
+~~~
 
 ### Using Map Fragment
 
@@ -243,13 +240,13 @@ In the layout file of the activity that will handle the map:
 For example, here's a complete layout file that includes a `fragment` element:
  
 ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:map="http://schemas.android.com/apk/res-auto"
-    android:name="com.mappls.sdk.maps.SupportMapFragment"
-    android:id="@+id/map"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+<?xml version="1.0" encoding="utf-8"?>
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:map="http://schemas.android.com/apk/res-auto"
+  android:name="com.mappls.sdk.maps.SupportMapFragment"
+  android:id="@+id/map"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"/>
 ```
 
 ## [Map Interactions]()

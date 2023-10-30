@@ -103,8 +103,7 @@ class DrivingRangeSettingActivity : AppCompatActivity() {
             })
 
 
-            supportFragmentManager.beginTransaction()
-                .add(
+            supportFragmentManager.beginTransaction().add(
                     R.id.setting_layout, placeAutocompleteFragment,
                     PlaceAutocompleteFragment::class.java.simpleName
                 )

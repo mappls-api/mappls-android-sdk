@@ -1,5 +1,16 @@
 package com.mappls.sdk.demo.java.plugin;
 
+import static com.mappls.sdk.maps.style.expressions.Expression.get;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconAllowOverlap;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconIgnorePlacement;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconImage;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconRotate;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconRotationAlignment;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineCap;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineColor;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineJoin;
+import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineWidth;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.TypeEvaluator;
@@ -34,17 +45,6 @@ import com.mappls.sdk.services.api.directions.models.DirectionsResponse;
 import com.mappls.sdk.services.api.directions.models.DirectionsRoute;
 import com.mappls.sdk.services.utils.Constants;
 import com.mappls.sdk.turf.TurfMeasurement;
-
-import static com.mappls.sdk.maps.style.expressions.Expression.get;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconAllowOverlap;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconIgnorePlacement;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconImage;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconRotate;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.iconRotationAlignment;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineCap;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineColor;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineJoin;
-import static com.mappls.sdk.maps.style.layers.PropertyFactory.lineWidth;
 
 import java.util.ArrayList;
 import java.util.List;

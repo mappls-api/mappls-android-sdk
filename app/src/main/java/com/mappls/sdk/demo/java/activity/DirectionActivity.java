@@ -25,7 +25,6 @@ import com.mappls.sdk.demo.java.plugin.DirectionPolylinePlugin;
 import com.mappls.sdk.demo.java.utils.CheckInternet;
 import com.mappls.sdk.demo.java.utils.TransparentProgressDialog;
 import com.mappls.sdk.geojson.Point;
-import com.mappls.sdk.geojson.utils.PolylineUtils;
 import com.mappls.sdk.maps.MapView;
 import com.mappls.sdk.maps.MapplsMap;
 import com.mappls.sdk.maps.OnMapReadyCallback;
@@ -41,7 +40,6 @@ import com.mappls.sdk.services.api.directions.MapplsDirections;
 import com.mappls.sdk.services.api.directions.models.DirectionsResponse;
 import com.mappls.sdk.services.api.directions.models.DirectionsRoute;
 import com.mappls.sdk.services.api.directions.models.DirectionsWaypoint;
-import com.mappls.sdk.services.utils.Constants;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -253,8 +251,9 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
 
                     if (results.size() > 0) {
                         DirectionsRoute directionsRoute = results.get(0);
-                        if (directionsRoute != null && directionsRoute.geometry() != null) {
-                            drawPath(PolylineUtils.decode(directionsRoute.geometry(), Constants.PRECISION_6));
+
+                        if (directionsRoute != null && directionsRoute.getCoordinates() != null) {
+                            drawPath(directionsRoute.getCoordinates());
                             updateData(directionsRoute);
                         }
                     }

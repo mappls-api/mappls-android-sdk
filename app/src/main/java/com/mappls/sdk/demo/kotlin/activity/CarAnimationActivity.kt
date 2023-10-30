@@ -45,24 +45,23 @@ class CarAnimationActivity: AppCompatActivity(), OnMapReadyCallback {
                 .includes(listOfLatlang)
                 .build()
 
+        mapplsMap.getStyle {
+            animatedCarPlugin = AnimatedCarPlugin(applicationContext, mBinding.mapView, mapplsMap)
+            animatedCarPlugin!!.addMainCar(listOfLatlang[index], true)
+            animatedCarPlugin!!.animateCar()
+            animatedCarPlugin!!.setOnUpdateNextPoint(object : AnimatedCarPlugin.OnUpdatePoint {
+                override fun updateNextPoint() {
+                    if (index < listOfLatlang.size - 1) index += 1
+
+                    animatedCarPlugin!!.updateNextPoint(listOfLatlang[index])
+                    animatedCarPlugin!!.animateCar()
+                }
+
+
+            })
+        }
         mapplsMap.animateCamera(CameraUpdateFactory.newLatLngBounds(latLngBounds, 100))
-
-        animatedCarPlugin = AnimatedCarPlugin(applicationContext, mBinding.mapView, mapplsMap)
         mapplsMap.addPolyline(PolylineOptions().addAll(listOfLatlang).color(Color.parseColor("#3bb2d0")).width(4f))
-
-        animatedCarPlugin!!.addMainCar(listOfLatlang[index], true)
-        animatedCarPlugin!!.animateCar()
-
-        animatedCarPlugin!!.setOnUpdateNextPoint(object : AnimatedCarPlugin.OnUpdatePoint {
-            override fun updateNextPoint() {
-                if(index < listOfLatlang.size - 1)
-                    index++
-
-                animatedCarPlugin!!.updateNextPoint(listOfLatlang[index])
-                animatedCarPlugin!!.animateCar()
-            }
-
-        })
     }
 
     override fun onMapError(i: Int, s: String?) {

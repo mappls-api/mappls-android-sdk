@@ -217,7 +217,7 @@ class DirectionActivity : AppCompatActivity(), OnMapReadyCallback, MapplsMap.OnM
                      if (results.size > 0) {
                          mapplsMap?.clear()
                          val directionsRoute = results[0]
-                         drawPath(PolylineUtils.decode(directionsRoute.geometry()!!, PRECISION_6))
+                         drawPath(directionsRoute.coordinates)
                          updateData(directionsRoute)
                      }
                  }

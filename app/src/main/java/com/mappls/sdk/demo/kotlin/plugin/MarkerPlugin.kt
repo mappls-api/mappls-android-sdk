@@ -10,8 +10,10 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import com.mappls.sdk.demo.R
 import com.mappls.sdk.geojson.Feature
+import com.mappls.sdk.geojson.FeatureCollection
 import com.mappls.sdk.geojson.Point
 import com.mappls.sdk.maps.MapView
 import com.mappls.sdk.maps.MapplsMap
@@ -26,6 +28,10 @@ import com.mappls.sdk.maps.style.layers.PropertyFactory.*
 import com.mappls.sdk.maps.style.layers.SymbolLayer
 import com.mappls.sdk.maps.style.sources.GeoJsonSource
 import com.mappls.sdk.maps.utils.BitmapUtils
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.lang.ref.WeakReference
 import java.util.*
 
@@ -337,70 +343,59 @@ class MarkerPlugin(private val mapplsMap: MapplsMap, val mapView: MapView) : Map
     /**
      * Generate Info window Icon
      */
-    private class GenerateViewIconTask @JvmOverloads internal constructor(activity: MarkerPlugin, private val refreshSource: Boolean = true) : AsyncTask<Feature, Void, HashMap<String, Bitmap>>() {
-
+    private class GenerateViewIconTasks(private val activity: MarkerPlugin, private val refreshSource: Boolean = true) {
         private val viewMap = HashMap<String, View>()
-        private val activityRef: WeakReference<MarkerPlugin>
+       private val activityRef: WeakReference<MarkerPlugin> = WeakReference(activity)
 
-        init {
-            this.activityRef = WeakReference(activity)
-        }
+        fun doBackground(vararg featureCollection: Feature) {
+            CoroutineScope(Dispatchers.IO).launch {
+                backgroundProcess(featureCollection[0])
 
-        @SuppressLint("WrongThread")
-        override fun doInBackground(vararg params: Feature): HashMap<String, Bitmap>? {
-            val activity = activityRef.get()
-            if (activity != null) {
-                val imagesMap = HashMap<String, Bitmap>()
-                val inflater = LayoutInflater.from(activity.mapView.context)
-
-                val featureCollection = params[0]
-
-
-                    val bubbleLayout = inflater.inflate(R.layout.symbol_layer_info_window_layout_callout, null) as BubbleLayout
-                    if (featureCollection.hasProperty(PROPERTY_NAME)) {
-                        val name1 = featureCollection.getStringProperty(PROPERTY_NAME)
-                        val titleTextView: TextView = bubbleLayout.findViewById(R.id.info_window_title)
-                        titleTextView.text = name1
-
-                        if(featureCollection.hasProperty(PROPERTY_ADDRESS)) {
-                            val address = featureCollection.getStringProperty(PROPERTY_ADDRESS)
-                            val addressTextView = bubbleLayout.findViewById<TextView>(R.id.info_window_description)
-                            addressTextView.text = address
+                withContext(Dispatchers.Main) {
+                    // UI Thread work here
+                    val bitmapHashMap = HashMap<String, Bitmap>()
+                    val activity = activityRef.get()
+                    if (activity != null && bitmapHashMap != null) {
+                        activity.setImageGenResults(bitmapHashMap)
+                        if (refreshSource) {
+                            activity.updateState()
                         }
-
-
-                        //                    String style = feature.getStringProperty(PROPERTY_CAPITAL);
-                        //                    TextView descriptionTextView = bubbleLayout.findViewById(R.id.info_window_description);
-                        //                    descriptionTextView.setText(
-                        //                            String.format("capital", style));
-
-                        val measureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
-                        bubbleLayout.measure(measureSpec, measureSpec)
-
-                        val measuredWidth = bubbleLayout.measuredWidth.toFloat()
-
-                        bubbleLayout.arrowPosition = measuredWidth / 2 - 5
-
-                        val bitmap = SymbolGenerator.generate(bubbleLayout)
-                        imagesMap[name1] = bitmap
-                        viewMap[name1] = bubbleLayout
+                        Toast.makeText(activity.mapView.context, "Marker Instructions", Toast.LENGTH_SHORT).show()
                     }
-
-
-                return imagesMap
-            } else {
-                return null
-            }
-        }
-        override fun onPostExecute(bitmapHashMap: HashMap<String, Bitmap>?) {
-            super.onPostExecute(bitmapHashMap)
-            val activity = activityRef.get()
-            if (activity != null && bitmapHashMap != null) {
-                activity.setImageGenResults(bitmapHashMap)
-                if (refreshSource) {
-                    activity.updateState()
                 }
             }
+        }
+
+        private fun backgroundProcess(vararg params: Feature): AbstractMap<String, Bitmap>? {
+            val activity = activityRef.get() ?: return null
+
+            val imagesMap = HashMap<String, Bitmap>()
+            val inflater = LayoutInflater.from(activity.mapView.context)
+            val feature = params[0]
+
+                val bubbleLayout = inflater.inflate(R.layout.symbol_layer_info_window_layout_callout, null) as BubbleLayout
+                if (feature.hasProperty(PROPERTY_NAME)) {
+                    val name1 = feature.getStringProperty(PROPERTY_NAME)
+                    val titleTextView = bubbleLayout.findViewById<TextView>(R.id.info_window_title)
+                    titleTextView.text = name1
+
+                    val address = feature.getStringProperty(PROPERTY_ADDRESS)
+                    val addressTextView = bubbleLayout.findViewById<TextView>(R.id.info_window_description)
+                    addressTextView.text = address
+
+                    val measureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+                    bubbleLayout.measure(measureSpec, measureSpec)
+
+                    val measuredWidth = bubbleLayout.measuredWidth.toFloat()
+                    bubbleLayout.arrowPosition = measuredWidth / 2 - 5
+
+                    val bitmap = SymbolGenerator.generate(bubbleLayout)
+                    imagesMap[name1] = bitmap
+                    viewMap[name1] = bubbleLayout
+                }
+
+
+            return imagesMap
         }
     }
 
@@ -481,7 +476,7 @@ class MarkerPlugin(private val mapplsMap: MapplsMap, val mapView: MapView) : Map
             feature = features[0]
 
             feature?.addBooleanProperty(PROPERTY_SELECTED, true)
-            GenerateViewIconTask(this).execute(feature)
+            GenerateViewIconTasks(this).doBackground(feature!!)
 
         }
         return false
