@@ -364,6 +364,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".CredentialActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar" />

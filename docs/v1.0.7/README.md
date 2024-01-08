@@ -15,25 +15,25 @@ Powered with India's most comprehensive and robust mapping functionalities.
 ## [Documentation History](#Documentation-History)
 
 | Version                       | Supported SDK Version                                                                                                                                                                                                                                                                                                  | 
-|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [v1.0.7](../v1.0.7/README.md) | - Map SDK v8.1.2 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.2.0 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v2.1.0 <br/> - Nearby UI Widget v1.0.2 <br/> - Annotation Plugin v1.0.1 <br/> - Driving Range Plugin v1.0.0 <br/> - Raster Catalogue v0.0.1 |  
 | [v1.0.6](../v1.0.6/README.md) | - Map SDK v8.1.0 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.1.0 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v2.0.0 <br/> - Nearby UI Widget v1.0.2 <br/> - Annotation Plugin v1.0.1 <br/> - Driving Range Plugin v1.0.0 <br/> - Raster Catalogue v0.0.1 |
-| [v1.0.5](../v1.0.5/README.md) | - Map SDK v8.0.8 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.1.0 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v1.2.2 <br/> - Nearby UI Widget v1.0.2 <br/> - Annotation Plugin v1.0.1 <br/> - Driving Range Plugin v1.0.0 <br/> - Raster Catalogue v0.0.1 | 
-| [v1.0.4](../v1.0.4/README.md) | - Map SDK v8.0.7 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.0.3 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v1.2.0 <br/> - Nearby UI Widget v1.0.2 <br/> - Annotation Plugin v1.0.1 <br/> - Driving Range Plugin v1.0.0 <br/> - Raster Catalogue v0.0.1    | 
+| [v1.0.5](../v1.0.5/README.md) | - Map SDK v8.0.8 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.1.0 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v1.2.2 <br/> - Nearby UI Widget v1.0.2 <br/> - Annotation Plugin v1.0.1 <br/> - Driving Range Plugin v1.0.0 <br/> - Raster Catalogue v0.0.1 |  
 
-For more details of previous documentation versions , [click here](../v1.0.6/Doc-Version-History.md).
+For more details of previous documentation versions , [click here](../v1.0.7/Doc-Version-History.md).
 
 ## [Version History](#Version-History)
 
 | Version | Last Updated      | Author | Release Note                                                                                                                                                                                         |
 |---------|-------------------| ---- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| v8.1.2  | 28 Dec, 2023     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Bug Fixes & Improvements                                                                                                                        |
+| v8.1.1  | 21 Nov, 2023     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added `PageInfo` in POI Along Route Response.  <br/> - Bug Fixes & Improvements                                                                                                                        |
 | v8.1.0  | 30 Oct, 2023     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Security Improvements                                                                                                                     |
 | v8.0.9  | 30 June, 2023     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added `getCoordinates()` in DirectionRoute.  <br/> - Bug Fixes & Improvements                                                                                                                     |
 | v8.0.8  | 02 June, 2023     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added Location play service v21.0.1 Support.  <br/> - Bug Fixes & Improvements                                                                                                                     |
-| v8.0.7  | 02 May, 2023      | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added Predective Routing APIs.  <br/> - Bug Fixes & Improvements                                                                                                                                   |
-| v8.0.6  | 03 April, 2023    | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added Geolocation API  <br/> - Added `routeIndex` request parameter in Trip Cost Estimation API. <br/> - Added `lang` request parameter  in Reverse Geocode API.  <br/> - Bug Fixes & Improvements | 
 
 
-For more details of previous versions , [click here](../v1.0.6/Version-History.md).
+For more details of previous versions , [click here](../v1.0.7/Version-History.md).
 
 ## [Table Of Content](#Table-Of-Content)
 - [Vector Android Map](./Getting-Started.md)

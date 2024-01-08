@@ -88,7 +88,9 @@ public class CardModeFragmentAutocompleteActivity extends AppCompatActivity impl
                     }else {
                         mapplsMap.addMarker(new MarkerOptions().mapplsPin(eLocation.mapplsPin).title(eLocation.placeName).snippet(eLocation.placeAddress));
                     }
-                    addFavoriteDialog(eLocation);
+                    if(MapplsPlaceWidgetSetting.getInstance().isEnableShowFavorite()) {
+                        addFavoriteDialog(eLocation);
+                    }
                 }
 
 

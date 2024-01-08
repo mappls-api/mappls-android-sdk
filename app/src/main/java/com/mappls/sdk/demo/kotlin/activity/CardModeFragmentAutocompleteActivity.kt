@@ -100,8 +100,10 @@ class CardModeFragmentAutocompleteActivity : AppCompatActivity(), OnMapReadyCall
                         mapplsMap?.addMarker(MarkerOptions().mapplsPin(eLocation?.mapplsPin)
                             .title(eLocation?.placeName).snippet(eLocation?.placeAddress))
                     }
-                    if (eLocation != null) {
-                        addFavoriteDialog(eLocation)
+                    if(MapplsPlaceWidgetSetting.instance.isEnableShowFavorite) {
+                        if (eLocation != null) {
+                            addFavoriteDialog(eLocation)
+                        }
                     }
                 }
             }
