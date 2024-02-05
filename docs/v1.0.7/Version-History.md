@@ -3,6 +3,7 @@
 
 | Version | Last Updated | Author |  Release Note|
 | ---- | ---- | ---- | ---- |
+| v8.1.3  | 4 Feb, 2024     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Bug Fixes & Improvements                                                                                                                        |
 | v8.1.2  | 28 Dec, 2023     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Bug Fixes & Improvements                                                                                                                        |
 | v8.1.1  | 21 Nov, 2023     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added `PageInfo` in POI Along Route Response.  <br/> - Bug Fixes & Improvements                                                                                                                        |
 | v8.1.0  | 30 Oct, 2023     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Security Improvements                                                                                                                     |

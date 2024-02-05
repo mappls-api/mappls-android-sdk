@@ -14,6 +14,7 @@ Any mobile user will send the information of all the connected or recently conne
 MapplsGeolocation mapplsGeolocation = MapplsGeolocation.builder()  
         .addCellTower(cellId, lac, mcc, mnc)  
         .build();  
+        //To call In Foreground Thread
 MapplsGeolocationManager.newInstance(mapplsGeolocation).call(new OnResponseCallback<GeolocationResponse>() {  
     @Override  
   public void onSuccess(GeolocationResponse geolocationResponse) {  
@@ -25,6 +26,9 @@ MapplsGeolocationManager.newInstance(mapplsGeolocation).call(new OnResponseCallb
   
     }  
 });
+  			        //OR
+                //To call in Background Thread
+GeolocationResponse geolocationResponse = MapplsGeolocationManager.newInstance(mapplsGeolocation).execute(); 
 ~~~
 
 ### Request Parameter

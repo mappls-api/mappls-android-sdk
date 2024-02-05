@@ -14,6 +14,7 @@ MapplsPredictiveDirections mapplsPredictiveDirections = MapplsPredictiveDirectio
 	 .origin(startPoint)
 	 .destination(destinationPoint)
 	 .build();  
+	 //To call in foreground Thread
 MapplsPredictiveDirectionManager.newInstance(mapplsPredictiveDirections).call(new OnResponseCallback<PredictiveDirectionsResponse>() {
 	@Override  
 	public void onSuccess(PredictiveDirectionsResponse response) {  
@@ -25,6 +26,9 @@ MapplsPredictiveDirectionManager.newInstance(mapplsPredictiveDirections).call(ne
 	 //Handle Error      
 	}  
  });
+			//OR
+			//To call in background Thread
+ PredictiveDirectionsResponse response = MapplsPredictiveDirectionManager.newInstance(mapplsPredictiveDirections).execute(); 
  ~~~  
 
 #### Kotlin
@@ -33,6 +37,7 @@ val mapplsPredictiveDirections = MapplsPredictiveDirections.builder()
       .origin(startPoint)
       .destination(destinationPoint)
       .build()  
+	  //To call in foreground thread
 MapplsPredictiveDirectionManager.newInstance(mapplsPredictiveDirections).call(object : OnResponseCallback<PredictiveDirectionsResponse> {  
 	 override fun onSuccess(response: PredictiveDirectionsResponse) {
 	    //handle response 
@@ -41,6 +46,9 @@ MapplsPredictiveDirectionManager.newInstance(mapplsPredictiveDirections).call(ob
 	  //handle Error 
 	 }
 })  
+			//OR
+			//To call in background Thread
+val response = MapplsPredictiveDirectionManager.newInstance(mapplsPredictiveDirections).execute() 
 ~~~  
 ### Request Parameters
 #### Mandatory Parameter

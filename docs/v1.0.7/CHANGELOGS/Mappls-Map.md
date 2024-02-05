@@ -1,3 +1,6 @@
+## v8.1.3, 04 February 2024
+- Bug Fixes & Improvements
+
 ## v8.1.2, 28 December 2023
 - Bug Fixes & Improvements
 

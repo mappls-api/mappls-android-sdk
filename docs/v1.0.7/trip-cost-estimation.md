@@ -18,7 +18,8 @@ Major features are
 ~~~java
 MapplsCostEstimation mapplsCostEstimation = MapplsCostEstimation.builder()  
         .routeId(routeId)  
-        .build();  
+        .build(); 
+        //To call in Foreground Thread 
 MapplsCostEstimationManager.newInstance(mapplsCostEstimation).call(new OnResponseCallback<CostEstimationResponse>() {  
     @Override  
   public void onSuccess(CostEstimationResponse response) {  
@@ -30,6 +31,9 @@ MapplsCostEstimationManager.newInstance(mapplsCostEstimation).call(new OnRespons
         //handle Error
   }  
 });
+              //OR
+              //To call in Background Thread
+CostEstimationResponse response = MapplsCostEstimationManager.newInstance(mapplsCostEstimation).execute(); 
 ~~~
 
 #### Kotlin
@@ -37,6 +41,7 @@ MapplsCostEstimationManager.newInstance(mapplsCostEstimation).call(new OnRespons
 val mapplsCostEstimation = MapplsCostEstimation.builder()  
         .routeId(routeId)  
         .build();  
+        //To call in Foreground Thread 
 MapplsCostEstimationManager.newInstance(mapplsCostEstimation).call(object: OnResponseCallback<CostEstimationResponse> {  
       
             override fun onSuccess(response: CostEstimationResponse) {
@@ -45,7 +50,9 @@ MapplsCostEstimationManager.newInstance(mapplsCostEstimation).call(object: OnRes
            override fun onError(code: Int, message: String) {
                //handle Error
             }
-})
+})              //OR
+              //To call in Background Thread
+val response = MapplsCostEstimationManager.newInstance(mapplsCostEstimation).execute(); 
 ~~~
 
 ## [Request Parameters](#Request_Parameter)

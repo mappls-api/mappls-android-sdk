@@ -26,11 +26,11 @@ For more details of previous documentation versions , [click here](docs/v1.0.7/D
 
 | Version | Last Updated      | Author | Release Note                                                                                                                                                                                         | 
 |---------|-------------------| ---- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| v8.1.3  | 4 Feb, 2024     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Bug Fixes & Improvements                                                                                                                        |
 | v8.1.2  | 28 Dec, 2023     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Bug Fixes & Improvements                                                                                                                        |
 | v8.1.1  | 21 Nov, 2023     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added `PageInfo` in POI Along Route Response.  <br/> - Bug Fixes & Improvements                                                                                                                        |
 | v8.1.0  | 30 Oct, 2023     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Security Improvements                                                                                                                     |
-| v8.0.9  | 30 June, 2023     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added `getCoordinates()` in DirectionRoute.  <br/> - Bug Fixes & Improvements                                                                                                                     |  
-| v8.0.8  | 02 June, 2023     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added Location play service v21.0.1 Support.  <br/> - Bug Fixes & Improvements                                                                                                                     |
+| v8.0.9  | 30 June, 2023     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added `getCoordinates()` in DirectionRoute.  <br/> - Bug Fixes & Improvements                                                                                                                     |
 
 
 For more details of previous versions , [click here](docs/v1.0.7/Version-History.md).

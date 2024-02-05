@@ -14,6 +14,7 @@ MapplsNearbyReport nearbyReport = MapplsNearbyReport.builder()
         .topLeft(Point.fromLngLat(latLng.getLongitude(), latLng.getLatitude()))  
         .bottomRight(Point.fromLngLat(latLng2.getLongitude(), latLng2.getLatitude()))  
         .build();  
+        //To call in Foreground Thread
 MapplsNearbyReportManager.newInstance(nearbyReport).call(new OnResponseCallback<NearbyReportResponse>() {  
     @Override  
   public void onSuccess(NearbyReportResponse nearbyReportResponse) {  
@@ -25,6 +26,9 @@ MapplsNearbyReportManager.newInstance(nearbyReport).call(new OnResponseCallback<
         // Request failed with code and message   
  }  
 });
+			  //OR
+        //To call in Background Thread
+NearbyReportResponse response = MapplsNearbyReportManager.newInstance(nearbyReport).execute(); 
 ~~~
 
 ### Request Parameters

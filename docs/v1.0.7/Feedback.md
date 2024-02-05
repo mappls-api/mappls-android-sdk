@@ -17,6 +17,8 @@ MapplsFeedback feedback = MapplsFeedback.builder()
         .userName(userName)  
         .appVersion(BuildConfig.VERSION_NAME)  
         .build();  
+
+        //To call In foreground Thread
 MapplsFeedbackManager.newInstance(feedback).call(new OnResponseCallback<Void>() {  
     @Override  
     public void onSuccess(Void response) {  
@@ -28,6 +30,9 @@ MapplsFeedbackManager.newInstance(feedback).call(new OnResponseCallback<Void>() 
         //Handle error  
     }  
 });
+
+                        //To call in Background Thread
+Void response = MapplsFeedbackManager.newInstance(feedback).execute(); 
 ~~~
 #### Kotlin
 ~~~kotlin
@@ -41,6 +46,8 @@ val feedback = MapplsFeedback.builder()
     .userName(userName)
     .appVersion(BuildConfig.VERSION_NAME)
     .build()
+
+    //To call In foreground Thread
 MapplsFeedbackManager.newInstance(feedback).call(object : OnResponseCallback<Void?> {
     override fun onSuccess(response: Void?) {
         //Success  
@@ -50,6 +57,9 @@ MapplsFeedbackManager.newInstance(feedback).call(object : OnResponseCallback<Voi
         //Handle Error  
     }
 })
+			    //OR
+                //To call in Background Thread
+val response = MapplsFeedbackManager.newInstance(feedback).execute()
 ~~~
 ### Request Parameters
 

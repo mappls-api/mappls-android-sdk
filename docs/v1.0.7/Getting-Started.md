@@ -61,7 +61,7 @@ dependencyResolutionManagement {
 -   Add below dependency in your app-level `build.gradle`
 
 ```groovy
-implementation 'com.mappls.sdk:mappls-android-sdk:8.1.2'
+implementation 'com.mappls.sdk:mappls-android-sdk:8.1.3'
 ```
 - Add these permissions in your project
 ```xml

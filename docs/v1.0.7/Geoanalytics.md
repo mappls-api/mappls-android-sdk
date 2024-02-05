@@ -133,6 +133,7 @@ MapplsGeoAnalyticsList mapplsGeoAnalyticsList = MapplsGeoAnalyticsList.builder()
         .geoBound(geobound)  
         .geoBoundType(geoboundType)  
         .build();
+        //To call in a Foreground Thread
 MapplsGeoAnalyticsListManager.newInstance(mapplsGeoAnalyticsList).call(new OnResponseCallback<GeoAnalyticsListResponse>() {  
     @Override  
   public void onSuccess(GeoAnalyticsListResponse geoAnalyticsListResponse) {
@@ -144,6 +145,9 @@ MapplsGeoAnalyticsListManager.newInstance(mapplsGeoAnalyticsList).call(new OnRes
   
     }  
 });
+            //OR
+            //To call in a Background Thread
+ MapplsGeoAnalyticsListManager.newInstance(mapplsGeoAnalyticsList).execute();
 ~~~  
 ### Request Parameters
 1. `api(String)`: api layer name (such as state, district, subdistrict, village, pincode etc)

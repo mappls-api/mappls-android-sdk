@@ -16,6 +16,7 @@ MapplsDirections directions = MapplsDirections.builder()
         .overview(DirectionsCriteria.OVERVIEW_FULL)
         .destination(endPointLocal)
         .build();
+        //To call in foreground thread
 MapplsDirectionManager.newInstance(directions).call(new OnResponseCallback<DirectionsResponse>() {
     @Override
 public void onSuccess(DirectionsResponse response) {
@@ -27,6 +28,9 @@ public void onError(int code, String message) {
        //Handle Error
  }
 });
+			         //OR
+                  //To call in Background Thread
+DirectionsResponse response =MapplsDirectionManager.newInstance(directions).execute(); 
 ~~~
 
 #### Kotlin
@@ -48,6 +52,9 @@ MapplsDirectionManager.newInstance(directions).call(object : OnResponseCallback<
                //handle Error
             }
         })
+        			//OR
+               //To call in background Thread
+val response = MapplsDirectionManager.newInstance(directions).execute()
 ~~~
 ### Request Parameters
 #### Mandatory Parameter

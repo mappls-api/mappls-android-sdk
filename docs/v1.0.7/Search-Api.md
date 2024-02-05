@@ -11,6 +11,7 @@ The Autosuggest API helps users to complete queries faster by adding intelligent
 MapplsAutoSuggest autoSuggest = MapplsAutoSuggest.builder()    
         .query(searchText)    
 		.build();
+    //To call in Foreground Thread
  MapplsAutosuggestManager.newInstance(autoSuggest).call(new OnResponseCallback<AutoSuggestAtlasResponse>() {    
     @Override    
   public void onSuccess(AutoSuggestAtlasResponse response) {    
@@ -21,6 +22,9 @@ MapplsAutoSuggest autoSuggest = MapplsAutoSuggest.builder()
   public void onError(int code, String message) {    
        //handle Error  
  } });  
+          //OR
+          //To call in Background Thread
+AutoSuggestAtlasResponse response = MapplsAutosuggestManager.newInstance(autoSuggest).execute();  
 ~~~  
 #### Kotlin
 
@@ -28,6 +32,7 @@ MapplsAutoSuggest autoSuggest = MapplsAutoSuggest.builder()
 val autoSuggest =MapplsAutoSuggest.builder()    
         .query(searchText)    
 		.build() 
+    //To call in Foreground Thread
 MapplsAutosuggestManager.newInstance(autoSuggest).call(object : OnResponseCallback<AutoSuggestAtlasResponse> {    
      override fun onSuccess(response: AutoSuggestAtlasResponse) {    
         //handle response    
@@ -36,6 +41,9 @@ MapplsAutosuggestManager.newInstance(autoSuggest).call(object : OnResponseCallba
        //handle Error  
  }        
 })  
+      //OR
+      //To call in Background Thread
+val response = MapplsAutosuggestManager.newInstance(autoSuggest).execute(); 
 ~~~  
 
 ### Request Parameters
@@ -123,6 +131,7 @@ Our Geocoding API converts real addresses into these geographic coordinates (lat
 MapplsGeoCoding geoCoding = MapplsGeoCoding.builder()  
          .setAddress("Delhi")  
          .build();  
+         //To call in Foreground Thread
 MapplsGeoCodingManager.newInstance(geoCoding).call(new OnResponseCallback<GeoCodeResponse>() {  
     @Override  
   public void onSuccess(GeoCodeResponse response) {  
@@ -134,13 +143,17 @@ MapplsGeoCodingManager.newInstance(geoCoding).call(new OnResponseCallback<GeoCod
          //handle Error
   }  
 });
+            //OR
+            //To call in Background Thread
+GeoCodeResponse response = MapplsGeoCodingManager.newInstance(mapplsGeoCoding).execute();           
 ~~~
 
 #### Kotlin
 ~~~kotlin
 val geoCoding = MapplsGeoCoding.builder()  
         .setAddress("Delhi")  
-        .build()  
+        .build()
+         //To call in Foreground Thread 
 MapplsGeoCodingManager.newInstance(geoCoding).call(object : OnResponseCallback<GeoCodeResponse> {  
             override fun onSuccess(response: GeoCodeResponse) {  
                 //handle response  
@@ -149,6 +162,9 @@ MapplsGeoCodingManager.newInstance(geoCoding).call(object : OnResponseCallback<G
                 //handle Error 
             }  
         })
+            //OR
+            //To call in Background Thread
+val response = MapplsGeoCodingManager.newInstance(mapplsGeoCoding).execute()
 ~~~
 ### Request Parameters
 #### Mandatory Parameter
@@ -225,6 +241,7 @@ Reverse Geocoding is a process to give the closest matching address to a provide
 MapplsReverseGeoCode reverseGeoCode = MapplsReverseGeoCode.builder()  
         .setLocation(28,77)  
         .build();  
+        //To call in foreground thread
 MapplsReverseGeoCodeManager.newInstance(reverseGeoCode).call(new OnResponseCallback<PlaceResponse>() {  
     @Override  
   public void onSuccess(PlaceResponse response) {  
@@ -236,13 +253,17 @@ MapplsReverseGeoCodeManager.newInstance(reverseGeoCode).call(new OnResponseCallb
         //Handle Error
   }  
 });
+                  //OR
+                  //To call in Background Thread
+PlaceResponse response = MapplsReverseGeoCodeManager.newInstance(reverseGeoCode).execute();
 ~~~
 
 #### Kotlin
 ~~~kotlin
 val reverseGeoCode = MapplsReverseGeoCode.builder()  
         .setLocation(28.0, 77.0)  
-        .build()  
+        .build()
+        //To call in foreground thread
 MapplsReverseGeoCodeManager.newInstance(reverseGeoCode).call(object : OnResponseCallback<PlaceResponse> {  
   
             override fun onSuccess(response: PlaceResponse) {  
@@ -252,6 +273,9 @@ MapplsReverseGeoCodeManager.newInstance(reverseGeoCode).call(object : OnResponse
                 //handle Error 
             }  
         })
+                  //OR
+                  //To call in Background Thread
+val response = MapplsReverseGeoCodeManager.newInstance(reverseGeoCode).execute()
 ~~~
 ### Request Parameters
 #### Mandatory Parameter
@@ -315,6 +339,7 @@ MapplsNearby nearby = MapplsNearby.builder()
         .setLocation(28,77)  
         .keyword("Parking")  
         .build();  
+        //To call in Foreground Thread
 MapplsNearbyManager.newInstance(nearby).call(new OnResponseCallback<NearbyAtlasResponse>() {  
     @Override  
   public void onSuccess(NearbyAtlasResponse response) {  
@@ -326,13 +351,17 @@ MapplsNearbyManager.newInstance(nearby).call(new OnResponseCallback<NearbyAtlasR
        //Handle Error
   }  
 });
+            //OR
+            //To call in Background Thread
+NearbyAtlasResponse response = MapplsNearbyManager.newInstance(nearby).execute();;           
 ~~~
 #### Kotlin
 ~~~kotlin
 val nearby = MapplsNearby.builder()  
         .keyword("Parking")  
         .setLocation(28.0, 77.0)  
-        .build()  
+        .build() 
+        //To call in Foreground Thread 
 MapplsNearbyManager.newInstance(nearby).call(object : OnResponseCallback<NearbyAtlasResponse> {  
   
             override fun onSuccess(response: NearbyAtlasResponse) {  
@@ -342,6 +371,9 @@ MapplsNearbyManager.newInstance(nearby).call(object : OnResponseCallback<NearbyA
                 //handle Error 
             }  
         })
+            //OR
+            //To call in Background Thread
+val response = MapplsNearbyManager.newInstance(nearby).execute()
 ~~~
 ### Request Parameters
 #### Mandatory Parameter
@@ -448,6 +480,7 @@ Mappls Place Details is a simple, standardized and precise pan-India digital add
 MapplsPlaceDetail placeDetail = MapplsPlaceDetail.builder()  
         .mapplsPin("mmi000")  
         .build();  
+        //To call in Foreground Thread
 MapplsPlaceDetailManager.newInstance(placeDetail).call(new OnResponseCallback<PlaceDetailResponse>() {  
     @Override  
   public void onSuccess(PlaceDetailResponse response) {  
@@ -459,12 +492,16 @@ MapplsPlaceDetailManager.newInstance(placeDetail).call(new OnResponseCallback<Pl
        //Handle Error
   }  
 });
+              //OR
+              //To call in Background Thread
+PlaceDetailResponse response = MapplsPlaceDetailManager.newInstance(placeDetail).execute(); 
 ~~~
 #### Kotlin
 ~~~kotlin
 val placeDetail = MapplsPlaceDetail.builder()  
         .mapplsPin("mmi000")  
         .build()  
+        //To call in Foreground Thread
 MapplsPlaceDetailManager.newInstance(placeDetail).call(object : OnResponseCallback<PlaceDetailResponse> {  
   
             override fun onSuccess(response: PlaceDetailResponse) {  
@@ -474,6 +511,9 @@ MapplsPlaceDetailManager.newInstance(placeDetail).call(object : OnResponseCallba
                 //handle Error 
             }  
         })
+              //OR
+              //To call in Background Thread
+val response = MapplsPlaceDetailManager.newInstance(placeDetail).execute()
 ~~~
 ### Request Parameter
 #### Mandatory Parameter
@@ -520,6 +560,7 @@ MapplsPOIAlongRoute poiAlongRoute = MapplsPOIAlongRoute.builder()
         .category(catCode)
         .path(path)  
         .build();  
+        //To call in Foreground Thread
 MapplsPOIAlongRouteManager.newInstance(poiAlongRoute).call(new OnResponseCallback<POIAlongRouteResponse>() {  
     @Override  
   public void onSuccess(POIAlongRouteResponse response) {  
@@ -531,13 +572,17 @@ MapplsPOIAlongRouteManager.newInstance(poiAlongRoute).call(new OnResponseCallbac
         //Handle Error
   }  
 });
+            //OR
+            //To call in Background Thread
+POIAlongRouteResponse response = MapplsPOIAlongRouteManager.newInstance(poiAlongRoute).execute(); 
 ~~~
 #### Kotlin
 ~~~kotlin
 val poiAlongRoute = MapplsPOIAlongRoute.builder()  
         .category(catCode)  
         .path(path)  
-        .build()  
+        .build()
+        //To call in Foreground Thread 
 MapplsPOIAlongRouteManager.newInstance(poiAlongRoute).call(object : OnResponseCallback<POIAlongRouteResponse> {  
   
             override fun onSuccess(response: POIAlongRouteResponse) {  
@@ -547,6 +592,9 @@ MapplsPOIAlongRouteManager.newInstance(poiAlongRoute).call(object : OnResponseCa
                 //handle Error 
             }   
         })
+            //OR
+            //To call in Background Thread
+val response = MapplsPOIAlongRouteManager.newInstance(poiAlongRoute).execute() 
 ~~~
 ### Request Parameter
 #### Mandatory Parameters

@@ -16,6 +16,7 @@ Mappls SDK enables the developer to access current weather conditions around Ind
 MapplsWeather weather = MapplsWeather.builder()  
         .location(28.0, 77.0)  
         .build();  
+        //To call in Foreground thread
 MapplsWeatherManager.newInstance(weather).call(new OnResponseCallback<WeatherResponse>() {  
     @Override  
   public void onSuccess(WeatherResponse response) {  
@@ -27,12 +28,16 @@ MapplsWeatherManager.newInstance(weather).call(new OnResponseCallback<WeatherRes
       //Handle Error  
   }  
 });
+                //OR
+                //To call in background Thread
+WeatherResponse response =MapplsWeatherManager.newInstance(weather).execute(); 
 ~~~
 #### Kotlin
 ~~~kotlin
 val weather = MapplsWeather.builder()
     .location(28.0, 77.0)
     .build()
+    //To call in Foreground thread
 MapplsWeatherManager.newInstance(weather).call(object : OnResponseCallback<WeatherResponse> {
     override fun onSuccess(response: WeatherResponse) {
         //Success  
@@ -42,6 +47,9 @@ MapplsWeatherManager.newInstance(weather).call(object : OnResponseCallback<Weath
         //Handle Error  
     }
 })
+                //OR
+                //To call in background Thread
+val response =MapplsWeatherManager.newInstance(weather).execute()
 ~~~
 ### Request Parameters
 
