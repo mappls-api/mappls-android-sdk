@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -16,13 +16,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:ignore="GoogleAppIndexingWarning" >
-
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".kotlin.activity.AddMarkerViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".java.activity.AddMarkerViewActivity"
+            android:exported="false" />
         <activity
             android:name=".java.activity.PlaceClickActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"
-            android:label="Place Click Java" >
+            android:label="Place Click Java"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -30,8 +35,8 @@
         <activity
             android:name=".kotlin.activity.PlaceClickActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"
-            android:label="Place Click Kotlin" >
+            android:label="Place Click Kotlin"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -39,8 +44,8 @@
         <activity
             android:name=".java.activity.TrafficActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"
-            android:label="Traffic Java"  >
+            android:label="Traffic Java"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -48,8 +53,15 @@
         <activity
             android:name=".kotlin.activity.TrafficActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"
-            android:label="Traffic Kotlin" >
+            android:label="Traffic Kotlin"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".CredentialActivity"
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -239,10 +251,6 @@
             android:exported="false"
             android:label="Direction Step Kotlin" />
         <activity
-            android:name=".kotlin.activity.InteractiveLayerActivity"
-            android:exported="false"
-            android:label="Interactive Layer Kotlin" />
-        <activity
             android:name=".kotlin.activity.GesturesActivity"
             android:exported="false"
             android:label="Map Gestures Kotlin" />
@@ -254,10 +262,6 @@
             android:name=".java.activity.ScalebarActivity"
             android:exported="false"
             android:label="Scalebar Java" />
-        <activity
-            android:name=".java.activity.InteractiveLayerActivity"
-            android:exported="false"
-            android:label="Interactive Layer Java" />
         <activity
             android:name=".java.activity.DirectionStepActivity"
             android:exported="false"
@@ -356,16 +360,13 @@
             android:parentActivityName=".java.activity.PlaceAutoCompleteActivity" />
         <activity
             android:name=".kotlin.activity.SplashActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".CredentialActivity"
-            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false"

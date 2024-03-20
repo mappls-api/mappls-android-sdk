@@ -42,52 +42,52 @@ class AddMarkerViewActivity : AppCompatActivity(), OnMapReadyCallback, OnSymbolC
     }
 
     override fun onMapReady(mapplsMap: MapplsMap) {
-        mapplsMap.getStyle { style->
+       mapplsMap.getStyle { style->
 
-            // Initialize the MarkerViewManager
-            style.addImage(
-                "icon_image", BitmapUtils.getBitmapFromDrawable(
-                    ContextCompat.getDrawable(
-                        this@AddMarkerViewActivity,
-                        R.drawable.placeholder
-                    )
-                )!!
-            )
-            if (symbolManager == null) {
-                symbolManager = SymbolManager(mBinding.mapView, mapplsMap, style)
-            }
-            val jsonObject = JsonObject()
-            jsonObject.addProperty("place_name", "This is Infowindow")
-            val symbolOptions = SymbolOptions()
-                .position(LatLng(25.321684, 82.987289))
-                .icon("icon_image")
-                .data(jsonObject)
-                .iconSize(1f)
-            symbolManager?.iconAllowOverlap = true
-            symbolManager?.iconIgnorePlacement = true
-            symbolManager?.create(symbolOptions)
-            symbolManager?.addClickListener(this)
-            markerViewManager = MarkerViewManager(mBinding.mapView, mapplsMap)
+           // Initialize the MarkerViewManager
+           style.addImage(
+               "icon_image", BitmapUtils.getBitmapFromDrawable(
+                   ContextCompat.getDrawable(
+                       this@AddMarkerViewActivity,
+                       R.drawable.placeholder
+                   )
+               )!!
+           )
+           if (symbolManager == null) {
+               symbolManager = SymbolManager(mBinding.mapView, mapplsMap, style)
+           }
+           val jsonObject = JsonObject()
+           jsonObject.addProperty("place_name", "This is Infowindow")
+           val symbolOptions = SymbolOptions()
+               .position(LatLng(25.321684, 82.987289))
+               .icon("icon_image")
+               .data(jsonObject)
+               .iconSize(1f)
+           symbolManager?.iconAllowOverlap = true
+           symbolManager?.iconIgnorePlacement = true
+           symbolManager?.create(symbolOptions)
+           symbolManager?.addClickListener(this)
+           markerViewManager = MarkerViewManager(mBinding.mapView, mapplsMap)
 
-            mapplsMap.addOnMapClickListener(OnMapClickListener {
-                // Hide the custom layout when the map is clicked
-                if (showInfoWindow) {
-                    if (markerView != null) {
-                        markerViewManager?.removeMarker(markerView!!)
-                    }
-                    showInfoWindow = false
-                    return@OnMapClickListener true // Consume the event
-                }
-                false // Allow the event to propagate
-            })
-            val cameraPosition = CameraPosition.Builder().target(
-                LatLng(
-                    25.321684, 82.987289
-                )
-            ).zoom(8.0).tilt(0.0).build()
-            mapplsMap.cameraPosition = cameraPosition
+           mapplsMap.addOnMapClickListener(OnMapClickListener {
+               // Hide the custom layout when the map is clicked
+               if (showInfoWindow) {
+                   if (markerView != null) {
+                       markerViewManager?.removeMarker(markerView!!)
+                   }
+                   showInfoWindow = false
+                   return@OnMapClickListener true // Consume the event
+               }
+               false // Allow the event to propagate
+           })
+           val cameraPosition = CameraPosition.Builder().target(
+               LatLng(
+                   25.321684, 82.987289
+               )
+           ).zoom(8.0).tilt(0.0).build()
+           mapplsMap.cameraPosition = cameraPosition
 
-        }
+       }
     }
 
     override fun onMapError(p0: Int, p1: String?) {
@@ -97,7 +97,7 @@ class AddMarkerViewActivity : AppCompatActivity(), OnMapReadyCallback, OnSymbolC
     override fun onAnnotationClick(symbol: Symbol?): Boolean {
 
         val customView = LayoutInflater.from(this).inflate(
-            R.layout.marker_view_bubble, null);
+                R.layout.marker_view_bubble, null);
 //        customView.setVisibility(View.GONE);
         if (!showInfoWindow) {
             showInfoWindow = true

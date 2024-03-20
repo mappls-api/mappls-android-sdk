@@ -47,12 +47,6 @@ class MapLayerFragmentKt : Fragment(), MapFeatureListAdapter.AdapterOnClick {
         )
         featuresArrayList.add(
             FeaturesList(
-                "Interactive Layer",
-                "Show Interactive CORONA Layers on the map view"
-            )
-        )
-        featuresArrayList.add(
-            FeaturesList(
                 "Map Scalebar",
                 "Add a scale bar on map view to determine distance based on zoom level"
             )
@@ -92,18 +86,15 @@ class MapLayerFragmentKt : Fragment(), MapFeatureListAdapter.AdapterOnClick {
             val indoorIntent = Intent(context, IndoorActivity::class.java)
             startActivity(indoorIntent)
         } else if (position == 2) {
-            val interactiveLayerIntent = Intent(context, InteractiveLayerActivity::class.java)
-            startActivity(interactiveLayerIntent)
-        } else if (position == 3) {
             val scaleBarIntent = Intent(context, ScalebarActivity::class.java)
             startActivity(scaleBarIntent)
-        } else if (position == 4) {
+        } else if (position == 3) {
             val safetyStripIntent = Intent(context, SafetyStripActivity::class.java)
             startActivity(safetyStripIntent)
-        } else if (position == 5) {
+        } else if (position == 4) {
             val safetyStripIntent = Intent(context, GeoAnalyticsActivity::class.java)
             startActivity(safetyStripIntent)
-        }else if (position == 6) {
+        }else if (position == 5) {
             val drivingRangePlugin = Intent(context, DrivingRangePluginActivity::class.java)
             startActivity(drivingRangePlugin)
         }

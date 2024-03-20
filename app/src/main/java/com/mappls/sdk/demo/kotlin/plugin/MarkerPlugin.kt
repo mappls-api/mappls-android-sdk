@@ -72,7 +72,7 @@ class MarkerPlugin(private val mapplsMap: MapplsMap, val mapView: MapView) : Map
          * @return calculated sample size
          */
         private fun calculateInSampleSize(
-                options: BitmapFactory.Options, reqWidth: Int, reqHeight: Int): Int {
+            options: BitmapFactory.Options, reqWidth: Int, reqHeight: Int): Int {
             // Raw height and width of image
             val height = options.outHeight
             val width = options.outWidth
@@ -295,33 +295,33 @@ class MarkerPlugin(private val mapplsMap: MapplsMap, val mapView: MapView) : Map
     private fun initialise(style: Style) {
         if(style.getLayer(LAYER_ID) == null) {
             val symbolLayer: SymbolLayer = SymbolLayer(LAYER_ID, SOURCE_ID)
-                    .withProperties(
-                            iconImage(ICON_ID),
-                            iconRotate(get(PROPERTY_ROTATION)),
-                            iconAllowOverlap(true),
-                            iconIgnorePlacement(true)
-                    )
+                .withProperties(
+                    iconImage(ICON_ID),
+                    iconRotate(get(PROPERTY_ROTATION)),
+                    iconAllowOverlap(true),
+                    iconIgnorePlacement(true)
+                )
 
             style.addLayer(symbolLayer)
         }
 
         if(style.getLayer(INFOWINDOW_LAYER_ID) == null) {
             val symbolLayerInfoWindow = SymbolLayer(INFOWINDOW_LAYER_ID, SOURCE_ID)
-                    .withProperties(
-                            /* show image with id title based on the value of the name feature property */
-                            iconImage("{name}"),
+                .withProperties(
+                    /* show image with id title based on the value of the name feature property */
+                    iconImage("{name}"),
 
-                            /* set anchor of icon to bottom-left */
-                            iconAnchor(Property.ICON_ANCHOR_BOTTOM),
+                    /* set anchor of icon to bottom-left */
+                    iconAnchor(Property.ICON_ANCHOR_BOTTOM),
 
-                            /* all info window and marker image to appear at the same time*/
-                            iconAllowOverlap(true),
+                    /* all info window and marker image to appear at the same time*/
+                    iconAllowOverlap(true),
 
-                            /* offset the info window to be above the marker */
-                            iconOffset(arrayOf(-2f, -25f))
-                    )
-                    /* setData a filter to show only when selected feature property is true */
-                    .withFilter(Expression.eq(get(PROPERTY_SELECTED), Expression.literal(true)))
+                    /* offset the info window to be above the marker */
+                    iconOffset(arrayOf(-2f, -25f))
+                )
+                /* setData a filter to show only when selected feature property is true */
+                .withFilter(Expression.eq(get(PROPERTY_SELECTED), Expression.literal(true)))
 
             style.addLayer(symbolLayerInfoWindow)
         }
@@ -345,7 +345,7 @@ class MarkerPlugin(private val mapplsMap: MapplsMap, val mapView: MapView) : Map
      */
     private class GenerateViewIconTasks(private val activity: MarkerPlugin, private val refreshSource: Boolean = true) {
         private val viewMap = HashMap<String, View>()
-       private val activityRef: WeakReference<MarkerPlugin> = WeakReference(activity)
+        private val activityRef: WeakReference<MarkerPlugin> = WeakReference(activity)
 
         fun doBackground(vararg featureCollection: Feature) {
             CoroutineScope(Dispatchers.IO).launch {
@@ -373,26 +373,26 @@ class MarkerPlugin(private val mapplsMap: MapplsMap, val mapView: MapView) : Map
             val inflater = LayoutInflater.from(activity.mapView.context)
             val feature = params[0]
 
-                val bubbleLayout = inflater.inflate(R.layout.symbol_layer_info_window_layout_callout, null) as BubbleLayout
-                if (feature.hasProperty(PROPERTY_NAME)) {
-                    val name1 = feature.getStringProperty(PROPERTY_NAME)
-                    val titleTextView = bubbleLayout.findViewById<TextView>(R.id.info_window_title)
-                    titleTextView.text = name1
+            val bubbleLayout = inflater.inflate(R.layout.symbol_layer_info_window_layout_callout, null) as BubbleLayout
+            if (feature.hasProperty(PROPERTY_NAME)) {
+                val name1 = feature.getStringProperty(PROPERTY_NAME)
+                val titleTextView = bubbleLayout.findViewById<TextView>(R.id.info_window_title)
+                titleTextView.text = name1
 
-                    val address = feature.getStringProperty(PROPERTY_ADDRESS)
-                    val addressTextView = bubbleLayout.findViewById<TextView>(R.id.info_window_description)
-                    addressTextView.text = address
+                val address = feature.getStringProperty(PROPERTY_ADDRESS)
+                val addressTextView = bubbleLayout.findViewById<TextView>(R.id.info_window_description)
+                addressTextView.text = address
 
-                    val measureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
-                    bubbleLayout.measure(measureSpec, measureSpec)
+                val measureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+                bubbleLayout.measure(measureSpec, measureSpec)
 
-                    val measuredWidth = bubbleLayout.measuredWidth.toFloat()
-                    bubbleLayout.arrowPosition = measuredWidth / 2 - 5
+                val measuredWidth = bubbleLayout.measuredWidth.toFloat()
+                bubbleLayout.arrowPosition = measuredWidth / 2 - 5
 
-                    val bitmap = SymbolGenerator.generate(bubbleLayout)
-                    imagesMap[name1] = bitmap
-                    viewMap[name1] = bubbleLayout
-                }
+                val bitmap = SymbolGenerator.generate(bubbleLayout)
+                imagesMap[name1] = bitmap
+                viewMap[name1] = bubbleLayout
+            }
 
 
             return imagesMap

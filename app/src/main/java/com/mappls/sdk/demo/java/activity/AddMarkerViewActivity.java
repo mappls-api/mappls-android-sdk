@@ -2,13 +2,7 @@ package com.mappls.sdk.demo.java.activity;
 
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.databinding.DataBindingUtil;
-
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -16,15 +10,18 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.databinding.DataBindingUtil;
+
 import com.google.gson.JsonObject;
 import com.mappls.sdk.demo.R;
 import com.mappls.sdk.demo.databinding.BaseLayoutBinding;
 import com.mappls.sdk.maps.MapplsMap;
 import com.mappls.sdk.maps.OnMapReadyCallback;
 import com.mappls.sdk.maps.Style;
-import com.mappls.sdk.maps.annotations.Marker;
 import com.mappls.sdk.maps.camera.CameraPosition;
-import com.mappls.sdk.maps.camera.CameraUpdateFactory;
 import com.mappls.sdk.maps.geometry.LatLng;
 import com.mappls.sdk.maps.utils.BitmapUtils;
 import com.mappls.sdk.plugin.annotation.OnSymbolClickListener;
@@ -33,8 +30,6 @@ import com.mappls.sdk.plugin.annotation.SymbolManager;
 import com.mappls.sdk.plugin.annotation.SymbolOptions;
 import com.mappls.sdk.plugin.markerview.MarkerView;
 import com.mappls.sdk.plugin.markerview.MarkerViewManager;
-
-import org.json.JSONObject;
 
 
 public class AddMarkerViewActivity extends AppCompatActivity implements OnMapReadyCallback, OnSymbolClickListener {

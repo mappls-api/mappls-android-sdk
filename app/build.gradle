@@ -57,26 +57,24 @@ dependencies {
 
     //Annotation Plugin
     implementation 'com.mappls.sdk:annotation-plugin:1.0.1'
-
     implementation 'com.mappls.sdk:directions-plugin:1.0.4'
-
     implementation 'com.mappls.sdk:scalebar-plugin:1.0.0'
     implementation 'com.mappls.sdk:geofence-ui:1.0.0'
-
     //for nearby widget
-    implementation 'com.mappls.sdk:nearby-ui:1.0.2'
-
+    implementation'com.mappls.sdk:nearby-ui:1.0.2'
+    implementation 'com.mappls.sdk:markerview-plugin:1.0.1'
     implementation 'com.mappls.sdk:driving-range-plugin:1.1.0'
     //for direction widget
     implementation 'com.mappls.sdk:direction-ui:2.1.1'
     //Geoanalytics plugin
     implementation 'com.mappls.sdk:geoanalytics-plugin:1.1.0'
 
-    implementation 'com.mappls.sdk:markerview-plugin:1.0.1'
     //for location
     implementation 'com.google.android.gms:play-services-location:21.0.1'
 
     implementation 'com.github.QuadFlask:colorpicker:0.0.15'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.4'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.7.4'
 
 
 }

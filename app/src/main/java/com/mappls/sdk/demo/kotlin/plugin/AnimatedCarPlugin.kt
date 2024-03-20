@@ -172,15 +172,15 @@ class AnimatedCarPlugin(private val context: Context, mapView: MapView, private 
                 properties.addProperty(PROPERTY_SELECTED, false)
 
             val feature = Feature.fromGeometry(
-                    Point.fromLngLat(
-                            latLng.longitude,
-                            latLng.latitude), properties)
+                Point.fromLngLat(
+                    latLng.longitude,
+                    latLng.latitude), properties)
 
             featureCollection = FeatureCollection.fromFeatures(arrayOf(feature))
 
             car = Car(feature, nextPoint)
             it.addImage(CAR,
-                    (ContextCompat.getDrawable(context, R.drawable.placeholder) as BitmapDrawable).bitmap)
+                (ContextCompat.getDrawable(context, R.drawable.placeholder) as BitmapDrawable).bitmap)
 
             if(it.getSource(CAR_SOURCE) == null) {
 
@@ -201,23 +201,23 @@ class AnimatedCarPlugin(private val context: Context, mapView: MapView, private 
         private val viewMap = HashMap<String, View>()
         private val activityRef: WeakReference<AnimatedCarPlugin> = WeakReference(activity)
 
-         fun doBackground(vararg featureCollection: FeatureCollection) {
-             CoroutineScope(Dispatchers.IO).launch {
-                 backgroundProcess(featureCollection[0])
+        fun doBackground(vararg featureCollection: FeatureCollection) {
+            CoroutineScope(Dispatchers.IO).launch {
+                backgroundProcess(featureCollection[0])
 
-                 withContext(Dispatchers.Main) {
-                     // UI Thread work here
-                     val bitmapHashMap = HashMap<String, Bitmap>()
-                     val activity = activityRef.get()
-                     if (activity != null && bitmapHashMap != null) {
-                         activity.setImageGenResults(bitmapHashMap)
-                         if (refreshSource) {
-                             activity.refreshSource()
-                         }
-                         Toast.makeText(activity.context, "Marker Instructions", Toast.LENGTH_SHORT).show()
-                     }
-                 }
-             }
+                withContext(Dispatchers.Main) {
+                    // UI Thread work here
+                    val bitmapHashMap = HashMap<String, Bitmap>()
+                    val activity = activityRef.get()
+                    if (activity != null && bitmapHashMap != null) {
+                        activity.setImageGenResults(bitmapHashMap)
+                        if (refreshSource) {
+                            activity.refreshSource()
+                        }
+                        Toast.makeText(activity.context, "Marker Instructions", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
         }
 
         private fun backgroundProcess(vararg params: FeatureCollection): AbstractMap<String, Bitmap>? {
@@ -349,11 +349,11 @@ class AnimatedCarPlugin(private val context: Context, mapView: MapView, private 
         if(style.getLayer(CAR_LAYER) == null) {
             val symbolLayer = SymbolLayer(CAR_LAYER, CAR_SOURCE)
             symbolLayer.withProperties(
-                    iconImage(CAR),
-                    iconRotate(get(PROPERTY_BEARING)),
-                    iconAllowOverlap(true),
-                    iconIgnorePlacement(true),
-                    iconRotationAlignment(Property.ICON_ROTATION_ALIGNMENT_MAP)
+                iconImage(CAR),
+                iconRotate(get(PROPERTY_BEARING)),
+                iconAllowOverlap(true),
+                iconIgnorePlacement(true),
+                iconRotationAlignment(Property.ICON_ROTATION_ALIGNMENT_MAP)
 
             )
             style.addLayer(symbolLayer)
@@ -362,21 +362,21 @@ class AnimatedCarPlugin(private val context: Context, mapView: MapView, private 
 
         if(style.getLayer(SOURCE_LAYER_INFO_WINDOW) == null) {
             val symbolLayerInfoWindow = SymbolLayer(SOURCE_LAYER_INFO_WINDOW, CAR_SOURCE)
-                    .withProperties(
-                            /* show image with id title based on the value of the name feature property */
-                            iconImage("{name}"),
+                .withProperties(
+                    /* show image with id title based on the value of the name feature property */
+                    iconImage("{name}"),
 
-                            /* set anchor of icon to bottom-left */
-                            iconAnchor(Property.ICON_ANCHOR_BOTTOM_LEFT),
+                    /* set anchor of icon to bottom-left */
+                    iconAnchor(Property.ICON_ANCHOR_BOTTOM_LEFT),
 
-                            /* all info window and marker image to appear at the same time*/
-                            iconAllowOverlap(true),
+                    /* all info window and marker image to appear at the same time*/
+                    iconAllowOverlap(true),
 
-                            /* offset the info window to be above the marker */
-                            iconOffset(arrayOf(-2f, -25f))
-                    )
-                    /* setData a filter to show only when selected feature property is true */
-                    .withFilter(eq(get(PROPERTY_SELECTED), literal(true)))
+                    /* offset the info window to be above the marker */
+                    iconOffset(arrayOf(-2f, -25f))
+                )
+                /* setData a filter to show only when selected feature property is true */
+                .withFilter(eq(get(PROPERTY_SELECTED), literal(true)))
 
             style.addLayer(symbolLayerInfoWindow)
             layerIds?.add(symbolLayerInfoWindow.id)
@@ -466,8 +466,8 @@ class AnimatedCarPlugin(private val context: Context, mapView: MapView, private 
         internal fun updateFeature() {
 
             feature = Feature.fromGeometry(Point.fromLngLat(
-                    current.longitude,
-                    current.latitude)
+                current.longitude,
+                current.latitude)
             )
             feature!!.properties()!!.addProperty(PROPERTY_BEARING, getBearing(current, next!!))
             feature!!.properties()!!.addProperty(FILTER_TEXT, "filter")
@@ -487,8 +487,8 @@ class AnimatedCarPlugin(private val context: Context, mapView: MapView, private 
              */
             fun getBearing(from: LatLng, to: LatLng): Float {
                 return TurfMeasurement.bearing(
-                        Point.fromLngLat(from.longitude, from.latitude),
-                        Point.fromLngLat(to.longitude, to.latitude)
+                    Point.fromLngLat(from.longitude, from.latitude),
+                    Point.fromLngLat(to.longitude, to.latitude)
                 ).toFloat()
             }
         }
@@ -517,7 +517,7 @@ class AnimatedCarPlugin(private val context: Context, mapView: MapView, private 
          * @return calculated sample size
          */
         private fun calculateInSampleSize(
-                options: BitmapFactory.Options, reqWidth: Int, reqHeight: Int): Int {
+            options: BitmapFactory.Options, reqWidth: Int, reqHeight: Int): Int {
             // Raw height and width of image
             val height = options.outHeight
             val width = options.outWidth

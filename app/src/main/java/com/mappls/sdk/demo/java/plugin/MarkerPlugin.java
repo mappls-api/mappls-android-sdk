@@ -293,7 +293,7 @@ public class MarkerPlugin implements MapView.OnDidFinishLoadingStyleListener, Ma
         if (!features.isEmpty()) {
             feature = features.get(0);
             feature.addBooleanProperty(PROPERTY_SELECTED, true);
-           GenerateViewIconExecutor( this ,true, feature);
+            GenerateViewIconExecutor( this ,true, feature);
         }
         return false;
     }
@@ -325,7 +325,7 @@ public class MarkerPlugin implements MapView.OnDidFinishLoadingStyleListener, Ma
             // Handle ExecutionException
         }
 
-    // Remember to shutdown the executor service when you're done
+        // Remember to shutdown the executor service when you're done
         executorService.shutdown();
     }
     private static class GenerateViewIconTask implements Callable<HashMap<String, Bitmap>> {
