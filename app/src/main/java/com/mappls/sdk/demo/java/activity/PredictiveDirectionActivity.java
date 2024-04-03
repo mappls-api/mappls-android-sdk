@@ -37,7 +37,7 @@ import com.mappls.sdk.maps.camera.CameraUpdateFactory;
 import com.mappls.sdk.maps.geometry.LatLng;
 import com.mappls.sdk.maps.geometry.LatLngBounds;
 import com.mappls.sdk.services.api.OnResponseCallback;
-import com.mappls.sdk.services.api.predictive.MapplsDirectionDateTimeCurrent;
+import com.mappls.sdk.services.api.directions.predictive.MapplsDirectionDateTimeCurrent;
 import com.mappls.sdk.services.api.predictive.MapplsDirectionSpeedType;
 import com.mappls.sdk.services.api.predictive.MapplsDirectionSpeedTypeOptimal;
 import com.mappls.sdk.services.api.predictive.MapplsDirectionSpeedTypePredictive;

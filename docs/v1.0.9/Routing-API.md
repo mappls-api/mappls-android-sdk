@@ -70,9 +70,8 @@ val response = MapplsDirectionManager.newInstance(directions).executeCall()
    - DirectionsCriteria.PROFILE_TRUCKING:Meant for Truck routing. Routing with this profile is restricted to route_adv only. region & rtype request parameters are not supported in truck routing.
 2. `resource(String)`:  **Below are the available resource:**
    - DirectionsCriteria.RESOURCE_ROUTE **(Default)**: to calculate a route & its duration without considering traffic conditions.
-   - DirectionsCriteria.RESOURCE_ROUTE_ETA get the updated duration of a route considering live traffic; Applicable for India only "region=ind" and "rtype=1" is not supported. This is different from route_traffic; since this doesn't search for a route considering traffic, it only applies delays to the default route.
-   - DirectionsCriteria.RESOURCE_ROUTE_TRAFFIC:
-     to search for routes considering live traffic; Applicable for India only “region=ind” and “rtype=1” is not supported
+   - DirectionsCriteria.RESOURCE_ROUTE_ETA: get the updated duration of a route considering live traffic; Applicable for India only "region=ind" and "rtype=1" is not supported. This is different from route_traffic; since this doesn't search for a route considering traffic, it only applies delays to the default route.
+   - DirectionsCriteria.RESOURCE_ROUTE_TRAFFIC: to search for routes considering live traffic; Applicable for India only “region=ind” and “rtype=1” is not supported.
 3. ``steps(Boolean)``:Return route steps for each route leg. Possible values are true/false. By default it will be used as false.
 4. ``overView(String)``: Add overview geometry either full, simplified according to highest zoom level it could be display on, or not at all. **Below are the available value:**
    - DirectionsCriteria.OVERVIEW_FULL
@@ -89,6 +88,7 @@ val response = MapplsDirectionManager.newInstance(directions).executeCall()
 9. ``geometries(String)``: This parameter used to change the route geometry format/density (influences overview and per step).**Below are the available value:**
    -  DirectionsCriteria.GEOMETRY_POLYLINE: with 5 digit precision
    - DirectionsCriteria.GEOMETRY_POLYLINE6 **(Default)**: with 6 digit precision
+
 ### Response Code (as HTTP response code)
 #### Success:
 1.  200: To denote a successful API call.
@@ -275,7 +275,7 @@ Need support? contact us!
 
 
 
-<div align="center">@ Copyright 2023 CE Info Systems Ltd. All Rights Reserved.</div>
+<div align="center">@ Copyright 2024 CE Info Systems Ltd. All Rights Reserved.</div>
 
 <div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 

@@ -17,7 +17,6 @@ import com.mappls.sdk.demo.java.activity.DrivingRangePluginActivity;
 import com.mappls.sdk.demo.java.activity.GeoAnalyticsActivity;
 import com.mappls.sdk.demo.java.activity.HeatMapActivity;
 import com.mappls.sdk.demo.java.activity.IndoorActivity;
-import com.mappls.sdk.demo.java.activity.SafetyStripActivity;
 import com.mappls.sdk.demo.java.activity.ScalebarActivity;
 import com.mappls.sdk.demo.java.adapter.MapFeatureListAdapter;
 import com.mappls.sdk.demo.java.model.FeaturesList;
@@ -69,12 +68,9 @@ public class MapLayersFragment extends Fragment {
                     Intent scaleBarIntent= new Intent(getContext(), ScalebarActivity.class);
                     startActivity(scaleBarIntent);
                 } else if(position == 3) {
-                    Intent safetyStripIntent = new Intent(getContext(), SafetyStripActivity.class);
-                    startActivity(safetyStripIntent);
-                } else if(position == 4) {
                     Intent safetyStripIntent = new Intent(getContext(), GeoAnalyticsActivity.class);
                     startActivity(safetyStripIntent);
-                } else if(position == 5) {
+                } else if(position == 4) {
                     Intent safetyStripIntent = new Intent(getContext(), DrivingRangePluginActivity.class);
                     startActivity(safetyStripIntent);
                 }
@@ -86,7 +82,6 @@ public class MapLayersFragment extends Fragment {
         featuresArrayList.add(new FeaturesList("Show Heatmap data", "Add a heatmap to visualize data"));
         featuresArrayList.add(new FeaturesList("Indoor", "Show indoor widget when focus on multi storey building"));
         featuresArrayList.add(new FeaturesList("Map Scalebar", "Add a scale bar on map view to determine distance based on zoom level"));
-        featuresArrayList.add(new FeaturesList("Map Safety Strip", "To display a user's safety status for COVID-19 on a map"));
         featuresArrayList.add(new FeaturesList("Geoanalytics Plugin", "To gets the layer specified which is stored in Mappls Database and gives a WMS layer as an output"));
         featuresArrayList.add(new FeaturesList("Driving Range Plugin", "To plot driving range area to drive based on time or distance"));
 

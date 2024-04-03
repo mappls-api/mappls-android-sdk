@@ -53,12 +53,6 @@ class MapLayerFragmentKt : Fragment(), MapFeatureListAdapter.AdapterOnClick {
         )
         featuresArrayList.add(
             FeaturesList(
-                "Map Safety Strip",
-                "To display a user's safety status for COVID-19 on a map"
-            )
-        )
-        featuresArrayList.add(
-            FeaturesList(
                 "Geoanalytics Plugin",
                 "To gets the layer specified which is stored in Mappls Database and gives a WMS layer as an output"
             )
@@ -89,12 +83,9 @@ class MapLayerFragmentKt : Fragment(), MapFeatureListAdapter.AdapterOnClick {
             val scaleBarIntent = Intent(context, ScalebarActivity::class.java)
             startActivity(scaleBarIntent)
         } else if (position == 3) {
-            val safetyStripIntent = Intent(context, SafetyStripActivity::class.java)
-            startActivity(safetyStripIntent)
-        } else if (position == 4) {
             val safetyStripIntent = Intent(context, GeoAnalyticsActivity::class.java)
             startActivity(safetyStripIntent)
-        }else if (position == 5) {
+        }else if (position == 4) {
             val drivingRangePlugin = Intent(context, DrivingRangePluginActivity::class.java)
             startActivity(drivingRangePlugin)
         }

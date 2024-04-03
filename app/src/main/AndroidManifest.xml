@@ -164,10 +164,6 @@
             android:name=".java.activity.InputActivity"
             android:exported="false" />
         <activity
-            android:name=".kotlin.activity.SafetyStripActivity"
-            android:exported="false"
-            android:label="Safety Strip Kotlin" />
-        <activity
             android:name=".java.settingscreen.PlaceAutocompleteSettingActivity"
             android:exported="false"
             android:label="Place Widget Setting"
@@ -222,10 +218,6 @@
             android:name=".kotlin.activity.GeoFenceActivity"
             android:exported="false"
             android:label="GeoFence Kotlin" />
-        <activity
-            android:name=".java.activity.SafetyStripActivity"
-            android:exported="false"
-            android:label="Safety Strip Java" />
         <activity
             android:name=".kotlin.activity.BasicGeofenceActivity"
             android:exported="false"

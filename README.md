@@ -16,107 +16,106 @@ Powered with India's most comprehensive and robust mapping functionalities.
 
 | Version                         | Supported SDK Version                                                                                                                                                                                                                                                                                               | 
 |---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [v1.0.9](../v1.0.9/README.md) | - Map SDK v8.2.1 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.2.0 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v2.1.1 <br/> - Nearby UI Widget v1.0.2 <br/> - Annotation Plugin v1.0.1 <br/> - Driving Range Plugin v1.0.0 <br/> - Raster Catalogue v1.0.0 |
 | [v1.0.8](../v1.0.8/README.md) | - Map SDK v8.2.0 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.2.0 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v2.1.1 <br/> - Nearby UI Widget v1.0.2 <br/> - Annotation Plugin v1.0.1 <br/> - Driving Range Plugin v1.0.0 <br/> - Raster Catalogue v1.0.0 |
 | [v1.0.7](docs/v1.0.7/README.md) | - Map SDK v8.1.3 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.2.0 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v2.1.0 <br/> - Nearby UI Widget v1.0.2 <br/> - Annotation Plugin v1.0.1 <br/> - Driving Range Plugin v1.0.0 <br/> - Raster Catalogue v0.0.1 | 
-| [v1.0.6](docs/v1.0.6/README.md) | - Map SDK v8.1.0 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.1.0 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v2.0.0 <br/> - Nearby UI Widget v1.0.2 <br/> - Annotation Plugin v1.0.1 <br/> - Driving Range Plugin v1.0.0 <br/> - Raster Catalogue v0.0.1 |
 
-For more details of previous documentation versions , [click here](docs/v1.0.8/Doc-Version-History.md).
+For more details of previous documentation versions , [click here](docs/v1.0.9/Doc-Version-History.md).
 
 ## [Version History]()
 
 | Version | Last Updated      | Author | Release Note                                                                                                                                                                                         | 
 |---------|-------------------| ---- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| v8.2.1  | 02 Apr, 2024     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Bug Fixes & Improvements                                                                                                                       |
 | v8.2.0  | 14 Feb, 2024     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added ApiResponse for Background api calls to get the Response code of failure. <br/>  - Bug Fixes & Improvements                                                                                                                       |
 | v8.1.3  | 4 Feb, 2024     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Bug Fixes & Improvements                                                                                                                        |
 | v8.1.2  | 28 Dec, 2023     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Bug Fixes & Improvements                                                                                                                        |
 | v8.1.1  | 21 Nov, 2023     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added `PageInfo` in POI Along Route Response.  <br/> - Bug Fixes & Improvements                                                                                                                        |
-| v8.1.0  | 30 Oct, 2023     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Security Improvements                                                                                                                     |
 
 
-For more details of previous versions , [click here](docs/v1.0.8/Version-History.md).
+For more details of previous versions , [click here](docs/v1.0.9/Version-History.md).
 
 
 ## [Table Of Content]()
-- [Vector Android Map](docs/v1.0.8/Getting-Started.md)
-    * [Getting Started](docs/v1.0.8/Getting-Started.md#getting-started)
-    * [Setup your project](docs/v1.0.8/Getting-Started.md#setup-your-project)
-    * [Add your API keys to the SDK](docs/v1.0.8/Getting-Started.md#add-your-api-keys-to-the-sdk)
-    * [Add a Mappls Map to your application](docs/v1.0.8/Getting-Started.md#add-a-mappls-map-to-your-application)
-    * [Map Interactions](docs/v1.0.8/Getting-Started.md#map-interactions)
-    * [Map Events](docs/v1.0.8/Getting-Started.md#map-events)
-    * [Map Click/Long Press](docs/v1.0.8/Getting-Started.md#map-clicklong-press)
-    * [Map Overlays](docs/v1.0.8/Getting-Started.md#map-overlays)
-        - [Add A Marker](docs/v1.0.8/Getting-Started.md#add-a-marker)
-        - [Remove A Marker](docs/v1.0.8/Getting-Started.md#remove-a-marker)
-        - [Customize A Marker](docs/v1.0.8/Getting-Started.md#customize-a-marker)
-        - [Add A Polyline](docs/v1.0.8/Getting-Started.md#add-a-polyline)
-        - [Remove Polyline](docs/v1.0.8/Getting-Started.md#remove-polyline)
-        - [Add A Polygon](docs/v1.0.8/Getting-Started.md#add-a-polygon)
-        - [Remove Polygon](docs/v1.0.8/Getting-Started.md#remove-polygon)
-    * [Show User Location](docs/v1.0.8/Getting-Started.md#show-user-location)
-    * [Calculate distance between two points](docs/v1.0.8/Getting-Started.md#calculate-distance-between-two-points)
-    * [Proguard](docs/v1.0.8/Getting-Started.md#proguard)
-- [Map UI Settings](docs/v1.0.8/Map-UI-Settings.md)
-    * [Compass Settings](docs/v1.0.8/Map-UI-Settings.md#compass-settings)
-    * [Enable/Disable Zoom on double tap](docs/v1.0.8/Map-UI-Settings.md#enabledisable-zoom-on-double-tap)
-    * [Logo Settings](docs/v1.0.8/Map-UI-Settings.md#logo-settings)
-    * [Enable/Disable Map Rotation Gessture](docs/v1.0.8/Map-UI-Settings.md#enable-disable-map-rotation-gesture)
-    * [Enable/Disable Map Scrolling Gesture](docs/v1.0.8/Map-UI-Settings.md#enabledisable-map-scrolling-gesture)
-    * [Enable/Disable Map Tilt Gesture](docs/v1.0.8/Map-UI-Settings.md#enable-disable-map-tilt-gesture)
-    * [Enable/Disable Zoom Gestures](docs/v1.0.8/Map-UI-Settings.md#enabledisable-zoom-gesture)
-- [Mappls Annotation Plugin](docs/v1.0.8/AnnotationPlugin.md)
-- [Set Country Regions](docs/v1.0.8/Set-Regions.md)
-- [Set Mappls Map Style](docs/v1.0.8/Map-Style.md)
-    * [List of Available Styles](docs/v1.0.8/Map-Style.md#list-of-available-styles)
-    * [Set Mappls Style](docs/v1.0.8/Map-Style.md#set-mappls-style)
-    * [To enable/disable last selected style](docs/v1.0.8/Map-Style.md#to-enabledisable-last-selected-style)
-    * [Get selected style](docs/v1.0.8/Map-Style.md#get-selected-style)
-- [Raster Catalogue](docs/v1.0.8/raster_catalogue.md)
-- [Mappls Traffic Vector Overlay](docs/v1.0.8/Traffic-Vector-Overlay.md)
+- [Vector Android Map](docs/v1.0.9/Getting-Started.md)
+    * [Getting Started](docs/v1.0.9/Getting-Started.md#getting-started)
+    * [Setup your project](docs/v1.0.9/Getting-Started.md#setup-your-project)
+    * [Add your API keys to the SDK](docs/v1.0.9/Getting-Started.md#add-your-api-keys-to-the-sdk)
+    * [Add a Mappls Map to your application](docs/v1.0.9/Getting-Started.md#add-a-mappls-map-to-your-application)
+    * [Map Interactions](docs/v1.0.9/Getting-Started.md#map-interactions)
+    * [Map Events](docs/v1.0.9/Getting-Started.md#map-events)
+    * [Map Click/Long Press](docs/v1.0.9/Getting-Started.md#map-clicklong-press)
+    * [Map Overlays](docs/v1.0.9/Getting-Started.md#map-overlays)
+        - [Add A Marker](docs/v1.0.9/Getting-Started.md#add-a-marker)
+        - [Remove A Marker](docs/v1.0.9/Getting-Started.md#remove-a-marker)
+        - [Customize A Marker](docs/v1.0.9/Getting-Started.md#customize-a-marker)
+        - [Add A Polyline](docs/v1.0.9/Getting-Started.md#add-a-polyline)
+        - [Remove Polyline](docs/v1.0.9/Getting-Started.md#remove-polyline)
+        - [Add A Polygon](docs/v1.0.9/Getting-Started.md#add-a-polygon)
+        - [Remove Polygon](docs/v1.0.9/Getting-Started.md#remove-polygon)
+    * [Show User Location](docs/v1.0.9/Getting-Started.md#show-user-location)
+    * [Calculate distance between two points](docs/v1.0.9/Getting-Started.md#calculate-distance-between-two-points)
+    * [Proguard](docs/v1.0.9/Getting-Started.md#proguard)
+- [Map UI Settings](docs/v1.0.9/Map-UI-Settings.md)
+    * [Compass Settings](docs/v1.0.9/Map-UI-Settings.md#compass-settings)
+    * [Enable/Disable Zoom on double tap](docs/v1.0.9/Map-UI-Settings.md#enabledisable-zoom-on-double-tap)
+    * [Logo Settings](docs/v1.0.9/Map-UI-Settings.md#logo-settings)
+    * [Enable/Disable Map Rotation Gessture](docs/v1.0.9/Map-UI-Settings.md#enable-disable-map-rotation-gesture)
+    * [Enable/Disable Map Scrolling Gesture](docs/v1.0.9/Map-UI-Settings.md#enabledisable-map-scrolling-gesture)
+    * [Enable/Disable Map Tilt Gesture](docs/v1.0.9/Map-UI-Settings.md#enable-disable-map-tilt-gesture)
+    * [Enable/Disable Zoom Gestures](docs/v1.0.9/Map-UI-Settings.md#enabledisable-zoom-gesture)
+- [Mappls Annotation Plugin](docs/v1.0.9/AnnotationPlugin.md)
+- [Set Country Regions](docs/v1.0.9/Set-Regions.md)
+- [Set Mappls Map Style](docs/v1.0.9/Map-Style.md)
+    * [List of Available Styles](docs/v1.0.9/Map-Style.md#list-of-available-styles)
+    * [Set Mappls Style](docs/v1.0.9/Map-Style.md#set-mappls-style)
+    * [To enable/disable last selected style](docs/v1.0.9/Map-Style.md#to-enabledisable-last-selected-style)
+    * [Get selected style](docs/v1.0.9/Map-Style.md#get-selected-style)
+- [Raster Catalogue](docs/v1.0.9/raster_catalogue.md)
+- [Mappls Traffic Vector Overlay](docs/v1.0.9/Traffic-Vector-Overlay.md)
 - REST API Kit
-    * [Search API's](docs/v1.0.8/Search-Api.md)
-        - [Auto Suggest](docs/v1.0.8/Search-Api.md#auto-suggest)
-        - [Geocoding](docs/v1.0.8/Search-Api.md#geocoding)
-        - [Reverse Geocoding](docs/v1.0.8/Search-Api.md#reverse-geocoding)
-        - [Nearby Places](docs/v1.0.8/Search-Api.md#nearby-places)
-        - [Place Detail](docs/v1.0.8/Search-Api.md#place-details)
-        - [POI Along the Route](docs/v1.0.8/Search-Api.md#poi-along-the-route)
+    * [Search API's](docs/v1.0.9/Search-Api.md)
+        - [Auto Suggest](docs/v1.0.9/Search-Api.md#auto-suggest)
+        - [Geocoding](docs/v1.0.9/Search-Api.md#geocoding)
+        - [Reverse Geocoding](docs/v1.0.9/Search-Api.md#reverse-geocoding)
+        - [Nearby Places](docs/v1.0.9/Search-Api.md#nearby-places)
+        - [Place Detail](docs/v1.0.9/Search-Api.md#place-details)
+        - [POI Along the Route](docs/v1.0.9/Search-Api.md#poi-along-the-route)
 
-    * [Routes & Navigation API](docs/v1.0.8/Routing-API.md)
-        - [Routing API](docs/v1.0.8/Routing-API.md#routing-api)
-        - [Driving Distance Matrix API](docs/v1.0.8/Routing-API.md#driving-distance-matrix-api)
-  * [Predictive Routing API](docs/v1.0.8/Predictive-Route-APIs.md)
-      - [Predictive Routing API](docs/v1.0.8/Predictive-Route-APIs.md#predictive-routing-api)
-      - [Predictive Driving Distance API](docs/v1.0.8/Predictive-Route-APIs.md#predictive-distance)
-    * [Feedback API](docs/v1.0.8/Feedback.md)
-    * [Nearby Reports](docs/v1.0.8/Nearby-Report.md)
-    * [Weather API](docs/v1.0.8/Weather-API.md)
-    * [Trip Cost Estimation API](docs/v1.0.8/trip-cost-estimation.md)
-    * [Geolocation API](docs/v1.0.8/Geolocation.md)
-- [Mappls GeoAnalytics](docs/v1.0.8/Geoanalytics.md)
-- [Place Autocomple Widget](docs/v1.0.8/Place-Autocomplete.md)
-    * [PlaceAutocompleteFragment](docs/v1.0.8/Place-Autocomplete.md#placeautocompletefragment)
-    * [PlaceAutocompleteActivity](docs/v1.0.8/Place-Autocomplete.md#placeautocompleteactivity)
-- [Mappls GeoFence View](docs/v1.0.8/GeoFence-View.md)
-- [Mappls Safety Strip](docs/v1.0.8/Safety-Strip.md)
-- [Mappls Place Picker](docs/v1.0.8/Place-Picker.md)
-- [Mappls Scalebar Plugin](docs/v1.0.8/Scalebar-Plugin.md)
-- [Mappls Pin Strategy](docs/v1.0.8/MapplsPinStrategy.md)
-- [Mappls Direction Widget](docs/v1.0.8/Direction-Widget.md)
-- [Mappls Nearby Search Widget](docs/v1.0.8/Nearby-Widget.md)
-    * [Introduction](docs/v1.0.8/Nearby-Widget.md#introduction)
-    * [Adding Credentials](docs/v1.0.8/Nearby-Widget.md#step-2----adding-credentials)
-    * [Launching Nearby Widget](docs/v1.0.8/Nearby-Widget.md#step-3----launching-nearby-widget)
-        - [MapplsNearbyFragment](docs/v1.0.8/Nearby-Widget.md#mapplsnearbyfragment)
-        - [MapplsNearbyActivity](docs/v1.0.8/Nearby-Widget.md#mapplsnearbyactivity)
-- [Driving Range Plugin](docs/v1.0.8/Driving-Range-Plugin.md)
-    - [Introduction](docs/v1.0.8/Driving-Range-Plugin.md#introduction)
-    - [Implementation](docs/v1.0.8/Driving-Range-Plugin.md#implementation)
-    - [Initialise Plugin](docs/v1.0.8/Driving-Range-Plugin.md#initialise-plugin)
-    - [Plot Driving Range](docs/v1.0.8/Driving-Range-Plugin.md#plot-driving-range)
-    - [Additional Features](docs/v1.0.8/Driving-Range-Plugin.md#additional-features)
-- [SDK Error Codes](docs/v1.0.8/SDK-Error-code.md)
-- [Version History](docs/v1.0.8/Version-History.md)
+    * [Routes & Navigation API](docs/v1.0.9/Routing-API.md)
+        - [Routing API](docs/v1.0.9/Routing-API.md#routing-api)
+        - [Driving Distance Matrix API](docs/v1.0.9/Routing-API.md#driving-distance-matrix-api)
+  * [Predictive Routing API](docs/v1.0.9/Predictive-Route-APIs.md)
+      - [Predictive Routing API](docs/v1.0.9/Predictive-Route-APIs.md#predictive-routing-api)
+      - [Predictive Driving Distance API](docs/v1.0.9/Predictive-Route-APIs.md#predictive-distance)
+    * [Feedback API](docs/v1.0.9/Feedback.md)
+    * [Nearby Reports](docs/v1.0.9/Nearby-Report.md)
+    * [Weather API](docs/v1.0.9/Weather-API.md)
+    * [Trip Cost Estimation API](docs/v1.0.9/trip-cost-estimation.md)
+    * [Geolocation API](docs/v1.0.9/Geolocation.md)
+- [Mappls GeoAnalytics](docs/v1.0.9/Geoanalytics.md)
+- [Place Autocomple Widget](docs/v1.0.9/Place-Autocomplete.md)
+    * [PlaceAutocompleteFragment](docs/v1.0.9/Place-Autocomplete.md#placeautocompletefragment)
+    * [PlaceAutocompleteActivity](docs/v1.0.9/Place-Autocomplete.md#placeautocompleteactivity)
+- [Mappls GeoFence View](docs/v1.0.9/GeoFence-View.md)
+- [Mappls Place Picker](docs/v1.0.9/Place-Picker.md)
+- [Mappls Scalebar Plugin](docs/v1.0.9/Scalebar-Plugin.md)
+- [Mappls Pin Strategy](docs/v1.0.9/MapplsPinStrategy.md)
+- [Mappls Direction Widget](docs/v1.0.9/Direction-Widget.md)
+- [Mappls Nearby Search Widget](docs/v1.0.9/Nearby-Widget.md)
+    * [Introduction](docs/v1.0.9/Nearby-Widget.md#introduction)
+    * [Adding Credentials](docs/v1.0.9/Nearby-Widget.md#step-2----adding-credentials)
+    * [Launching Nearby Widget](docs/v1.0.9/Nearby-Widget.md#step-3----launching-nearby-widget)
+        - [MapplsNearbyFragment](docs/v1.0.9/Nearby-Widget.md#mapplsnearbyfragment)
+        - [MapplsNearbyActivity](docs/v1.0.9/Nearby-Widget.md#mapplsnearbyactivity)
+- [Driving Range Plugin](docs/v1.0.9/Driving-Range-Plugin.md)
+    - [Introduction](docs/v1.0.9/Driving-Range-Plugin.md#introduction)
+    - [Implementation](docs/v1.0.9/Driving-Range-Plugin.md#implementation)
+    - [Initialise Plugin](docs/v1.0.9/Driving-Range-Plugin.md#initialise-plugin)
+    - [Plot Driving Range](docs/v1.0.9/Driving-Range-Plugin.md#plot-driving-range)
+    - [Additional Features](docs/v1.0.9/Driving-Range-Plugin.md#additional-features)
+- [SDK Error Codes](docs/v1.0.9/SDK-Error-code.md)
+- [Version History](docs/v1.0.9/Version-History.md)
 - [Country List](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md)
 
 <br><br><br>
@@ -143,7 +142,7 @@ Need support? contact us!
 
 
 
-<div align="center">@ Copyright 2023 CE Info Systems Ltd. All Rights Reserved.</div>    
+<div align="center">@ Copyright 2024 CE Info Systems Ltd. All Rights Reserved.</div>    
 
 <div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>    
 

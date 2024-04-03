@@ -19,6 +19,8 @@ This API gets the layer specified which is stored in Mappls Database and gives a
 Add below dependency in app level build.gradle file
 ~~~groovy
 implementation 'com.mappls.sdk:geoanalytics-plugin:1.1.0'
+implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+implementation 'com.squareup.retrofit2:adapter-rxjava:2.6.2'
 ~~~
 
 ## Available Geoanalytics Layer

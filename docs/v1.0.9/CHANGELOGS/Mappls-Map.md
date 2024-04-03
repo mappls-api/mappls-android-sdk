@@ -1,3 +1,6 @@
+## v8.2.1, 02 April 2024
+- Bug Fixes & Improvements
+
 ## v8.2.0, 14 February 2024
 - Added ApiResponse for Background api calls to get the Response code of failure
 - Bug Fixes & Improvements
