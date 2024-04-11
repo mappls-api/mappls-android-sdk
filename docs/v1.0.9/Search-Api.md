@@ -95,14 +95,12 @@ val responseApiResponse = MapplsAutosuggestManager.newInstance(autoSuggest).exec
 #### ELocation Response result parameters:
 1. `mapplsPin`(String): Mappls Pin of the location 6-char alphanumeric.
 2. `placeAddress`(String): Address of the location.
-3. `latitude`(Double): Latitude of the location.
-4. `longitude`(Double): longitude of the location.
-5. `type`(String): type of location POI or Country or City
-6. `placeName`(String): Name of the location.
-7. `user`(String): Name of the user who add the place
-8. `index`(Integer): the order where this result should be placed
-9. `distance`(Double): aerial distance in meters from reference location
-10. `addressTokens`(AddressToken)
+3. `type`(String): type of location POI or Country or City
+4. `placeName`(String): Name of the location.
+5. `user`(String): Name of the user who add the place
+6. `index`(Integer): the order where this result should be placed
+7. `distance`(Double): aerial distance in meters from reference location
+8.  `addressTokens`(AddressToken)
 ##### AddressToken parameters:
 1. `houseNumber`(String): house number of the location.
 2. `houseName`(String): house name of the location.
@@ -229,9 +227,7 @@ val response = MapplsGeoCodingManager.newInstance(mapplsGeoCoding).executeCall()
 13.  `pincode`(string): the pincode of the location
 14.  `formatted`Address(string): the general protocol following address
 15.  `mapplsPin`(string): mappls pin of the particular location
-16.  `latitude`(double): the latitude for the location.
-17.  `longitude`(double): the longitude for the location.
-18.  `geocodeLevel`(string): the best matched address component.
+16.  `geocodeLevel`(string): the best matched address component.
 
 ## [Reverse Geocoding]()
 Reverse Geocoding is a process to give the closest matching address to a provided geographical coordinates (latitude/longitude). Mappls reverse geocoding API provides real addresses along with nearest popular landmark for any such geo-positions on the map.
@@ -326,9 +322,7 @@ val response = MapplsReverseGeoCodeManager.newInstance(reverseGeoCode).executeCa
 14.  `state`(String): the state of the location
 15.  `pincode`(String): the pincode of the location
 16.  `formatted`Address(String): the general protocol following address
-17.  `lat`(Double): the latitude for the location.
-18.  `lng`(Double): the longitude for the location.
-19.  `area`(String): the area of the location.
+17.  `area`(String): the area of the location.
 
 
 ## [Nearby Places]()
@@ -434,24 +428,20 @@ val response = MapplsNearbyManager.newInstance(nearby).executeCall()
 1. ``distance`` (integer): provides the distance from the provided location bias in meters.
 2.  ``eLoc`` (string): Place Id of the location 6-char alphanumeric.
 3.  ``email`` (string): Email for contact.
-4.  ``entryLatitude`` (double): latitude of the entrance of the location.
-5.  ``entryLongitude`` (double): longitude of the entrance of the location.
-6.  ``keywords`` ( [ string ] ): provides an array of matched keywords or codes.
-7.  ``landlineNo`` (string): Email for contact.
-8.  ``latitude`` (double): Latitude of the location.
-9.  ``longitude`` (double): longitude of the location.
-10.  ``mobileNo`` : Phone number for contact.
-11.  ``orderIndex`` (integer): the order where this result should be placed
-12.  ``placeAddress`` (string): Address of the location.
-13.  ``placeName`` (string): Name of the location.
-14. ``city``(string): City of the location
-15. ``state``(string): State of the location
-16. ``pincode``(string): Pincode of the location
-17. ``richInfo``(Map):  To show advance information of location
-18.  ``type`` (string): Type of location POI or Country or City.
-19.  ``hourOfOperation``(string): The hours of operation of the POI in a day.
-20.  ``addressTokens``(AddressToken)
-21. ``pageInfo``(PageInfo)
+4.  ``keywords`` ( [ string ] ): provides an array of matched keywords or codes.
+5.  ``landlineNo`` (string): Email for contact.
+6.   ``mobileNo`` : Phone number for contact.
+7.   ``orderIndex`` (integer): the order where this result should be placed
+8.   ``placeAddress`` (string): Address of the location.
+9.   ``placeName`` (string): Name of the location.
+10. ``city``(string): City of the location
+11. ``state``(string): State of the location
+12. ``pincode``(string): Pincode of the location
+13. ``richInfo``(Map):  To show advance information of location
+14.  ``type`` (string): Type of location POI or Country or City.
+15.  ``hourOfOperation``(string): The hours of operation of the POI in a day.
+16.  ``addressTokens``(AddressToken)
+17. ``pageInfo``(PageInfo)
 ##### AddressToken parameters:
 1. `houseNumber`(String): house number of the location.
 2. `houseName`(String): house name of the location.
@@ -654,11 +644,7 @@ val response = MapplsPOIAlongRouteManager.newInstance(poiAlongRoute).executeCall
 13. ``telNo``(String): Telephone number of the POI.
 14. ``email``(String): Email of the POI.
 15. ``website``(String): Website of the POI.
-16. ``longitude``(Double): Longitude of the POI.
-17. ``latitude``(Double): Latitude of the POI.
-18. ``eLng``(Double): Entry longitude of the POI.
-19. ``eLat``(Double): Entry latitude of the POI.
-20. ``brandCode``(String): Brand id of the POI.
+16. ``brandCode``(String): Brand id of the POI.
 
 
 <br><br><br>
