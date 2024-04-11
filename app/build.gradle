@@ -52,7 +52,7 @@ dependencies {
 
     implementation 'com.github.bumptech.glide:glide:4.13.1'
 
-    implementation 'com.mappls.sdk:place-widget:2.2.0'
+    implementation 'com.mappls.sdk:place-widget:2.2.1'
     implementation 'com.mappls.sdk:mappls-android-sdk:8.2.1'
 
     //Annotation Plugin

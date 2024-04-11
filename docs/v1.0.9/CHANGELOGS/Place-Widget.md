@@ -1,3 +1,7 @@
+## v2.2.1, 10 April 2024
+- Added more paramters in `PlaceOptions` to change UI colors
+- Added `lang` parameter in Place Picker
+
 ## v2.2.0, 03 January 2024
 - Fixes in POI Logic in Place Picker
 
