@@ -15,7 +15,7 @@ For more details, please contact apisupport@mappls.com.
 
 Add below dependency in your app-level build.gradle
 ~~~groovy	
-implementation 'com.mappls.sdk:direction-ui:2.1.1'
+implementation 'com.mappls.sdk:direction-ui:2.1.2'
 ~~~
 
 ### Add your API keys to the SDK

@@ -1,3 +1,6 @@
+## v2.1.2, 18 April, 2024
+- Bug Fixes and Improvement
+
 ## v2.1.1, 28 February, 2024
 - Added Start and end point on Polyline
 

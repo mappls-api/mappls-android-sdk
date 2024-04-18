@@ -65,7 +65,7 @@ dependencies {
     implementation 'com.mappls.sdk:markerview-plugin:1.0.1'
     implementation 'com.mappls.sdk:driving-range-plugin:1.1.0'
     //for direction widget
-    implementation 'com.mappls.sdk:direction-ui:2.1.1'
+    implementation 'com.mappls.sdk:direction-ui:2.1.2'
     //Geoanalytics plugin
     implementation 'com.mappls.sdk:geoanalytics-plugin:1.1.0'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
