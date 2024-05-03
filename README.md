@@ -73,7 +73,7 @@ For more details of previous versions , [click here](docs/v1.0.9/Version-History
     * [Get selected style](docs/v1.0.9/Map-Style.md#get-selected-style)
 - [Raster Catalogue](docs/v1.0.9/raster_catalogue.md)
 - [Mappls Traffic Vector Overlay](docs/v1.0.9/Traffic-Vector-Overlay.md)
-- [REST API Kit]()
+- [REST API Kit](docs/v1.0.9/Search-Api.md)
     * [Search API's](docs/v1.0.9/Search-Api.md)
         - [Auto Suggest](docs/v1.0.9/Search-Api.md#auto-suggest)
         - [Geocoding](docs/v1.0.9/Search-Api.md#geocoding)
