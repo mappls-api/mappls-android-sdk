@@ -1,3 +1,6 @@
+## v2.3.0, 09 May 2024
+- Added capability to highlight buildings in Mappls Place Picker
+
 ## v2.2.1, 10 April 2024
 - Added more paramters in `PlaceOptions` to change UI colors
 - Added `lang` parameter in Place Picker

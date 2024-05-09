@@ -10,7 +10,7 @@ Mappls Place Picker Plugin can be used to choose a specific location.
 ## Add the dependency
 Add below dependency in app level build.gradle file
 ~~~groovy	
-implementation 'com.mappls.sdk:place-widget:2.2.1'
+implementation 'com.mappls.sdk:place-widget:2.3.0'
 ~~~
 
 ## Add Place Picker
@@ -42,6 +42,22 @@ You can use `PlacePickerOptions` to set the following properties:
 7. `mapMinZoom(Double)`: To set minimum zoom level of the map
 8. `includeSearch(Boolean)`: To provide opions for search locations
 9. `searchPlaceOption(PlaceOptions)`: To set all the properties of search widget
+
+### Premium Feature
+The Place Picker widget has the capability to showcase certain premium features if they are provisioned within your project, like: 
+
+#### Highlighting a Building
+If the selected point on the map falls within a building, then Mappls Place Picker can also highlight the said building on the map. This visualization's color palette is configurable within the Mappls Map SDK.
+
+In order to access this feature, please contact API support as well as your Business relationship manager.
+
+Also, you need to use below properties to use this feature:
+1. `buildingFootprintsEnabled(Boolean)` : To display Building Foot Print of place picker area
+2. `buildingAppearanceFillColor(String)`: To set the footprint background color
+3. `buildingAppearanceFillOpacity(Double)`:To set the footprint background color opacity
+4. `buildingAppearanceStrokeOpacity(Double)`:To set the footprint Stroke opacity color
+5. `buildingAppearanceStrokeWidth(Integer)`: To set the footprint Stroke Width
+6. `buildingAppearanceStrokeColor(String)`: To set the footprint Line Stroke Color
    ​
 
 ##  Get Result

@@ -17,5 +17,5 @@ dependencyResolutionManagement {
         maven { url "https://jitpack.io" }
     }
 }
-rootProject.name = "mappls-maps-vectorSDK-android"
+rootProject.name = "mappls-android-sdk"
 include ':app'
