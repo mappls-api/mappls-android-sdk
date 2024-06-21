@@ -57,7 +57,7 @@ dependencies {
 
     //Annotation Plugin
     implementation 'com.mappls.sdk:annotation-plugin:1.0.1'
-    implementation 'com.mappls.sdk:directions-plugin:1.0.4'
+    implementation 'com.mappls.sdk:directions-plugin:1.0.5'
     implementation 'com.mappls.sdk:scalebar-plugin:1.0.0'
     implementation 'com.mappls.sdk:geofence-ui:1.0.0'
     //for nearby widget
@@ -65,7 +65,7 @@ dependencies {
     implementation 'com.mappls.sdk:markerview-plugin:1.0.1'
     implementation 'com.mappls.sdk:driving-range-plugin:1.1.0'
     //for direction widget
-    implementation 'com.mappls.sdk:direction-ui:2.1.2'
+    implementation 'com.mappls.sdk:direction-ui:2.2.0'
     //Geoanalytics plugin
     implementation 'com.mappls.sdk:geoanalytics-plugin:1.1.0'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'

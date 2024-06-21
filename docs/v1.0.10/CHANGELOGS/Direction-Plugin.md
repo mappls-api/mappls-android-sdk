@@ -1,6 +1,9 @@
+## v1.0.5, 21 June, 2024
+    - Added New Maneuver IDs
+    - Added Option to set distance conversion type(i.e., Imperial & Metric)
+    
 ## v1.0.4, 31 October, 2023
-    - Added Distance and Time Formatter
-
+    - Bug Fixes
 ## v1.0.3, 29 September, 2023
     - Added Distance and Time Formatter
 

@@ -1,3 +1,7 @@
+## v2.2.0, 21 June, 2024
+- Added Option to set Distance Conversion unit in imperial and metric
+- Bug fixes
+
 ## v2.1.2, 18 April, 2024
 - Bug Fixes and Improvement
 
