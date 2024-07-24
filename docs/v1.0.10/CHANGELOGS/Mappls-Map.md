@@ -1,3 +1,7 @@
+## v8.2.3, 24 July 2024
+- Added Negative Latitude & Longitude Support in Autosuggest, Text Search and Nearby
+- Bug Fixes & Improvements
+
 ## v8.2.2, 04 May 2024
 - Added Census and LGD codes in `Geocode` and `Reverse Geocode`
 
