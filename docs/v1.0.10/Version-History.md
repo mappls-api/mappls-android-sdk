@@ -3,6 +3,7 @@
 
 | Version | Last Updated | Author |  Release Note|
 | ---- | ---- | ---- | ---- |
+| v8.2.4  | 09 Sep, 2024     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added 100 Coordinates Support in Distance Matrix                                                                                            |
 | v8.2.3  | 24 Jul, 2024     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added Negative Latitude & Longitude Support in Autosuggest, Text Search and Nearby <br/> - Bug Fixes & Improvements                                                                                            |
 | v8.2.2  | 04 May, 2024     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added Census and LGD codes in `Geocode` and `Reverse Geocode`                                                                                                                       |
 | v8.2.1  | 02 Apr, 2024     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Bug Fixes & Improvements                                                                                                                       |

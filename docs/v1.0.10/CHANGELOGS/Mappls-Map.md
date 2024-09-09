@@ -1,3 +1,6 @@
+## v8.2.4, 09 September 2024
+- Added 100 Coordinates Support in Distance Matrix Api
+
 ## v8.2.3, 24 July 2024
 - Added Negative Latitude & Longitude Support in Autosuggest, Text Search and Nearby
 - Bug Fixes & Improvements
