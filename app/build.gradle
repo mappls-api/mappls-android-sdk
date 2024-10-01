@@ -57,7 +57,7 @@ dependencies {
 
     //Annotation Plugin
     implementation 'com.mappls.sdk:annotation-plugin:1.0.1'
-    implementation 'com.mappls.sdk:directions-plugin:1.0.5'
+    implementation 'com.mappls.sdk:directions-plugin:1.0.6'
     implementation 'com.mappls.sdk:scalebar-plugin:1.0.0'
     implementation 'com.mappls.sdk:geofence-ui:1.0.0'
     //for nearby widget
