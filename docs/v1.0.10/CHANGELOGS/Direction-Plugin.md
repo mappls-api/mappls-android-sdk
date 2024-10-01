@@ -1,3 +1,6 @@
+## v1.0.6, 30 September, 2024
+    - Added Merge Icon in Maneuver View
+
 ## v1.0.5, 21 June, 2024
     - Added New Maneuver IDs
     - Added Option to set distance conversion type(i.e., Imperial & Metric)
