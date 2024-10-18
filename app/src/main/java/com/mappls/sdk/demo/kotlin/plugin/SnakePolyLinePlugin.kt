@@ -76,9 +76,7 @@ class SnakePolyLinePlugin : MapView.OnDidFinishLoadingStyleListener {
     }
 
     fun removeCallback() {
-        if (runnable != null) {
-            handler.removeCallbacks(runnable)
-        }
+        handler.removeCallbacks(runnable)
     }
 
 

@@ -31,7 +31,7 @@ class TransparentProgressDialog(context: Context, resourceIdOfImage: Int, messag
         setOnCancelListener(null)
         val layout = LinearLayout(context)
         layout.orientation = LinearLayout.VERTICAL
-        val params = LinearLayout.LayoutParams(ActionBar.LayoutParams.FILL_PARENT, ActionBar.LayoutParams.WRAP_CONTENT)
+        val params = LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.WRAP_CONTENT)
         iv = ImageView(context)
         tv = TextView(context)
         tv.setPadding(0, 20, 0, 0)

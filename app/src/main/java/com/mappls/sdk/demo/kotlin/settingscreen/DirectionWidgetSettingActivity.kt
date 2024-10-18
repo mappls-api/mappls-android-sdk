@@ -257,34 +257,28 @@ class DirectionWidgetSettingActivity : AppCompatActivity() {
         } else {
             mBinding.historyCountLayout.visibility = View.VISIBLE
         }
-        if (MapplsDirectionWidgetSetting.instance.resource != null) {
-            if (MapplsDirectionWidgetSetting.instance.resource.equals(DirectionsCriteria.RESOURCE_ROUTE, ignoreCase = true)) {
-                mBinding.rgResources.check(mBinding.rbRoute.id)
-            } else if (MapplsDirectionWidgetSetting.instance.resource.equals(DirectionsCriteria.RESOURCE_ROUTE_ETA, ignoreCase = true)) {
-                mBinding.rgResources.check(mBinding.rbRouteEta.id)
-            } else if (MapplsDirectionWidgetSetting.instance.resource.equals(DirectionsCriteria.RESOURCE_ROUTE_TRAFFIC, ignoreCase = true)) {
-                mBinding.rgResources.check(mBinding.rbRouteTraffic.id)
-            }
+        if (MapplsDirectionWidgetSetting.instance.resource.equals(DirectionsCriteria.RESOURCE_ROUTE, ignoreCase = true)) {
+            mBinding.rgResources.check(mBinding.rbRoute.id)
+        } else if (MapplsDirectionWidgetSetting.instance.resource.equals(DirectionsCriteria.RESOURCE_ROUTE_ETA, ignoreCase = true)) {
+            mBinding.rgResources.check(mBinding.rbRouteEta.id)
+        } else if (MapplsDirectionWidgetSetting.instance.resource.equals(DirectionsCriteria.RESOURCE_ROUTE_TRAFFIC, ignoreCase = true)) {
+            mBinding.rgResources.check(mBinding.rbRouteTraffic.id)
         }
-        if (MapplsDirectionWidgetSetting.instance.profile != null) {
-            if (MapplsDirectionWidgetSetting.instance.profile.equals(DirectionsCriteria.PROFILE_DRIVING, ignoreCase = true)) {
-                mBinding.rgProfiles.check(mBinding.rbDriving.id)
-            } else if (MapplsDirectionWidgetSetting.instance.profile.equals(DirectionsCriteria.PROFILE_WALKING, ignoreCase = true)) {
-                mBinding.rgProfiles.check(mBinding.rbWalking.id)
-            } else if (MapplsDirectionWidgetSetting.instance.profile.equals(DirectionsCriteria.PROFILE_BIKING, ignoreCase = true)) {
-                mBinding.rgProfiles.check(mBinding.rbBiking.id)
-            } else if (MapplsDirectionWidgetSetting.instance.profile.equals(DirectionsCriteria.PROFILE_TRUCKING, ignoreCase = true)) {
-                mBinding.rgProfiles.check(mBinding.rbTrucking.id)
-            }
+        if (MapplsDirectionWidgetSetting.instance.profile.equals(DirectionsCriteria.PROFILE_DRIVING, ignoreCase = true)) {
+            mBinding.rgProfiles.check(mBinding.rbDriving.id)
+        } else if (MapplsDirectionWidgetSetting.instance.profile.equals(DirectionsCriteria.PROFILE_WALKING, ignoreCase = true)) {
+            mBinding.rgProfiles.check(mBinding.rbWalking.id)
+        } else if (MapplsDirectionWidgetSetting.instance.profile.equals(DirectionsCriteria.PROFILE_BIKING, ignoreCase = true)) {
+            mBinding.rgProfiles.check(mBinding.rbBiking.id)
+        } else if (MapplsDirectionWidgetSetting.instance.profile.equals(DirectionsCriteria.PROFILE_TRUCKING, ignoreCase = true)) {
+            mBinding.rgProfiles.check(mBinding.rbTrucking.id)
         }
-        if (MapplsDirectionWidgetSetting.instance.overview != null) {
-            if (MapplsDirectionWidgetSetting.instance.overview.equals(DirectionsCriteria.OVERVIEW_FULL, ignoreCase = true)) {
-                mBinding.rgOverviews.check(mBinding.rbFull.id)
-            } else if (MapplsDirectionWidgetSetting.instance.overview.equals(DirectionsCriteria.OVERVIEW_FALSE, ignoreCase = true)) {
-                mBinding.rgOverviews.check(mBinding.rbNone.id)
-            } else if (MapplsDirectionWidgetSetting.instance.overview.equals(DirectionsCriteria.OVERVIEW_SIMPLIFIED, ignoreCase = true)) {
-                mBinding.rgOverviews.check(mBinding.rbSimplified.id)
-            }
+        if (MapplsDirectionWidgetSetting.instance.overview.equals(DirectionsCriteria.OVERVIEW_FULL, ignoreCase = true)) {
+            mBinding.rgOverviews.check(mBinding.rbFull.id)
+        } else if (MapplsDirectionWidgetSetting.instance.overview.equals(DirectionsCriteria.OVERVIEW_FALSE, ignoreCase = true)) {
+            mBinding.rgOverviews.check(mBinding.rbNone.id)
+        } else if (MapplsDirectionWidgetSetting.instance.overview.equals(DirectionsCriteria.OVERVIEW_SIMPLIFIED, ignoreCase = true)) {
+            mBinding.rgOverviews.check(mBinding.rbSimplified.id)
         }
         if (MapplsDirectionWidgetSetting.instance.pod != null) {
             if (MapplsDirectionWidgetSetting.instance.pod.equals(AutoSuggestCriteria.POD_CITY, ignoreCase = true)) {

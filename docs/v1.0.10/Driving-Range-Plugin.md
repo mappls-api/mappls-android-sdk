@@ -19,7 +19,7 @@ The plugin offers the following basic functionalities:
 
 - Add below dependency in your app-level build.gradle
 ~~~groovy	
-implementation 'com.mappls.sdk:driving-range-plugin:1.1.0'
+implementation 'com.mappls.sdk:driving-range-plugin:1.2.0'
 ~~~
 
 

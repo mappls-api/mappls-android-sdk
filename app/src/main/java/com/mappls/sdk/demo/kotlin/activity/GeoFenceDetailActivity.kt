@@ -241,7 +241,7 @@ class GeoFenceDetailActivity: AppCompatActivity(), OnMapReadyCallback {
     private fun addIcons(geofenceDetail: GeofenceDetail) {
         val jsonObject = JsonObject()
         jsonObject.addProperty("GeoFencetype", geofenceDetail.gfLabel)
-        if (geofenceDetail.gfType.equals(com.mappls.sdk.demo.java.model.GeofenceDetail.TYPE_POLYGON, ignoreCase = true)) {
+        if (geofenceDetail.gfType.equals(GeofenceDetail.TYPE_POLYGON, ignoreCase = true)) {
             addPolygonEdges(geofenceDetail.polygonPoints?: ArrayList(), jsonObject)
         } else {
             val symbolOptions = SymbolOptions().position(geofenceDetail.circleCentre)

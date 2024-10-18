@@ -1,3 +1,6 @@
+## v8.2.5, 10 October 2024
+- Added EV Smart Trip Api
+
 ## v8.2.4, 09 September 2024
 - Added 100 Coordinates Support in Distance Matrix Api
 
