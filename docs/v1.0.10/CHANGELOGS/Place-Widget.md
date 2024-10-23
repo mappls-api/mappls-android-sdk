@@ -1,3 +1,6 @@
+## v2.3.1, 23 October 2024
+- Bug Fixes
+
 ## v2.3.0, 09 May 2024
 - Added capability to highlight buildings in Mappls Place Picker
 
