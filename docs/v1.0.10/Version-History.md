@@ -3,6 +3,7 @@
 
 | Version | Last Updated | Author |  Release Note|
 | ---- | ---- | ---- | ---- |
+| v8.2.6  | 14 Nov, 2024     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Bug Fixes & Improvements                                                                                           |
 | v8.2.5  | 10 Oct, 2024     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added EV Smart Trip Planner Api                                                                                            |
 | v8.2.4  | 09 Sep, 2024     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added 100 Coordinates Support in Distance Matrix                                                                                            |
 | v8.2.3  | 24 Jul, 2024     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added Negative Latitude & Longitude Support in Autosuggest, Text Search and Nearby <br/> - Bug Fixes & Improvements                                                                                            |

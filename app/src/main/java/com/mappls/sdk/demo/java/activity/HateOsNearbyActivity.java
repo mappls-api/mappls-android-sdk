@@ -121,7 +121,6 @@ public class HateOsNearbyActivity extends AppCompatActivity implements OnMapRead
     }
 
     private void callAutoSuggestApi(String searchString) {
-        progressDialogShow();
         MapplsAutoSuggest mapplsAutoSuggest = MapplsAutoSuggest.builder()
                 .query(searchString)
                 .bridge(true)
@@ -157,6 +156,7 @@ public class HateOsNearbyActivity extends AppCompatActivity implements OnMapRead
 
 
     private void callHateOs(String hyperlink) {
+        progressDialogShow();
         MapplsHateosNearby hateosNearby = MapplsHateosNearby.builder()
                 .hyperlink(hyperlink)
                 .build();

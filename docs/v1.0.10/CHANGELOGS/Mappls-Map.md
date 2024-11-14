@@ -1,3 +1,6 @@
+## v8.2.6, 14 November 2024
+- Bug Fixes & Improvements
+
 ## v8.2.5, 10 October 2024
 - Added EV Smart Trip Api
 

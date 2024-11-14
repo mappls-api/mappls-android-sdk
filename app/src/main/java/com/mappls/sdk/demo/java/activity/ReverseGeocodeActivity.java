@@ -86,6 +86,7 @@ public class ReverseGeocodeActivity extends AppCompatActivity implements OnMapRe
         MapplsReverseGeoCodeManager.newInstance(mapplsReverseGeoCode).call(new OnResponseCallback<PlaceResponse>() {
             @Override
             public void onSuccess(PlaceResponse placeResponse) {
+                progressDialogHide();
                 if (placeResponse != null) {
                     List<Place> placesList = placeResponse.getPlaces();
                     Place place = placesList.get(0);
@@ -98,6 +99,7 @@ public class ReverseGeocodeActivity extends AppCompatActivity implements OnMapRe
 
             @Override
             public void onError(int i, String s) {
+                progressDialogHide();
                 Toast.makeText(ReverseGeocodeActivity.this, s, Toast.LENGTH_LONG).show();
             }
         });
