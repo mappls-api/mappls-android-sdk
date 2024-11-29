@@ -16,11 +16,11 @@ Powered with India's most comprehensive and robust mapping functionalities.
 
 | Version                       | Supported SDK Version                                                                                                                                                                                                                                                                                               | 
 |-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [v1.0.11](../v1.0.11/README.md) | - Map SDK v8.2.6 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.3.1 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v2.2.0 <br/> - Nearby UI Widget v1.0.2 <br/> - Annotation Plugin v1.0.1 <br/> - Driving Range Plugin v1.2.0 <br/> - Raster Catalogue v1.0.0 <br/> - Feedback UI v3.0.0 |
 | [v1.0.10](../v1.0.10/README.md) | - Map SDK v8.2.6 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.3.1 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v2.2.0 <br/> - Nearby UI Widget v1.0.2 <br/> - Annotation Plugin v1.0.1 <br/> - Driving Range Plugin v1.2.0 <br/> - Raster Catalogue v1.0.0 |
 | [v1.0.9](../v1.0.9/README.md) | - Map SDK v8.2.1 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.2.1 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v2.1.2 <br/> - Nearby UI Widget v1.0.2 <br/> - Annotation Plugin v1.0.1 <br/> - Driving Range Plugin v1.1.0 <br/> - Raster Catalogue v1.0.0 |
-| [v1.0.8](../v1.0.8/README.md) | - Map SDK v8.2.0 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.2.0 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v2.1.1 <br/> - Nearby UI Widget v1.0.2 <br/> - Annotation Plugin v1.0.1 <br/> - Driving Range Plugin v1.0.0 <br/> - Raster Catalogue v1.0.0 |
 
-For more details of previous documentation versions , [click here](../v1.0.10/Doc-Version-History.md).
+For more details of previous documentation versions , [click here](../v1.0.11/Doc-Version-History.md).
 
 ## [Version History](#Version-History)
 
@@ -100,6 +100,10 @@ For more details of previous versions , [click here](../v1.0.10/Version-History.
 - [Mappls Scalebar Plugin](./Scalebar-Plugin.md)
 - [Mappls Pin Strategy](MapplsPinStrategy.md)
 - [Mappls Direction Widget](./Direction-Widget.md)
+- [Mappls Feedback Widget](./FeedbackUI.md)
+    * [Introduction](./FeedbackUI.md)
+    * [Using FeedbackFragment](./FeedbackUI.md#using-feedbackfragment)
+    * [Using FeedbackActivity](./FeedbackUI.md#using-feedbackactivity)
 - [Mappls Nearby Search Widget](./Nearby-Widget.md)
     * [Introduction](./Nearby-Widget.md#introduction)
     * [Adding Credentials](./Nearby-Widget.md#step-2----adding-credentials)

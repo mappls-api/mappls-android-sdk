@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.mappls.sdk.demo.R;
 import com.mappls.sdk.demo.java.activity.DirectionStepActivity;
 import com.mappls.sdk.demo.java.activity.DirectionUiActivity;
+import com.mappls.sdk.demo.java.activity.FeedbackUiActivity;
 import com.mappls.sdk.demo.java.activity.GeoFenceActivity;
 import com.mappls.sdk.demo.java.activity.NearbyUiActivity;
 import com.mappls.sdk.demo.java.activity.PickerActivity;
@@ -55,10 +56,7 @@ public class CustomWidgetsFragment extends Fragment {
                 if (position == 0) {
                     Intent placeAutoCompleteWidget = new Intent(getContext(), PlaceAutoCompleteActivity.class);
                     startActivity(placeAutoCompleteWidget);
-                } /*else if (position == 1) {
-                    Intent safetyPluginWidgetIntent = new Intent(getContext(), SafetyPluginActivity.class);
-                    startActivity(safetyPluginWidgetIntent);
-                }*/ else if (position == 1) {
+                } else if (position == 1) {
                     Intent placePickerWidgetIntent = new Intent(getContext(), PickerActivity.class);
                     startActivity(placePickerWidgetIntent);
                 } else if (position == 2) {
@@ -67,12 +65,15 @@ public class CustomWidgetsFragment extends Fragment {
                 } else if (position == 3) {
                     Intent directionStepIntent = new Intent(getContext(), DirectionStepActivity.class);
                     startActivity(directionStepIntent);
-                }else if (position == 4) {
+                } else if (position == 4) {
                     Intent directionUiIntent = new Intent(getContext(), DirectionUiActivity.class);
                     startActivity(directionUiIntent);
-                }else if (position == 5) {
+                } else if (position == 5) {
                     Intent nearbyUiIntent = new Intent(getContext(), NearbyUiActivity.class);
                     startActivity(nearbyUiIntent);
+                } else if (position == 6) {
+                    Intent feedbackIntent = new Intent(getContext(), FeedbackUiActivity.class);
+                    startActivity(feedbackIntent);
                 }
             }
         });
@@ -85,6 +86,8 @@ public class CustomWidgetsFragment extends Fragment {
         featuresArrayList.add(new FeaturesList("Direction Step", "How to show textual instructions and maneuver icon to the user"));
         featuresArrayList.add(new FeaturesList("Direction Widget", "Mappls Direction Widget to show Route on map"));
         featuresArrayList.add(new FeaturesList("Nearby Widget", "Mappls Nearby Widget to search nearby result on map"));
+        featuresArrayList.add(new FeaturesList("Feedback Widget", "Mappls Feedback Widget to give Feedback"));
+
 
     }
 }

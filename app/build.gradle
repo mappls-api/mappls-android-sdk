@@ -55,6 +55,8 @@ dependencies {
     implementation 'com.mappls.sdk:place-widget:2.3.1'
     implementation 'com.mappls.sdk:mappls-android-sdk:8.2.6'
 
+    implementation 'com.mappls.sdk:feedback-ui:3.0.0'
+
     //Annotation Plugin
     implementation 'com.mappls.sdk:annotation-plugin:1.0.1'
     implementation 'com.mappls.sdk:directions-plugin:1.0.6'

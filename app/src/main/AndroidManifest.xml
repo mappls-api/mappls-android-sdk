@@ -17,12 +17,39 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+
+        <activity
+            android:name=".kotlin.activity.FeedbackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".kotlin.activity.FeedbackApiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".kotlin.activity.FeedbackWidgetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".java.activity.FeedbackApiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".java.settingscreen.FeedbackSettingActivity"
+            android:exported="false"
+            android:parentActivityName=".java.activity.FeedbackApiActivity" />
+        <activity
+            android:name=".java.activity.FeedbackUiActivity"
+            android:exported="false"
+            android:parentActivityName=".java.activity.FeedbackApiActivity" />
+        <activity
+            android:name=".java.activity.FeedbackWidgetActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".kotlin.activity.AddMarkerViewActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".java.activity.AddMarkerViewActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".java.activity.PlaceClickActivity"
             android:exported="false"
