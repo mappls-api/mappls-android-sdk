@@ -88,15 +88,18 @@ You can use `DirectionOptions` to set the properties of direction widget:
 7. `showStartNavigation(Boolean)`: To show the Start Navigation button if the origin is current location.
 8. `showDefaultMap(Boolean)`: To add the option to show default map
 9. `destination(DirectionPoint)`: You can use `DirectionPoint` to pass the destination in direction widget:
-- `setDirection(Point, String, String)`: It takes coordinate, place name and place address
-- `setDirection(String, String, String)`: It takes mappls pin, place name and place address
-10. `searchPlaceOption(PlaceOptions)`: To set the properties of search widget.
-11. `showAddWaypointOption(Boolean)`: To show/hide add waypoint functionality.
-12. `showTripCostSummary(Boolean)`: To show/hide trip cost summary this functionality only works with _***DirectionsCriteria.RESOURCE_ROUTE_ETA***_
-13. `showRouteReportSummary(Boolean)`: To show/hide route report summary.
-14. `showRouteReportSummaryOnMap(Boolean)`: To show/hide Route Report summary on Map.
-15. `showProfileOption(Boolean)`: To show the profile switch option.
-16. `theme(Integer)`: To change the theme of the UI. **Below are the available value:**
+    - `setDirection(Point, String, String)`: It takes coordinate, place name and place address
+    - `setDirection(String, String, String)`: It takes mappls pin, place name and place address
+10. `origin(DirectionPoint)`: You can use `DirectionPoint` to pass the origin in direction widget:
+    - `setDirection(Point, String, String)`: It takes coordinate, place name and place address
+    - `setDirection(String, String, String)`: It takes mappls pin, place name and place address
+11. `searchPlaceOption(PlaceOptions)`: To set the properties of search widget.
+12. `showAddWaypointOption(Boolean)`: To show/hide add waypoint functionality.
+13. `showTripCostSummary(Boolean)`: To show/hide trip cost summary this functionality only works with _***DirectionsCriteria.RESOURCE_ROUTE_ETA***_
+14. `showRouteReportSummary(Boolean)`: To show/hide route report summary.
+15. `showRouteReportSummaryOnMap(Boolean)`: To show/hide Route Report summary on Map.
+16. `showProfileOption(Boolean)`: To show the profile switch option.
+17. `theme(Integer)`: To change the theme of the UI. **Below are the available value:**
     - `DirectionOptions.THEME_DEFAULT`
     - `DirectionOptions.THEME_DAY` (Default)
     - `DirectionOptions.THEME_NIGHT`
