@@ -8,7 +8,7 @@
 ## Add the dependency
 Add below dependency in app level build.gradle file
 ~~~groovy
-implementation 'com.mappls.sdk:place-widget:2.3.1'
+implementation 'com.mappls.sdk:place-widget:2.3.2'
 ~~~
 
 ### Add your API keys to the SDK
