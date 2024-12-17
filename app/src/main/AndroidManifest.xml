@@ -235,7 +235,8 @@
         <activity
             android:name=".java.activity.MapFragmentActivity"
             android:exported="false"
-            android:label="Map Fragment Java" />
+            android:label="Map Fragment Java"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".kotlin.activity.MapFragmentActivity"
             android:exported="false"

@@ -5,12 +5,12 @@ plugins {
 }
 
 android {
-    compileSdk 34
+    compileSdk 35
     defaultConfig {
         multiDexEnabled true
         applicationId "com.mappls.sdk.demo"
         minSdk 16
-        targetSdk 34
+        targetSdk 35
         vectorDrawables.useSupportLibrary = true
         versionCode 1
         versionName "1.0"
@@ -52,7 +52,7 @@ dependencies {
 
     implementation 'com.github.bumptech.glide:glide:4.13.2'
 
-    implementation 'com.mappls.sdk:place-widget:2.3.1'
+    implementation 'com.mappls.sdk:place-widget:2.3.2'
     implementation 'com.mappls.sdk:mappls-android-sdk:8.2.6'
 
     implementation 'com.mappls.sdk:feedback-ui:3.0.0'
@@ -67,7 +67,7 @@ dependencies {
     implementation 'com.mappls.sdk:markerview-plugin:1.0.1'
     implementation 'com.mappls.sdk:driving-range-plugin:1.2.0'
     //for direction widget
-    implementation 'com.mappls.sdk:direction-ui:2.2.0'
+    implementation 'com.mappls.sdk:direction-ui:2.3.0'
     //Geoanalytics plugin
     implementation 'com.mappls.sdk:geoanalytics-plugin:1.1.0'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'

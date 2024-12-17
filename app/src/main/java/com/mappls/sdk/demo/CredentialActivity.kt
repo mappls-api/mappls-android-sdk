@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
-import androidx.databinding.DataBindingUtil
 import com.mappls.sdk.demo.databinding.ActivityCredentialBinding
 import com.mappls.sdk.maps.Mappls
 import com.mappls.sdk.services.account.MapplsAccountManager
@@ -16,7 +15,8 @@ class CredentialActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_credential)
+        mBinding = ActivityCredentialBinding.inflate(layoutInflater)
+        setContentView(mBinding.root)
         supportActionBar?.hide()
         Mappls.getInstance(this)
         mBinding.submitBtn.setOnClickListener {
