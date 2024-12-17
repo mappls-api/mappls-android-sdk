@@ -1,3 +1,6 @@
+## v2.3.2, 17 December 2024
+- Added Option to set Base url
+ 
 ## v2.3.1, 23 October 2024
 - Bug Fixes
 

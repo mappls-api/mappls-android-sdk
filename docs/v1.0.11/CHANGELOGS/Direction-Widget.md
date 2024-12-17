@@ -1,3 +1,7 @@
+## v2.3.0, 17 December, 2024
+- Added Option to set Base url
+- Added Option to show icons using maneuver id
+
 ## v2.2.0, 21 June, 2024
 - Added Option to set Distance Conversion unit in imperial and metric
 - Bug fixes
