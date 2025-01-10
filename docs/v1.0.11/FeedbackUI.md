@@ -169,6 +169,46 @@ You can use `FeedbackOptions` to set the properties of the widget:
 11. `quality(String)`: Quality of user's location.
 12. `speed(String)`: User's speed in kilometers.
 
+## Custom Style - Feedback UI
+ You need to define the Custom Styles in styles.xml or themes.xml
+ 
+For Day Theme
+ ~~~xml
+<style name="CustomFeedbackDay" parent="MapplsFeedbackLight">
+   <item name="mapplsFeedbackToolbarSeperatorColor">#FFFFFF</item>
+</style>
+ ~~~
+
+For Dark Theme
+ ~~~xml
+<style name="CustomFeedbackNight" parent="MapplsFeedbackNight">
+   <item name="mapplsFeedbackToolbarSeperatorColor">#000000</item>
+</style>
+ ~~~
+
+ ## Set Custom style in FeedbackOption
+
+ To set custom style in FeedbackOption:
+~~~java
+FeedbackOptions feedbackOptions = FeedbackOptions.builder()
+   .dayTheme(R.style.CustomFeedbackDay)
+   .darkTheme(R.style.CustomFeedbackNight)
+   .build();
+~~~
+
+## Style Attributes
+1. `mapplsFeedbackToolbarBackground(color)`: To change the color of Toolbar Background
+2. `mapplsFeedbackToolbarTextColor(color)`: To change the color of Toolbar Text
+3. `mapplsFeedbackToolbarSeperatorColor(color)`: To change the Toolbar Seperator color
+4. `mapplsFeedbackBackground(color)`: To change the Background color of Feedback Screen
+5. `mapplsFeedbackStepsHeaderBackground(color)`: To change the Steps view Background color
+6. `mapplsFeedbackStepsTextColor(color)`: To change the Steps text color
+7. `mapplsFeedbackFooterBackground(color)`: To change Footer background color
+8. `mapplsFeedbackBackBtnBackground(reference)`: To change Back button background 
+9. `mapplsFeedbackBackBtnTextColor(color)`: To change Back button text color
+10. `mapplsFeedbackSubmitBtnBackground(reference)`: To change Submit Button Background  
+11. `mapplsFeedbackSubmitBtnTextColor(color)`:  To change Submit Button Text color  
+
 <br>
 
 For any queries and support, please contact: 
