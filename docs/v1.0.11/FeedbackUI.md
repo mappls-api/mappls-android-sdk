@@ -5,7 +5,7 @@
 ## Add the dependency
 Add below dependency in app level build.gradle file
 ~~~groovy
-implementation 'com.mappls.sdk:feedback-ui:3.0.0'
+implementation 'com.mappls.sdk:feedback-ui:3.0.1'
 ~~~
 
 ### Add your API keys to the SDK
