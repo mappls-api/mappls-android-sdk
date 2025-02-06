@@ -16,24 +16,24 @@ Powered with India's most comprehensive and robust mapping functionalities.
 
 | Version                       | Supported SDK Version                                                                                                                                                                                                                                                                                               | 
 |-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [v1.0.12](../v1.0.12/README.md) | - Map SDK v8.2.7 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.3.2 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v2.3.0 <br/> - Nearby UI Widget v1.0.2 <br/> - Annotation Plugin v1.0.1 <br/> - Driving Range Plugin v1.2.0 <br/> - Raster Catalogue v1.0.0 <br/> - Feedback UI v3.0.1 |
 | [v1.0.11](../v1.0.11/README.md) | - Map SDK v8.2.6 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.3.2 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v2.3.0 <br/> - Nearby UI Widget v1.0.2 <br/> - Annotation Plugin v1.0.1 <br/> - Driving Range Plugin v1.2.0 <br/> - Raster Catalogue v1.0.0 <br/> - Feedback UI v3.0.1 |
 | [v1.0.10](../v1.0.10/README.md) | - Map SDK v8.2.6 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.3.1 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v2.2.0 <br/> - Nearby UI Widget v1.0.2 <br/> - Annotation Plugin v1.0.1 <br/> - Driving Range Plugin v1.2.0 <br/> - Raster Catalogue v1.0.0 |
-| [v1.0.9](../v1.0.9/README.md) | - Map SDK v8.2.1 <br/> - Geo Analytics v1.0.0 <br/> - Place Search Widget v2.2.1 <br/> - GeoFence Widget v1.0.0 <br/> - Scalebar Plugin v1.0.0 <br/> - Direction Widget v2.1.2 <br/> - Nearby UI Widget v1.0.2 <br/> - Annotation Plugin v1.0.1 <br/> - Driving Range Plugin v1.1.0 <br/> - Raster Catalogue v1.0.0 |
 
-For more details of previous documentation versions , [click here](../v1.0.11/Doc-Version-History.md).
+For more details of previous documentation versions , [click here](../v1.0.12/Doc-Version-History.md).
 
 ## [Version History](#Version-History)
 
 | Version | Last Updated      | Author | Release Note                                                                                                                                                                                         |
 |---------|-------------------| ---- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| v8.2.7  | 03 Feb, 2025     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added `routeId` in Route Report Response </br> - Added `radioType` in Geolocation Api Request </br> - Added `accuracy` in Geolocation Api Response </br> - Added `filter` in Poi Along the Route Api Request </br> - Added `hourOfOperation`, `longDescription`, `shortDescription`, `richInfo` and `partnersFlag` in Poi Along the Route Api Response  </br> - Revamped Smart Trip Planning Api </br> - Added `DigipinUtility` for getting DIGIPIN from Coordinates and vice versa </br> - Added Entry Coordinates in Reverse Geocode Response </br> - Added internal Retry </br> - ug Fixes and Security Enhancement                                                                                          |
 | v8.2.6  | 14 Nov, 2024     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Bug Fixes & Improvements                                                                                           |
 | v8.2.5  | 10 Oct, 2024     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added EV Smart Trip Planner Api                                                                                            |
 | v8.2.4  | 09 Sep, 2024     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added 100 Coordinates Support in Distance Matrix                                                                                            |
 | v8.2.3  | 24 Jul, 2024     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added Negative Latitude & Longitude Support in Autosuggest, Text Search and Nearby <br/> - Bug Fixes & Improvements                                                                                            |
-| v8.2.2  | 04 May, 2024     | Mappls API Team ([MA](https://github.com/mdakram)) ([ST](https://github.com/saksham66)) | - Added Census and LGD codes in `Geocode` and `Reverse Geocode`                                                                                                                       |
 
 
-For more details of previous versions , [click here](../v1.0.11/Version-History.md).
+For more details of previous versions , [click here](../v1.0.12/Version-History.md).
 
 ## [Table Of Content](#Table-Of-Content)
 - [Vector Android Map](./Getting-Started.md)
@@ -63,6 +63,7 @@ For more details of previous versions , [click here](../v1.0.11/Version-History.
     * [Enable/Disable Map Scrolling Gesture](./Map-UI-Settings.md#enabledisable-map-scrolling-gesture)
     * [Enable/Disable Map Tilt Gesture](./Map-UI-Settings.md#enable-disable-map-tilt-gesture)
     * [Enable/Disable Zoom Gestures](./Map-UI-Settings.md#enabledisable-zoom-gesture)
+- [Mappls DIGIPIN](./DIGIPIN.md)
 - [Mappls Annotation Plugin](./AnnotationPlugin.md)
 - [Set Country Regions](./Set-Regions.md)
 - [Set Mappls Map Style](./Map-Style.md)
@@ -80,11 +81,10 @@ For more details of previous versions , [click here](../v1.0.11/Version-History.
         - [Nearby Places](./Search-Api.md#nearby-places)
         - [Place Detail](./Search-Api.md#place-details)
         - [POI Along the Route](./Search-Api.md#poi-along-the-route)
-
     * [Routes & Navigation API](./Routing-API.md)
         - [Routing API](./Routing-API.md#routing-api)
         - [Driving Distance Matrix API](./Routing-API.md#driving-distance-matrix-api)
-  * [Predictive Routing API](./Predictive-Route-APIs.md)
+    * [Predictive Routing API](./Predictive-Route-APIs.md)
       - [Predictive Routing API](./Predictive-Route-APIs.md#predictive-routing-api)
       - [Predictive Driving Distance API](./Predictive-Route-APIs.md#predictive-distance)
     * [Feedback API](./Feedback.md)
@@ -143,7 +143,7 @@ Need support? contact us!
 
 
 
-<div align="center">@ Copyright 2023 CE Info Systems Ltd. All Rights Reserved.</div>  
+<div align="center">@ Copyright 2025 CE Info Systems Ltd. All Rights Reserved.</div>  
 
 <div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>  
 
