@@ -1,3 +1,6 @@
+## v3.0.1, 10 January, 2025
+- Bug Fixes and Improvement
+
 ## v3.0.0, 26 November, 2024
 - New UI implemented
 - Added Option to use Fagment also
