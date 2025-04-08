@@ -1,3 +1,7 @@
+## v8.2.8, 08 April 2025
+- Implemented GPS priority in location settings to ensure location is obtained exclusively from GPS, disregarding network-based providers.
+- Updated to latest DIGIPIN logic.
+
 ## v8.2.7, 03 February 2025
 - Added `routeId` in Route Report Response
 - Added `radioType` in Geolocation Api Request
