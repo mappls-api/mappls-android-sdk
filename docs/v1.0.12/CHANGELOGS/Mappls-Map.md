@@ -1,3 +1,7 @@
+## v8.2.9, 05 May 2025
+- Added Ev Routing Api.
+- Added Method to clear Map Cache 
+
 ## v8.2.8, 08 April 2025
 - Implemented GPS priority in location settings to ensure location is obtained exclusively from GPS, disregarding network-based providers.
 - Updated to latest DIGIPIN logic.
