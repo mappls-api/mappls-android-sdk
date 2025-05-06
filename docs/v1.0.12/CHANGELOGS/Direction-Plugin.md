@@ -1,3 +1,6 @@
+## v1.0.7, 06 May, 2025
+    - Fix Roundabout turn Maneuver Id issue
+
 ## v1.0.6, 30 September, 2024
     - Added Merge Icon in Maneuver View
 
