@@ -1,3 +1,7 @@
+## v2.4.0, 15 May 2025
+- Changes in POI Logic in Place Picker
+- Added Option to show Entry Coordinates and snap on Entry Coordinates
+
 ## v2.3.2, 17 December 2024
 - Added Option to set Base url
  
