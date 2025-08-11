@@ -1,0 +1,52 @@
+[versions]
+agp = "8.12.0"
+colorpicker = "0.0.15"
+glide = "4.16.0"
+kotlin = "2.2.0"
+coreKtx = "1.16.0"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+appcompat = "1.7.1"
+material = "1.12.0"
+activity = "1.8.0"
+constraintlayout = "2.2.1"
+mapplsBom="2.0.0"
+navigationFragmentKtx = "2.9.0"
+navigationUiKtx = "2.9.0"
+playServicesLocation = "21.0.1"
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+colorpicker = { module = "com.github.QuadFlask:colorpicker", version.ref = "colorpicker" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+mappls-android-sdk = { module = "com.mappls.sdk:mappls-android-sdk" }
+mappls-annotation-plugin = { module = "com.mappls.sdk:annotation-plugin" }
+mappls-bom = { module = "com.mappls.sdk:mappls-bom", version.ref = "mapplsBom" }
+mappls-category-search-ui = { module = "com.mappls.sdk:category-search-ui"}
+mappls-directions-plugin = { module = "com.mappls.sdk:directions-plugin" }
+mappls-direction-ui = { module = "com.mappls.sdk:direction-ui" }
+mappls-driving-range-plugin = { module = "com.mappls.sdk:driving-range-plugin" }
+mappls-feedback-ui = { module = "com.mappls.sdk:feedback-ui" }
+mappls-geoanalytics-plugin = { module = "com.mappls.sdk:geoanalytics-plugin" }
+mappls-geofence-ui = { module = "com.mappls.sdk:geofence-ui" }
+mappls-markerview-plugin = { module = "com.mappls.sdk:markerview-plugin" }
+mappls-nearby-ui = { module = "com.mappls.sdk:nearby-ui" }
+mappls-place-widget = { module = "com.mappls.sdk:place-widget" }
+mappls-raster-catalogue-plugin = { module = "com.mappls.sdk:raster-catalogue-plugin" }
+mappls-scalebar-plugin = { module = "com.mappls.sdk:scalebar-plugin" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
+androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
+play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "playServicesLocation" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+

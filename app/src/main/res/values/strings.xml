@@ -1,23 +1,45 @@
 <resources>
-    <string name="app_name">Mappls SDK Demo</string>
-    <string name="search">Search</string>
-    <string name="pleaseCheckInternetConnection">Please check Internet connection</string>
-    <string name="permission_grant_msg"><![CDATA[Please grant all the permissions to continue.  You can go to phone\'s settings >> Applications >> Orrder Driver and manually grant the permissions.]]></string>
-    <string name="permission_acceptance_msg">Please Accept all the permissions.</string>
+    <string name="app_name">Mappls Map Demo</string>
 
-    <string name="txt_start_safety_plugin">Start Safety Plugin</string>
-    <string name="txt_stop_safety_plugin">Stop Safety Plugin</string>
-    <string name="txt_get_containment_zone">Get Containment Zone</string>
-    <string name="initialize_safety_plugin">Initialize</string>
-    <string name="txt_remove_btn">remove</string>
-    <string name="txt_add">ADD</string>
-    <string name="pick_a_place">Pick a Place</string>
-    <string name="open">open</string>
-    <string name="close">close</string>
-    <string name="mappls_pin">Mappls Pin</string>
-    <string name="collan">:</string>
-    <string name="show_default_settings">Show Default Settings</string>
-    <string name="enter_mapsdkkey">Enter MapSDKKey</string>
+    <string name="map_fragment_title">Map Fragment</string>
+    <string name="map_tap_title">Map Tap</string>
+    <string name="map_long_tap_title">Map Long Tap</string>
+    <string name="map_gesture_title">Map Gesture</string>
+    <string name="map_style_title">Map Style</string>
+    <string name="map_traffic_title">Map Traffic</string>
+    <string name="place_click_title">Place Click</string>
+    <string name="support_map_fragment_title">Support Map Fragment</string>
+
+    <string name="heat_map_title">Heat Map</string>
+    <string name="indoor_map_title">Indoor Map</string>
+    <string name="scalebar_title">Scalebar</string>
+    <string name="geo_analytics_title">GeoAnalytics Plugin</string>
+    <string name="driving_range_title">Driving Range</string>
+
+    <string name="add_marker_title">Add a Marker</string>
+    <string name="add_custom_marker_title">Add Custom Marker</string>
+    <string name="add_custom_info_window_title">Add Custom Info Window</string>
+    <string name="marker_dragging_title">Marker Dragging</string>
+    <string name="marker_mappls_pin_title">Add Marker Using Mappls Pin</string>
+    <string name="custom_marker_mappls_pin_title">Custom Marker Using Mappls Pin</string>
+    <string name="marker_view_title">Add Marker View</string>
+
+    <string name="current_location_title">Current Location</string>
+    <string name="customize_current_location_title">Customize Current Location</string>
+
+    <string name="draw_polyline_title">Draw Polyline</string>
+    <string name="gradient_polyline_title">Gradient Polyline</string>
+    <string name="semicircle_polyline_title">Semicircle Polyline</string>
+    <string name="snake_motion_polyline_title">SnakeMotion Polyline</string>
+    <string name="draw_polygon_title">Draw Polygon</string>
+
+    <string name="animate_car_title">Animate Car</string>
+    <string name="marker_rotation_title">Marker Rotation and Transition</string>
+    <string name="tracking_sample_title">Tracking Sample</string>
 
 
+    <string name="save_selected_last_style">Save Selected Last Style</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="save_zoom">Save Zoom</string>
 </resources>

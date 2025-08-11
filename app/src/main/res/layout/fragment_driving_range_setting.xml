@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mappls_demo_background_colorSecondary"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".settings.fragment.DrivingRangeSettingFragment">
+
+    <include
+        android:id="@+id/settings_header"
+        layout="@layout/mappls_app_header" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/settings_header">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/current_location_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tv_current_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Set as Current Location"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_current_location"
+                    android:layout_width="wrap_content"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/location_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                app:layout_constraintTop_toBottomOf="@+id/current_location_layout"
+                android:background="@drawable/background_with_no_corner"
+                >
+
+                <TextView
+                    android:id="@+id/tv_origin_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Location"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint="Longitude,Latitude"
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_origin_location" />
+
+
+                <TextView
+                    android:id="@+id/btn_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save Location"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_location" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/drivingProfile_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toBottomOf="@id/location_layout">
+
+                <TextView
+                    android:id="@+id/tv_drivingProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Driving Profile"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_drivingProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_drivingProfile" />
+
+
+                <TextView
+                    android:id="@+id/btn_driving_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save Driving Profile"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_drivingProfile" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/value_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toBottomOf="@id/drivingProfile_layout">
+
+                <TextView
+                    android:id="@+id/tv_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Value"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:inputType="number"
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_value" />
+
+
+                <TextView
+                    android:id="@+id/btn_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save Value"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_value" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/rangeType_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_with_no_corner"
+                android:layout_margin="12dp"
+                app:layout_constraintTop_toBottomOf="@id/value_layout"
+                >
+                <TextView
+                    android:id="@+id/tv_rangeType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RangeType"
+                    android:layout_margin="12dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                <RadioGroup
+                    android:id="@+id/rg_rangeType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:foregroundTint="@color/mappls_demo_colorPrimary"
+                    app:layout_constraintTop_toBottomOf="@id/tv_rangeType">
+
+                    <RadioButton
+                        android:id="@+id/rb_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Time"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_distance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Distance"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+
+                </RadioGroup>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_isForPolygons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="isForPolygons Enable"
+                app:thumbTint="#FFFFFF"
+                app:trackTint="@color/mappls_demo_colorPrimary"
+                app:switchMinWidth="30dp"
+                app:layout_constraintTop_toBottomOf="@id/rangeType_layout"
+                android:textColor="@color/mappls_demo_text_colorPrimary"
+                android:textSize="14sp"
+                />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_showLocations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="showLocations Enable"
+                app:thumbTint="#FFFFFF"
+                app:trackTint="@color/mappls_demo_colorPrimary"
+                app:switchMinWidth="30dp"
+                app:layout_constraintTop_toBottomOf="@id/sw_isForPolygons"
+                android:textColor="@color/mappls_demo_text_colorPrimary"
+                android:textSize="14sp"
+                />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/color_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toBottomOf="@id/sw_showLocations">
+
+                <TextView
+                    android:id="@+id/tv_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Color"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_color" />
+
+
+                <TextView
+                    android:id="@+id/btn_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save Color"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_color" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lineWidth_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toBottomOf="@id/color_layout">
+
+                <TextView
+                    android:id="@+id/tv_lineWidth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="LineWidth"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_lineWidth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_lineWidth" />
+
+
+                <TextView
+                    android:id="@+id/btn_lineWidth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save Line Width"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_lineWidth" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/outlineColor_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toBottomOf="@id/lineWidth_layout">
+
+                <TextView
+                    android:id="@+id/tv_outlineColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Outline Color"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_outlineColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_outlineColor" />
+
+
+                <TextView
+                    android:id="@+id/btn_outlineColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save Outline Color"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_outlineColor" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/generalize_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toBottomOf="@id/outlineColor_layout">
+
+                <TextView
+                    android:id="@+id/tv_generalize"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Generalize"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_generalize"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:inputType="numberDecimal"
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_generalize" />
+
+
+                <TextView
+                    android:id="@+id/btn_generalize"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save Generalize"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_generalize" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/denoise_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toBottomOf="@id/generalize_layout">
+
+                <TextView
+                    android:id="@+id/tv_denoise"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Denoise"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_denoise"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:inputType="numberDecimal"
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_denoise" />
+
+
+                <TextView
+                    android:id="@+id/btn_denoise"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save Denoise"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_denoise" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/name_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toBottomOf="@id/generalize_layout">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="name"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+
+                <TextView
+                    android:id="@+id/btn_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save Name"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_name" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/speedType_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_with_no_corner"
+                android:layout_margin="12dp"
+                app:layout_constraintTop_toBottomOf="@id/name_layout"
+                >
+                <TextView
+                    android:id="@+id/tv_speedType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SpeedType"
+                    android:layout_margin="12dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                <RadioGroup
+                    android:id="@+id/rg_speedType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:foregroundTint="@color/mappls_demo_colorPrimary"
+                    app:layout_constraintTop_toBottomOf="@id/tv_speedType">
+
+                    <RadioButton
+                        android:id="@+id/rb_optimal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Optimal"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_predective"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Predective"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+
+                </RadioGroup>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/predectiveType_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_with_no_corner"
+                android:layout_margin="12dp"
+                app:layout_constraintTop_toBottomOf="@id/speedType_layout"
+                >
+                <TextView
+                    android:id="@+id/tv_predectiveType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PredectiveType"
+                    android:layout_margin="12dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                <RadioGroup
+                    android:id="@+id/rg_predectiveType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:foregroundTint="@color/mappls_demo_colorPrimary"
+                    app:layout_constraintTop_toBottomOf="@id/tv_predectiveType">
+
+                    <RadioButton
+                        android:id="@+id/rb_current"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Current Time"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_custom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Custom Time"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+
+                </RadioGroup>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <DatePicker
+                android:id="@+id/date_picker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="4dp"
+                android:calendarTextColor="@color/white"
+                app:layout_constraintRight_toRightOf="parent"
+                android:calendarViewShown="false"
+                android:theme="@style/MyDatePicker"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/predectiveType_layout"
+                android:datePickerMode="spinner" />
+
+            <TimePicker
+                android:id="@+id/time_picker"
+                android:theme="@style/MyDatePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="4dp"
+                android:calendarViewShown="false"
+                android:numbersTextColor="@color/white"
+                android:numbersInnerTextColor="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/date_picker"
+                app:layout_constraintRight_toRightOf="parent"
+                android:timePickerMode="spinner" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

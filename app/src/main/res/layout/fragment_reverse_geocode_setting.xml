@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#1F232F"
+    tools:context=".settings.fragment.ReverseGeocodeSettingFragment">
+
+
+    <include
+        android:id="@+id/rev_geocode_settings_header"
+        layout="@layout/mappls_app_header" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/rev_geocode_settings_header"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/rev_geocode_lang_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_with_no_corner"
+                android:layout_margin="12dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                >
+                <TextView
+                    android:id="@+id/tv_rev_geocode_lang"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Language"
+                    android:layout_margin="12dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColor="#FFFFFF"/>
+
+                <EditText
+                    android:id="@+id/et_rev_geocode_lang"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="en/hi"
+                    android:padding="8dp"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/background_with_no_corner"
+                    app:layout_constraintTop_toBottomOf="@id/tv_rev_geocode_lang"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColorHint="#C6D0F7"
+                    android:layout_margin="12dp"
+                    />
+
+
+                <TextView
+                    android:id="@+id/btn_rev_geocode_lang"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/et_rev_geocode_lang"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:padding="8dp"
+                    android:text="Save Language"
+                    android:textColor="#FFFFFF"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:layout_margin="12dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

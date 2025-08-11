@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.restapis.NearbyActivity">
+
+    <include
+        android:id="@+id/nearby_header"
+        layout="@layout/mappls_app_header" />
+
+
+    <com.mappls.sdk.maps.MapView
+        android:id="@+id/map_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/nearby_header"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/nearby_list_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clickable="true"
+        android:visibility="gone"
+        android:background="@color/mappls_demo_background_colorPrimary"
+        app:layout_constraintTop_toBottomOf="@id/nearby_header"
+        app:layout_constraintBottom_toTopOf="@id/nearby_show_hide_response_layout" >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_nearby_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="78dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="12dp"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/nearby_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        app:tabSelectedTextColor="@color/mappls_demo_text_colorPrimary"
+        app:tabTextColor="#C6D0F7"
+        app:tabIndicatorColor="#333849"
+        app:tabIndicatorHeight="0dp"
+        app:tabBackground="@drawable/selector_item_bg"
+        android:background="@drawable/selector_bg_drawable"
+        app:layout_constraintTop_toBottomOf="@id/nearby_header" >
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Map View"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="List View"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <ScrollView
+        android:id="@+id/nearby_json_response_sv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="4dp"
+        android:padding="8dp"
+        android:visibility="gone"
+        android:background="@drawable/search_result_list_bg"
+        app:layout_constraintTop_toBottomOf="@id/nearby_header"
+        app:layout_constraintBottom_toTopOf="@id/nearby_show_hide_response_layout">
+        <TextView
+            android:id="@+id/nearby_json_response"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mappls_demo_text_colorPrimary"
+            android:textSize="14sp"
+            />
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/iv_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fab_icon_bg"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:src="@drawable/searching_gps_icon"
+        android:padding="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="72dp"/>
+
+
+
+    <include
+        android:id="@+id/nearby_show_hide_response_layout"
+        layout="@layout/show_hide_response_layout"/>
+
+
+    <FrameLayout
+        android:id="@+id/nearby_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="false"
+
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,15 +5,25 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".java.activity.FeedbackUiActivity">
-    <Button
-        android:id="@+id/feedback"
+    android:background="@color/mappls_demo_background_colorSecondary"
+    tools:context=".activity.widgets.FeedbackUiActivity">
+
+    <include
+        android:id="@+id/feedback_ui_header"
+        layout="@layout/mappls_app_header" />
+
+    <TextView
+        android:id="@+id/tv_feedback_widget"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="Feedback"
+        android:layout_margin="12dp"
+        android:text="Feedback UI"
+        android:padding="12dp"
+        android:textColor="@color/mappls_demo_colorPrimary"
+        android:background="@drawable/button_transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/feedback_ui_header"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

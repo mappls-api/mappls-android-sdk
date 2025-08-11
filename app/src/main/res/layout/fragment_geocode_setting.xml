@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#1F232F"
+    android:clickable="true"
+    android:focusable="true"
+    tools:context=".settings.fragment.GeocodeSettingFragment">
+
+
+    <include
+        android:id="@+id/geocode_settings_header"
+        layout="@layout/mappls_app_header" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/geocode_settings_header"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/geocode_itemCount_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_with_no_corner"
+                android:layout_margin="12dp"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+                <TextView
+                    android:id="@+id/tv_geocode_itemCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Item Count"
+                    android:layout_margin="12dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                <EditText
+                    android:id="@+id/et_geocode_itemCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Item Count (In Integer)"
+                    android:padding="8dp"
+                    android:inputType="number"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:background="@drawable/background_with_no_corner"
+                    app:layout_constraintTop_toBottomOf="@id/tv_geocode_itemCount"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColorHint="#C6D0F7"
+                    android:layout_margin="12dp"
+                    />
+
+
+                <TextView
+                    android:id="@+id/btn_geocode_itemCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/et_geocode_itemCount"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:padding="8dp"
+                    android:text="Save Item Count"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:layout_margin="12dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/geocode_bounds_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_with_no_corner"
+                android:layout_margin="12dp"
+                app:layout_constraintTop_toBottomOf="@id/geocode_itemCount_layout"
+                >
+                <TextView
+                    android:id="@+id/tv_geocode_bounds"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bounds"
+                    android:layout_margin="12dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                <EditText
+                    android:id="@+id/et_geocode_bounds"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="(x1,y1;x2,y2)"
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:background="@drawable/background_with_no_corner"
+                    app:layout_constraintTop_toBottomOf="@id/tv_geocode_bounds"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColorHint="#C6D0F7"
+                    android:layout_margin="12dp"
+                    />
+
+
+                <TextView
+                    android:id="@+id/btn_geocode_bounds"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/et_geocode_bounds"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:padding="8dp"
+                    android:text="Save Bounds"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:layout_margin="12dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/geocode_pod_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_with_no_corner"
+                android:layout_margin="12dp"
+                app:layout_constraintTop_toBottomOf="@id/geocode_bounds_layout"
+                >
+                <TextView
+                    android:id="@+id/tv_geocode_pod"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pod"
+                    android:layout_margin="12dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                <RadioGroup
+                    android:id="@+id/rg_geocode_pod"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:foregroundTint="@color/mappls_demo_colorPrimary"
+                    app:layout_constraintTop_toBottomOf="@id/tv_geocode_pod">
+
+
+                    <RadioButton
+                        android:id="@+id/rb_geocode_house_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="House Number"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_geocode_house_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="House Name"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_geocode_poi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="POI"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_geocode_street"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Street"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_geocode_sub_sub_locality"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sub Sub Locality"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_geocode_village"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Village"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_geocode_sub_locality"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sub Locality"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_geocode_sub_district"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sub District"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_geocode_locality"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Locality"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_geocode_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="City"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_geocode_district"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="District"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_geocode_pincode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Pincode"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_geocode_state"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="State"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/btn_geocode_clear_pod"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/rg_geocode_pod"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:padding="8dp"
+                    android:text="Clear All Pods"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:layout_margin="12dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/geocode_app_name_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_with_no_corner"
+                android:layout_margin="12dp"
+                app:layout_constraintTop_toBottomOf="@id/geocode_pod_layout"
+                >
+                <TextView
+                    android:id="@+id/tv_geocode_app_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Client Ap Name"
+                    android:layout_margin="12dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                <EditText
+                    android:id="@+id/et_geocode_app_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="(x1,y1;x2,y2)"
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:background="@drawable/background_with_no_corner"
+                    app:layout_constraintTop_toBottomOf="@id/tv_geocode_app_name"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColorHint="#C6D0F7"
+                    android:layout_margin="12dp"
+                    />
+
+
+                <TextView
+                    android:id="@+id/btn_geocode_app_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/et_geocode_app_name"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:padding="8dp"
+                    android:text="Save App Name"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:layout_margin="12dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/geocode_bias_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_with_no_corner"
+                android:layout_margin="12dp"
+                app:layout_constraintTop_toBottomOf="@id/geocode_app_name_layout"
+                >
+                <TextView
+                    android:id="@+id/tv_geocode_bias"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bias"
+                    android:layout_margin="12dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                <RadioGroup
+                    android:id="@+id/rg_geocode_bias"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:foregroundTint="@color/mappls_demo_colorPrimary"
+                    app:layout_constraintTop_toBottomOf="@id/tv_geocode_bias">
+
+
+                    <RadioButton
+                        android:id="@+id/rb_geocode_default"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Default"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_geocode_rural"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Rural"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_geocode_urban"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Urban"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/btn_geocode_clear_bias"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/rg_geocode_bias"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:padding="8dp"
+                    android:text="Clear All Bias"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:layout_margin="12dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_geocode_scores"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                app:thumbTint="#FFFFFF"
+                app:trackTint="@color/mappls_demo_colorPrimary"
+                app:switchMinWidth="30dp"
+                android:text="Geocode"
+                app:layout_constraintTop_toBottomOf="@id/geocode_bias_layout"
+                android:textColor="@color/mappls_demo_text_colorPrimary"
+                android:textSize="14sp"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

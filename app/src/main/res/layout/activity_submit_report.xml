@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1F232F"
+    android:fitsSystemWindows="true"
+    tools:context=".activity.restapis.SubmitReportActivity">
+
+    <include
+        android:id="@+id/submit_report_header"
+        layout="@layout/mappls_app_header" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/submit_report_header">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/place_name_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tv_placeName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Place Name"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_placeName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_placeName" />
+
+                <TextView
+                    android:id="@+id/tv_eloc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="eloc"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_placeName" />
+
+                <EditText
+                    android:id="@+id/et_eloc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_eloc" />
+
+                <TextView
+                    android:id="@+id/tv_lat_lng"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="lat,lng"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_eloc" />
+
+                <EditText
+                    android:id="@+id/et_lat_lng"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint="lat,lng"
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_lat_lng" />
+
+                <TextView
+                    android:id="@+id/tv_parentCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Parent Category"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_lat_lng" />
+
+                <EditText
+                    android:id="@+id/et_parentCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:inputType="number"
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_parentCategory" />
+
+                <TextView
+                    android:id="@+id/tv_childCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Child Category"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_parentCategory" />
+
+                <EditText
+                    android:id="@+id/et_childCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:inputType="number"
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_childCategory" />
+
+                <TextView
+                    android:id="@+id/tv_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Description"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_childCategory" />
+
+                <EditText
+                    android:id="@+id/et_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_description" />
+
+                <TextView
+                    android:id="@+id/tv_subChildCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="SubChildCategory"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_description" />
+
+                <EditText
+                    android:id="@+id/et_subChildCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:inputType="number"
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_subChildCategory" />
+
+                <TextView
+                    android:id="@+id/tv_bearing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Bearing"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_subChildCategory" />
+
+                <EditText
+                    android:id="@+id/et_bearing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:inputType="number"
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_bearing" />
+
+                <TextView
+                    android:id="@+id/tv_accuracy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Accuracy"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_bearing" />
+
+                <EditText
+                    android:id="@+id/et_accuracy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:inputType="number"
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_accuracy" />
+
+                <TextView
+                    android:id="@+id/tv_speed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Speed"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_accuracy" />
+
+                <EditText
+                    android:id="@+id/et_speed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_speed" />
+
+                <TextView
+                    android:id="@+id/tv_flag"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Flag"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_speed" />
+
+                <EditText
+                    android:id="@+id/et_flag"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:inputType="number"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_flag" />
+
+                <TextView
+                    android:id="@+id/tv_altitude"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Altitude"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_flag" />
+
+                <EditText
+                    android:id="@+id/et_altitude"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_altitude" />
+                <TextView
+                    android:id="@+id/tv_quality"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Quality"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_altitude" />
+
+                <EditText
+                    android:id="@+id/et_quality"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_quality" />
+                <TextView
+                    android:id="@+id/tv_utc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="UTC"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_quality" />
+
+                <EditText
+                    android:id="@+id/et_utc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_utc" />
+                <TextView
+                    android:id="@+id/tv_expiry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Expiry"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_utc" />
+
+                <EditText
+                    android:id="@+id/et_expiry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_expiry" />
+
+                <TextView
+                    android:id="@+id/tv_zeroId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="ZeroId"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_expiry" />
+
+                <EditText
+                    android:id="@+id/et_zeroId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_zeroId" />
+
+                <TextView
+                    android:id="@+id/tv_appVersion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="AppVersion"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_zeroId" />
+
+                <EditText
+                    android:id="@+id/et_appVersion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_appVersion" />
+
+                <TextView
+                    android:id="@+id/tv_deviceName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="DeviceName"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_appVersion" />
+
+                <EditText
+                    android:id="@+id/et_deviceName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_deviceName" />
+
+                <TextView
+                    android:id="@+id/btn_submit_report"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Submit Report"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_deviceName" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

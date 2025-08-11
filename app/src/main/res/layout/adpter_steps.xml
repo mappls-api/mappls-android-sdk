@@ -2,14 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background_with_no_corner"
     android:orientation="horizontal"
-    android:padding="16dp">
+    android:layout_margin="5dp"
+    android:padding="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.mappls.sdk.plugin.directions.view.ManeuverView
-        android:background="@color/colorPrimary"
-        android:id="@+id/navigate_icon"
+        android:background="@color/mappls_demo_colorPrimary"
+        android:id="@+id/maneuverView"
         android:layout_width="50dp"
+        android:layout_gravity="center"
         android:layout_height="50dp"
         app:maneuverViewPrimaryColor="@color/white"
         app:maneuverViewSecondaryColor="@color/white"/>
@@ -17,6 +20,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:orientation="vertical">
 
         <TextView
@@ -24,19 +28,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:minHeight="32dp" />
-
+            android:textColor="@color/white"
+            android:text="hello"
+            />
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="2dp"/>
         <TextView
             android:id="@+id/distance_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:minHeight="32dp"
+            android:text="hello"
+            android:textColor="@color/white"
             android:textStyle="bold" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/black" />
+
     </LinearLayout>
 </LinearLayout>

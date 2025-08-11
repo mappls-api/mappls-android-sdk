@@ -1,48 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="@color/mappls_demo_background_colorPrimary"
+    android:layout_height="match_parent"
+    tools:context=".activity.widgets.geofence.GeoFenceDetailActivity">
+    <include
+        android:id="@+id/geo_fence_details_header"
+        layout="@layout/mappls_app_header" />
+
+    <com.mappls.sdk.maps.MapView
+        android:id="@+id/map_view"
+        app:mappls_maps_renderTextureMode="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        app:layout_constraintTop_toBottomOf="@+id/geo_fence_details_header"
+        android:layout_height="0dp"/>
+    <Button
+        android:id="@+id/tv_add_geofence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/geo_fence_details_header"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Add Geofence"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root_bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/map_view"
+        android:background="@color/mappls_demo_background_colorPrimary"
+        android:padding="8dp"
+        android:visibility="gone"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical"
+        >
 
-        <com.mappls.sdk.maps.MapView
-            android:id="@+id/map_view"
-            app:mappls_maps_renderTextureMode="true"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_geofence_detail"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/root_bottom_sheet"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_below="@id/map_view"
-            android:background="@android:color/white"
-            android:padding="12dp"
-            android:clickable="true"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:orientation="vertical"
-            >
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_geofence_detail"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_marginBottom="12dp"
-                app:layout_constraintBottom_toTopOf="@id/tv_add_geofence"/>
-
-            <TextView
-                android:id="@+id/tv_add_geofence"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="12dp"
-                android:textColor="@color/colorPrimaryDark"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                android:text="Add Geofence"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+
+
+    <FrameLayout
+        android:id="@+id/base_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/geo_fence_details_header"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

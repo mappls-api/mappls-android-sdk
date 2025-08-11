@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--    <color name="colorPrimary">#EC672C</color>-->
-<!--    <color name="colorPrimaryDark">#f24a00</color>-->
-<!--    <color name="colorAccent">#EC672C</color>-->
-    <color name="colorPrimary">#e52629</color>
-    <color name="colorPrimaryDark">#e7392a</color>
-    <color name="colorAccent">#ec672c</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
     <color name="colorHint">#757575</color>
-    <color name="colorGray200">#eeeeee</color>
 
-    <color name="mappls_demo_white">#FFFFFF</color>
-    <color name="mappls_demo_black">#000000</color>
+    <color name="mappls_demo_background_colorPrimary">#1B1E27</color>
+    <color name="mappls_demo_colorPrimary">#21D0B2</color>
+    <color name="mappls_demo_text_colorPrimary">#FFFFFF</color>
 
-    <color name="colorGray300">#e0e0e0</color>
-    <color name="colorGray500">#9e9e9e</color>
+    <color name="mappls_demo_background_colorSecondary">#1F232F</color>
+    <color name="mappls_demo_text_colorSecondary">#C6D0F7</color>
+
+    <color name="colorTransparentDark">#33757575</color>
 </resources>

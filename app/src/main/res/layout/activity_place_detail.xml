@@ -1,53 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.restapis.PlaceDetailActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <include
+        android:id="@+id/place_detail_header"
+        layout="@layout/mappls_app_header" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/search_place_detail_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".PlaceDetailActivity">
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_text_bg"
+        app:layout_constraintTop_toBottomOf="@id/place_detail_header"
+        >
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+        <TextView
+            android:id="@+id/btn_place_detail_search"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Search"
+            android:textColor="@color/mappls_demo_text_colorPrimary"
+            android:layout_margin="12dp"
+            android:background="@drawable/solid_btn_bg"
+            android:padding="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <EditText
-            android:id="@+id/et_mappls_pin"
-            android:layout_width="match_parent"
+            android:id="@+id/search_et"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            android:hint="@string/mappls_pin"
-            />
-
-
-        <Button
-            android:id="@+id/btn_search"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            android:background="@drawable/bg_background_btn"
-            android:text="@string/search"
-            android:textColor="#ffffff"
-            />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_place_detail"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="12dp"/>
-        </LinearLayout>
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/btn_place_detail_search"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:visibility="gone"/>
+            android:layout_margin="12dp"
+            android:paddingLeft="16dp"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingRight="16dp"
+            android:paddingEnd="16dp"
+            android:hint="Search Mappls Pin"
+            android:textColor="@color/mappls_demo_text_colorPrimary"
+            android:drawableLeft="@drawable/search_icon_drawable"
+            android:drawableStart="@drawable/search_icon_drawable"
+            android:drawablePadding="8dp"
+            android:textColorHint="#C6D0F7"
+            android:textSize="14sp"
+            android:background="@drawable/background_with_no_corner"
+            />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+
+    <com.mappls.sdk.maps.MapView
+        android:id="@+id/map_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/search_place_detail_layout"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <include layout="@layout/progressbar_layout"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/progressBar_layout"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <ScrollView
+        android:id="@+id/place_detail_json_response_sv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="4dp"
+        android:padding="8dp"
+        android:visibility="gone"
+        android:background="@drawable/search_result_list_bg"
+        app:layout_constraintTop_toBottomOf="@id/search_place_detail_layout"
+        app:layout_constraintBottom_toTopOf="@id/place_detail_show_hide_response_layout">
+        <TextView
+            android:id="@+id/place_detail_json_response"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mappls_demo_text_colorPrimary"
+            android:textSize="14sp"
+            />
+    </ScrollView>
+
+    <include
+        android:id="@+id/place_detail_show_hide_response_layout"
+        layout="@layout/show_hide_response_layout"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,1233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1F232F"
+    tools:context=".settings.fragment.DirectionSettingsFragment">
+
+
+    <include
+        android:id="@+id/settings_header"
+        layout="@layout/mappls_app_header" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/settings_header">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/origin_direction_location_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tv_direction_origin_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Origin Location"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_direction_origin_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint="Longitude,Latitude/Mappls Pin"
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_direction_origin_location" />
+
+
+                <TextView
+                    android:id="@+id/btn_direction_origin_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save Origin Location"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_direction_origin_location" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/destination_direction_location_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toBottomOf="@id/origin_direction_location_layout">
+
+                <TextView
+                    android:id="@+id/tv_direction_destination_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Destination Location"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_direction_destination_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint="Longitude,Latitude/Mappls Pin"
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_direction_destination_location" />
+
+
+                <TextView
+                    android:id="@+id/btn_direction_destination_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save Destination Location"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_direction_destination_location" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/waypoint_direction_location_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toBottomOf="@id/destination_direction_location_layout">
+
+                <TextView
+                    android:id="@+id/tv_direction_waypoint_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Waypoint Location"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_direction_waypoint_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint="(Viapoint-1);(Viapoint-2)"
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_direction_waypoint_location" />
+
+
+                <TextView
+                    android:id="@+id/btn_direction_waypoint_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save Waypoint Location"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_direction_waypoint_location" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/direction_overview_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_with_no_corner"
+                android:layout_margin="12dp"
+                app:layout_constraintTop_toBottomOf="@id/waypoint_direction_location_layout"
+                >
+                <TextView
+                    android:id="@+id/tv_direction_overview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Overview"
+                    android:layout_margin="12dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                <RadioGroup
+                    android:id="@+id/rg_overview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:foregroundTint="@color/mappls_demo_colorPrimary"
+                    app:layout_constraintTop_toBottomOf="@id/tv_direction_overview">
+
+                    <RadioButton
+                        android:id="@+id/rb_overview_full"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Full"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_overview_simplified"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Simplified"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_overview_false"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="False"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                </RadioGroup>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_direction_alternative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="Alternative Enable"
+                app:thumbTint="#FFFFFF"
+                app:trackTint="@color/mappls_demo_colorPrimary"
+                app:switchMinWidth="30dp"
+                app:layout_constraintTop_toBottomOf="@id/direction_overview_layout"
+                android:textColor="@color/mappls_demo_text_colorPrimary"
+                android:textSize="14sp"
+                />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/direction_geometry_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_with_no_corner"
+                android:layout_margin="12dp"
+                app:layout_constraintTop_toBottomOf="@id/sw_direction_alternative"
+                >
+                <TextView
+                    android:id="@+id/tv_direction_geometry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Geometry"
+                    android:layout_margin="12dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                <RadioGroup
+                    android:id="@+id/rg_geometry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:foregroundTint="@color/mappls_demo_colorPrimary"
+                    app:layout_constraintTop_toBottomOf="@id/tv_direction_geometry">
+
+                    <RadioButton
+                        android:id="@+id/rb_geometry_polyline_five"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Polyline 5"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_geometry_polyline_six"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Polyline 6"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_geometry_coordiates"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Geojson"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                </RadioGroup>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_direction_steps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="Steps Enable"
+                app:thumbTint="#FFFFFF"
+                app:trackTint="@color/mappls_demo_colorPrimary"
+                app:switchMinWidth="30dp"
+                app:layout_constraintTop_toBottomOf="@id/direction_geometry_layout"
+                android:textColor="@color/mappls_demo_text_colorPrimary"
+                android:textSize="14sp"
+                />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_direction_lessVerbose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:visibility="gone"
+                android:text="LessVerbose Enable"
+                app:thumbTint="#FFFFFF"
+                app:trackTint="@color/mappls_demo_colorPrimary"
+                app:switchMinWidth="30dp"
+                app:layout_constraintTop_toBottomOf="@id/sw_direction_steps"
+                android:textColor="@color/mappls_demo_text_colorPrimary"
+                android:textSize="14sp"
+                />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_direction_roundaboutexit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="Roundabout Exits Enable"
+                app:thumbTint="#FFFFFF"
+                android:visibility="gone"
+                app:trackTint="@color/mappls_demo_colorPrimary"
+                app:switchMinWidth="30dp"
+                app:layout_constraintTop_toBottomOf="@id/sw_direction_lessVerbose"
+                android:textColor="@color/mappls_demo_text_colorPrimary"
+                android:textSize="14sp"
+                />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/direction_annotation_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_with_no_corner"
+                android:layout_margin="12dp"
+                app:layout_constraintTop_toBottomOf="@id/sw_direction_roundaboutexit">
+
+                <TextView
+                    android:id="@+id/tv_direction_annotation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Annotations"
+                    android:layout_margin="12dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb_annotation_congestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:text="Congestion"
+                    android:checked="true"
+                    app:layout_constraintTop_toBottomOf="@id/tv_direction_annotation"
+                    />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb_annotation_nodes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:text="Nodes"
+                    android:checked="true"
+                    app:layout_constraintTop_toBottomOf="@id/cb_annotation_congestion"
+                    />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb_annotation_duration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:textColor="#FFFFFF"
+                    android:text="Duration"
+                    android:checked="true"
+                    app:layout_constraintTop_toBottomOf="@id/cb_annotation_nodes"
+                    />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb_annotation_distance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:textColor="#FFFFFF"
+                    android:text="Distance"
+                    android:checked="true"
+                    app:layout_constraintTop_toBottomOf="@id/cb_annotation_duration"
+                    />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb_annotation_speed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:textColor="#FFFFFF"
+                    android:text="Speed"
+                    android:checked="true"
+                    app:layout_constraintTop_toBottomOf="@id/cb_annotation_distance"
+                    />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb_annotation_max_speed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:textColor="#FFFFFF"
+                    android:text="Max Speed"
+                    android:checked="true"
+                    app:layout_constraintTop_toBottomOf="@id/cb_annotation_speed"
+                    />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb_annotation_base_duration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:textColor="#FFFFFF"
+                    android:text="Base Duration"
+                    android:checked="true"
+                    app:layout_constraintTop_toBottomOf="@id/cb_annotation_max_speed"
+                    />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb_annotation_spdlmt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:textColor="#FFFFFF"
+                    android:text="Speed Limit"
+                    android:checked="true"
+                    app:layout_constraintTop_toBottomOf="@id/cb_annotation_base_duration"
+                    />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb_annotation_toll_road"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:textColor="#FFFFFF"
+                    android:text="Toll Road"
+                    android:checked="true"
+                    app:layout_constraintTop_toBottomOf="@id/cb_annotation_spdlmt"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/direction_exclude_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:background="@drawable/background_with_no_corner"
+                android:layout_margin="12dp"
+                app:layout_constraintTop_toBottomOf="@id/direction_annotation_layout">
+
+                <TextView
+                    android:id="@+id/tv_direction_exclude"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Excludes"
+                    android:layout_margin="12dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColor="#FFFFFF"/>
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb_exclude_toll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:textColor="#FFFFFF"
+                    android:text="Toll"
+                    android:checked="true"
+                    app:layout_constraintTop_toBottomOf="@id/tv_direction_exclude"
+                    />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb_exclude_motorway"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:textColor="#FFFFFF"
+                    android:text="Motorway"
+                    android:checked="true"
+                    app:layout_constraintTop_toBottomOf="@id/cb_exclude_toll"
+                    />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb_exclude_ferry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:textColor="#FFFFFF"
+                    android:text="Ferry"
+                    android:checked="true"
+                    app:layout_constraintTop_toBottomOf="@id/cb_exclude_motorway"
+                    />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb_exclude_tunnel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:textColor="#FFFFFF"
+                    android:text="Tunnel"
+                    android:checked="true"
+                    app:layout_constraintTop_toBottomOf="@id/cb_exclude_ferry"
+                    />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb_exclude_restricted"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:textColor="#FFFFFF"
+                    android:text="Restricted"
+                    android:checked="true"
+                    app:layout_constraintTop_toBottomOf="@id/cb_exclude_tunnel"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_direction_continuestraight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:visibility="gone"
+                android:text="Continue Straight Instruction Enable"
+                app:thumbTint="#FFFFFF"
+                app:trackTint="@color/mappls_demo_colorPrimary"
+                app:switchMinWidth="30dp"
+                app:layout_constraintTop_toBottomOf="@id/direction_exclude_layout"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_direction_banner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="Banner Instruction Enable"
+                app:thumbTint="#FFFFFF"
+                android:visibility="gone"
+                app:trackTint="@color/mappls_demo_colorPrimary"
+                app:switchMinWidth="30dp"
+                app:layout_constraintTop_toBottomOf="@id/sw_direction_continuestraight"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_direction_route_refresh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="Route Refresh Enable"
+                android:visibility="gone"
+                app:thumbTint="#FFFFFF"
+                app:trackTint="@color/mappls_demo_colorPrimary"
+                app:switchMinWidth="30dp"
+                app:layout_constraintTop_toBottomOf="@id/sw_direction_banner"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/sessionId_direction_location_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_margin="12dp"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toBottomOf="@id/sw_direction_route_refresh">
+
+                <TextView
+                    android:id="@+id/tv_direction_sessionId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Prev Session Id"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_direction_sessionId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint="XXbgf3-hskgfks-fsgufs"
+                    android:padding="8dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_direction_sessionId" />
+
+
+                <TextView
+                    android:id="@+id/btn_direction_sessionId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save Session Id"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_direction_sessionId" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_direction_sort"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:visibility="gone"
+                android:text="Sort Route Enable"
+                app:thumbTint="#FFFFFF"
+                app:trackTint="@color/mappls_demo_colorPrimary"
+                app:switchMinWidth="30dp"
+                app:layout_constraintTop_toBottomOf="@id/sessionId_direction_location_layout"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_direction_skip_waypoint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="Skip Waypoint"
+                android:visibility="gone"
+                app:thumbTint="#FFFFFF"
+                app:trackTint="@color/mappls_demo_colorPrimary"
+                app:switchMinWidth="30dp"
+                app:layout_constraintTop_toBottomOf="@id/sw_direction_sort"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_direction_instructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="Instructions Enable"
+                app:thumbTint="#FFFFFF"
+                android:visibility="gone"
+                app:trackTint="@color/mappls_demo_colorPrimary"
+                app:switchMinWidth="30dp"
+                app:layout_constraintTop_toBottomOf="@id/sw_direction_skip_waypoint"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/direction_route_type_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:background="@drawable/background_with_no_corner"
+                android:layout_margin="12dp"
+                app:layout_constraintTop_toBottomOf="@id/sw_direction_instructions"
+                >
+                <TextView
+                    android:id="@+id/tv_direction_route_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Route Type"
+                    android:layout_margin="12dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColor="#FFFFFF"/>
+
+                <RadioGroup
+                    android:id="@+id/rg_rtype"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:foregroundTint="@color/mappls_demo_colorPrimary"
+                    app:layout_constraintTop_toBottomOf="@id/tv_direction_route_type">
+
+                    <RadioButton
+                        android:id="@+id/rb_direction_rtype_optimal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Optimal"
+                        android:textColor="#FFFFFF"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_direction_rtype_shortest"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Shortest"
+                        android:textColor="#FFFFFF"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_direction_rtype_containment_zone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Without Containment Zone"
+                        android:textColor="#FFFFFF"/>
+
+
+                </RadioGroup>
+
+
+                <TextView
+                    android:id="@+id/btn_clear_rType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/rg_rtype"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:padding="8dp"
+                    android:text="Clear All Route Type Option"
+                    android:textColor="#FFFFFF"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:layout_margin="12dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/user_layout"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toBottomOf="@id/direction_route_type_layout">
+
+                <TextView
+                    android:id="@+id/tv_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="User"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_user" />
+
+
+                <TextView
+                    android:id="@+id/btn_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save User"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_user" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/language_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:visibility="gone"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toBottomOf="@id/user_layout">
+
+                <TextView
+                    android:id="@+id/tv_language"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Language"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_language"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_language" />
+
+
+                <TextView
+                    android:id="@+id/btn_language"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save Language"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_language" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/bearing_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:visibility="gone"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toBottomOf="@id/language_layout">
+
+                <TextView
+                    android:id="@+id/tv_bearing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Bearing"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_bearing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:inputType="numberDecimal"
+                    android:padding="8dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_bearing" />
+
+
+                <TextView
+                    android:id="@+id/btn_bearing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save Bearing"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_bearing" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/radius_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:visibility="gone"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toBottomOf="@id/bearing_layout">
+
+                <TextView
+                    android:id="@+id/tv_radius"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Radius"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_radius"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:inputType="numberDecimal"
+                    android:padding="8dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_radius" />
+
+
+                <TextView
+                    android:id="@+id/btn_radius"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save Radius"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_radius" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clientAppName_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:visibility="gone"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toBottomOf="@id/radius_layout">
+
+                <TextView
+                    android:id="@+id/tv_clientAppName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="ClientAppName"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_clientAppName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_clientAppName" />
+
+
+                <TextView
+                    android:id="@+id/btn_clientAppName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save ClientAppName"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_clientAppName" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/addApproaches_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:visibility="gone"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toBottomOf="@id/clientAppName_layout">
+
+                <TextView
+                    android:id="@+id/tv_addApproaches"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="AddApproaches"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_addApproaches"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_addApproaches" />
+
+
+                <TextView
+                    android:id="@+id/btn_addApproaches"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save AddApproaches"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_addApproaches" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/addWaypointIndices_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:visibility="gone"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toBottomOf="@id/addApproaches_layout">
+
+                <TextView
+                    android:id="@+id/tv_addWaypointIndices"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="AddWaypointIndices"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_addWaypointIndices"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:inputType="number"
+                    android:padding="8dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_addWaypointIndices" />
+
+
+                <TextView
+                    android:id="@+id/btn_addWaypointIndices"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save AddWaypointIndices"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_addWaypointIndices" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/addWaypointNames_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:visibility="gone"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toBottomOf="@id/addWaypointIndices_layout">
+
+                <TextView
+                    android:id="@+id/tv_addWaypointNames"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="AddWaypointNames"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_addWaypointNames"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_addWaypointNames" />
+
+
+                <TextView
+                    android:id="@+id/btn_addWaypointNames"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save AddWaypointNames"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_addWaypointNames" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/addWaypointTargets_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:visibility="gone"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toBottomOf="@id/addWaypointNames_layout">
+
+                <TextView
+                    android:id="@+id/tv_addWaypointTargets"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="AddWaypointTargets"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_addWaypointTargets"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint="(Viapoint-1);(Viapoint-2)"
+                    android:padding="8dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_addWaypointTargets" />
+
+
+                <TextView
+                    android:id="@+id/btn_addWaypointTargets"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save AddWaypointTargets"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_addWaypointTargets" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/excludeContainmentZone_lessVerbose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="ExcludeContainmentZone Enable"
+                app:thumbTint="#FFFFFF"
+                android:visibility="gone"
+                app:trackTint="@color/mappls_demo_colorPrimary"
+                app:switchMinWidth="30dp"
+                app:layout_constraintTop_toBottomOf="@id/addWaypointTargets_layout"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

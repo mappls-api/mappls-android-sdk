@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#1F232F"
+    tools:context=".settings.fragment.CostEstimationSettingsFragment">
+
+    <include
+        android:id="@+id/cost_estimation_settings_header"
+        layout="@layout/mappls_app_header" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cost_estimation_settings_header">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/origin_cost_estimation_location_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tv_cost_estimation_origin_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Origin Location / Location(Only long-lat)"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_cost_estimation_origin_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint="Longitude,Latitude/Mappls Pin"
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_cost_estimation_origin_location" />
+
+
+                <TextView
+                    android:id="@+id/btn_cost_estimation_origin_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save Origin Location"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_cost_estimation_origin_location" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/destination_cost_estimation_location_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toBottomOf="@id/origin_cost_estimation_location_layout">
+
+                <TextView
+                    android:id="@+id/tv_cost_estimation_destination_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Destination Location"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_cost_estimation_destination_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint="Longitude,Latitude/Mappls Pin"
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_cost_estimation_destination_location" />
+
+
+                <TextView
+                    android:id="@+id/btn_cost_estimation_destination_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save Destination Location"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_cost_estimation_destination_location" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cost_estimation_vehicle_fuel_type_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_with_no_corner"
+                android:layout_margin="12dp"
+                app:layout_constraintTop_toBottomOf="@id/destination_cost_estimation_location_layout"
+                >
+                <TextView
+                    android:id="@+id/tv_cost_estimation_vehicle_fuel_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Vehicle Fuel Type"
+                    android:layout_margin="12dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                <RadioGroup
+                    android:id="@+id/rg_vehicle_fuel_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:foregroundTint="@color/mappls_demo_colorPrimary"
+                    app:layout_constraintTop_toBottomOf="@id/tv_cost_estimation_vehicle_fuel_type">
+
+                    <RadioButton
+                        android:id="@+id/rb_vehicle_fuel_type_petrol"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Petrol"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_vehicle_fuel_type_diesel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Diesel"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_vehicle_fuel_type_cng"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="CNG"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_vehicle_fuel_type_electric"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Electric"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+
+                </RadioGroup>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cost_estimation_fuel_price_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toBottomOf="@id/cost_estimation_vehicle_fuel_type_layout">
+
+                <TextView
+                    android:id="@+id/tv_cost_estimation_fuel_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Fuel Price"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_cost_estimation_fuel_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:inputType="numberDecimal"
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_cost_estimation_fuel_price" />
+
+
+                <TextView
+                    android:id="@+id/btn_cost_estimation_fuel_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save Fuel Pice"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_cost_estimation_fuel_price" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cost_estimation_fuel_efficiency_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintTop_toBottomOf="@id/cost_estimation_fuel_price_layout">
+
+                <TextView
+                    android:id="@+id/tv_cost_estimation_fuel_efficiency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Fuel Efficiency"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_cost_estimation_fuel_efficiency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:inputType="number"
+                    android:padding="8dp"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_cost_estimation_fuel_efficiency" />
+
+
+                <TextView
+                    android:id="@+id/btn_cost_estimation_fuel_efficiency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save Fuel Efficiency"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_cost_estimation_fuel_efficiency" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cost_estimation_vehicle_type_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_with_no_corner"
+                android:layout_margin="12dp"
+                app:layout_constraintTop_toBottomOf="@id/cost_estimation_fuel_efficiency_layout"
+                >
+                <TextView
+                    android:id="@+id/tv_cost_estimation_vehicle_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Vehicle Type"
+                    android:layout_margin="12dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                <RadioGroup
+                    android:id="@+id/rg_vtype"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:foregroundTint="@color/mappls_demo_colorPrimary"
+                    app:layout_constraintTop_toBottomOf="@id/tv_cost_estimation_vehicle_type">
+
+                    <RadioButton
+                        android:id="@+id/rb_vtype_auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Auto"
+                        android:textColor="@color/mappls_demo_text_colorPrimary"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_vtype_bus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Bus"
+                        android:textColor="#FFFFFF"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_vtype_lcv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="LCV"
+                        android:textColor="#FFFFFF"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_vtype_moto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Moto"
+                        android:textColor="#FFFFFF"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_vtype_truck"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Truck"
+                        android:textColor="#FFFFFF"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_vtype_hcmeme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="HCMEME"
+                        android:textColor="#FFFFFF"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_vtype_three_axles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="3Axles"
+                        android:textColor="#FFFFFF"/>
+                    <RadioButton
+                        android:id="@+id/rb_vtype_four_axles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="4Axles"
+                        android:textColor="#FFFFFF"/>
+                    <RadioButton
+                        android:id="@+id/rb_vtype_five_axles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="5Axles"
+                        android:textColor="#FFFFFF"/>
+                    <RadioButton
+                        android:id="@+id/rb_vtype_six_axles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="6Axles"
+                        android:textColor="#FFFFFF"/>
+                    <RadioButton
+                        android:id="@+id/rb_vtype_seven_axles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="7Axles"
+                        android:textColor="#FFFFFF"/>
+
+
+                </RadioGroup>
+
+
+                <TextView
+                    android:id="@+id/btn_clear_vType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/rg_vtype"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:padding="8dp"
+                    android:text="Clear All Vehicle Type Option"
+                    android:textColor="#FFFFFF"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:layout_margin="12dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_cost_estimation_toll_enable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="Toll Enable"
+                app:thumbTint="#FFFFFF"
+                app:trackTint="@color/mappls_demo_colorPrimary"
+                app:switchMinWidth="30dp"
+                app:layout_constraintTop_toBottomOf="@id/cost_estimation_vehicle_type_layout"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/destination_cost_estimation_distance_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@drawable/background_with_no_corner"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sw_cost_estimation_toll_enable">
+
+                <TextView
+                    android:id="@+id/tv_cost_estimation_distance_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Distance (Only if Destination is not set)"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_cost_estimation_distance_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/background_with_no_corner"
+                    android:hint="Longitude,Latitude/Mappls Pin"
+                    android:padding="8dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#C6D0F7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_cost_estimation_distance_location" />
+
+
+                <TextView
+                    android:id="@+id/btn_cost_estimation_distance_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tranparent_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Save Distance"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_cost_estimation_distance_location" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

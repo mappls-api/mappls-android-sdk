@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.marker.MapplsPinMarkerActivity">
+
+    <include
+        android:id="@+id/mappls_pin_marker_header"
+        layout="@layout/mappls_app_header" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/add_mappls_pin_marker_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:background="@drawable/search_text_bg"
+        app:layout_constraintTop_toBottomOf="@id/mappls_pin_marker_header"
+        >
+
+        <TextView
+            android:id="@+id/btn_add_marker"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Add Marker"
+            android:textColor="@color/mappls_demo_text_colorPrimary"
+            android:layout_margin="12dp"
+            android:background="@drawable/solid_btn_bg"
+            android:padding="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/mappls_pin_et"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/btn_add_marker"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="12dp"
+            android:paddingLeft="16dp"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingRight="16dp"
+            android:paddingEnd="16dp"
+            android:hint="Enter Mappls Pin (ABC001,ABC002)"
+            android:textColor="@color/mappls_demo_text_colorPrimary"
+            android:drawableLeft="@drawable/search_icon_drawable"
+            android:drawableStart="@drawable/search_icon_drawable"
+            android:drawablePadding="8dp"
+            android:textColorHint="#C6D0F7"
+            android:textSize="14sp"
+            android:background="@drawable/background_with_no_corner"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.mappls.sdk.maps.MapView
+        android:id="@+id/map_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_mappls_pin_marker_layout"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

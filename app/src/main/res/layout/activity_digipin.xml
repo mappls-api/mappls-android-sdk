@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/mappls_demo_background_colorSecondary"
+    tools:context=".activity.utility.DigipinActivity">
+
+    <!-- Main UI Layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/top_header"
+            layout="@layout/mappls_app_header" />
+
+        <!-- Digipin Selection -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/digipin_selection_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/background_with_no_corner"
+            app:layout_constraintTop_toBottomOf="@id/top_header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <RadioGroup
+                android:id="@+id/rg_select_option"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_lat_lng"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Latitude/Longitude"
+                    android:textColor="@color/mappls_demo_text_colorPrimary" />
+
+                <RadioButton
+                    android:id="@+id/rb_digipin"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Digipin"
+                    android:textColor="@color/mappls_demo_text_colorPrimary" />
+            </RadioGroup>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Input Fields -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/digipin_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:layout_constraintTop_toBottomOf="@id/digipin_selection_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <EditText
+                android:id="@+id/et_custom_lat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="Latitude"
+                android:padding="8dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/background_with_no_corner"
+                android:textColor="@color/mappls_demo_text_colorPrimary"
+                android:textColorHint="#C6D0F7"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/et_custom_lng"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <EditText
+                android:id="@+id/et_custom_lng"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="Longitude"
+                android:inputType="numberDecimal"
+                android:padding="8dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/background_with_no_corner"
+                android:textColor="@color/mappls_demo_text_colorPrimary"
+                android:textColorHint="#C6D0F7"
+                app:layout_constraintStart_toEndOf="@id/et_custom_lat"
+                app:layout_constraintEnd_toStartOf="@id/btn_custom_location"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <TextView
+                android:id="@+id/btn_custom_location"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Submit"
+                android:textColor="@color/mappls_demo_text_colorPrimary"
+                android:textSize="16sp"
+                android:background="@drawable/tranparent_btn_bg"
+                app:layout_constraintStart_toEndOf="@id/et_custom_lng"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- MapView -->
+        <com.mappls.sdk.maps.MapView
+            android:id="@+id/map_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/digipin_layout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Bottom Sheet -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mode_bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_sheet_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/tracking_bottom_sheet_bg"
+        android:layout_marginTop="8dp">
+        <TextView
+            android:id="@+id/tv_bottom_sheet_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Latitude - 28.632282"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

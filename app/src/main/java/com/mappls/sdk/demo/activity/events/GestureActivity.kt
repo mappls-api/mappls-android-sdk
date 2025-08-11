@@ -1,0 +1,108 @@
+package com.mappls.sdk.demo.activity.events
+
+import android.os.Bundle
+import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.mappls.sdk.demo.R
+import com.mappls.sdk.demo.databinding.ActivityBaseMapBinding
+import com.mappls.sdk.gestures.MoveGestureDetector
+import com.mappls.sdk.maps.MapplsMap
+import com.mappls.sdk.maps.OnMapReadyCallback
+import com.mappls.sdk.maps.camera.CameraUpdateFactory
+import com.mappls.sdk.maps.geometry.LatLng
+
+class GestureActivity : AppCompatActivity(), OnMapReadyCallback, MapplsMap.OnMoveListener {
+
+    private lateinit var mBinding: ActivityBaseMapBinding
+    private var mMapplsMap: MapplsMap? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        mBinding = ActivityBaseMapBinding.inflate(layoutInflater)
+        setContentView(mBinding.root)
+        ViewCompat.setOnApplyWindowInsetsListener(mBinding.main) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+        mBinding.baseMapHeader.headerTitle.setText(R.string.map_gesture_title)
+        mBinding.baseMapHeader.headerBack.setOnClickListener {
+            finish()
+        }
+        mBinding.mapView.onCreate(savedInstanceState)
+        mBinding.mapView.getMapAsync(this)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        mBinding.mapView.onStart()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mBinding.mapView.onResume()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        mBinding.mapView.onSaveInstanceState(outState)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mBinding.mapView.onPause()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mBinding.mapView.onStop()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mMapplsMap?.removeOnMoveListener(this)
+        mBinding.mapView.onDestroy()
+    }
+
+    override fun onMapReady(mapplsMap: MapplsMap) {
+        this.mMapplsMap = mapplsMap
+        mapplsMap.moveCamera(
+            CameraUpdateFactory.newLatLngZoom(
+                LatLng(
+                    22.553147478403194,
+                    77.23388671875
+                ), 4.0
+            )
+        )
+        mapplsMap.addOnMoveListener(this)
+    }
+
+    override fun onMapError(code: Int, message: String?) {
+        Toast.makeText(this, "$code --- $message", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onMoveBegin(detector: MoveGestureDetector) {
+        if (detector.pointersCount == 1) {
+            val latLng = mMapplsMap?.projection?.fromScreenLocation(detector.focalPoint)
+            Toast.makeText(this, "Move Begin: ${latLng?.toString() ?: "Null"}", Toast.LENGTH_SHORT)
+                .show()
+        }
+    }
+
+    override fun onMove(detector: MoveGestureDetector) {
+        if (detector.pointersCount == 1) {
+            val latLng = mMapplsMap?.projection?.fromScreenLocation(detector.focalPoint)
+            Toast.makeText(this, "Moving: ${latLng?.toString() ?: "Null"}", Toast.LENGTH_SHORT)
+                .show()
+        }
+    }
+
+    override fun onMoveEnd(detector: MoveGestureDetector) {
+        val latLng = mMapplsMap?.projection?.fromScreenLocation(detector.focalPoint)
+        Toast.makeText(this, "Move End: ${latLng?.toString() ?: "Null"}", Toast.LENGTH_SHORT).show()
+    }
+}

@@ -1,158 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.restapis.PoiAlongRouteActivity">
 
-    <data>
 
-    </data>
+    <include
+        android:id="@+id/poi_along_route_header"
+        layout="@layout/mappls_app_header" />
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <com.mappls.sdk.maps.MapView
+        android:id="@+id/map_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/poi_along_route_header"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <com.mappls.sdk.maps.MapView
-            android:id="@+id/map_view"
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/poi_along_route_list_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clickable="true"
+        android:visibility="gone"
+        android:background="@color/mappls_demo_background_colorPrimary"
+        app:layout_constraintTop_toBottomOf="@id/poi_along_route_header"
+        app:layout_constraintBottom_toTopOf="@id/poi_along_route_show_hide_response_layout" >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_poi_along_route_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <RelativeLayout
-            android:id="@+id/details_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:background="@color/mappls_demo_white">
-
-            <LinearLayout
-                android:id="@+id/start_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/et_start_lat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:hint="Start Latitude"
-                    android:minHeight="48dp"
-                    android:textSize="16sp"
-                    android:padding="8dp"
-                    android:inputType="numberDecimal"
-                    android:background="@drawable/edit_text_background"
-                    android:text="28.594475"
-                    android:layout_weight="1" />
-
-                <EditText
-                    android:id="@+id/et_start_lng"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:hint="Start Longitude"
-                    android:inputType="numberDecimal"
-                    android:textSize="16sp"
-                    android:minHeight="48dp"
-                    android:padding="8dp"
-                    android:background="@drawable/edit_text_background"
-                    android:text="77.202432"
-                    android:layout_weight="1" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/dest_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/start_layout"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/et_dest_lat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:padding="8dp"
-                    android:inputType="numberDecimal"
-                    android:minHeight="48dp"
-                    android:textSize="16sp"
-                    android:background="@drawable/edit_text_background"
-                    android:hint="Destination Latitude"
-                    android:text="28.554676"
-                    android:layout_weight="1" />
-
-                <EditText
-                    android:id="@+id/et_dest_lng"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:padding="8dp"
-                    android:inputType="numberDecimal"
-                    android:textSize="16sp"
-                    android:minHeight="48dp"
-                    android:background="@drawable/edit_text_background"
-                    android:text="77.186982"
-                    android:hint="Destination Longitude"
-                    android:layout_weight="1" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/bottom_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/dest_layout"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/et_keyword"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:minHeight="48dp"
-                    android:layout_margin="4dp"
-                    android:hint="Keyword"
-                    android:padding="8dp"
-                    android:textSize="16sp"
-                    android:background="@drawable/edit_text_background"
-                    android:text="FODCOF"
-                    android:layout_weight="1" />
-
-                <Button
-                    android:id="@+id/btn_search"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:text="Search"
-                    android:textColor="@color/mappls_demo_white"
-                    android:background="@drawable/bg_background_btn"
-                    android:layout_weight="1" />
-
-            </LinearLayout>
+            android:layout_height="match_parent"
+            android:layout_marginTop="78dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="12dp"/>
 
 
-        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/poi_along_route_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        app:tabSelectedTextColor="@color/mappls_demo_text_colorPrimary"
+        app:tabTextColor="#C6D0F7"
+        app:tabIndicatorColor="#333849"
+        app:tabIndicatorHeight="0dp"
+        app:tabBackground="@drawable/selector_item_bg"
+        android:background="@drawable/selector_bg_drawable"
+        app:layout_constraintTop_toBottomOf="@id/poi_along_route_header" >
 
-        <RelativeLayout
-            android:id="@+id/bottom_sheet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:background="#00ffffff"
-            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/poiRecyclerview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/recycler_view_bg" />
-        </RelativeLayout>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/marker_btn"
+        <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="16dp" />
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-</layout>
+            android:text="Map View"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="List View"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+
+    </com.google.android.material.tabs.TabLayout>
+
+
+    <ScrollView
+        android:id="@+id/poi_along_route_json_response_sv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="4dp"
+        android:padding="8dp"
+        android:visibility="gone"
+        android:background="@drawable/search_result_list_bg"
+        app:layout_constraintTop_toBottomOf="@id/poi_along_route_header"
+        app:layout_constraintBottom_toTopOf="@id/poi_along_route_show_hide_response_layout">
+        <TextView
+            android:id="@+id/poi_along_route_json_response"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mappls_demo_text_colorPrimary"
+            android:textSize="14sp"
+            />
+    </ScrollView>
+
+
+    <include
+        android:id="@+id/poi_along_route_show_hide_response_layout"
+        layout="@layout/show_hide_response_layout"/>
+
+    <FrameLayout
+        android:id="@+id/poi_along_route_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="false"
+
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
