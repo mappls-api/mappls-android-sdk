@@ -24,7 +24,7 @@ Make sure that your project meets these requirement
 
 ## [Authentication](#Authentication)
 
-To initialize and authenticate any **` Mappls SDK `**, you must include **` i.conf `**  and **` i.olf `** files in your project bundle:
+To initialize and authenticate any **` Mappls SDK `**, you must include **` a.conf `**  and **` a.olf `** files in your project bundle:
 
 You can download the required files from the **[Auth Console](http://auth.mappls.com/console/)**
 
