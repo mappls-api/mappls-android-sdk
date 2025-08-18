@@ -19,7 +19,7 @@ Follow these steps to add the SDK to your project –
         mavenCentral()
         maven(url = "https://maven.mappls.com/repository/mappls/")
     }
-}
+    }
     ```
     #### Groovy (settings.gradle)
     ```groovy  
