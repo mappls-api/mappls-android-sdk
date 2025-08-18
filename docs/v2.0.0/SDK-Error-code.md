@@ -16,24 +16,12 @@ This document outlines possible error codes and exceptions encountered while usi
 | `.olf` file is invalid or corrupted | `Please add a valid .olf configuration file.` |
 | Package name or app fingerprint mismatch in `.olf` file | `You are using Invalid Configuration. Please check your Package Name / App Fingerprint & download it from the developer console again.` |
 | `.conf` config file is invalid | `Please add a valid .conf configuration file.` |
-| Static key is not found (improper app setup or missing plugin) | `Error Code: 1`
-`Error Message: Static Key Not Found`
-_No HTTP status code associated_ |
-| Invalid payload while creating the payload JSON | `Error Code: 2`
-`Error Message: Invalid Payload`
-_No HTTP status code associated_ |
-| Missing config data, `appId`, or `payloadPubKey` | `Error Code: 3`
-`Error Message: Invalid Config`
-_No HTTP status code associated_ |
-| Payload encryption failure | `Error Code: 3`
-`Error Message: Invalid Payload`
-_No HTTP status code associated_ |
-| Auth1 Token (Bearer accessToken) missing or expired during API call | `Error Code: 5`
-`Error Message: Authentication Failed`
-_No HTTP status code associated_ |
-| Auth1 Token usage attempted but config lacks access token | `Error Code: 6`
-`Error Message: This authentication is not supported`
-_No HTTP status code associated_ |
+| Static key is not found (improper app setup or missing plugin) | `Error Code: 1` </br> `Error Message: Static Key Not Found` </br> _No HTTP status code associated_ |
+| Invalid payload while creating the payload JSON | `Error Code: 2` </br> `Error Message: Invalid Payload` </br> _No HTTP status code associated_ |
+| Missing config data, `appId`, or `payloadPubKey` | `Error Code: 3` </br> `Error Message: Invalid Config` </br> _No HTTP status code associated_ |
+| Payload encryption failure | `Error Code: 3` </br> `Error Message: Invalid Payload` </br> _No HTTP status code associated_ |
+| Auth1 Token (Bearer accessToken) missing or expired during API call | `Error Code: 5` </br> `Error Message: Authentication Failed` </br> _No HTTP status code associated_ |
+| Auth1 Token usage attempted but config lacks access token | `Error Code: 6` </br> `Error Message: This authentication is not supported` </br> _No HTTP status code associated_ |
 
 ---
 
@@ -41,18 +29,10 @@ _No HTTP status code associated_ |
 
 | Condition | Exception/Error Message |
 |----------|--------------------------|
-| Method not provisioned | `Error Code: 4`
-`Error Message: Method not Provisioned`
-_No HTTP status code associated_ |
-| API call manually cancelled by user | `Error Code: 9`
-`Error Message: <Exception message>`
-_No HTTP status code associated_ |
-| No internet connection / Unknown host | `Error Code: 10`
-`Error Message: <UnknownHost Exception message>`
-_No HTTP status code associated_ |
-| API failure due to an unexpected issue / Invalid response | `Error Code: 11`
-`Error Message: <Exception message>`
-_No HTTP status code associated_ |
+| Method not provisioned | `Error Code: 4` </br> `Error Message: Method not Provisioned` </br> _No HTTP status code associated_ |
+| API call manually cancelled by user | `Error Code: 9` </br> `Error Message: <Exception message>` </br> _No HTTP status code associated_ |
+| No internet connection / Unknown host | `Error Code: 10` </br> `Error Message: <UnknownHost Exception message>` </br> _No HTTP status code associated_ |
+| API failure due to an unexpected issue / Invalid response | `Error Code: 11` </br> `Error Message: <Exception message>` </br> _No HTTP status code associated_ |
 
 ---
 
@@ -60,12 +40,9 @@ _No HTTP status code associated_ |
 
 | Condition | Exception/Error Message |
 |----------|--------------------------|
-| Config not read properly by Map SDK (improper setup) | `Error Code: 7`
-`Error Message: Map Config not available` |
-| `vectorMap` object or style base URL missing in config | `Error Code: 7`
-`Error Message: Map Info is not available` |
-| Public key or its expiry missing from `vectorMap` object in config | `Error Code: 8`
-`Error Message: Public Key not found` |
+| Config not read properly by Map SDK (improper setup) | `Error Code: 7` </br> `Error Message: Map Config not available` |
+| `vectorMap` object or style base URL missing in config | `Error Code: 7` </br> `Error Message: Map Info is not available` |
+| Public key or its expiry missing from `vectorMap` object in config | `Error Code: 8` </br> `Error Message: Public Key not found` |
 
 ---
 
