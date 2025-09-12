@@ -10,9 +10,9 @@ With support for custom map tiles, multiple layer options, and a rich set of con
 
 ## API Usage
 
-To use the Mappls Maps SDK, you’ll need to obtain a valid set of license keys (available [here](https://apis.mappls.com/console/)) and adhere to the API Terms and Conditions. **Please note that as per the terms, removing or obscuring the Mappls logo and copyright notice from your application is strictly prohibited.**
+To use the Mappls Maps SDK, you’ll need to obtain a valid set of license keys (available [here](https://auth.mappls.com/console)) and adhere to the API Terms and Conditions. **Please note that as per the terms, removing or obscuring the Mappls logo and copyright notice from your application is strictly prohibited.**
 
-Your SDK usage limits are detailed on your user [dashboard](https://apis.mappls.com/console), and are shared across all platforms. This means that API requests made from your web, Android, or iOS applications are counted collectively toward your daily usage quota.
+Your SDK usage limits are detailed on your user [dashboard](https://auth.mappls.com/console), and are shared across all platforms. This means that API requests made from your web, Android, or iOS applications are counted collectively toward your daily usage quota.
 
 ## Project Prerequisites
 Make sure that your project meets these requirement
