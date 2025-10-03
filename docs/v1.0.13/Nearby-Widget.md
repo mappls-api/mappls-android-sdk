@@ -20,7 +20,7 @@ This can be done by following simple steps.
 
 - Add below dependency in your app-level build.gradle	
 ~~~groovy	
-   implementation 'com.mappls.sdk:nearby-ui:1.0.2'
+   implementation 'com.mappls.sdk:nearby-ui:1.0.3'
 ~~~
 
 ## Step 2 :-  [Adding Credentials]()

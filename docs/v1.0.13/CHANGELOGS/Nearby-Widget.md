@@ -1,3 +1,6 @@
+## v1.0.3, 03 Oct, 2025
+- Added Android 15 Support
+ 
 ## v1.0.2, 03 Apr, 2023
 - Bug Fixes
  

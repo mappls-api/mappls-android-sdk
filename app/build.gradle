@@ -63,7 +63,7 @@ dependencies {
     implementation 'com.mappls.sdk:scalebar-plugin:1.0.0'
     implementation 'com.mappls.sdk:geofence-ui:1.0.0'
     //for nearby widget
-    implementation'com.mappls.sdk:nearby-ui:1.0.2'
+    implementation'com.mappls.sdk:nearby-ui:1.0.3'
     implementation 'com.mappls.sdk:markerview-plugin:1.0.1'
     implementation 'com.mappls.sdk:driving-range-plugin:1.2.0'
     //for direction widget
