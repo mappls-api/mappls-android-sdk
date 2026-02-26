@@ -11,11 +11,11 @@ This advanced tracking plugin, offered by Mappls plugins for android, allows one
 
 #### Kotlin (build.gradle.kts)
 ```Kotlin
-implementation 'com.mappls.sdk:mappls-tracking-plugin:1.0.0'
+implementation 'com.mappls.sdk:mappls-tracking-plugin:1.0.1'
 ```
 #### Groovy (build.gradle)
 ```groovy
-implementation 'com.mappls.sdk:mappls-tracking-plugin:1.0.0'
+implementation 'com.mappls.sdk:mappls-tracking-plugin:1.0.1'
 ```
 ### Add MapplsTrackingWidget 
 #### Kotlin
@@ -63,7 +63,7 @@ MapplsTrackingManager mapplsTrackingManager =
  4. `connectorLineColor(Int)` :  To set a color for draw a connector line from the last point of a route on the road to the actual input destination coordinate.
  5. `enableConnectorLine(Boolean)` : To set boolean value for hide/show connector line from the last route point on road to actual input destination coordinate // default false
   6. `lineWidth(Float)` : To set a width of route line.
-  7. `iconSize(Float)` : To set a iconSize of originIcon,riderIcon & destinationIcon.
+  7. `iconSize(Float)` : To set a iconSize of originIcon,viaPointIcon & destinationIcon.
  8. `directionRouteType(Int)` : To set the routeType. Default to "DirectionsCriteria.ROUTE_TYPE_SHORTEST".
   9. `destinationIcon(Drawable)` : To set destination icon.
 10. `originIcon(Drawable)` : To set  origin icon set.
@@ -79,6 +79,10 @@ MapplsTrackingManager mapplsTrackingManager =
 19.  `fakeSpeedMetersPerSecond(Int)`: To set the fake animation speed in MetersPerSecond.
  20.  `viaPoints( MutableList<ViaPoint>)`: To set list of via points.
  21. `lastRiderLocation(Point)`: This parameter is used to pass the last known location (long,lat) coordinates of the rider.
+22. `riderIconSize(Float)`: To set a iconSize of riderIcon.
+23. `directionProfile(String)`: Below are the available profile:
+- DirectionsCriteria.PROFILE_DRIVING (Default):Meant for car routing
+- DirectionsCriteria.PROFILE_BIKING:Meant for two-wheeler routing. Routing with this profile is restricted to route_adv only. region & rtype request parameters are not supported in two-wheeler routing.
 
 ###  Method calls :- 
 
