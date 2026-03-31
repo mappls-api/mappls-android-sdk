@@ -1,10 +1,17 @@
 ## v8.3.1, 31 March 2026
-- Remove `hyperLocal` from Autosugget.
-- Added `searchType` in Autosuggest, Nearby & Reverse Geocode
-- Added `bounds`, `bridge` and `refLocation` in Poi Along Route Request
-- Added `suggestedSearchAtlas` in Poi Along Route Response
-- Added `isVenue` & `venueDetails` in Reverse Geocode Response
-- Added `tollPass` and `eType` in Routing request.
+- Remove `hyperLocal` & `zoom` from Autosugget Request.
+- Remove `user` & `score` from Autosuggest Response.
+- Added `searchType` in Autosuggest, Nearby & Reverse Geocode 
+- Added `bounds`, `bridge` and `refLocation` in Poi Along Route Request 
+- Added `suggestedSearchAtlas` in Poi Along Route Response  
+- Added `actualGeoLevel` in Geocode Request
+- Added `mapplsPinAdminType` in Geocode Response
+- Remove `username`, `ignoreAutoExpand` & `includes` from Nearby Request
+- Added `isVenue` & `venueDetails` in Reverse Geocode Response 
+- Remove `username` from Text Search Request.
+- Added `tollPass` and `eType` in Routing request. 
+- Added `npToll` in Route Classes, `fromNodeIdx` and `toNodeIdx` in Leg Step & `consumption` in Annotation of Routing Response.  
+- Fix request key `use_highways` from `use_highway` in Predective Route API
 
 ## v8.3.0, 01 September 2025
 - Added 16 KB Support

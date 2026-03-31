@@ -1,6 +1,7 @@
 ## v2.4.2, 31 March 2026
 - Added capability to highlight Venue in Mappls Place Picker
 - Added Option to show Venue Entry Coordinates and snap on Venue Entry Coordinates
+- Added `searchType` parameter in Place Picker and Place Autocomplete
 
 ## v2.4.1, 01 September 2025
 - Added Android 15 Support

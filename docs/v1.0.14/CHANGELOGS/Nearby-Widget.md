@@ -1,5 +1,6 @@
 ## v1.0.4, 31 Mar 2026
-- Bug Fixes and Improvement
+- Added `searchType` parameter in Nearby
+- Remove `userName` paramter
 
 ## v1.0.3, 03 Oct, 2025
 - Added Android 15 Support

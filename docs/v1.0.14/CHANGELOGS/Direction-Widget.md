@@ -1,5 +1,6 @@
 ## v2.3.1, 31 March 2026
-- Bug Fixes and Improvement
+- Added `eType` & `tollPass` parameter
+- Added recenter button
 
 ## v2.3.0, 17 December, 2024
 - Added Option to set Base url
