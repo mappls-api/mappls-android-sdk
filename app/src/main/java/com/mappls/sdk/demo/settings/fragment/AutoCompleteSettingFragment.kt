@@ -63,16 +63,6 @@ class AutoCompleteSettingFragment : Fragment() {
         mBinding.swBridge.setOnCheckedChangeListener { _, isCheck ->
             AutoCompleteWidgetSetting.instance.bridge = isCheck
         }
-
-
-        mBinding.btnZoom.setOnClickListener {
-            val zoom = mBinding.etZoom.text.toString().toDoubleOrNull()
-            if(zoom != null && zoom < 24 && zoom > 0) {
-                AutoCompleteWidgetSetting.instance.zoom = zoom
-            } else {
-                AutoCompleteWidgetSetting.instance.zoom = null
-            }
-        }
         mBinding.btnClearPod.setOnClickListener {
             AutoCompleteWidgetSetting.instance.pod = null
             mBinding.rgPod.clearCheck()
@@ -201,7 +191,6 @@ class AutoCompleteSettingFragment : Fragment() {
         )
         mBinding.swTokeniseAddress.isChecked = AutoCompleteWidgetSetting.instance.tokenizeAddress
         mBinding.swBridge.isChecked = AutoCompleteWidgetSetting.instance.bridge
-        mBinding.etZoom.setText(AutoCompleteWidgetSetting.instance.zoom?.toString() ?: "")
         if (AutoCompleteWidgetSetting.instance.pod != null) {
             mBinding.rgPod.check(
                 when (AutoCompleteWidgetSetting.instance.pod) {

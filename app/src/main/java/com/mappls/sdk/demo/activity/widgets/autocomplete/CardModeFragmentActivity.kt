@@ -54,7 +54,6 @@ class CardModeFragmentActivity : AppCompatActivity(), OnMapReadyCallback {
                 .logoSize(AutoCompleteWidgetSetting.instance.logoSize)
 // Conditionally add nullable properties
             AutoCompleteWidgetSetting.instance.filter?.let {options.filter(it) }
-            AutoCompleteWidgetSetting.instance.zoom?.let { options.zoom(it) }
             AutoCompleteWidgetSetting.instance.pod?.let { options.pod(it) }
             AutoCompleteWidgetSetting.instance.tokenizeAddress.let { options.tokenizeAddress(it) }
             AutoCompleteWidgetSetting.instance.bridge.let { options.bridge(it) }

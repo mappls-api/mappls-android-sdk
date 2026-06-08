@@ -13,7 +13,6 @@ class AutoCompleteWidgetSetting private constructor() {
     var filter: String? = null
     var historyCount: Int? = null
     var favoriteCount: Int? = null
-    var zoom: Double? = null
     var saveHistory: Boolean = true
     var enableTextSearch: Boolean = true
     var pod: String? = null

@@ -1,4 +1,4 @@
 /build
 *.a.olf
 *.a.conf
-/src/main/assets
+mappls-conf.txt

@@ -98,14 +98,6 @@ class DirectionWidgetSettingFragment : Fragment() {
                 MapplsDirectionWidgetSetting.instance.hint = null
             }
         }
-        mBinding.btnZoom.setOnClickListener {
-            val zoom = mBinding.etZoom.text.toString().toDoubleOrNull()
-            if(zoom != null && zoom < 24 && zoom > 0) {
-                MapplsDirectionWidgetSetting.instance.zoom = zoom
-            } else {
-                MapplsDirectionWidgetSetting.instance.zoom = null
-            }
-        }
         mBinding.btnClearPod.setOnClickListener {
             MapplsDirectionWidgetSetting.instance.pod = null
             mBinding.rgPod.clearCheck()
@@ -417,7 +409,6 @@ class DirectionWidgetSettingFragment : Fragment() {
         mBinding.etSearchHint.setText(MapplsDirectionWidgetSetting.instance.hint)
         mBinding.etFilter.setText(MapplsDirectionWidgetSetting.instance.filter ?: "")
         mBinding.etLocation.setText(MapplsDirectionWidgetSetting.instance.location?.toString() ?: "")
-        mBinding.etZoom.setText(MapplsDirectionWidgetSetting.instance.zoom?.toString() ?: "")
         if(MapplsDirectionWidgetSetting.instance.pod != null) {
             mBinding.rgPod.check(
                 when(MapplsDirectionWidgetSetting.instance.pod) {

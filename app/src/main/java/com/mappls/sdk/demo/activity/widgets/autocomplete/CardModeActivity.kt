@@ -72,7 +72,6 @@ class CardModeActivity : AppCompatActivity(), OnMapReadyCallback {
 
 // Conditionally add nullable properties
             AutoCompleteWidgetSetting.instance.filter?.let {builder.filter(it) }
-            AutoCompleteWidgetSetting.instance.zoom?.let { builder.zoom(it) }
             AutoCompleteWidgetSetting.instance.pod?.let { builder.pod(it) }
             AutoCompleteWidgetSetting.instance.tokenizeAddress.let { builder.tokenizeAddress(it) }
             AutoCompleteWidgetSetting.instance.bridge.let { builder.bridge(it) }

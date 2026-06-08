@@ -140,12 +140,6 @@ class MapplsDirectionWidgetSetting {
         }
         get() = field
 
-    var zoom: Double? = null
-        set(value) {
-            field = value // Use 'field' to assign the value to the backing field
-        }
-        get() = field
-
     var isShowPOISearch: Boolean = false
         set(value) {
             field = value // Use 'field' to assign the value to the backing field

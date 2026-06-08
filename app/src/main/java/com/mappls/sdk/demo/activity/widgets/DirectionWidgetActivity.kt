@@ -45,7 +45,6 @@ class DirectionWidgetActivity : AppCompatActivity() {
         val optionsBuilder = DirectionOptions.builder()
         val options = PlaceOptions.builder()
 
-                .zoom(MapplsDirectionWidgetSetting.instance.zoom)
                 .hint(MapplsDirectionWidgetSetting.instance.hint)
                 .location(MapplsDirectionWidgetSetting.instance.location)
                 .filter(MapplsDirectionWidgetSetting.instance.filter)
@@ -62,20 +61,6 @@ class DirectionWidgetActivity : AppCompatActivity() {
                 .historyCount(MapplsDirectionWidgetSetting.instance.historyCount)
                 .backgroundColor(MapplsDirectionWidgetSetting.instance.backgroundColor)
                 .toolbarColor(MapplsDirectionWidgetSetting.instance.toolbarColor)
-//                .toolbarTintColor(MapplsDirectionWidgetSetting.instance.toolbarTintColor)
-//                .resultBackgroundColor(
-//                    MapplsDirectionWidgetSetting.instance.backgroundColor
-//                )
-//                .placeNameTextColor(
-//                    MapplsDirectionWidgetSetting.instance.placeNameTextColor
-//                )
-//                .attributionBackgroundColor(
-//                    MapplsDirectionWidgetSetting.instance.backgroundColor
-//                )
-//                .addressTextColor(MapplsDirectionWidgetSetting.instance.addressTextColor)
-//                .poweredByTextColor(
-//                    MapplsDirectionWidgetSetting.instance.addressTextColor
-//                )
                 .build()
         optionsBuilder.searchPlaceOption(options)
             .showDefaultMap(true)

@@ -1,8 +1,7 @@
 [versions]
-agp = "8.12.0"
+agp = "9.2.1"
 colorpicker = "0.0.15"
 glide = "4.16.0"
-kotlin = "2.2.0"
 coreKtx = "1.16.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -11,7 +10,7 @@ appcompat = "1.7.1"
 material = "1.12.0"
 activity = "1.8.0"
 constraintlayout = "2.2.1"
-mapplsBom="2.0.1"
+mapplsBom="2.0.2"
 navigationFragmentKtx = "2.9.0"
 navigationUiKtx = "2.9.0"
 playServicesLocation = "21.0.1"
@@ -48,5 +47,4 @@ play-services-location = { module = "com.google.android.gms:play-services-locati
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 
