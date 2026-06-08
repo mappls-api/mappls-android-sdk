@@ -11,11 +11,11 @@ This advanced tracking plugin, offered by Mappls plugins for android, allows one
 
 #### Kotlin (build.gradle.kts)
 ```Kotlin
-implementation 'com.mappls.sdk:mappls-tracking-plugin:1.0.1'
+implementation 'com.mappls.sdk:mappls-tracking-plugin:1.0.2'
 ```
 #### Groovy (build.gradle)
 ```groovy
-implementation 'com.mappls.sdk:mappls-tracking-plugin:1.0.1'
+implementation 'com.mappls.sdk:mappls-tracking-plugin:1.0.2'
 ```
 ### Add MapplsTrackingWidget 
 #### Kotlin
