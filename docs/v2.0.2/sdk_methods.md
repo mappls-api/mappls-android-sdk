@@ -8,7 +8,7 @@
 | 4      |  Map SDKs & APIs  | Mobile Maps SDK | Camera                           | Y |                         
 | 5      |  Map SDKs & APIs  | Mobile Maps SDK | Aerial Distance                  | Y |                         
 | 6      |  Map SDKs & APIs  | Mobile Maps SDK | Map UI Settings                  | Y |                         
-| 7      |  Map SDKs & APIs  | Mobile Maps SDK | Branding                         | Y |                         
+| 7      |  Map SDKs & APIs  | Mobile Maps SDK | Branding                         | N |                         
 | 8      |  Map SDKs & APIs  | Mobile Maps SDK | Account Manager                  | Y |                        
 | 9      |  Map SDKs & APIs  | Mobile Maps SDK | Annotation Plugin                | Y |                         
 | 10     |  Map SDKs & APIs  | Mobile Maps SDK | Set Region                       | N |                         
