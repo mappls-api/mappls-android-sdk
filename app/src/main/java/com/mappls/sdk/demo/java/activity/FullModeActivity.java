@@ -68,7 +68,6 @@ public class FullModeActivity extends AppCompatActivity implements OnMapReadyCal
                             .logoSize(MapplsPlaceWidgetSetting.getInstance().getLogoSize())
                             .backgroundColor(getResources().getColor(MapplsPlaceWidgetSetting.getInstance().getBackgroundColor()))
                             .toolbarColor(getResources().getColor(MapplsPlaceWidgetSetting.getInstance().getToolbarColor()))
-                            .hyperLocal(MapplsPlaceWidgetSetting.getInstance().isEnableHyperLocal())
                             .bridge(MapplsPlaceWidgetSetting.getInstance().isEnableBridge())
                             .build();
 

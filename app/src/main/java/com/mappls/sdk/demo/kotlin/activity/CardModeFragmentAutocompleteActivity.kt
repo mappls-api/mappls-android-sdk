@@ -63,7 +63,6 @@ class CardModeFragmentAutocompleteActivity : AppCompatActivity(), OnMapReadyCall
 //                .backgroundColor(resources.getColor(MapplsPlaceWidgetSetting.instance.backgroundColor))
                 .toolbarColor(resources.getColor(MapplsPlaceWidgetSetting.instance.toolbarColor))
                 .bridge(MapplsPlaceWidgetSetting.instance.isBridgeEnable)
-                .hyperLocal(MapplsPlaceWidgetSetting.instance.isHyperLocalEnable)
                 .build(PlaceOptions.MODE_CARDS)
         }
 

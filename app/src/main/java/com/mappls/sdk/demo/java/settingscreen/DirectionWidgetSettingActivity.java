@@ -224,12 +224,6 @@ public class DirectionWidgetSettingActivity extends AppCompatActivity {
                 Toast.makeText(DirectionWidgetSettingActivity.this, "Hint is mandatory", Toast.LENGTH_SHORT).show();
             }
         });
-        mBinding.btnZoom.setOnClickListener(v -> {
-            if (!TextUtils.isEmpty(mBinding.etZoom.getText().toString().trim())) {
-                MapplsDirectionWidgetSetting.getInstance().setZoom(Double.parseDouble(mBinding.etZoom.getText().toString().trim()));
-                Toast.makeText(DirectionWidgetSettingActivity.this, "zoom save successfully", Toast.LENGTH_SHORT).show();
-            }
-        });
 
 
         mBinding.backgroundRG.setOnCheckedChangeListener((group, checkedId) -> {
@@ -383,11 +377,6 @@ public class DirectionWidgetSettingActivity extends AppCompatActivity {
         }
 
         mBinding.etHint.setText(MapplsDirectionWidgetSetting.getInstance().getHint());
-        if (MapplsDirectionWidgetSetting.getInstance().getZoom() != null) {
-            mBinding.etZoom.setText(MapplsDirectionWidgetSetting.getInstance().getZoom().toString());
-
-        }
-        // mBinding.cbEnableTextSearch.setChecked(MapplsPlacePickerSetting.getInstance().isEnableTextSearch());
 
 
         if (MapplsDirectionWidgetSetting.getInstance().getBackgroundColor() == android.R.color.white) {

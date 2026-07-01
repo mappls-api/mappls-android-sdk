@@ -64,7 +64,6 @@ class FullModeFragmentAutocompleteActivity : AppCompatActivity(), OnMapReadyCall
                     .logoSize(MapplsPlaceWidgetSetting.instance.logoSize)
                     .backgroundColor(resources.getColor(MapplsPlaceWidgetSetting.instance.backgroundColor))
                     .bridge(MapplsPlaceWidgetSetting.instance.isBridgeEnable)
-                    .hyperLocal(MapplsPlaceWidgetSetting.instance.isHyperLocalEnable)
                     .toolbarColor(resources.getColor(MapplsPlaceWidgetSetting.instance.toolbarColor))
                     .build()
 

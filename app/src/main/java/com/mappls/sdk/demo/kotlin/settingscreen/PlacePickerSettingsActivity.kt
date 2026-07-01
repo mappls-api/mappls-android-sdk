@@ -123,12 +123,6 @@ class PlacePickerSettingsActivity : AppCompatActivity() {
                 Toast.makeText(this@PlacePickerSettingsActivity, "Hint is mandatory", Toast.LENGTH_SHORT).show()
             }
         })
-        mBinding.btnZoom.setOnClickListener { v ->
-            if (!TextUtils.isEmpty(mBinding.etZoom.getText().toString().trim())) {
-                MapplsPlacePickerSetting.instance.zoom = mBinding.etZoom.getText().toString().trim().toDouble()
-                Toast.makeText(this@PlacePickerSettingsActivity, "zoom save successfully", Toast.LENGTH_SHORT).show()
-            }
-        }
 
         /* mBinding.cbEnableTextSearch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
              @Override
@@ -235,9 +229,6 @@ class PlacePickerSettingsActivity : AppCompatActivity() {
             mBinding.rgPod.clearCheck()
         }
         mBinding.etHint.setText(MapplsPlacePickerSetting.instance.hint)
-        if (MapplsPlacePickerSetting.instance.zoom != null) {
-            mBinding.etZoom.setText(MapplsPlacePickerSetting.instance.zoom.toString())
-        }
 
         if (MapplsPlacePickerSetting.instance.backgroundColor == R.color.mappls_demo_white) {
             mBinding.backgroundRG.check(mBinding.rbWhite.id)

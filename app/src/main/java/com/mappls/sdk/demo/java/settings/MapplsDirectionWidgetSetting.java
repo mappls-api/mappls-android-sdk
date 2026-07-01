@@ -37,7 +37,6 @@ public class MapplsDirectionWidgetSetting {
     private int signatureHorizontal = PlaceOptions.GRAVITY_LEFT;
     private int logoSize = PlaceOptions.SIZE_MEDIUM;
     private Integer historyCount;
-    private Double zoom;
     private boolean isShowPOISearch = false;
 
     public Point getDestination() {
@@ -209,13 +208,6 @@ public class MapplsDirectionWidgetSetting {
         this.historyCount = historyCount;
     }
 
-    public Double getZoom() {
-        return zoom;
-    }
-
-    public void setZoom(Double zoom) {
-        this.zoom = zoom;
-    }
 
     public boolean isShowPOISearch() {
         return isShowPOISearch;

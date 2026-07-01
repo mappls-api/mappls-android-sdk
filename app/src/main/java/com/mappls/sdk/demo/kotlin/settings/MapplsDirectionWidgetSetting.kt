@@ -27,7 +27,6 @@ class MapplsDirectionWidgetSetting {
     var signatureHorizontal = PlaceOptions.GRAVITY_LEFT
     var logoSize = PlaceOptions.SIZE_MEDIUM
     var historyCount: Int? = null
-    var zoom: Double? = null
     var isShowPOISearch: Boolean = false;
 
     companion object {

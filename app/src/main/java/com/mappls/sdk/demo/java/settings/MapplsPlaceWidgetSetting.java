@@ -21,7 +21,6 @@ public class MapplsPlaceWidgetSetting {
     private String pod;
     private String hint = "Search Here";
     private boolean enableTextSearch;
-    private boolean enableHyperLocal;
     private boolean enableShowFavorite;
     private int deBounce = 0;
     private int historyCount = 0;
@@ -143,13 +142,6 @@ public class MapplsPlaceWidgetSetting {
         this.enableBridge = enableBridge;
     }
 
-    public boolean isEnableHyperLocal() {
-        return enableHyperLocal;
-    }
-
-    public void setEnableHyperLocal(boolean enableHyperLocal) {
-        this.enableHyperLocal = enableHyperLocal;
-    }
     public boolean isEnableShowFavorite() {
         return enableShowFavorite;
     }

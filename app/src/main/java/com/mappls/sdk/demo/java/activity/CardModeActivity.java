@@ -70,7 +70,6 @@ public class CardModeActivity extends AppCompatActivity implements OnMapReadyCal
                             .logoSize(MapplsPlaceWidgetSetting.getInstance().getLogoSize())
                             .backgroundColor(Color.parseColor("#00FFFFFF"))
                             .bridge(MapplsPlaceWidgetSetting.getInstance().isEnableBridge())
-                            .hyperLocal(MapplsPlaceWidgetSetting.getInstance().isEnableHyperLocal())
                             .build(PlaceOptions.MODE_CARDS);
 
                     PlaceAutocomplete.IntentBuilder builder = new PlaceAutocomplete.IntentBuilder();

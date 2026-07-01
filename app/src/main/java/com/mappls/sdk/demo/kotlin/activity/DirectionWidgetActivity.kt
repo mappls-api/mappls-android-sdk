@@ -24,7 +24,6 @@ class DirectionWidgetActivity : AppCompatActivity() {
         val optionsBuilder = DirectionOptions.builder()
         if (!MapplsDirectionWidgetSetting.instance.isDefault) {
             val options = PlaceOptions.builder()
-                .zoom(MapplsDirectionWidgetSetting.instance.zoom)
                 .hint(MapplsDirectionWidgetSetting.instance.hint)
                 .location(MapplsDirectionWidgetSetting.instance.location)
                 .filter(MapplsDirectionWidgetSetting.instance.filter)

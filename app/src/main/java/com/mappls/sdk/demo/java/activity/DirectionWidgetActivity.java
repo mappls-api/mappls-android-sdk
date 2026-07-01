@@ -31,7 +31,6 @@ public class DirectionWidgetActivity extends AppCompatActivity {
         if (!MapplsDirectionWidgetSetting.getInstance().isDefault()){
 
             PlaceOptions options = PlaceOptions.builder()
-                    .zoom(MapplsDirectionWidgetSetting.getInstance().getZoom())
                     .hint(MapplsDirectionWidgetSetting.getInstance().getHint())
                     .location(MapplsDirectionWidgetSetting.getInstance().getLocation())
                     .filter(MapplsDirectionWidgetSetting.getInstance().getFilter())

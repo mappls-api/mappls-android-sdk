@@ -19,7 +19,6 @@ class MapplsPlaceWidgetSetting {
     var backgroundColor = R.color.mappls_demo_white
     var toolbarColor = R.color.mappls_demo_white
     var isBridgeEnable = false
-    var isHyperLocalEnable = false
     var isEnableShowFavorite = false
     var deBounce:Int = 0
     var historyCount:Int = 0

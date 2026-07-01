@@ -170,12 +170,6 @@ public class PlacePickerSettingsActivity extends AppCompatActivity {
                 }
             }
         });
-        mBinding.btnZoom.setOnClickListener(v -> {
-            if(!TextUtils.isEmpty(mBinding.etZoom.getText().toString().trim())) {
-                MapplsPlacePickerSetting.getInstance().setZoom(Double.parseDouble(mBinding.etZoom.getText().toString().trim()));
-                Toast.makeText(PlacePickerSettingsActivity.this, "zoom save successfully", Toast.LENGTH_SHORT).show();
-            }
-        });
 
        /* mBinding.cbEnableTextSearch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -320,10 +314,6 @@ public class PlacePickerSettingsActivity extends AppCompatActivity {
         }
 
         mBinding.etHint.setText(MapplsPlacePickerSetting.getInstance().getHint());
-        if (MapplsPlacePickerSetting.getInstance().getZoom()!=null){
-            mBinding.etZoom.setText(MapplsPlacePickerSetting.getInstance().getZoom().toString());
-
-        }
        // mBinding.cbEnableTextSearch.setChecked(MapplsPlacePickerSetting.getInstance().isEnableTextSearch());
 
 

@@ -32,7 +32,6 @@ class PickerActivity : AppCompatActivity() {
 
             if (!MapplsPlacePickerSetting.instance.isDefault) {
                 val options = PlaceOptions.builder()
-                        .zoom(MapplsPlacePickerSetting.instance.zoom)
                         .hint(MapplsPlacePickerSetting.instance.hint)
                         .location(MapplsPlacePickerSetting.instance.location)
                         .filter(MapplsPlacePickerSetting.instance.filter)

@@ -660,33 +660,6 @@
                     android:layout_weight="1"/>
 
             </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#000000"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_margin="4dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Enable Hyperlocal"
-                    android:textColor="#212121"
-                    />
-
-                <CheckBox
-                    android:id="@+id/cb_enable_hyperlocal"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
-
-            </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"

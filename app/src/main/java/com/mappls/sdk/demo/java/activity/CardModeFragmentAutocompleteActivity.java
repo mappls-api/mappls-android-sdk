@@ -70,7 +70,6 @@ public class CardModeFragmentAutocompleteActivity extends AppCompatActivity impl
                     .attributionVerticalAlignment(MapplsPlaceWidgetSetting.getInstance().getSignatureHorizontal())
                     .logoSize(MapplsPlaceWidgetSetting.getInstance().getLogoSize())
                     .bridge(MapplsPlaceWidgetSetting.getInstance().isEnableBridge())
-                    .hyperLocal(MapplsPlaceWidgetSetting.getInstance().isEnableHyperLocal())
                     .build(PlaceOptions.MODE_CARDS);
         }
 

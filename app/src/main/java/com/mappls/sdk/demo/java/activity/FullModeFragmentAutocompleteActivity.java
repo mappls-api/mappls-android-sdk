@@ -67,7 +67,6 @@ public class FullModeFragmentAutocompleteActivity extends AppCompatActivity impl
                             .logoSize(MapplsPlaceWidgetSetting.getInstance().getLogoSize())
                             .backgroundColor(getResources().getColor(MapplsPlaceWidgetSetting.getInstance().getBackgroundColor()))
                             .toolbarColor(getResources().getColor(MapplsPlaceWidgetSetting.getInstance().getToolbarColor()))
-                            .hyperLocal(MapplsPlaceWidgetSetting.getInstance().isEnableHyperLocal())
                             .bridge(MapplsPlaceWidgetSetting.getInstance().isEnableBridge())
                             .build();
                     PlaceAutocompleteFragment placeAutocompleteFragment;

@@ -27,7 +27,6 @@ public class MapplsPlacePickerSetting {
     private int signatureHorizontal = PlaceOptions.GRAVITY_LEFT;
     private int logoSize = PlaceOptions.SIZE_MEDIUM;
     private Integer historyCount;
-    private Double zoom;
 
 
     public boolean isDefault() {
@@ -54,13 +53,6 @@ public class MapplsPlacePickerSetting {
         this.toolbarColor = toolbarColor;
     }
 
-    public Double getZoom() {
-        return zoom;
-    }
-
-    public void setZoom(Double zoom) {
-        this.zoom = zoom;
-    }
 
     public String getPod() {
         return pod;

@@ -185,12 +185,6 @@ class DirectionWidgetSettingActivity : AppCompatActivity() {
                 Toast.makeText(this@DirectionWidgetSettingActivity, "Hint is mandatory", Toast.LENGTH_SHORT).show()
             }
         }
-        mBinding.btnZoom.setOnClickListener { v ->
-            if (!TextUtils.isEmpty(mBinding.etZoom.getText().toString().trim())) {
-                MapplsDirectionWidgetSetting.instance.zoom = mBinding.etZoom.getText().toString().trim().toDouble()
-                Toast.makeText(this@DirectionWidgetSettingActivity, "zoom save successfully", Toast.LENGTH_SHORT).show()
-            }
-        }
         mBinding.backgroundRG.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.rb_white -> MapplsDirectionWidgetSetting.instance.backgroundColor = R.color.mappls_demo_white
@@ -302,9 +296,6 @@ class DirectionWidgetSettingActivity : AppCompatActivity() {
             mBinding.rgPod.clearCheck()
         }
         mBinding.etHint.setText(MapplsDirectionWidgetSetting.instance.hint)
-        if (MapplsDirectionWidgetSetting.instance.zoom != null) {
-            mBinding.etZoom.setText(MapplsDirectionWidgetSetting.instance.zoom.toString())
-        }
         // mBinding.cbEnableTextSearch.setChecked(MapplsPlacePickerSetting.getInstance().isEnableTextSearch());
         if (MapplsDirectionWidgetSetting.instance.backgroundColor == R.color.mappls_demo_white) {
             mBinding.backgroundRG.check(mBinding.rbWhite.getId())

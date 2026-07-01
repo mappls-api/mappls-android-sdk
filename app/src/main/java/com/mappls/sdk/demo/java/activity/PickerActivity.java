@@ -41,7 +41,6 @@ public class PickerActivity extends AppCompatActivity {
                 if (!MapplsPlacePickerSetting.getInstance().isDefault()){
 
                     PlaceOptions options = PlaceOptions.builder()
-                            .zoom(MapplsPlacePickerSetting.getInstance().getZoom())
                             .hint(MapplsPlacePickerSetting.getInstance().getHint())
                             .location(MapplsPlacePickerSetting.getInstance().getLocation())
                             .filter(MapplsPlacePickerSetting.getInstance().getFilter())

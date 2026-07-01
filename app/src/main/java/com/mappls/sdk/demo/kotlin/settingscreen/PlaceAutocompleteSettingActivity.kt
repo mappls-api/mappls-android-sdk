@@ -201,9 +201,6 @@ class PlaceAutocompleteSettingActivity : AppCompatActivity() {
         mBinding.cbEnableBridge.setOnCheckedChangeListener { _, isChecked ->
             MapplsPlaceWidgetSetting.instance.isBridgeEnable = isChecked
         }
-        mBinding.cbEnableHyperlocal.setOnCheckedChangeListener { _, isChecked ->
-            MapplsPlaceWidgetSetting.instance.isHyperLocalEnable = isChecked
-        }
         mBinding.cbEnableFavorite.setOnCheckedChangeListener { buttonView, isChecked ->
             MapplsPlaceWidgetSetting.instance.isEnableShowFavorite =
                 isChecked
@@ -382,7 +379,6 @@ class PlaceAutocompleteSettingActivity : AppCompatActivity() {
             }
         }
         mBinding.cbEnableBridge.isChecked = MapplsPlaceWidgetSetting.instance.isBridgeEnable
-        mBinding.cbEnableHyperlocal.isChecked = MapplsPlaceWidgetSetting.instance.isHyperLocalEnable
         mBinding.etDBounce.setText(MapplsPlaceWidgetSetting.instance.deBounce.toString())
         mBinding.etHistoryCount.setText(MapplsPlaceWidgetSetting.instance.historyCount.toString())
         mBinding.cbEnableFavorite.isChecked = MapplsPlaceWidgetSetting.instance.isEnableShowFavorite

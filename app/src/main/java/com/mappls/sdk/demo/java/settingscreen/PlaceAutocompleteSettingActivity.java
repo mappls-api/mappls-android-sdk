@@ -211,12 +211,6 @@ public class PlaceAutocompleteSettingActivity extends AppCompatActivity {
                 MapplsPlaceWidgetSetting.getInstance().setEnableBridge(isChecked);
             }
         });
-        mBinding.cbEnableHyperlocal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                MapplsPlaceWidgetSetting.getInstance().setEnableHyperLocal(isChecked);
-            }
-        });
         mBinding.cbEnableFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -373,7 +367,6 @@ public class PlaceAutocompleteSettingActivity extends AppCompatActivity {
             mBinding.toolbarRG.check(mBinding.rbBlueToolbar.getId());
         }
         mBinding.cbEnableBridge.setChecked(MapplsPlaceWidgetSetting.getInstance().isEnableBridge());
-        mBinding.cbEnableHyperlocal.setChecked(MapplsPlaceWidgetSetting.getInstance().isEnableHyperLocal());
         mBinding.etDBounce.setText(String.valueOf(MapplsPlaceWidgetSetting.getInstance().getDeBounce()));
         mBinding.etHistoryCount.setText(String.valueOf(MapplsPlaceWidgetSetting.getInstance().getHistoryCount()));
         mBinding.cbEnableFavorite.setChecked(MapplsPlaceWidgetSetting.getInstance().isEnableShowFavorite());
