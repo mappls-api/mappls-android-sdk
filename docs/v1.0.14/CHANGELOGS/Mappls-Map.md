@@ -1,3 +1,8 @@
+## v8.3.2, 01 July 2026
+- Added `lang` parameter in Autosuggest & Nearby Response
+- Added Reverse Geocode Nearby   
+- Added `validIndication` in `IntersectionLanes` in Routing Response
+
 ## v8.3.1, 31 March 2026
 - Remove `hyperLocal` & `zoom` from Autosugget Request.
 - Remove `user` & `score` from Autosuggest Response.
