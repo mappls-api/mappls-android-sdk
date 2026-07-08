@@ -24,7 +24,7 @@ Add the Place Widget dependency to your app-level Gradle file.
 implementation("com.mappls.sdk:place-widget")
 
 // Or specify a version explicitly
-implementation("com.mappls.sdk:place-widget:3.0.1")
+implementation("com.mappls.sdk:place-widget:3.0.2")
 ```
 
 ### Groovy (`build.gradle`)
@@ -34,7 +34,7 @@ implementation("com.mappls.sdk:place-widget:3.0.1")
 implementation 'com.mappls.sdk:place-widget'
 
 // Or specify a version explicitly
-implementation 'com.mappls.sdk:place-widget:3.0.1'
+implementation 'com.mappls.sdk:place-widget:3.0.2'
 ```
 
 ---

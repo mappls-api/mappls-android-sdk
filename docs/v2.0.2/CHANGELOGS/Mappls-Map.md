@@ -1,3 +1,6 @@
+## v9.0.3, 07 July 2026
+- Implemented security enhancements
+
 ## v9.0.2, 02 June 2026
 - Added `lang` parameter support in Autosuggest and Nearby APIs.
 - Added Reverse Geocode Nearby API support.

@@ -1,3 +1,6 @@
+## v3.0.2, 07 July 2026
+    - Implemented security enhancements
+
 ## v3.0.1, 31 March 2026
     - Added capability to highlight Venue in Mappls Place Picker
     - Added Option to show Venue Entry Coordinates and snap on Venue Entry Coordinates

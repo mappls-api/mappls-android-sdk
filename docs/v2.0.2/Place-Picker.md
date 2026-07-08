@@ -17,7 +17,7 @@ Add below dependency in app level build.gradle file
 implementation("com.mappls.sdk:place-widget")
 
 //Or Add Dependency with Version
-implementation("com.mappls.sdk:place-widget:3.0.1")
+implementation("com.mappls.sdk:place-widget:3.0.2")
 ```
 #### Groovy (build.gradle)
 ```groovy
@@ -25,7 +25,7 @@ implementation("com.mappls.sdk:place-widget:3.0.1")
 implementation 'com.mappls.sdk:place-widget'
 
 //Or Add Dependency with Version
-implementation("com.mappls.sdk:place-widget:3.0.1")
+implementation("com.mappls.sdk:place-widget:3.0.2")
 ```
 
 ## Add Place Picker

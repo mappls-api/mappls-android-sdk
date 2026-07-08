@@ -19,7 +19,7 @@ Add below dependency in your app-level build.gradle
 implementation("com.mappls.sdk:raster-catalogue-plugin")
 
 //Or Add Dependency with Version
-implementation("com.mappls.sdk:raster-catalogue-plugin:2.0.0")
+implementation("com.mappls.sdk:raster-catalogue-plugin:2.0.1")
 ```
 #### Groovy (build.gradle)
 ```groovy
@@ -27,7 +27,7 @@ implementation("com.mappls.sdk:raster-catalogue-plugin:2.0.0")
 implementation 'com.mappls.sdk:raster-catalogue-plugin'
 
 //Or Add Dependency with Version
-implementation("com.mappls.sdk:raster-catalogue-plugin:2.0.0")
+implementation("com.mappls.sdk:raster-catalogue-plugin:2.0.1")
 ```
 
 ## Available Raster  Catalogue Layer

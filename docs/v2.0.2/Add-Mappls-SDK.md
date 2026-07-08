@@ -89,14 +89,14 @@ Follow these steps to add the SDK to your project –
     #### Kotlin (build.gradle.kts)
     ```kotlin
     // Import the Mappls BoM
-    implementation(platform("com.mappls.sdk:mappls-bom:2.0.2"))
+    implementation(platform("com.mappls.sdk:mappls-bom:2.0.3"))
 
     // When using the BoM, you don't specify versions in Mappls library dependencies
     ```
     #### Groovy (build.gradle)
     ```groovy
     // Import the Mappls BoM
-    implementation platform('com.mappls.sdk:mappls-bom:2.0.2')
+    implementation platform('com.mappls.sdk:mappls-bom:2.0.3')
 
     // When using the BoM, you don't specify versions in Mappls library dependencies
 
