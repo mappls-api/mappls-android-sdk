@@ -7,13 +7,13 @@ plugins {
 
 android {
     namespace = "com.mappls.sdk.demo"
-    compileSdk = 35
+    compileSdk = 37
 
 
     defaultConfig {
         applicationId = "com.mappls.sdk.demo"
-        minSdk = 21
-        targetSdk = 35
+        minSdk = 23
+        targetSdk = 37
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -30,14 +30,16 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
     }
-    kotlin {
-        jvmToolchain(21)
-    }
+}
+
+kotlin {
+    jvmToolchain(21)
 }
 
 dependencies {
