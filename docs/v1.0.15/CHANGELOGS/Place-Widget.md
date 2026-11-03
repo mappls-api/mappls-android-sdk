@@ -1,3 +1,6 @@
+## v2.4.4, 03 November 2026
+- Update parameter `searchType` to `global` in Place Picker and Place Autocomplete
+
 ## v2.4.3, 03 September 2026
 - Fixed PlaceAutocompleteFragment classpath warnings related to missing Android View and ViewTreeObserver dependencies
 - Improved Android SDK/Gradle dependency compatibility

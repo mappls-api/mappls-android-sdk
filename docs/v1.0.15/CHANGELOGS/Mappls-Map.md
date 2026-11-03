@@ -1,3 +1,15 @@
+## v8.3.4, 03 November 2026
+- Change parameter `searchType` to `global` in Autosuggest Request  
+- Added `responseLang` in Poi Along the Route Request  
+- Added `responseLang` in Text Search Request  
+- Added `global` in Geocode Request 
+- Change parmater `searchType` to `global` in Nearby Request  
+- Change parameter `searchType` to `global` in Reverse Geocode Request 
+- Added `linkId` in Directions Response  
+- Updated DIGIPIN logic as per CEPT specifications dated 04 May 2026 
+- Added parameters `directionsVisibility`, `stages`, `redTime`, `greenTime` in Route Report Summary Response 
+- Added `height`, `length`, `weight` & `width` in Route Request for Trucking profile
+
 ## v8.3.3, 03 September 2026
 - Updated minimum Android version to 23
 - Fix Bitmap Optimisation Play Store Warning
